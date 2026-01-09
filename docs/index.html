@@ -813,21 +813,47 @@
             .selector-row { flex-direction: column; align-items: stretch; gap: 5px; }
             .chart-selector select { min-width: 100%; }
             .chart-wrapper { height: 300px; }
-            .correlations-table { font-size: 0.8rem; min-width: auto; }
-            .correlations-table th, .correlations-table td { padding: 8px 6px; }
+            /* Mobile: Convert table to cards */
+            .correlations-table { min-width: auto; }
+            .correlations-table thead { display: none; }
+            .correlations-table tbody { display: flex; flex-direction: column; gap: 12px; }
+            .correlations-table tr {
+                display: block;
+                background: var(--card-bg);
+                border-radius: 12px;
+                padding: 16px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                border: 1px solid var(--border);
+            }
+            .correlations-table tr:hover { background: var(--card-bg); }
+            .correlations-table td {
+                display: block;
+                border: none;
+                padding: 4px 0;
+            }
+            .correlations-table td:first-child {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid var(--border);
+            }
+            .correlations-table td:first-child small { display: block; margin-top: 4px; }
             .correlations-table td:nth-child(2) {
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 8px;
             }
-            .correlation-bar-container {
-                display: inline-flex;
-                margin-left: 0;
-                order: -1;
+            .correlation-bar-container { display: inline-flex; margin-left: 0; flex: 1; }
+            .correlation-bar { width: 100%; max-width: 150px; }
+            .correlation-value { width: auto; font-size: 1.3rem; }
+            .correlations-table td:nth-child(3),
+            .correlations-table td:nth-child(4) {
+                display: inline-block;
+                margin-right: 12px;
             }
-            .correlation-bar { width: 80px; }
-            .correlation-value { width: auto; }
+            .correlations-table td:nth-child(5) { display: none; }
+            .direction-icon { display: inline !important; }
             .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .card { padding: 16px; }
             .card .value { font-size: 2rem; }
@@ -891,9 +917,10 @@
             nav a { font-size: 0.85rem; padding: 6px 0; }
             .summary-cards { grid-template-columns: 1fr; }
             .card .value { font-size: 1.8rem; }
-            .correlations-table th, .correlations-table td { padding: 8px 4px; font-size: 0.75rem; }
-            .significance { padding: 2px 4px; font-size: 0.65rem; }
-            .direction-icon { display: none; }
+            .correlations-table tr { padding: 14px; }
+            .correlations-table td:first-child { font-size: 1rem; }
+            .correlation-value { font-size: 1.2rem; }
+            .significance { padding: 3px 6px; font-size: 0.7rem; }
         }
     </style>
 </head>
