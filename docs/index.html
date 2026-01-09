@@ -172,13 +172,18 @@
         }
 
         /* Correlations table */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
         .correlations-table {
             width: 100%;
             border-collapse: collapse;
             background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-width: 600px;
         }
 
         .correlations-table th,
@@ -712,11 +717,23 @@
         }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
+            header { padding: 30px 15px; }
+            header h1 { font-size: 1.6rem; }
+            header p { font-size: 0.95rem; }
+            .container { padding: 15px; }
             .charts-grid { grid-template-columns: 1fr; }
             .chart-selector select { min-width: 100%; }
-            .correlations-table { font-size: 0.85rem; }
-            .correlations-table th, .correlations-table td { padding: 10px; }
+            .chart-wrapper { height: 300px; }
+            .correlations-table { font-size: 0.8rem; }
+            .correlations-table th, .correlations-table td { padding: 8px 6px; }
+            .correlation-bar-container { display: none; }
+            .correlation-value { width: auto; }
+            .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .card { padding: 16px; }
+            .card .value { font-size: 2rem; }
+            .verdict-card { grid-column: 1 / -1; }
+            .data-sources { grid-template-columns: 1fr; }
+            .source-card { padding: 15px; }
             .controls {
                 flex-direction: column;
                 align-items: stretch;
@@ -726,16 +743,25 @@
             }
             .download-btn {
                 margin-left: 0;
+                justify-content: center;
             }
+            .stats { gap: 10px; }
+            .stat-card { padding: 12px 15px; flex: 1; min-width: 0; }
+            .stat-card .value { font-size: 1.2rem; }
+            .about-card { padding: 20px; }
+            .methodology-step { flex-direction: column; gap: 10px; }
+            .section h2 { font-size: 1.25rem; }
         }
 
         @media (max-width: 480px) {
-            nav {
-                gap: 20px;
-            }
-            nav a {
-                font-size: 0.85rem;
-            }
+            header h1 { font-size: 1.4rem; }
+            nav { gap: 16px; margin-top: 20px; }
+            nav a { font-size: 0.85rem; padding: 6px 0; }
+            .summary-cards { grid-template-columns: 1fr; }
+            .card .value { font-size: 1.8rem; }
+            .correlations-table th, .correlations-table td { padding: 8px 4px; font-size: 0.75rem; }
+            .significance { padding: 2px 4px; font-size: 0.65rem; }
+            .direction-icon { display: none; }
         }
     </style>
 </head>
@@ -937,20 +963,22 @@
                 <!-- Correlations Table -->
                 <div class="section">
                     <h2>Correlation Results</h2>
-                    <table class="correlations-table">
-                        <thead>
-                            <tr>
-                                <th>Index</th>
-                                <th>Correlation (r)</th>
-                                <th>Significance</th>
-                                <th>Direction</th>
-                                <th>Sample Size</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${data.correlations.map(c => renderCorrelationRow(c)).join('')}
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="correlations-table">
+                            <thead>
+                                <tr>
+                                    <th>Index</th>
+                                    <th>Correlation (r)</th>
+                                    <th>Significance</th>
+                                    <th>Direction</th>
+                                    <th>Sample Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.correlations.map(c => renderCorrelationRow(c)).join('')}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- Interactive Charts -->
