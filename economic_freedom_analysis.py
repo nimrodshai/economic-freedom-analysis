@@ -474,6 +474,53 @@ class DataFetcher:
         df.to_csv(f"{self.cache_dir}/democracy_index.csv", index=False)
         return df
 
+    def fetch_social_mobility_index(self):
+        """Fetch Global Social Mobility Index data (World Economic Forum)."""
+        print("Fetching Social Mobility Index data...")
+
+        # Global Social Mobility Index 2020 (WEF)
+        # Score 0-100, higher = more social mobility
+        data = {
+            'Country': [
+                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
+                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
+                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
+                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
+                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
+                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
+                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
+                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
+                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
+                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
+                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
+                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
+                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
+                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
+                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
+            ],
+            'Social_Mobility_Score': [
+                74.6, 82.4, 75.9, None, 77.7,
+                73.3, 77.3, 82.4, 85.2, 83.5,
+                78.8, 75.1, 74.4, 83.6, 76.1,
+                70.4, 83.2, 67.4, 76.1, 78.0,
+                68.7, 59.1, 76.7, 70.0, 72.0,
+                67.4, 65.1, 72.2, 75.6, 66.7,
+                63.2, 65.7, 52.6, 52.5, 50.4,
+                41.4, 52.1, 42.7, 49.2, 49.7,
+                55.5, 52.0, 61.5, 64.4, 47.9,
+                37.3, 36.1, 38.9, 57.1, 42.0,
+                None, None, 48.1, 38.2, 56.4,
+                60.1, 64.1, 66.8, 56.8, 55.1,
+                53.6, 52.0, 48.4, 40.8, 44.9,
+                35.8, 51.0, 59.8, 52.0, 58.3,
+                54.2, 56.4, 59.3, 50.5, 52.1
+            ]
+        }
+
+        df = pd.DataFrame(data)
+        df.to_csv(f"{self.cache_dir}/social_mobility_index.csv", index=False)
+        return df
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -495,7 +542,8 @@ class CorrelationAnalyzer:
             ('HDI', 'Human Development Index', 'higher is better'),
             ('Happiness_Score', 'Happiness Score', 'higher is better'),
             ('Peace_Score', 'Peace Score', 'higher is better'),
-            ('Democracy_Score', 'Democracy Score', 'higher is better')
+            ('Democracy_Score', 'Democracy Score', 'higher is better'),
+            ('Social_Mobility_Score', 'Social Mobility Index', 'higher is better')
         ]
 
         for col, display_name, interpretation in indices:
@@ -989,6 +1037,7 @@ def main():
     happiness = fetcher.fetch_happiness_index()
     peace = fetcher.fetch_peace_index()
     democracy = fetcher.fetch_democracy_index()
+    social_mobility = fetcher.fetch_social_mobility_index()
 
     # Merge all datasets
     print("\nMerging datasets...")
@@ -1001,7 +1050,8 @@ def main():
         (hdi, 'Country'),
         (happiness, 'Country'),
         (peace, 'Country'),
-        (democracy, 'Country')
+        (democracy, 'Country'),
+        (social_mobility, 'Country')
     ]
 
     for df, key in datasets:

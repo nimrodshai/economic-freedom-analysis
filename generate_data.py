@@ -44,6 +44,7 @@ def generate_web_data(output_dir="docs"):
     happiness = fetcher.fetch_happiness_index()
     peace = fetcher.fetch_peace_index()
     democracy = fetcher.fetch_democracy_index()
+    social_mobility = fetcher.fetch_social_mobility_index()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -55,7 +56,8 @@ def generate_web_data(output_dir="docs"):
         (hdi, 'Country'),
         (happiness, 'Country'),
         (peace, 'Country'),
-        (democracy, 'Country')
+        (democracy, 'Country'),
+        (social_mobility, 'Country')
     ]
 
     for df, key in datasets:
@@ -81,7 +83,8 @@ def generate_web_data(output_dir="docs"):
                 {"name": "UN Human Development Index", "year": 2022},
                 {"name": "World Happiness Report", "year": 2024},
                 {"name": "Global Peace Index", "year": 2024},
-                {"name": "Economist Intelligence Unit Democracy Index", "year": 2023}
+                {"name": "Economist Intelligence Unit Democracy Index", "year": 2023},
+                {"name": "World Economic Forum Social Mobility Index", "year": 2020}
             ]
         },
         "correlations": [],
@@ -99,7 +102,8 @@ def generate_web_data(output_dir="docs"):
         'HDI': {'display_name': 'Human Development Index', 'unit': '0-1', 'higher_better': True},
         'Happiness_Score': {'display_name': 'Happiness Score', 'unit': '0-10', 'higher_better': True},
         'Peace_Score': {'display_name': 'Peace Score', 'unit': '0-100', 'higher_better': True},
-        'Democracy_Score': {'display_name': 'Democracy Score', 'unit': '0-10', 'higher_better': True}
+        'Democracy_Score': {'display_name': 'Democracy Score', 'unit': '0-10', 'higher_better': True},
+        'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True}
     }
 
     for col, result in results.items():
