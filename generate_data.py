@@ -46,6 +46,8 @@ def generate_web_data(output_dir="docs"):
     democracy = fetcher.fetch_democracy_index()
     social_mobility = fetcher.fetch_social_mobility_index()
     gini = fetcher.fetch_gini_index()
+    purchasing_power = fetcher.fetch_purchasing_power_index()
+    military_strength = fetcher.fetch_military_strength_index()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -59,7 +61,9 @@ def generate_web_data(output_dir="docs"):
         (peace, 'Country'),
         (democracy, 'Country'),
         (social_mobility, 'Country'),
-        (gini, 'Country')
+        (gini, 'Country'),
+        (purchasing_power, 'Country'),
+        (military_strength, 'Country')
     ]
 
     for df, key in datasets:
@@ -105,7 +109,9 @@ def generate_web_data(output_dir="docs"):
         'Happiness_Score': {'display_name': 'Happiness Score', 'unit': '0-10', 'higher_better': True},
         'Peace_Score': {'display_name': 'Peace Score', 'unit': '0-100', 'higher_better': True},
         'Democracy_Score': {'display_name': 'Democracy Score', 'unit': '0-10', 'higher_better': True},
-        'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True}
+        'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True},
+        'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True},
+        'Military_Strength_Index': {'display_name': 'Military Strength', 'unit': '0-100', 'higher_better': True}
     }
 
     for col, result in results.items():

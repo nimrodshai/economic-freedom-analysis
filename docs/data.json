@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-09T11:21:21.402008Z",
+    "generated_at": "2026-01-09T16:28:26.248648Z",
     "num_countries": 75,
     "data_sources": [
       {
@@ -46,6 +46,17 @@
       "p_value": 1.2601202250662896e-17,
       "significant": true,
       "n": 75,
+      "higher_better": true,
+      "unit": "0-100"
+    },
+    {
+      "id": "Purchasing_Power_Index",
+      "name": "Purchasing Power",
+      "correlation": 0.7926,
+      "effective_correlation": 0.7926,
+      "p_value": 6.597432104941359e-17,
+      "significant": true,
+      "n": 73,
       "higher_better": true,
       "unit": "0-100"
     },
@@ -136,6 +147,17 @@
       "n": 63,
       "higher_better": false,
       "unit": "per 1000"
+    },
+    {
+      "id": "Military_Strength_Index",
+      "name": "Military Strength",
+      "correlation": -0.197,
+      "effective_correlation": -0.197,
+      "p_value": 0.09024724686718796,
+      "significant": false,
+      "n": 75,
+      "higher_better": true,
+      "unit": "0-100"
     }
   ],
   "countries": [
@@ -151,7 +173,9 @@
       "happiness_score": 6.59,
       "peace_score": 81.5,
       "democracy_score": 6.22,
-      "social_mobility_score": 74.6
+      "social_mobility_score": 74.6,
+      "purchasing_power_index": 98.2,
+      "military_strength_index": 52.4
     },
     {
       "name": "Switzerland",
@@ -165,7 +189,9 @@
       "happiness_score": 7.06,
       "peace_score": 83.2,
       "democracy_score": 9.14,
-      "social_mobility_score": 82.4
+      "social_mobility_score": 82.4,
+      "purchasing_power_index": 118.5,
+      "military_strength_index": 42.8
     },
     {
       "name": "Ireland",
@@ -179,7 +205,9 @@
       "happiness_score": 6.84,
       "peace_score": 82.7,
       "democracy_score": 9.19,
-      "social_mobility_score": 75.9
+      "social_mobility_score": 75.9,
+      "purchasing_power_index": 92.3,
+      "military_strength_index": 18.5
     },
     {
       "name": "Taiwan",
@@ -193,7 +221,9 @@
       "happiness_score": 6.54,
       "peace_score": 72.4,
       "democracy_score": 8.99,
-      "social_mobility_score": null
+      "social_mobility_score": null,
+      "purchasing_power_index": 72.8,
+      "military_strength_index": 68.5
     },
     {
       "name": "New Zealand",
@@ -207,7 +237,9 @@
       "happiness_score": 7.03,
       "peace_score": 84.1,
       "democracy_score": 9.61,
-      "social_mobility_score": 77.7
+      "social_mobility_score": 77.7,
+      "purchasing_power_index": 78.4,
+      "military_strength_index": 28.4
     },
     {
       "name": "Estonia",
@@ -221,7 +253,9 @@
       "happiness_score": 5.97,
       "peace_score": 78.5,
       "democracy_score": 7.96,
-      "social_mobility_score": 73.3
+      "social_mobility_score": 73.3,
+      "purchasing_power_index": 52.6,
+      "military_strength_index": 35.2
     },
     {
       "name": "Luxembourg",
@@ -235,7 +269,9 @@
       "happiness_score": 7.12,
       "peace_score": 82.3,
       "democracy_score": 8.81,
-      "social_mobility_score": 77.3
+      "social_mobility_score": 77.3,
+      "purchasing_power_index": 105.2,
+      "military_strength_index": 15.8
     },
     {
       "name": "Netherlands",
@@ -249,7 +285,9 @@
       "happiness_score": 7.32,
       "peace_score": 79.2,
       "democracy_score": 9.0,
-      "social_mobility_score": 82.4
+      "social_mobility_score": 82.4,
+      "purchasing_power_index": 85.3,
+      "military_strength_index": 48.6
     },
     {
       "name": "Denmark",
@@ -263,7 +301,9 @@
       "happiness_score": 7.58,
       "peace_score": 82.8,
       "democracy_score": 9.28,
-      "social_mobility_score": 85.2
+      "social_mobility_score": 85.2,
+      "purchasing_power_index": 89.7,
+      "military_strength_index": 38.5
     },
     {
       "name": "Sweden",
@@ -277,7 +317,9 @@
       "happiness_score": 7.34,
       "peace_score": 78.3,
       "democracy_score": 9.39,
-      "social_mobility_score": 83.5
+      "social_mobility_score": 83.5,
+      "purchasing_power_index": 83.2,
+      "military_strength_index": 45.2
     },
     {
       "name": "Germany",
@@ -291,7 +333,9 @@
       "happiness_score": 6.89,
       "peace_score": 77.4,
       "democracy_score": 8.8,
-      "social_mobility_score": 78.8
+      "social_mobility_score": 78.8,
+      "purchasing_power_index": 91.5,
+      "military_strength_index": 72.5
     },
     {
       "name": "Australia",
@@ -305,7 +349,9 @@
       "happiness_score": 7.06,
       "peace_score": 79.6,
       "democracy_score": 8.96,
-      "social_mobility_score": 75.1
+      "social_mobility_score": 75.1,
+      "purchasing_power_index": 88.7,
+      "military_strength_index": 58.4
     },
     {
       "name": "United Kingdom",
@@ -319,7 +365,9 @@
       "happiness_score": 6.75,
       "peace_score": 74.3,
       "democracy_score": 8.54,
-      "social_mobility_score": 74.4
+      "social_mobility_score": 74.4,
+      "purchasing_power_index": 74.8,
+      "military_strength_index": 78.2
     },
     {
       "name": "Finland",
@@ -333,7 +381,9 @@
       "happiness_score": 7.8,
       "peace_score": 82.5,
       "democracy_score": 9.3,
-      "social_mobility_score": 83.6
+      "social_mobility_score": 83.6,
+      "purchasing_power_index": 82.1,
+      "military_strength_index": 52.8
     },
     {
       "name": "Canada",
@@ -347,7 +397,9 @@
       "happiness_score": 6.9,
       "peace_score": 79.4,
       "democracy_score": 8.88,
-      "social_mobility_score": 76.1
+      "social_mobility_score": 76.1,
+      "purchasing_power_index": 79.6,
+      "military_strength_index": 55.6
     },
     {
       "name": "United States",
@@ -361,7 +413,9 @@
       "happiness_score": 6.72,
       "peace_score": 61.7,
       "democracy_score": 7.85,
-      "social_mobility_score": 70.4
+      "social_mobility_score": 70.4,
+      "purchasing_power_index": 106.3,
+      "military_strength_index": 98.5
     },
     {
       "name": "Norway",
@@ -375,7 +429,9 @@
       "happiness_score": 7.3,
       "peace_score": 82.9,
       "democracy_score": 9.81,
-      "social_mobility_score": 83.2
+      "social_mobility_score": 83.2,
+      "purchasing_power_index": 94.8,
+      "military_strength_index": 42.5
     },
     {
       "name": "South Korea",
@@ -389,7 +445,9 @@
       "happiness_score": 5.88,
       "peace_score": 71.2,
       "democracy_score": 8.09,
-      "social_mobility_score": 67.4
+      "social_mobility_score": 67.4,
+      "purchasing_power_index": 68.5,
+      "military_strength_index": 82.4
     },
     {
       "name": "Japan",
@@ -403,7 +461,9 @@
       "happiness_score": 6.13,
       "peace_score": 83.4,
       "democracy_score": 8.33,
-      "social_mobility_score": 76.1
+      "social_mobility_score": 76.1,
+      "purchasing_power_index": 71.2,
+      "military_strength_index": 75.8
     },
     {
       "name": "Austria",
@@ -417,7 +477,9 @@
       "happiness_score": 7.1,
       "peace_score": 80.1,
       "democracy_score": 8.41,
-      "social_mobility_score": 78.0
+      "social_mobility_score": 78.0,
+      "purchasing_power_index": 78.9,
+      "military_strength_index": 38.5
     },
     {
       "name": "Israel",
@@ -431,7 +493,9 @@
       "happiness_score": 7.47,
       "peace_score": 39.2,
       "democracy_score": 7.93,
-      "social_mobility_score": 68.7
+      "social_mobility_score": 68.7,
+      "purchasing_power_index": 62.4,
+      "military_strength_index": 68.2
     },
     {
       "name": "Chile",
@@ -445,7 +509,9 @@
       "happiness_score": 6.17,
       "peace_score": 72.8,
       "democracy_score": 7.98,
-      "social_mobility_score": 59.1
+      "social_mobility_score": 59.1,
+      "purchasing_power_index": 38.5,
+      "military_strength_index": 48.5
     },
     {
       "name": "France",
@@ -459,7 +525,9 @@
       "happiness_score": 6.69,
       "peace_score": 73.6,
       "democracy_score": 7.99,
-      "social_mobility_score": 76.7
+      "social_mobility_score": 76.7,
+      "purchasing_power_index": 75.4,
+      "military_strength_index": 82.8
     },
     {
       "name": "Spain",
@@ -473,7 +541,9 @@
       "happiness_score": 6.42,
       "peace_score": 74.8,
       "democracy_score": 8.07,
-      "social_mobility_score": 70.0
+      "social_mobility_score": 70.0,
+      "purchasing_power_index": 58.2,
+      "military_strength_index": 62.5
     },
     {
       "name": "Portugal",
@@ -487,7 +557,9 @@
       "happiness_score": 6.22,
       "peace_score": 82.1,
       "democracy_score": 8.03,
-      "social_mobility_score": 72.0
+      "social_mobility_score": 72.0,
+      "purchasing_power_index": 48.7,
+      "military_strength_index": 42.8
     },
     {
       "name": "Italy",
@@ -501,7 +573,9 @@
       "happiness_score": 6.32,
       "peace_score": 77.9,
       "democracy_score": 7.68,
-      "social_mobility_score": 67.4
+      "social_mobility_score": 67.4,
+      "purchasing_power_index": 61.3,
+      "military_strength_index": 68.5
     },
     {
       "name": "Poland",
@@ -515,7 +589,9 @@
       "happiness_score": 6.26,
       "peace_score": 76.4,
       "democracy_score": 6.8,
-      "social_mobility_score": 65.1
+      "social_mobility_score": 65.1,
+      "purchasing_power_index": 48.9,
+      "military_strength_index": 65.8
     },
     {
       "name": "Czech Republic",
@@ -529,7 +605,9 @@
       "happiness_score": 6.82,
       "peace_score": 80.2,
       "democracy_score": 7.97,
-      "social_mobility_score": 72.2
+      "social_mobility_score": 72.2,
+      "purchasing_power_index": 55.2,
+      "military_strength_index": 52.4
     },
     {
       "name": "Slovenia",
@@ -543,7 +621,9 @@
       "happiness_score": 6.65,
       "peace_score": 81.3,
       "democracy_score": 7.96,
-      "social_mobility_score": 75.6
+      "social_mobility_score": 75.6,
+      "purchasing_power_index": 58.7,
+      "military_strength_index": 35.2
     },
     {
       "name": "Slovakia",
@@ -557,7 +637,9 @@
       "happiness_score": 6.47,
       "peace_score": 78.7,
       "democracy_score": 7.17,
-      "social_mobility_score": 66.7
+      "social_mobility_score": 66.7,
+      "purchasing_power_index": 46.8,
+      "military_strength_index": 38.5
     },
     {
       "name": "Hungary",
@@ -571,7 +653,9 @@
       "happiness_score": 6.04,
       "peace_score": 77.1,
       "democracy_score": 6.5,
-      "social_mobility_score": 63.2
+      "social_mobility_score": 63.2,
+      "purchasing_power_index": 42.5,
+      "military_strength_index": 42.5
     },
     {
       "name": "Greece",
@@ -585,7 +669,9 @@
       "happiness_score": 5.93,
       "peace_score": 74.5,
       "democracy_score": 7.45,
-      "social_mobility_score": 65.7
+      "social_mobility_score": 65.7,
+      "purchasing_power_index": 43.8,
+      "military_strength_index": 55.2
     },
     {
       "name": "Mexico",
@@ -599,7 +685,9 @@
       "happiness_score": 6.68,
       "peace_score": 48.3,
       "democracy_score": 5.57,
-      "social_mobility_score": 52.6
+      "social_mobility_score": 52.6,
+      "purchasing_power_index": 32.4,
+      "military_strength_index": 52.8
     },
     {
       "name": "Turkey",
@@ -613,7 +701,9 @@
       "happiness_score": 4.61,
       "peace_score": 56.2,
       "democracy_score": 4.35,
-      "social_mobility_score": 52.5
+      "social_mobility_score": 52.5,
+      "purchasing_power_index": 28.6,
+      "military_strength_index": 75.5
     },
     {
       "name": "Colombia",
@@ -627,7 +717,9 @@
       "happiness_score": 5.88,
       "peace_score": 52.4,
       "democracy_score": 6.8,
-      "social_mobility_score": 50.4
+      "social_mobility_score": 50.4,
+      "purchasing_power_index": 24.8,
+      "military_strength_index": 45.8
     },
     {
       "name": "South Africa",
@@ -641,7 +733,9 @@
       "happiness_score": 5.28,
       "peace_score": 51.8,
       "democracy_score": 7.05,
-      "social_mobility_score": 41.4
+      "social_mobility_score": 41.4,
+      "purchasing_power_index": 26.5,
+      "military_strength_index": 52.5
     },
     {
       "name": "Brazil",
@@ -655,7 +749,9 @@
       "happiness_score": 6.33,
       "peace_score": 53.6,
       "democracy_score": 6.78,
-      "social_mobility_score": 52.1
+      "social_mobility_score": 52.1,
+      "purchasing_power_index": 25.3,
+      "military_strength_index": 72.8
     },
     {
       "name": "India",
@@ -669,7 +765,9 @@
       "happiness_score": 4.04,
       "peace_score": 56.4,
       "democracy_score": 7.18,
-      "social_mobility_score": 42.7
+      "social_mobility_score": 42.7,
+      "purchasing_power_index": 18.2,
+      "military_strength_index": 88.5
     },
     {
       "name": "Indonesia",
@@ -683,7 +781,9 @@
       "happiness_score": 5.45,
       "peace_score": 69.3,
       "democracy_score": 6.71,
-      "social_mobility_score": 49.2
+      "social_mobility_score": 49.2,
+      "purchasing_power_index": 22.6,
+      "military_strength_index": 65.8
     },
     {
       "name": "Philippines",
@@ -697,7 +797,9 @@
       "happiness_score": 5.96,
       "peace_score": 58.4,
       "democracy_score": 6.12,
-      "social_mobility_score": 49.7
+      "social_mobility_score": 49.7,
+      "purchasing_power_index": 16.8,
+      "military_strength_index": 48.2
     },
     {
       "name": "Thailand",
@@ -711,7 +813,9 @@
       "happiness_score": 6.37,
       "peace_score": 67.3,
       "democracy_score": 6.04,
-      "social_mobility_score": 55.5
+      "social_mobility_score": 55.5,
+      "purchasing_power_index": 35.2,
+      "military_strength_index": 58.5
     },
     {
       "name": "Vietnam",
@@ -725,7 +829,9 @@
       "happiness_score": 5.49,
       "peace_score": 72.1,
       "democracy_score": 2.6,
-      "social_mobility_score": 52.0
+      "social_mobility_score": 52.0,
+      "purchasing_power_index": 19.8,
+      "military_strength_index": 62.4
     },
     {
       "name": "China",
@@ -739,7 +845,9 @@
       "happiness_score": 5.97,
       "peace_score": 68.4,
       "democracy_score": 1.94,
-      "social_mobility_score": 61.5
+      "social_mobility_score": 61.5,
+      "purchasing_power_index": 42.5,
+      "military_strength_index": 95.8
     },
     {
       "name": "Russia",
@@ -753,7 +861,9 @@
       "happiness_score": 5.47,
       "peace_score": 36.5,
       "democracy_score": 2.22,
-      "social_mobility_score": 64.4
+      "social_mobility_score": 64.4,
+      "purchasing_power_index": 34.2,
+      "military_strength_index": 92.5
     },
     {
       "name": "Egypt",
@@ -767,7 +877,9 @@
       "happiness_score": 4.29,
       "peace_score": 57.8,
       "democracy_score": 2.93,
-      "social_mobility_score": 47.9
+      "social_mobility_score": 47.9,
+      "purchasing_power_index": 14.5,
+      "military_strength_index": 72.5
     },
     {
       "name": "Nigeria",
@@ -781,7 +893,9 @@
       "happiness_score": 4.74,
       "peace_score": 42.1,
       "democracy_score": 4.12,
-      "social_mobility_score": 37.3
+      "social_mobility_score": 37.3,
+      "purchasing_power_index": 8.5,
+      "military_strength_index": 48.5
     },
     {
       "name": "Pakistan",
@@ -795,7 +909,9 @@
       "happiness_score": 4.66,
       "peace_score": 42.8,
       "democracy_score": 3.25,
-      "social_mobility_score": 36.1
+      "social_mobility_score": 36.1,
+      "purchasing_power_index": 9.2,
+      "military_strength_index": 78.2
     },
     {
       "name": "Bangladesh",
@@ -809,7 +925,9 @@
       "happiness_score": 4.36,
       "peace_score": 62.4,
       "democracy_score": 5.5,
-      "social_mobility_score": 38.9
+      "social_mobility_score": 38.9,
+      "purchasing_power_index": 12.4,
+      "military_strength_index": 52.5
     },
     {
       "name": "Argentina",
@@ -823,7 +941,9 @@
       "happiness_score": 6.02,
       "peace_score": 69.1,
       "democracy_score": 6.62,
-      "social_mobility_score": 57.1
+      "social_mobility_score": 57.1,
+      "purchasing_power_index": 22.8,
+      "military_strength_index": 45.8
     },
     {
       "name": "Venezuela",
@@ -837,7 +957,9 @@
       "happiness_score": 5.61,
       "peace_score": 48.5,
       "democracy_score": 2.36,
-      "social_mobility_score": 42.0
+      "social_mobility_score": 42.0,
+      "purchasing_power_index": 4.2,
+      "military_strength_index": 42.5
     },
     {
       "name": "Cuba",
@@ -851,7 +973,9 @@
       "happiness_score": 5.35,
       "peace_score": 65.3,
       "democracy_score": 2.46,
-      "social_mobility_score": null
+      "social_mobility_score": null,
+      "purchasing_power_index": null,
+      "military_strength_index": 38.5
     },
     {
       "name": "North Korea",
@@ -865,7 +989,9 @@
       "happiness_score": null,
       "peace_score": 38.4,
       "democracy_score": 1.08,
-      "social_mobility_score": null
+      "social_mobility_score": null,
+      "purchasing_power_index": null,
+      "military_strength_index": 72.8
     },
     {
       "name": "Iran",
@@ -879,7 +1005,9 @@
       "happiness_score": 4.88,
       "peace_score": 49.3,
       "democracy_score": 1.96,
-      "social_mobility_score": 48.1
+      "social_mobility_score": 48.1,
+      "purchasing_power_index": 15.8,
+      "military_strength_index": 75.2
     },
     {
       "name": "Zimbabwe",
@@ -893,7 +1021,9 @@
       "happiness_score": 3.2,
       "peace_score": 54.2,
       "democracy_score": 2.6,
-      "social_mobility_score": 38.2
+      "social_mobility_score": 38.2,
+      "purchasing_power_index": 6.2,
+      "military_strength_index": 28.5
     },
     {
       "name": "Ukraine",
@@ -907,7 +1037,9 @@
       "happiness_score": 4.87,
       "peace_score": 28.6,
       "democracy_score": 5.42,
-      "social_mobility_score": 56.4
+      "social_mobility_score": 56.4,
+      "purchasing_power_index": 18.5,
+      "military_strength_index": 65.8
     },
     {
       "name": "Malaysia",
@@ -921,7 +1053,9 @@
       "happiness_score": 5.97,
       "peace_score": 72.8,
       "democracy_score": 7.3,
-      "social_mobility_score": 60.1
+      "social_mobility_score": 60.1,
+      "purchasing_power_index": 45.6,
+      "military_strength_index": 52.5
     },
     {
       "name": "Costa Rica",
@@ -935,7 +1069,9 @@
       "happiness_score": 6.61,
       "peace_score": 79.5,
       "democracy_score": 8.29,
-      "social_mobility_score": 64.1
+      "social_mobility_score": 64.1,
+      "purchasing_power_index": 32.5,
+      "military_strength_index": 8.5
     },
     {
       "name": "Uruguay",
@@ -949,7 +1085,9 @@
       "happiness_score": 6.49,
       "peace_score": 78.4,
       "democracy_score": 8.66,
-      "social_mobility_score": 66.8
+      "social_mobility_score": 66.8,
+      "purchasing_power_index": 38.4,
+      "military_strength_index": 32.5
     },
     {
       "name": "Panama",
@@ -963,7 +1101,9 @@
       "happiness_score": 6.26,
       "peace_score": 69.5,
       "democracy_score": 7.24,
-      "social_mobility_score": 56.8
+      "social_mobility_score": 56.8,
+      "purchasing_power_index": 42.8,
+      "military_strength_index": 18.5
     },
     {
       "name": "Jamaica",
@@ -977,7 +1117,9 @@
       "happiness_score": 5.89,
       "peace_score": 66.4,
       "democracy_score": 7.11,
-      "social_mobility_score": 55.1
+      "social_mobility_score": 55.1,
+      "purchasing_power_index": 26.5,
+      "military_strength_index": 12.5
     },
     {
       "name": "Peru",
@@ -991,7 +1133,9 @@
       "happiness_score": 5.53,
       "peace_score": 61.3,
       "democracy_score": 6.6,
-      "social_mobility_score": 53.6
+      "social_mobility_score": 53.6,
+      "purchasing_power_index": 28.6,
+      "military_strength_index": 42.8
     },
     {
       "name": "Dominican Republic",
@@ -1005,7 +1149,9 @@
       "happiness_score": 5.57,
       "peace_score": 67.8,
       "democracy_score": 6.15,
-      "social_mobility_score": 52.0
+      "social_mobility_score": 52.0,
+      "purchasing_power_index": 25.8,
+      "military_strength_index": 28.5
     },
     {
       "name": "Morocco",
@@ -1019,7 +1165,9 @@
       "happiness_score": 5.18,
       "peace_score": 72.5,
       "democracy_score": 5.04,
-      "social_mobility_score": 48.4
+      "social_mobility_score": 48.4,
+      "purchasing_power_index": 18.5,
+      "military_strength_index": 55.2
     },
     {
       "name": "Kenya",
@@ -1033,7 +1181,9 @@
       "happiness_score": 4.51,
       "peace_score": 56.3,
       "democracy_score": 5.05,
-      "social_mobility_score": 40.8
+      "social_mobility_score": 40.8,
+      "purchasing_power_index": 12.4,
+      "military_strength_index": 35.8
     },
     {
       "name": "Ghana",
@@ -1047,7 +1197,9 @@
       "happiness_score": 4.61,
       "peace_score": 62.1,
       "democracy_score": 5.56,
-      "social_mobility_score": 44.9
+      "social_mobility_score": 44.9,
+      "purchasing_power_index": 14.2,
+      "military_strength_index": 32.5
     },
     {
       "name": "Rwanda",
@@ -1061,7 +1213,9 @@
       "happiness_score": 3.73,
       "peace_score": 58.4,
       "democracy_score": 3.1,
-      "social_mobility_score": 35.8
+      "social_mobility_score": 35.8,
+      "purchasing_power_index": 9.8,
+      "military_strength_index": 28.5
     },
     {
       "name": "Botswana",
@@ -1075,7 +1229,9 @@
       "happiness_score": 4.94,
       "peace_score": 73.2,
       "democracy_score": 7.81,
-      "social_mobility_score": 51.0
+      "social_mobility_score": 51.0,
+      "purchasing_power_index": 28.5,
+      "military_strength_index": 32.8
     },
     {
       "name": "Mauritius",
@@ -1089,7 +1245,9 @@
       "happiness_score": 5.9,
       "peace_score": 80.5,
       "democracy_score": 8.14,
-      "social_mobility_score": 59.8
+      "social_mobility_score": 59.8,
+      "purchasing_power_index": 35.8,
+      "military_strength_index": 18.5
     },
     {
       "name": "Saudi Arabia",
@@ -1103,7 +1261,9 @@
       "happiness_score": 6.59,
       "peace_score": 54.6,
       "democracy_score": 2.08,
-      "social_mobility_score": 52.0
+      "social_mobility_score": 52.0,
+      "purchasing_power_index": 62.5,
+      "military_strength_index": 72.8
     },
     {
       "name": "UAE",
@@ -1117,7 +1277,9 @@
       "happiness_score": 6.76,
       "peace_score": 75.4,
       "democracy_score": 2.9,
-      "social_mobility_score": 58.3
+      "social_mobility_score": 58.3,
+      "purchasing_power_index": 78.4,
+      "military_strength_index": 58.5
     },
     {
       "name": "Qatar",
@@ -1131,7 +1293,9 @@
       "happiness_score": 6.6,
       "peace_score": 79.2,
       "democracy_score": 3.78,
-      "social_mobility_score": 54.2
+      "social_mobility_score": 54.2,
+      "purchasing_power_index": 95.2,
+      "military_strength_index": 45.2
     },
     {
       "name": "Kuwait",
@@ -1145,7 +1309,9 @@
       "happiness_score": 6.17,
       "peace_score": 71.3,
       "democracy_score": 3.83,
-      "social_mobility_score": 56.4
+      "social_mobility_score": 56.4,
+      "purchasing_power_index": 72.8,
+      "military_strength_index": 48.5
     },
     {
       "name": "Bahrain",
@@ -1159,7 +1325,9 @@
       "happiness_score": 6.17,
       "peace_score": 76.8,
       "democracy_score": 3.38,
-      "social_mobility_score": 59.3
+      "social_mobility_score": 59.3,
+      "purchasing_power_index": 58.6,
+      "military_strength_index": 35.8
     },
     {
       "name": "Jordan",
@@ -1173,7 +1341,9 @@
       "happiness_score": 5.33,
       "peace_score": 65.4,
       "democracy_score": 3.93,
-      "social_mobility_score": 50.5
+      "social_mobility_score": 50.5,
+      "purchasing_power_index": 22.5,
+      "military_strength_index": 42.5
     },
     {
       "name": "Tunisia",
@@ -1187,7 +1357,9 @@
       "happiness_score": 4.6,
       "peace_score": 68.2,
       "democracy_score": 5.51,
-      "social_mobility_score": 52.1
+      "social_mobility_score": 52.1,
+      "purchasing_power_index": 18.2,
+      "military_strength_index": 38.5
     }
   ],
   "scatter_data": {
@@ -4468,13 +4640,777 @@
           83.5
         ]
       }
+    },
+    "Purchasing_Power_Index": {
+      "points": [
+        {
+          "country": "Singapore",
+          "x": 83.5,
+          "y": 98.2
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.2,
+          "y": 118.5
+        },
+        {
+          "country": "Ireland",
+          "x": 82.0,
+          "y": 92.3
+        },
+        {
+          "country": "Taiwan",
+          "x": 80.7,
+          "y": 72.8
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.9,
+          "y": 78.4
+        },
+        {
+          "country": "Estonia",
+          "x": 78.6,
+          "y": 52.6
+        },
+        {
+          "country": "Luxembourg",
+          "x": 78.4,
+          "y": 105.2
+        },
+        {
+          "country": "Netherlands",
+          "x": 77.8,
+          "y": 85.3
+        },
+        {
+          "country": "Denmark",
+          "x": 77.6,
+          "y": 89.7
+        },
+        {
+          "country": "Sweden",
+          "x": 77.5,
+          "y": 83.2
+        },
+        {
+          "country": "Germany",
+          "x": 73.7,
+          "y": 91.5
+        },
+        {
+          "country": "Australia",
+          "x": 73.5,
+          "y": 88.7
+        },
+        {
+          "country": "United Kingdom",
+          "x": 72.7,
+          "y": 74.8
+        },
+        {
+          "country": "Finland",
+          "x": 72.6,
+          "y": 82.1
+        },
+        {
+          "country": "Canada",
+          "x": 72.0,
+          "y": 79.6
+        },
+        {
+          "country": "United States",
+          "x": 70.1,
+          "y": 106.3
+        },
+        {
+          "country": "Norway",
+          "x": 68.3,
+          "y": 94.8
+        },
+        {
+          "country": "South Korea",
+          "x": 72.6,
+          "y": 68.5
+        },
+        {
+          "country": "Japan",
+          "x": 69.3,
+          "y": 71.2
+        },
+        {
+          "country": "Austria",
+          "x": 71.2,
+          "y": 78.9
+        },
+        {
+          "country": "Israel",
+          "x": 69.0,
+          "y": 62.4
+        },
+        {
+          "country": "Chile",
+          "x": 70.1,
+          "y": 38.5
+        },
+        {
+          "country": "France",
+          "x": 65.7,
+          "y": 75.4
+        },
+        {
+          "country": "Spain",
+          "x": 65.5,
+          "y": 58.2
+        },
+        {
+          "country": "Portugal",
+          "x": 67.2,
+          "y": 48.7
+        },
+        {
+          "country": "Italy",
+          "x": 63.8,
+          "y": 61.3
+        },
+        {
+          "country": "Poland",
+          "x": 69.0,
+          "y": 48.9
+        },
+        {
+          "country": "Czech Republic",
+          "x": 71.9,
+          "y": 55.2
+        },
+        {
+          "country": "Slovenia",
+          "x": 66.5,
+          "y": 58.7
+        },
+        {
+          "country": "Slovakia",
+          "x": 67.4,
+          "y": 46.8
+        },
+        {
+          "country": "Hungary",
+          "x": 64.8,
+          "y": 42.5
+        },
+        {
+          "country": "Greece",
+          "x": 57.8,
+          "y": 43.8
+        },
+        {
+          "country": "Mexico",
+          "x": 63.7,
+          "y": 32.4
+        },
+        {
+          "country": "Turkey",
+          "x": 55.2,
+          "y": 28.6
+        },
+        {
+          "country": "Colombia",
+          "x": 58.1,
+          "y": 24.8
+        },
+        {
+          "country": "South Africa",
+          "x": 55.7,
+          "y": 26.5
+        },
+        {
+          "country": "Brazil",
+          "x": 53.4,
+          "y": 25.3
+        },
+        {
+          "country": "India",
+          "x": 52.9,
+          "y": 18.2
+        },
+        {
+          "country": "Indonesia",
+          "x": 58.5,
+          "y": 22.6
+        },
+        {
+          "country": "Philippines",
+          "x": 56.3,
+          "y": 16.8
+        },
+        {
+          "country": "Thailand",
+          "x": 62.8,
+          "y": 35.2
+        },
+        {
+          "country": "Vietnam",
+          "x": 53.7,
+          "y": 19.8
+        },
+        {
+          "country": "China",
+          "x": 48.2,
+          "y": 42.5
+        },
+        {
+          "country": "Russia",
+          "x": 52.3,
+          "y": 34.2
+        },
+        {
+          "country": "Egypt",
+          "x": 49.7,
+          "y": 14.5
+        },
+        {
+          "country": "Nigeria",
+          "x": 54.4,
+          "y": 8.5
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.4,
+          "y": 9.2
+        },
+        {
+          "country": "Bangladesh",
+          "x": 49.8,
+          "y": 12.4
+        },
+        {
+          "country": "Argentina",
+          "x": 50.3,
+          "y": 22.8
+        },
+        {
+          "country": "Venezuela",
+          "x": 24.8,
+          "y": 4.2
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 15.8
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 39.5,
+          "y": 6.2
+        },
+        {
+          "country": "Ukraine",
+          "x": 54.1,
+          "y": 18.5
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.3,
+          "y": 45.6
+        },
+        {
+          "country": "Costa Rica",
+          "x": 65.8,
+          "y": 32.5
+        },
+        {
+          "country": "Uruguay",
+          "x": 68.9,
+          "y": 38.4
+        },
+        {
+          "country": "Panama",
+          "x": 66.4,
+          "y": 42.8
+        },
+        {
+          "country": "Jamaica",
+          "x": 62.4,
+          "y": 26.5
+        },
+        {
+          "country": "Peru",
+          "x": 62.7,
+          "y": 28.6
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 61.5,
+          "y": 25.8
+        },
+        {
+          "country": "Morocco",
+          "x": 59.3,
+          "y": 18.5
+        },
+        {
+          "country": "Kenya",
+          "x": 53.6,
+          "y": 12.4
+        },
+        {
+          "country": "Ghana",
+          "x": 56.4,
+          "y": 14.2
+        },
+        {
+          "country": "Rwanda",
+          "x": 63.2,
+          "y": 9.8
+        },
+        {
+          "country": "Botswana",
+          "x": 64.9,
+          "y": 28.5
+        },
+        {
+          "country": "Mauritius",
+          "x": 72.1,
+          "y": 35.8
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 57.5,
+          "y": 62.5
+        },
+        {
+          "country": "UAE",
+          "x": 70.2,
+          "y": 78.4
+        },
+        {
+          "country": "Qatar",
+          "x": 63.5,
+          "y": 95.2
+        },
+        {
+          "country": "Kuwait",
+          "x": 62.7,
+          "y": 72.8
+        },
+        {
+          "country": "Bahrain",
+          "x": 66.9,
+          "y": 58.6
+        },
+        {
+          "country": "Jordan",
+          "x": 57.4,
+          "y": 22.5
+        },
+        {
+          "country": "Tunisia",
+          "x": 54.8,
+          "y": 18.2
+        }
+      ],
+      "trend_line": {
+        "slope": 2.177225,
+        "intercept": -90.0946,
+        "x_range": [
+          24.8,
+          83.5
+        ]
+      }
+    },
+    "Military_Strength_Index": {
+      "points": [
+        {
+          "country": "Singapore",
+          "x": 83.5,
+          "y": 52.4
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.2,
+          "y": 42.8
+        },
+        {
+          "country": "Ireland",
+          "x": 82.0,
+          "y": 18.5
+        },
+        {
+          "country": "Taiwan",
+          "x": 80.7,
+          "y": 68.5
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.9,
+          "y": 28.4
+        },
+        {
+          "country": "Estonia",
+          "x": 78.6,
+          "y": 35.2
+        },
+        {
+          "country": "Luxembourg",
+          "x": 78.4,
+          "y": 15.8
+        },
+        {
+          "country": "Netherlands",
+          "x": 77.8,
+          "y": 48.6
+        },
+        {
+          "country": "Denmark",
+          "x": 77.6,
+          "y": 38.5
+        },
+        {
+          "country": "Sweden",
+          "x": 77.5,
+          "y": 45.2
+        },
+        {
+          "country": "Germany",
+          "x": 73.7,
+          "y": 72.5
+        },
+        {
+          "country": "Australia",
+          "x": 73.5,
+          "y": 58.4
+        },
+        {
+          "country": "United Kingdom",
+          "x": 72.7,
+          "y": 78.2
+        },
+        {
+          "country": "Finland",
+          "x": 72.6,
+          "y": 52.8
+        },
+        {
+          "country": "Canada",
+          "x": 72.0,
+          "y": 55.6
+        },
+        {
+          "country": "United States",
+          "x": 70.1,
+          "y": 98.5
+        },
+        {
+          "country": "Norway",
+          "x": 68.3,
+          "y": 42.5
+        },
+        {
+          "country": "South Korea",
+          "x": 72.6,
+          "y": 82.4
+        },
+        {
+          "country": "Japan",
+          "x": 69.3,
+          "y": 75.8
+        },
+        {
+          "country": "Austria",
+          "x": 71.2,
+          "y": 38.5
+        },
+        {
+          "country": "Israel",
+          "x": 69.0,
+          "y": 68.2
+        },
+        {
+          "country": "Chile",
+          "x": 70.1,
+          "y": 48.5
+        },
+        {
+          "country": "France",
+          "x": 65.7,
+          "y": 82.8
+        },
+        {
+          "country": "Spain",
+          "x": 65.5,
+          "y": 62.5
+        },
+        {
+          "country": "Portugal",
+          "x": 67.2,
+          "y": 42.8
+        },
+        {
+          "country": "Italy",
+          "x": 63.8,
+          "y": 68.5
+        },
+        {
+          "country": "Poland",
+          "x": 69.0,
+          "y": 65.8
+        },
+        {
+          "country": "Czech Republic",
+          "x": 71.9,
+          "y": 52.4
+        },
+        {
+          "country": "Slovenia",
+          "x": 66.5,
+          "y": 35.2
+        },
+        {
+          "country": "Slovakia",
+          "x": 67.4,
+          "y": 38.5
+        },
+        {
+          "country": "Hungary",
+          "x": 64.8,
+          "y": 42.5
+        },
+        {
+          "country": "Greece",
+          "x": 57.8,
+          "y": 55.2
+        },
+        {
+          "country": "Mexico",
+          "x": 63.7,
+          "y": 52.8
+        },
+        {
+          "country": "Turkey",
+          "x": 55.2,
+          "y": 75.5
+        },
+        {
+          "country": "Colombia",
+          "x": 58.1,
+          "y": 45.8
+        },
+        {
+          "country": "South Africa",
+          "x": 55.7,
+          "y": 52.5
+        },
+        {
+          "country": "Brazil",
+          "x": 53.4,
+          "y": 72.8
+        },
+        {
+          "country": "India",
+          "x": 52.9,
+          "y": 88.5
+        },
+        {
+          "country": "Indonesia",
+          "x": 58.5,
+          "y": 65.8
+        },
+        {
+          "country": "Philippines",
+          "x": 56.3,
+          "y": 48.2
+        },
+        {
+          "country": "Thailand",
+          "x": 62.8,
+          "y": 58.5
+        },
+        {
+          "country": "Vietnam",
+          "x": 53.7,
+          "y": 62.4
+        },
+        {
+          "country": "China",
+          "x": 48.2,
+          "y": 95.8
+        },
+        {
+          "country": "Russia",
+          "x": 52.3,
+          "y": 92.5
+        },
+        {
+          "country": "Egypt",
+          "x": 49.7,
+          "y": 72.5
+        },
+        {
+          "country": "Nigeria",
+          "x": 54.4,
+          "y": 48.5
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.4,
+          "y": 78.2
+        },
+        {
+          "country": "Bangladesh",
+          "x": 49.8,
+          "y": 52.5
+        },
+        {
+          "country": "Argentina",
+          "x": 50.3,
+          "y": 45.8
+        },
+        {
+          "country": "Venezuela",
+          "x": 24.8,
+          "y": 42.5
+        },
+        {
+          "country": "Cuba",
+          "x": 24.1,
+          "y": 38.5
+        },
+        {
+          "country": "North Korea",
+          "x": 2.9,
+          "y": 72.8
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 75.2
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 39.5,
+          "y": 28.5
+        },
+        {
+          "country": "Ukraine",
+          "x": 54.1,
+          "y": 65.8
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.3,
+          "y": 52.5
+        },
+        {
+          "country": "Costa Rica",
+          "x": 65.8,
+          "y": 8.5
+        },
+        {
+          "country": "Uruguay",
+          "x": 68.9,
+          "y": 32.5
+        },
+        {
+          "country": "Panama",
+          "x": 66.4,
+          "y": 18.5
+        },
+        {
+          "country": "Jamaica",
+          "x": 62.4,
+          "y": 12.5
+        },
+        {
+          "country": "Peru",
+          "x": 62.7,
+          "y": 42.8
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 61.5,
+          "y": 28.5
+        },
+        {
+          "country": "Morocco",
+          "x": 59.3,
+          "y": 55.2
+        },
+        {
+          "country": "Kenya",
+          "x": 53.6,
+          "y": 35.8
+        },
+        {
+          "country": "Ghana",
+          "x": 56.4,
+          "y": 32.5
+        },
+        {
+          "country": "Rwanda",
+          "x": 63.2,
+          "y": 28.5
+        },
+        {
+          "country": "Botswana",
+          "x": 64.9,
+          "y": 32.8
+        },
+        {
+          "country": "Mauritius",
+          "x": 72.1,
+          "y": 18.5
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 57.5,
+          "y": 72.8
+        },
+        {
+          "country": "UAE",
+          "x": 70.2,
+          "y": 58.5
+        },
+        {
+          "country": "Qatar",
+          "x": 63.5,
+          "y": 45.2
+        },
+        {
+          "country": "Kuwait",
+          "x": 62.7,
+          "y": 48.5
+        },
+        {
+          "country": "Bahrain",
+          "x": 66.9,
+          "y": 35.8
+        },
+        {
+          "country": "Jordan",
+          "x": 57.4,
+          "y": 42.5
+        },
+        {
+          "country": "Tunisia",
+          "x": 54.8,
+          "y": 38.5
+        }
+      ],
+      "trend_line": {
+        "slope": -0.292895,
+        "intercept": 70.0846,
+        "x_range": [
+          2.9,
+          83.5
+        ]
+      }
     }
   },
   "summary": {
-    "positive_correlations": 9,
+    "positive_correlations": 10,
     "negative_correlations": 0,
-    "not_significant": 0,
-    "total_indices": 9,
+    "not_significant": 1,
+    "total_indices": 11,
     "verdict": "supports"
   },
   "comparison": {
