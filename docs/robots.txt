@@ -1,0 +1,9 @@
+# robots.txt for isfreedombetter.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://isfreedombetter.com/sitemap.xml
+
+# Crawl delay (optional, be nice to servers)
+Crawl-delay: 1
