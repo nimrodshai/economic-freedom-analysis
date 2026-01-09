@@ -433,6 +433,42 @@
             .correlations-table { font-size: 0.85rem; }
             .correlations-table th, .correlations-table td { padding: 10px; }
         }
+
+        nav {
+            background: #1e3a5f;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover {
+            color: white;
+            background: rgba(255,255,255,0.1);
+        }
+
+        nav a.active {
+            color: white;
+            border-bottom-color: #60a5fa;
+            background: rgba(255,255,255,0.05);
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                padding: 12px 16px;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -440,10 +476,13 @@
         <h1>Economic Freedom vs Quality of Life</h1>
         <p>A data-driven analysis of how economic freedom correlates with societal outcomes</p>
         <div class="last-updated" id="lastUpdated">Loading data...</div>
-        <a href="data.html" style="display: inline-block; margin-top: 15px; background: rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; transition: background 0.2s;">
-            View Raw Data
-        </a>
     </header>
+
+    <nav>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="data.html">Raw Data</a>
+        <a href="about.html">About</a>
+    </nav>
 
     <div class="container">
         <div id="content" class="loading">Loading analysis data...</div>
