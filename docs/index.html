@@ -268,28 +268,72 @@
         }
 
         .data-sources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 16px;
+        }
+
+        .source-card {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .data-sources ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 10px;
+        .source-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
         }
 
-        .data-sources li {
-            padding: 8px 0;
+        .source-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .source-card .source-org {
+            font-size: 0.85rem;
             color: var(--text-muted);
+            margin-bottom: 8px;
         }
 
-        .data-sources li::before {
-            content: "•";
+        .source-card .source-year {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .source-card .source-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .source-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: var(--primary);
-            margin-right: 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .source-card a:hover {
+            text-decoration: underline;
+        }
+
+        .source-card a svg {
+            width: 16px;
+            height: 16px;
         }
 
         .caveats {
@@ -476,12 +520,9 @@
                 <!-- Data Sources -->
                 <div class="section">
                     <h2>Data Sources</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">All data used in this analysis comes from reputable international organizations. Click any source to verify the data yourself.</p>
                     <div class="data-sources">
-                        <ul>
-                            ${data.metadata.data_sources.map(s =>
-                                `<li>${s.name} (${s.year})</li>`
-                            ).join('')}
-                        </ul>
+                        ${renderDataSources()}
                     </div>
                     <div class="caveats">
                         <h3>Important Caveats</h3>
@@ -511,6 +552,92 @@
             } else {
                 return `The data shows <strong style="color: var(--warning);">MIXED</strong> results regarding economic freedom and quality-of-life outcomes.`;
             }
+        }
+
+        function renderDataSources() {
+            const sources = [
+                {
+                    name: "Economic Freedom Index",
+                    org: "Heritage Foundation",
+                    year: 2024,
+                    desc: "Measures economic freedom based on rule of law, government size, regulatory efficiency, and open markets.",
+                    url: "https://www.heritage.org/index/",
+                    indices: ["Economic Freedom Score"]
+                },
+                {
+                    name: "World Development Indicators",
+                    org: "World Bank",
+                    year: 2022,
+                    desc: "Comprehensive development data including GDP per capita, life expectancy, and infant mortality rates.",
+                    url: "https://data.worldbank.org/indicator",
+                    indices: ["GDP per Capita", "Life Expectancy", "Infant Mortality"]
+                },
+                {
+                    name: "Corruption Perceptions Index",
+                    org: "Transparency International",
+                    year: 2023,
+                    desc: "Ranks countries by perceived levels of public sector corruption based on expert assessments.",
+                    url: "https://www.transparency.org/en/cpi/2023",
+                    indices: ["Anti-Corruption Score"]
+                },
+                {
+                    name: "Human Development Index",
+                    org: "United Nations Development Programme",
+                    year: 2022,
+                    desc: "Composite index measuring life expectancy, education, and per capita income indicators.",
+                    url: "https://hdr.undp.org/data-center/human-development-index",
+                    indices: ["HDI"]
+                },
+                {
+                    name: "World Happiness Report",
+                    org: "Gallup / UN Sustainable Development Solutions Network",
+                    year: 2024,
+                    desc: "Measures subjective well-being based on life evaluations, emotions, and social support.",
+                    url: "https://worldhappiness.report/",
+                    indices: ["Happiness Score"]
+                },
+                {
+                    name: "Global Peace Index",
+                    org: "Institute for Economics & Peace",
+                    year: 2024,
+                    desc: "Measures national peacefulness based on societal safety, ongoing conflict, and militarization.",
+                    url: "https://www.visionofhumanity.org/maps/",
+                    indices: ["Peace Score"]
+                },
+                {
+                    name: "Democracy Index",
+                    org: "Economist Intelligence Unit",
+                    year: 2023,
+                    desc: "Measures democratic governance based on electoral process, civil liberties, and political participation.",
+                    url: "https://www.eiu.com/n/campaigns/democracy-index-2023/",
+                    indices: ["Democracy Score"]
+                },
+                {
+                    name: "Global Social Mobility Index",
+                    org: "World Economic Forum",
+                    year: 2020,
+                    desc: "Measures ability of individuals to move up the socioeconomic ladder regardless of background.",
+                    url: "https://www.weforum.org/publications/global-social-mobility-index-2020/",
+                    indices: ["Social Mobility Score"]
+                }
+            ];
+
+            const linkIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>`;
+
+            return sources.map(s => `
+                <div class="source-card">
+                    <h4>${s.name}</h4>
+                    <div class="source-org">${s.org}</div>
+                    <span class="source-year">${s.year}</span>
+                    <div class="source-desc">${s.desc}</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">
+                        <strong>Used for:</strong> ${s.indices.join(", ")}
+                    </div>
+                    <a href="${s.url}" target="_blank" rel="noopener noreferrer">
+                        View source ${linkIcon}
+                    </a>
+                </div>
+            `).join('');
         }
 
         function renderCorrelationRow(c) {
