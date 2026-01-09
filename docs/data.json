@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-09T19:28:10.674154Z",
+    "generated_at": "2026-01-09T22:58:25.292174Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -101,6 +101,17 @@
       "unit": "USD"
     },
     {
+      "id": "Pollution_Index",
+      "name": "Pollution",
+      "correlation": -0.6706,
+      "effective_correlation": 0.6706,
+      "p_value": 3.731142270659916e-15,
+      "significant": true,
+      "n": 106,
+      "higher_better": false,
+      "unit": "0-100"
+    },
+    {
       "id": "Purchasing_Power_Index",
       "name": "Purchasing Power",
       "correlation": 0.6648,
@@ -148,6 +159,7 @@
       "democracy_score": 6.2,
       "social_mobility_score": 55.6,
       "purchasing_power_index": 42.7,
+      "pollution_index": 77.0,
       "gini_index": 29.4
     },
     {
@@ -163,6 +175,7 @@
       "democracy_score": 3.55,
       "social_mobility_score": null,
       "purchasing_power_index": 34.5,
+      "pollution_index": 63.9,
       "gini_index": null
     },
     {
@@ -178,6 +191,7 @@
       "democracy_score": 4.05,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -193,6 +207,7 @@
       "democracy_score": 6.51,
       "social_mobility_score": 57.3,
       "purchasing_power_index": 41.1,
+      "pollution_index": 50.8,
       "gini_index": 42.4
     },
     {
@@ -208,6 +223,7 @@
       "democracy_score": 5.35,
       "social_mobility_score": 53.9,
       "purchasing_power_index": 37.6,
+      "pollution_index": 62.3,
       "gini_index": 27.2
     },
     {
@@ -223,6 +239,7 @@
       "democracy_score": 8.85,
       "social_mobility_score": 75.1,
       "purchasing_power_index": 135.4,
+      "pollution_index": 26.8,
       "gini_index": 33.8
     },
     {
@@ -238,6 +255,7 @@
       "democracy_score": 8.28,
       "social_mobility_score": 80.1,
       "purchasing_power_index": 107.1,
+      "pollution_index": 20.9,
       "gini_index": 31.2
     },
     {
@@ -253,6 +271,7 @@
       "democracy_score": 2.8,
       "social_mobility_score": null,
       "purchasing_power_index": 41.4,
+      "pollution_index": 72.7,
       "gini_index": null
     },
     {
@@ -268,6 +287,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": 58.4,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -283,6 +303,7 @@
       "democracy_score": 2.45,
       "social_mobility_score": null,
       "purchasing_power_index": 117.5,
+      "pollution_index": 71.6,
       "gini_index": null
     },
     {
@@ -298,6 +319,7 @@
       "democracy_score": 4.44,
       "social_mobility_score": 40.2,
       "purchasing_power_index": 35.6,
+      "pollution_index": 85.4,
       "gini_index": 30.9
     },
     {
@@ -313,6 +335,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": 45.9,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -328,6 +351,7 @@
       "democracy_score": 1.99,
       "social_mobility_score": null,
       "purchasing_power_index": 54.7,
+      "pollution_index": 44.9,
       "gini_index": 24.4
     },
     {
@@ -343,6 +367,7 @@
       "democracy_score": 7.64,
       "social_mobility_score": 80.1,
       "purchasing_power_index": 116.1,
+      "pollution_index": 49.2,
       "gini_index": 26.8
     },
     {
@@ -358,6 +383,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": 69.9,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -373,6 +399,7 @@
       "democracy_score": 4.44,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 34.4
     },
     {
@@ -388,6 +415,7 @@
       "democracy_score": 5.65,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 28.5
     },
     {
@@ -403,6 +431,7 @@
       "democracy_score": 4.26,
       "social_mobility_score": null,
       "purchasing_power_index": 43.9,
+      "pollution_index": 71.9,
       "gini_index": 42.1
     },
     {
@@ -418,6 +447,7 @@
       "democracy_score": 5.06,
       "social_mobility_score": null,
       "purchasing_power_index": 63.3,
+      "pollution_index": 59.7,
       "gini_index": null
     },
     {
@@ -433,6 +463,7 @@
       "democracy_score": 7.63,
       "social_mobility_score": null,
       "purchasing_power_index": 63.5,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -448,6 +479,7 @@
       "democracy_score": 6.49,
       "social_mobility_score": 52.1,
       "purchasing_power_index": 42.3,
+      "pollution_index": 52.9,
       "gini_index": 51.6
     },
     {
@@ -463,6 +495,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": 117.6,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -478,6 +511,7 @@
       "democracy_score": 6.34,
       "social_mobility_score": 63.8,
       "purchasing_power_index": 74.4,
+      "pollution_index": 62.8,
       "gini_index": 39.5
     },
     {
@@ -493,6 +527,7 @@
       "democracy_score": 2.55,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 37.4
     },
     {
@@ -508,6 +543,7 @@
       "democracy_score": 0.96,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": 89.8,
       "gini_index": null
     },
     {
@@ -523,6 +559,7 @@
       "democracy_score": 2.13,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 37.5
     },
     {
@@ -538,6 +575,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -553,6 +591,7 @@
       "democracy_score": 2.94,
       "social_mobility_score": null,
       "purchasing_power_index": 26.7,
+      "pollution_index": 77.7,
       "gini_index": null
     },
     {
@@ -568,6 +607,7 @@
       "democracy_score": 2.56,
       "social_mobility_score": 36.0,
       "purchasing_power_index": 9.7,
+      "pollution_index": 93.7,
       "gini_index": 42.2
     },
     {
@@ -583,6 +623,7 @@
       "democracy_score": 8.69,
       "social_mobility_score": 76.1,
       "purchasing_power_index": 109.1,
+      "pollution_index": 29.8,
       "gini_index": 31.1
     },
     {
@@ -598,6 +639,7 @@
       "democracy_score": 1.18,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 43.0
     },
     {
@@ -613,6 +655,7 @@
       "democracy_score": 1.89,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 37.4
     },
     {
@@ -628,6 +671,7 @@
       "democracy_score": 7.83,
       "social_mobility_score": 60.3,
       "purchasing_power_index": 51.0,
+      "pollution_index": 77.5,
       "gini_index": 43.0
     },
     {
@@ -643,6 +687,7 @@
       "democracy_score": 2.11,
       "social_mobility_score": 61.5,
       "purchasing_power_index": 77.9,
+      "pollution_index": 77.3,
       "gini_index": 36.0
     },
     {
@@ -658,6 +703,7 @@
       "democracy_score": 6.35,
       "social_mobility_score": 50.3,
       "purchasing_power_index": 36.0,
+      "pollution_index": 62.5,
       "gini_index": 53.9
     },
     {
@@ -673,6 +719,7 @@
       "democracy_score": 2.84,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -688,6 +735,7 @@
       "democracy_score": 1.92,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 44.7
     },
     {
@@ -703,6 +751,7 @@
       "democracy_score": 2.79,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -718,6 +767,7 @@
       "democracy_score": 8.29,
       "social_mobility_score": 61.6,
       "purchasing_power_index": 50.9,
+      "pollution_index": 42.0,
       "gini_index": 45.8
     },
     {
@@ -733,6 +783,7 @@
       "democracy_score": 4.22,
       "social_mobility_score": 34.5,
       "purchasing_power_index": 13.3,
+      "pollution_index": null,
       "gini_index": 35.3
     },
     {
@@ -748,6 +799,7 @@
       "democracy_score": 6.5,
       "social_mobility_score": 66.7,
       "purchasing_power_index": 78.8,
+      "pollution_index": 31.2,
       "gini_index": 30.1
     },
     {
@@ -763,6 +815,7 @@
       "democracy_score": 2.58,
       "social_mobility_score": null,
       "purchasing_power_index": 2.5,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -778,6 +831,7 @@
       "democracy_score": 7.38,
       "social_mobility_score": 69.4,
       "purchasing_power_index": 80.4,
+      "pollution_index": 55.3,
       "gini_index": 31.8
     },
     {
@@ -793,6 +847,7 @@
       "democracy_score": 8.08,
       "social_mobility_score": 74.7,
       "purchasing_power_index": 88.5,
+      "pollution_index": 34.6,
       "gini_index": 25.7
     },
     {
@@ -808,6 +863,7 @@
       "democracy_score": 9.28,
       "social_mobility_score": 85.2,
       "purchasing_power_index": 133.6,
+      "pollution_index": 20.6,
       "gini_index": 29.9
     },
     {
@@ -823,6 +879,7 @@
       "democracy_score": 2.7,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -838,6 +895,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -853,6 +911,7 @@
       "democracy_score": 6.62,
       "social_mobility_score": null,
       "purchasing_power_index": 31.4,
+      "pollution_index": 73.2,
       "gini_index": 39.0
     },
     {
@@ -868,6 +927,7 @@
       "democracy_score": 5.24,
       "social_mobility_score": 53.9,
       "purchasing_power_index": 45.6,
+      "pollution_index": 59.0,
       "gini_index": 45.2
     },
     {
@@ -883,6 +943,7 @@
       "democracy_score": 2.79,
       "social_mobility_score": 44.8,
       "purchasing_power_index": 21.1,
+      "pollution_index": 82.7,
       "gini_index": 28.5
     },
     {
@@ -898,6 +959,7 @@
       "democracy_score": 4.61,
       "social_mobility_score": 47.4,
       "purchasing_power_index": 33.8,
+      "pollution_index": null,
       "gini_index": 39.8
     },
     {
@@ -913,6 +975,7 @@
       "democracy_score": 1.92,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 38.5
     },
     {
@@ -928,6 +991,7 @@
       "democracy_score": 1.97,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -943,6 +1007,7 @@
       "democracy_score": 8.13,
       "social_mobility_score": 73.5,
       "purchasing_power_index": 84.2,
+      "pollution_index": 17.0,
       "gini_index": 30.7
     },
     {
@@ -958,6 +1023,7 @@
       "democracy_score": 2.6,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -973,6 +1039,7 @@
       "democracy_score": 3.24,
       "social_mobility_score": null,
       "purchasing_power_index": 13.3,
+      "pollution_index": 73.2,
       "gini_index": 31.1
     },
     {
@@ -988,6 +1055,7 @@
       "democracy_score": 5.39,
       "social_mobility_score": null,
       "purchasing_power_index": 56.9,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1003,6 +1071,7 @@
       "democracy_score": 9.3,
       "social_mobility_score": 83.6,
       "purchasing_power_index": 124.5,
+      "pollution_index": 11.8,
       "gini_index": 27.4
     },
     {
@@ -1018,6 +1087,7 @@
       "democracy_score": 7.99,
       "social_mobility_score": 76.7,
       "purchasing_power_index": 110.0,
+      "pollution_index": 43.5,
       "gini_index": 31.8
     },
     {
@@ -1033,6 +1103,7 @@
       "democracy_score": 2.18,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1048,6 +1119,7 @@
       "democracy_score": 4.47,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 38.8
     },
     {
@@ -1063,6 +1135,7 @@
       "democracy_score": 4.7,
       "social_mobility_score": 55.6,
       "purchasing_power_index": 39.6,
+      "pollution_index": 67.8,
       "gini_index": 33.9
     },
     {
@@ -1078,6 +1151,7 @@
       "democracy_score": 8.73,
       "social_mobility_score": 78.8,
       "purchasing_power_index": 127.1,
+      "pollution_index": 28.9,
       "gini_index": 32.4
     },
     {
@@ -1093,6 +1167,7 @@
       "democracy_score": 6.24,
       "social_mobility_score": 45.5,
       "purchasing_power_index": 16.7,
+      "pollution_index": 86.9,
       "gini_index": null
     },
     {
@@ -1108,6 +1183,7 @@
       "democracy_score": 8.07,
       "social_mobility_score": 59.8,
       "purchasing_power_index": 59.5,
+      "pollution_index": 49.4,
       "gini_index": 33.4
     },
     {
@@ -1123,6 +1199,7 @@
       "democracy_score": 4.55,
       "social_mobility_score": 43.5,
       "purchasing_power_index": 38.6,
+      "pollution_index": 73.5,
       "gini_index": 45.2
     },
     {
@@ -1138,6 +1215,7 @@
       "democracy_score": 2.04,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1153,6 +1231,7 @@
       "democracy_score": 2.03,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 33.4
     },
     {
@@ -1168,6 +1247,7 @@
       "democracy_score": 6.11,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1183,6 +1263,7 @@
       "democracy_score": 2.74,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1198,6 +1279,7 @@
       "democracy_score": 4.98,
       "social_mobility_score": 43.5,
       "purchasing_power_index": 42.5,
+      "pollution_index": null,
       "gini_index": 45.7
     },
     {
@@ -1213,6 +1295,7 @@
       "democracy_score": 6.51,
       "social_mobility_score": 65.8,
       "purchasing_power_index": 70.7,
+      "pollution_index": 46.5,
       "gini_index": null
     },
     {
@@ -1228,6 +1311,7 @@
       "democracy_score": 9.38,
       "social_mobility_score": 82.7,
       "purchasing_power_index": 123.5,
+      "pollution_index": 16.0,
       "gini_index": null
     },
     {
@@ -1243,6 +1327,7 @@
       "democracy_score": 7.29,
       "social_mobility_score": 42.7,
       "purchasing_power_index": 82.2,
+      "pollution_index": 72.9,
       "gini_index": 25.5
     },
     {
@@ -1258,6 +1343,7 @@
       "democracy_score": 6.44,
       "social_mobility_score": 49.3,
       "purchasing_power_index": 33.9,
+      "pollution_index": 68.0,
       "gini_index": 34.9
     },
     {
@@ -1273,6 +1359,7 @@
       "democracy_score": 1.96,
       "social_mobility_score": null,
       "purchasing_power_index": 28.4,
+      "pollution_index": 75.2,
       "gini_index": 35.9
     },
     {
@@ -1288,6 +1375,7 @@
       "democracy_score": 9.19,
       "social_mobility_score": 75.0,
       "purchasing_power_index": 108.9,
+      "pollution_index": 35.0,
       "gini_index": 29.0
     },
     {
@@ -1303,6 +1391,7 @@
       "democracy_score": 7.8,
       "social_mobility_score": 68.1,
       "purchasing_power_index": 110.0,
+      "pollution_index": 56.8,
       "gini_index": 37.9
     },
     {
@@ -1318,6 +1407,7 @@
       "democracy_score": 7.58,
       "social_mobility_score": 67.4,
       "purchasing_power_index": 85.1,
+      "pollution_index": 53.5,
       "gini_index": 34.3
     },
     {
@@ -1333,6 +1423,7 @@
       "democracy_score": 6.74,
       "social_mobility_score": null,
       "purchasing_power_index": 36.4,
+      "pollution_index": 66.3,
       "gini_index": 39.9
     },
     {
@@ -1348,6 +1439,7 @@
       "democracy_score": 8.48,
       "social_mobility_score": 76.1,
       "purchasing_power_index": 119.8,
+      "pollution_index": 38.5,
       "gini_index": 32.3
     },
     {
@@ -1363,6 +1455,7 @@
       "democracy_score": 3.28,
       "social_mobility_score": null,
       "purchasing_power_index": 51.7,
+      "pollution_index": 77.1,
       "gini_index": null
     },
     {
@@ -1378,6 +1471,7 @@
       "democracy_score": 3.08,
       "social_mobility_score": 64.8,
       "purchasing_power_index": 50.8,
+      "pollution_index": 73.2,
       "gini_index": 29.2
     },
     {
@@ -1393,6 +1487,7 @@
       "democracy_score": 5.05,
       "social_mobility_score": null,
       "purchasing_power_index": 35.1,
+      "pollution_index": 69.0,
       "gini_index": 37.7
     },
     {
@@ -1408,6 +1503,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1423,6 +1519,7 @@
       "democracy_score": 1.08,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1438,6 +1535,7 @@
       "democracy_score": 7.75,
       "social_mobility_score": 71.4,
       "purchasing_power_index": 105.0,
+      "pollution_index": 60.9,
       "gini_index": 32.9
     },
     {
@@ -1453,6 +1551,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 38.3
     },
     {
@@ -1468,6 +1567,7 @@
       "democracy_score": 2.78,
       "social_mobility_score": null,
       "purchasing_power_index": 174.0,
+      "pollution_index": 69.4,
       "gini_index": null
     },
     {
@@ -1483,6 +1583,7 @@
       "democracy_score": 3.52,
       "social_mobility_score": null,
       "purchasing_power_index": 35.6,
+      "pollution_index": null,
       "gini_index": 27.2
     },
     {
@@ -1498,6 +1599,7 @@
       "democracy_score": 1.71,
       "social_mobility_score": 43.8,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1513,6 +1615,7 @@
       "democracy_score": 7.66,
       "social_mobility_score": 69.0,
       "purchasing_power_index": 75.8,
+      "pollution_index": 30.3,
       "gini_index": 34.0
     },
     {
@@ -1528,6 +1631,7 @@
       "democracy_score": 3.56,
       "social_mobility_score": null,
       "purchasing_power_index": 35.1,
+      "pollution_index": 89.4,
       "gini_index": 35.3
     },
     {
@@ -1543,6 +1647,7 @@
       "democracy_score": 6.06,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1558,6 +1663,7 @@
       "democracy_score": 5.57,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1573,6 +1679,7 @@
       "democracy_score": 7.59,
       "social_mobility_score": 70.5,
       "purchasing_power_index": 79.8,
+      "pollution_index": 26.3,
       "gini_index": 36.0
     },
     {
@@ -1588,6 +1695,7 @@
       "democracy_score": 8.88,
       "social_mobility_score": 79.8,
       "purchasing_power_index": 177.1,
+      "pollution_index": 23.3,
       "gini_index": 33.6
     },
     {
@@ -1603,6 +1711,7 @@
       "democracy_score": 5.33,
       "social_mobility_score": null,
       "purchasing_power_index": 15.0,
+      "pollution_index": null,
       "gini_index": 36.8
     },
     {
@@ -1618,6 +1727,7 @@
       "democracy_score": 5.85,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1633,6 +1743,7 @@
       "democracy_score": 7.11,
       "social_mobility_score": 62.0,
       "purchasing_power_index": 83.8,
+      "pollution_index": 61.0,
       "gini_index": 40.7
     },
     {
@@ -1648,6 +1759,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": 51.9,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1663,6 +1775,7 @@
       "democracy_score": 2.4,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 35.7
     },
     {
@@ -1678,6 +1791,7 @@
       "democracy_score": 7.93,
       "social_mobility_score": 75.0,
       "purchasing_power_index": 75.3,
+      "pollution_index": 75.5,
       "gini_index": 34.6
     },
     {
@@ -1693,6 +1807,7 @@
       "democracy_score": 3.96,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1708,6 +1823,7 @@
       "democracy_score": 8.23,
       "social_mobility_score": null,
       "purchasing_power_index": 49.4,
+      "pollution_index": 54.6,
       "gini_index": null
     },
     {
@@ -1723,6 +1839,7 @@
       "democracy_score": 5.32,
       "social_mobility_score": 52.6,
       "purchasing_power_index": 46.9,
+      "pollution_index": 58.4,
       "gini_index": 43.5
     },
     {
@@ -1738,6 +1855,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1753,6 +1871,7 @@
       "democracy_score": 6.04,
       "social_mobility_score": 59.6,
       "purchasing_power_index": 46.3,
+      "pollution_index": 61.3,
       "gini_index": 26.8
     },
     {
@@ -1768,6 +1887,7 @@
       "democracy_score": 6.53,
       "social_mobility_score": null,
       "purchasing_power_index": 30.8,
+      "pollution_index": 87.8,
       "gini_index": 31.4
     },
     {
@@ -1783,6 +1903,7 @@
       "democracy_score": 6.73,
       "social_mobility_score": null,
       "purchasing_power_index": 56.8,
+      "pollution_index": 43.7,
       "gini_index": 34.3
     },
     {
@@ -1798,6 +1919,7 @@
       "democracy_score": 4.97,
       "social_mobility_score": null,
       "purchasing_power_index": 41.7,
+      "pollution_index": 68.7,
       "gini_index": null
     },
     {
@@ -1813,6 +1935,7 @@
       "democracy_score": 3.38,
       "social_mobility_score": null,
       "purchasing_power_index": 25.3,
+      "pollution_index": null,
       "gini_index": 49.6
     },
     {
@@ -1828,6 +1951,7 @@
       "democracy_score": 6.48,
       "social_mobility_score": null,
       "purchasing_power_index": 62.2,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1843,6 +1967,7 @@
       "democracy_score": 4.6,
       "social_mobility_score": null,
       "purchasing_power_index": 29.0,
+      "pollution_index": 84.0,
       "gini_index": 30.0
     },
     {
@@ -1858,6 +1983,7 @@
       "democracy_score": 9.0,
       "social_mobility_score": 82.4,
       "purchasing_power_index": 129.9,
+      "pollution_index": 21.6,
       "gini_index": 25.7
     },
     {
@@ -1873,6 +1999,7 @@
       "democracy_score": 9.61,
       "social_mobility_score": 74.3,
       "purchasing_power_index": 130.5,
+      "pollution_index": 26.1,
       "gini_index": null
     },
     {
@@ -1888,6 +2015,7 @@
       "democracy_score": 2.09,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -1903,6 +2031,7 @@
       "democracy_score": 2.26,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 32.9
     },
     {
@@ -1918,6 +2047,7 @@
       "democracy_score": 4.16,
       "social_mobility_score": null,
       "purchasing_power_index": 10.6,
+      "pollution_index": 87.9,
       "gini_index": 33.9
     },
     {
@@ -1933,6 +2063,7 @@
       "democracy_score": 6.28,
       "social_mobility_score": null,
       "purchasing_power_index": 59.7,
+      "pollution_index": 79.6,
       "gini_index": null
     },
     {
@@ -1948,6 +2079,7 @@
       "democracy_score": 9.81,
       "social_mobility_score": 83.6,
       "purchasing_power_index": 119.5,
+      "pollution_index": 18.3,
       "gini_index": 26.5
     },
     {
@@ -1963,6 +2095,7 @@
       "democracy_score": 3.05,
       "social_mobility_score": null,
       "purchasing_power_index": 150.3,
+      "pollution_index": 35.6,
       "gini_index": null
     },
     {
@@ -1978,6 +2111,7 @@
       "democracy_score": 2.84,
       "social_mobility_score": 36.7,
       "purchasing_power_index": 30.5,
+      "pollution_index": 73.3,
       "gini_index": null
     },
     {
@@ -1993,6 +2127,7 @@
       "democracy_score": 6.84,
       "social_mobility_score": 51.4,
       "purchasing_power_index": 46.3,
+      "pollution_index": 55.6,
       "gini_index": 49.7
     },
     {
@@ -2008,6 +2143,7 @@
       "democracy_score": 5.97,
       "social_mobility_score": null,
       "purchasing_power_index": 14.0,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2023,6 +2159,7 @@
       "democracy_score": 5.92,
       "social_mobility_score": 46.8,
       "purchasing_power_index": 41.0,
+      "pollution_index": null,
       "gini_index": 44.2
     },
     {
@@ -2038,6 +2175,7 @@
       "democracy_score": 5.69,
       "social_mobility_score": 49.9,
       "purchasing_power_index": 38.2,
+      "pollution_index": 82.4,
       "gini_index": 40.1
     },
     {
@@ -2053,6 +2191,7 @@
       "democracy_score": 6.63,
       "social_mobility_score": 51.7,
       "purchasing_power_index": 37.3,
+      "pollution_index": 72.4,
       "gini_index": 39.3
     },
     {
@@ -2068,6 +2207,7 @@
       "democracy_score": 7.4,
       "social_mobility_score": 69.1,
       "purchasing_power_index": 91.4,
+      "pollution_index": 55.4,
       "gini_index": 28.5
     },
     {
@@ -2083,6 +2223,7 @@
       "democracy_score": 8.08,
       "social_mobility_score": 72.0,
       "purchasing_power_index": 59.7,
+      "pollution_index": 28.8,
       "gini_index": 33.9
     },
     {
@@ -2098,6 +2239,7 @@
       "democracy_score": 3.17,
       "social_mobility_score": null,
       "purchasing_power_index": 177.9,
+      "pollution_index": 60.0,
       "gini_index": null
     },
     {
@@ -2113,6 +2255,7 @@
       "democracy_score": 5.99,
       "social_mobility_score": 63.1,
       "purchasing_power_index": 73.1,
+      "pollution_index": 58.7,
       "gini_index": 29.8
     },
     {
@@ -2128,6 +2271,7 @@
       "democracy_score": 2.03,
       "social_mobility_score": 64.7,
       "purchasing_power_index": 56.2,
+      "pollution_index": 59.0,
       "gini_index": 33.0
     },
     {
@@ -2143,6 +2287,7 @@
       "democracy_score": 3.34,
       "social_mobility_score": null,
       "purchasing_power_index": 20.7,
+      "pollution_index": null,
       "gini_index": 39.4
     },
     {
@@ -2158,6 +2303,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2173,6 +2319,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2188,6 +2335,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2203,6 +2351,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2218,6 +2367,7 @@
       "democracy_score": 2.08,
       "social_mobility_score": 57.1,
       "purchasing_power_index": 146.1,
+      "pollution_index": 62.5,
       "gini_index": null
     },
     {
@@ -2233,6 +2383,7 @@
       "democracy_score": 5.93,
       "social_mobility_score": 36.0,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 36.2
     },
     {
@@ -2248,6 +2399,7 @@
       "democracy_score": 6.26,
       "social_mobility_score": 63.8,
       "purchasing_power_index": 57.6,
+      "pollution_index": 65.8,
       "gini_index": 32.8
     },
     {
@@ -2263,6 +2415,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2278,6 +2431,7 @@
       "democracy_score": 4.32,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2293,6 +2447,7 @@
       "democracy_score": 6.18,
       "social_mobility_score": 74.6,
       "purchasing_power_index": 93.8,
+      "pollution_index": 32.6,
       "gini_index": null
     },
     {
@@ -2308,6 +2463,7 @@
       "democracy_score": 7.21,
       "social_mobility_score": 68.5,
       "purchasing_power_index": 74.0,
+      "pollution_index": 37.1,
       "gini_index": 23.8
     },
     {
@@ -2323,6 +2479,7 @@
       "democracy_score": 7.82,
       "social_mobility_score": 76.4,
       "purchasing_power_index": 83.6,
+      "pollution_index": 22.2,
       "gini_index": 24.7
     },
     {
@@ -2338,6 +2495,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2353,6 +2511,7 @@
       "democracy_score": 7.16,
       "social_mobility_score": 41.4,
       "purchasing_power_index": 111.2,
+      "pollution_index": 56.6,
       "gini_index": null
     },
     {
@@ -2368,6 +2527,7 @@
       "democracy_score": 8.13,
       "social_mobility_score": 70.0,
       "purchasing_power_index": 98.1,
+      "pollution_index": 35.7,
       "gini_index": 33.4
     },
     {
@@ -2383,6 +2543,7 @@
       "democracy_score": 6.19,
       "social_mobility_score": 52.3,
       "purchasing_power_index": 18.2,
+      "pollution_index": 57.9,
       "gini_index": null
     },
     {
@@ -2398,6 +2559,7 @@
       "democracy_score": 1.46,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2413,6 +2575,7 @@
       "democracy_score": 6.79,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 39.2
     },
     {
@@ -2428,6 +2591,7 @@
       "democracy_score": 9.39,
       "social_mobility_score": 83.5,
       "purchasing_power_index": 130.3,
+      "pollution_index": 17.6,
       "gini_index": 29.3
     },
     {
@@ -2443,6 +2607,7 @@
       "democracy_score": 9.32,
       "social_mobility_score": 82.1,
       "purchasing_power_index": 159.7,
+      "pollution_index": 23.1,
       "gini_index": 33.8
     },
     {
@@ -2458,6 +2623,7 @@
       "democracy_score": 8.78,
       "social_mobility_score": null,
       "purchasing_power_index": 101.2,
+      "pollution_index": 64.2,
       "gini_index": null
     },
     {
@@ -2473,6 +2639,7 @@
       "democracy_score": 1.83,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 36.1
     },
     {
@@ -2488,6 +2655,7 @@
       "democracy_score": 5.2,
       "social_mobility_score": null,
       "purchasing_power_index": 22.1,
+      "pollution_index": 62.5,
       "gini_index": null
     },
     {
@@ -2503,6 +2671,7 @@
       "democracy_score": 6.27,
       "social_mobility_score": 55.4,
       "purchasing_power_index": 46.0,
+      "pollution_index": 75.7,
       "gini_index": 33.5
     },
     {
@@ -2518,6 +2687,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2533,6 +2703,7 @@
       "democracy_score": 2.99,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 37.9
     },
     {
@@ -2548,6 +2719,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": 27.1
     },
     {
@@ -2563,6 +2735,7 @@
       "democracy_score": 7.09,
       "social_mobility_score": null,
       "purchasing_power_index": 46.1,
+      "pollution_index": 67.1,
       "gini_index": null
     },
     {
@@ -2578,6 +2751,7 @@
       "democracy_score": 4.71,
       "social_mobility_score": 51.7,
       "purchasing_power_index": 34.7,
+      "pollution_index": 70.1,
       "gini_index": 33.7
     },
     {
@@ -2593,6 +2767,7 @@
       "democracy_score": 4.26,
       "social_mobility_score": 51.3,
       "purchasing_power_index": 51.2,
+      "pollution_index": 64.3,
       "gini_index": 44.5
     },
     {
@@ -2608,6 +2783,7 @@
       "democracy_score": 1.66,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2623,6 +2799,7 @@
       "democracy_score": 4.49,
       "social_mobility_score": null,
       "purchasing_power_index": 16.4,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2638,6 +2815,7 @@
       "democracy_score": 3.07,
       "social_mobility_score": null,
       "purchasing_power_index": 128.3,
+      "pollution_index": 48.1,
       "gini_index": null
     },
     {
@@ -2653,6 +2831,7 @@
       "democracy_score": 8.34,
       "social_mobility_score": 74.4,
       "purchasing_power_index": 119.9,
+      "pollution_index": 40.7,
       "gini_index": 32.4
     },
     {
@@ -2668,6 +2847,7 @@
       "democracy_score": 7.85,
       "social_mobility_score": 70.4,
       "purchasing_power_index": 146.2,
+      "pollution_index": 36.7,
       "gini_index": 41.8
     },
     {
@@ -2683,6 +2863,7 @@
       "democracy_score": 8.67,
       "social_mobility_score": 67.1,
       "purchasing_power_index": 54.1,
+      "pollution_index": 43.5,
       "gini_index": 40.0
     },
     {
@@ -2698,6 +2879,7 @@
       "democracy_score": 2.1,
       "social_mobility_score": null,
       "purchasing_power_index": 44.5,
+      "pollution_index": 54.0,
       "gini_index": 34.6
     },
     {
@@ -2713,6 +2895,7 @@
       "democracy_score": null,
       "social_mobility_score": null,
       "purchasing_power_index": null,
+      "pollution_index": null,
       "gini_index": null
     },
     {
@@ -2728,6 +2911,7 @@
       "democracy_score": 2.25,
       "social_mobility_score": null,
       "purchasing_power_index": 15.8,
+      "pollution_index": 75.1,
       "gini_index": null
     },
     {
@@ -2743,6 +2927,7 @@
       "democracy_score": 2.62,
       "social_mobility_score": 57.8,
       "purchasing_power_index": 42.3,
+      "pollution_index": 84.2,
       "gini_index": 36.1
     },
     {
@@ -2758,6 +2943,7 @@
       "democracy_score": 5.73,
       "social_mobility_score": null,
       "purchasing_power_index": 23.0,
+      "pollution_index": null,
       "gini_index": 51.5
     },
     {
@@ -2773,6 +2959,7 @@
       "democracy_score": 2.98,
       "social_mobility_score": null,
       "purchasing_power_index": 29.6,
+      "pollution_index": 78.5,
       "gini_index": null
     }
   ],
@@ -9684,17 +9871,559 @@
           84.1
         ]
       }
+    },
+    "Pollution_Index": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 77.0
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 63.9
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 50.8
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 62.3
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 26.8
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 20.9
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 72.7
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 71.6
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 85.4
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 44.9
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 49.2
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 71.9
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 59.7
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 52.9
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 62.8
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 89.8
+        },
+        {
+          "country": "Cambodia",
+          "x": 58.2,
+          "y": 77.7
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 93.7
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 29.8
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 77.5
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 77.3
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 62.5
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 42.0
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 31.2
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 55.3
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 34.6
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 20.6
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 73.2
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 59.0
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 82.7
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 17.0
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 73.2
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 11.8
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 43.5
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 67.8
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 28.9
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 86.9
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 49.4
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 73.5
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 46.5
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 16.0
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 72.9
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 68.0
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 75.2
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 35.0
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 56.8
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 53.5
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 66.3
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 38.5
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 77.1
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 73.2
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 69.0
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 60.9
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 69.4
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 30.3
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 89.4
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 26.3
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 23.3
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 61.0
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 75.5
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 54.6
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 58.4
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 61.3
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 87.8
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 43.7
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 68.7
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 84.0
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 21.6
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 26.1
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 87.9
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 79.6
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 18.3
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 35.6
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 73.3
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 55.6
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 82.4
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 72.4
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 55.4
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 28.8
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 60.0
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 58.7
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 59.0
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 62.5
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 65.8
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 32.6
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 37.1
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 22.2
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 56.6
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 35.7
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 57.9
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 17.6
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 23.1
+        },
+        {
+          "country": "Taiwan",
+          "x": 79.7,
+          "y": 64.2
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 62.5
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 75.7
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 67.1
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 70.1
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 64.3
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 48.1
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 40.7
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 36.7
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 43.5
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 54.0
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 75.1
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 84.2
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 78.5
+        }
+      ],
+      "trend_line": {
+        "slope": -1.312966,
+        "intercept": 139.8705,
+        "x_range": [
+          27.6,
+          84.1
+        ]
+      }
     }
   },
   "summary": {
-    "positive_correlations": 9,
+    "positive_correlations": 10,
     "negative_correlations": 0,
     "not_significant": 0,
-    "total_indices": 9,
+    "total_indices": 10,
     "verdict": "supports"
   },
   "comparison": {
-    "economic_freedom_wins": 9,
+    "economic_freedom_wins": 10,
     "equality_wins": 0,
     "metrics": [
       {
@@ -9865,6 +10594,25 @@
           "p_value": 0.0003479365105881608,
           "significant": true,
           "n": 87
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Pollution",
+        "metric_id": "Pollution_Index",
+        "economic_freedom": {
+          "correlation": -0.6706,
+          "effective": 0.6706,
+          "p_value": 3.731142270659916e-15,
+          "significant": true,
+          "n": 106
+        },
+        "equality": {
+          "correlation": 0.2901,
+          "effective": 0.2901,
+          "p_value": 0.009989169771877675,
+          "significant": true,
+          "n": 78
         },
         "winner": "economic_freedom"
       }

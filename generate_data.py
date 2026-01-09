@@ -46,6 +46,7 @@ def generate_web_data(output_dir="docs"):
     social_mobility = fetcher.fetch_social_mobility_index()
     gini = fetcher.fetch_gini_index()
     purchasing_power = fetcher.fetch_purchasing_power_index()
+    pollution = fetcher.fetch_pollution_index()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -59,7 +60,8 @@ def generate_web_data(output_dir="docs"):
         (democracy, 'Country'),
         (social_mobility, 'Country'),
         (gini, 'Country'),
-        (purchasing_power, 'Country')
+        (purchasing_power, 'Country'),
+        (pollution, 'Country')
     ]
 
     for df, key in datasets:
@@ -114,7 +116,8 @@ def generate_web_data(output_dir="docs"):
         'Happiness_Score': {'display_name': 'Happiness Score', 'unit': '0-10', 'higher_better': True},
         'Democracy_Score': {'display_name': 'Democracy Score', 'unit': '0-10', 'higher_better': True},
         'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True},
-        'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True}
+        'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True},
+        'Pollution_Index': {'display_name': 'Pollution', 'unit': '0-100', 'higher_better': False}
     }
 
     for col, result in results.items():
@@ -206,7 +209,8 @@ def generate_web_data(output_dir="docs"):
         ('Happiness_Score', 'Happiness', True),
         ('Democracy_Score', 'Democracy', True),
         ('Social_Mobility_Score', 'Social Mobility', True),
-        ('Purchasing_Power_Index', 'Purchasing Power', True)
+        ('Purchasing_Power_Index', 'Purchasing Power', True),
+        ('Pollution_Index', 'Pollution', False)
     ]
 
     comparison_data = []

@@ -989,6 +989,64 @@ class DataFetcher:
 
         raise Exception("Could not fetch Gini Index data")
 
+    def fetch_pollution_index(self):
+        """
+        Fetch Pollution Index data from Numbeo.
+        Source: https://www.numbeo.com/pollution/rankings_by_country.jsp
+        Higher values = more pollution (worse).
+        """
+        print("Fetching Pollution Index (live scraping from Numbeo)...")
+
+        years = ['2025', '2024', '2024-mid', '2023']
+        for year in years:
+            try:
+                url = f"https://www.numbeo.com/pollution/rankings_by_country.jsp?title={year}"
+                response = self.session.get(url, timeout=30)
+
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+
+                    table = soup.find('table', {'id': 't2'})
+                    if table:
+                        rows = table.find_all('tr')
+                        countries = []
+                        scores = []
+
+                        for row in rows[1:]:  # Skip header
+                            cols = row.find_all('td')
+                            if len(cols) >= 2:
+                                country_td = cols[1] if len(cols) > 1 else cols[0]
+                                country = country_td.get_text(strip=True)
+
+                                # Pollution Index is in the 3rd column
+                                score_td = cols[2] if len(cols) > 2 else cols[-1]
+                                try:
+                                    score = float(score_td.get_text(strip=True))
+                                    countries.append(self._normalize_country_name(country))
+                                    scores.append(score)
+                                except ValueError:
+                                    continue
+
+                        if len(countries) > 50:
+                            result = pd.DataFrame({
+                                'Country': countries,
+                                'Pollution_Index': scores
+                            })
+                            result.to_csv(f"{self.cache_dir}/pollution_index.csv", index=False)
+                            print(f"  Successfully fetched {len(result)} countries from Numbeo ({year})")
+                            return result
+
+            except Exception as e:
+                print(f"  Could not fetch Pollution Index for {year}: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/pollution_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Pollution Index data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Pollution Index data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1011,7 +1069,8 @@ class CorrelationAnalyzer:
             ('Happiness_Score', 'Happiness Score', 'higher is better'),
             ('Democracy_Score', 'Democracy Score', 'higher is better'),
             ('Social_Mobility_Score', 'Social Mobility Index', 'higher is better'),
-            ('Purchasing_Power_Index', 'Purchasing Power', 'higher is better')
+            ('Purchasing_Power_Index', 'Purchasing Power', 'higher is better'),
+            ('Pollution_Index', 'Pollution', 'lower is better')
         ]
 
         for col, display_name, interpretation in indices:

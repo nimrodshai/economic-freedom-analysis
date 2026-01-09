@@ -1119,6 +1119,7 @@
                             <li><strong>Democracy:</strong> Economist Intelligence Unit Democracy Index</li>
                             <li><strong>Social Mobility:</strong> World Economic Forum Global Social Mobility Index</li>
                             <li><strong>Purchasing Power:</strong> Numbeo Cost of Living Index</li>
+                            <li><strong>Pollution:</strong> Numbeo Pollution Index</li>
                             <li><strong>Inequality:</strong> World Bank Gini Index</li>
                         </ul>
                     </div>
@@ -1406,6 +1407,7 @@
                                     <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('social_mobility_score')">Social Mob. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('purchasing_power_index')">Purch. Power <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('pollution_index')">Pollution <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('gini_index')">Gini <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
@@ -1469,6 +1471,7 @@
                     <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
                     <td>${formatLinkedValue(c.name, 'social_mobility_score', c.social_mobility_score, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'purchasing_power_index', c.purchasing_power_index, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'pollution_index', c.pollution_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'gini_index', c.gini_index, 1)}</td>
                 </tr>
             `).join('');
@@ -1588,6 +1591,7 @@
                 'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'social_mobility_score': `https://worldpopulationreview.com/country-rankings/social-mobility-by-country`,
                 'purchasing_power_index': `https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2025`,
+                'pollution_index': `https://www.numbeo.com/pollution/rankings_by_country.jsp?title=2025`,
                 'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`
             };
             return urls[field] || '#';
@@ -1621,7 +1625,7 @@
 
         function downloadCSV() {
             const headers = ['Country', 'Region', 'Economic Freedom', 'GDP per Capita', 'Life Expectancy',
-                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Democracy', 'Social Mobility', 'Purchasing Power', 'Gini Index'];
+                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Democracy', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Gini Index'];
 
             const rows = allData.map(c => [
                 c.name,
@@ -1636,6 +1640,7 @@
                 c.democracy_score ?? '',
                 c.social_mobility_score ?? '',
                 c.purchasing_power_index ?? '',
+                c.pollution_index ?? '',
                 c.gini_index ?? ''
             ]);
 
@@ -1725,6 +1730,14 @@
                     desc: "Measures relative purchasing power based on consumer goods prices, rent, and local salaries.",
                     url: "https://www.numbeo.com/cost-of-living/rankings_by_country.jsp",
                     indices: ["Purchasing Power Index"]
+                },
+                {
+                    name: "Pollution Index",
+                    org: "Numbeo",
+                    year: 2025,
+                    desc: "Measures pollution levels based on air quality, water quality, waste management, and other environmental factors.",
+                    url: "https://www.numbeo.com/pollution/rankings_by_country.jsp",
+                    indices: ["Pollution Index"]
                 }
             ];
 
