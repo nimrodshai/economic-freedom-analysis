@@ -53,12 +53,6 @@
             opacity: 0.9;
         }
 
-        .last-updated {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 10px;
-        }
-
         nav {
             display: flex;
             justify-content: center;
@@ -959,7 +953,6 @@
     <header>
         <h1>Economic Freedom vs Quality of Life</h1>
         <p>A data-driven analysis of how economic freedom correlates with societal outcomes</p>
-        <div class="last-updated" id="lastUpdated">Loading data...</div>
         <nav>
             <a onclick="navigateTo(0)" class="active" data-panel="0">Dashboard</a>
             <a onclick="navigateTo(1)" data-panel="1">Raw Data</a>
@@ -1092,6 +1085,7 @@
     </div>
 
     <footer>
+        <p id="lastUpdated"></p>
         <p>Data is automatically refreshed weekly via GitHub Actions.</p>
     </footer>
 
