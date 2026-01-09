@@ -833,32 +833,59 @@
         }
 
         .comparison-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 16px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            border-bottom: 2px solid var(--border);
+            display: none;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 1000px) {
+            .comparison-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 650px) {
+            .comparison-grid { grid-template-columns: 1fr; }
         }
 
         .comparison-row {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 10px;
             padding: 16px;
-            border-bottom: 1px solid var(--border);
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid var(--border);
         }
 
-        .comparison-metric { flex: 1.5; }
-        .comparison-bar-col { flex: 1; padding: 0 10px; }
-        .comparison-winner { flex: 0.5; text-align: center; }
-
-        .comparison-bar-wrapper {
+        .comparison-metric {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .comparison-bar-col {
             display: flex;
             align-items: center;
+            gap: 10px;
+        }
+        .comparison-bar-col::before {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 60px;
+        }
+        .comparison-bar-col[data-label="Economic Freedom"]::before { content: "Freedom"; }
+        .comparison-bar-col[data-label="Equality (Gini)"]::before { content: "Equality"; }
+        .comparison-winner {
+            display: none;
+        }
+
+        .comparison-bar-wrapper {
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
+            flex: 1;
         }
 
         .comparison-bar-track {
@@ -989,44 +1016,6 @@
             .about-card { padding: 20px; }
             .methodology-step { flex-direction: column; gap: 10px; }
             .section h2 { font-size: 1.25rem; }
-            /* Comparison section mobile styles - stacked bars for easy comparison */
-            .comparison-header { display: none; }
-            .comparison-container { padding: 10px; }
-            .comparison-row {
-                display: grid;
-                grid-template-columns: 1fr auto;
-                grid-template-rows: auto auto auto;
-                gap: 4px 8px;
-                padding: 10px 0;
-                border-bottom: 1px solid var(--border);
-            }
-            .comparison-metric {
-                grid-column: 1;
-                grid-row: 1;
-                font-size: 0.85rem;
-                font-weight: 600;
-            }
-            .comparison-winner { display: none; }
-            .comparison-bar-col {
-                grid-column: 1 / -1;
-                padding: 0;
-            }
-            .comparison-bar-col[data-label="Economic Freedom"] { grid-row: 2; }
-            .comparison-bar-col[data-label="Equality (Gini)"] { grid-row: 3; }
-            .comparison-bar-col::before {
-                display: inline-block;
-                content: attr(data-label);
-                font-size: 0.6rem;
-                color: var(--text-muted);
-                width: 55px;
-                flex-shrink: 0;
-            }
-            .comparison-bar-col[data-label="Economic Freedom"]::before { content: "Freedom"; }
-            .comparison-bar-col[data-label="Equality (Gini)"]::before { content: "Equality"; }
-            .comparison-bar-wrapper { gap: 6px; }
-            .comparison-bar-track { height: 14px; flex: 1; }
-            .comparison-value { font-size: 0.7rem; min-width: 32px; }
-            .comparison-conclusion { margin-top: 12px; padding: 12px; font-size: 0.85rem; }
         }
 
         @media (max-width: 480px) {
@@ -1040,12 +1029,6 @@
             .correlation-value { font-size: 0.85rem; width: 48px; }
             .correlation-bar { width: 60px; }
             .correlations-table td:nth-child(4) { font-size: 0.6rem; }
-            /* Comparison even smaller */
-            .comparison-row { gap: 3px 6px; padding: 6px 0; }
-            .comparison-metric { font-size: 0.75rem; }
-            .comparison-winner { font-size: 0.65rem; }
-            .comparison-bar-track { height: 14px; }
-            .comparison-value { font-size: 0.65rem; min-width: 28px; }
         }
     </style>
 </head>
@@ -1081,7 +1064,7 @@
                 <div class="container">
                     <div class="about-card">
                         <h2>Purpose</h2>
-                        <p>This project examines the statistical relationship between economic freedom and various quality-of-life indicators. The goal is to provide a data-driven, transparent analysis that anyone can verify.</p>
+                        <p>Is freedom better? That's the question this project tries to answer using data. We examine the statistical relationship between economic freedom and quality-of-life indicators across 150+ countries.</p>
                         <p>Economic freedom, as measured by the Heritage Foundation's Index of Economic Freedom, encompasses factors like property rights, government integrity, tax burden, business freedom, and trade freedom.</p>
                     </div>
 
@@ -1274,7 +1257,7 @@
                 `Last updated: ${formatDatePretty(date)}`;
 
             content.innerHTML = `
-                <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.05rem;">We let the data settle the debate — no cherry-picking, no ideology, just numbers doing their thing.</p>
+                <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.05rem;">Is freedom better? We let the data answer — no cherry-picking, no ideology, just numbers.</p>
 
                 <!-- Correlations Table -->
                 <div class="section">
@@ -1358,36 +1341,7 @@
                     </div>
                 </div>
 
-                <!-- Summary Cards -->
-                <div class="summary-cards">
-                    <div class="card">
-                        <h3>Countries Analyzed</h3>
-                        <div class="value">${data.metadata.num_countries}</div>
-                        <div class="label">from all regions</div>
-                    </div>
-                    <div class="card">
-                        <h3>Positive Correlations</h3>
-                        <div class="value positive">${data.summary.positive_correlations}</div>
-                        <div class="label">more freedom = better</div>
-                    </div>
-                    <div class="card">
-                        <h3>Negative Correlations</h3>
-                        <div class="value negative">${data.summary.negative_correlations}</div>
-                        <div class="label">more freedom = worse</div>
-                    </div>
-                    <div class="card">
-                        <h3>Indices Tested</h3>
-                        <div class="value">${data.summary.total_indices}</div>
-                        <div class="label">quality of life metrics</div>
-                    </div>
-                    <div class="card verdict-card">
-                        <h3>Overall Finding</h3>
-                        <div class="verdict ${data.summary.verdict === 'supports' ? 'positive' : data.summary.verdict === 'contradicts' ? 'negative' : 'neutral'}">
-                            ${getVerdictText(data.summary)}
-                        </div>
-                    </div>
-                </div>
-            `;
+                            `;
 
             // Initialize charts
             initScatterChart();
@@ -1875,9 +1829,7 @@
                             title: {
                                 display: true,
                                 text: 'Economic Freedom Score'
-                            },
-                            min: 0,
-                            max: 100
+                            }
                         },
                         y: {
                             title: {
@@ -1971,6 +1923,20 @@
             scatterChart.data.datasets = datasets;
             scatterChart.options.scales.y.title.text = correlation.name;
 
+            // Calculate actual data bounds with 2% padding
+            const allX = scatterData.points.map(p => p.x);
+            const allY = scatterData.points.map(p => p.y);
+            const xDataMin = Math.min(...allX);
+            const xDataMax = Math.max(...allX);
+            const yDataMin = Math.min(...allY);
+            const yDataMax = Math.max(...allY);
+            const xPadding = (xDataMax - xDataMin) * 0.07;
+            const yPadding = (yDataMax - yDataMin) * 0.07;
+            scatterChart.options.scales.x.min = xDataMin - xPadding;
+            scatterChart.options.scales.x.max = xDataMax + xPadding;
+            scatterChart.options.scales.y.min = yDataMin - yPadding;
+            scatterChart.options.scales.y.max = yDataMax + yPadding;
+
             // Update annotation for highlighted country - position dynamically
             if (highlightedPoint && isUserCountry) {
                 // Get the Y axis range to determine if point is near top
@@ -2018,16 +1984,19 @@
                 if (highlightedPoint) {
                     countryInfo = `<br><br><strong>${selectedCountry}:</strong> Economic Freedom: ${highlightedPoint.x}, ${correlation.name}: ${highlightedPoint.y}`;
                 }
+                const freedomVerdict = favorable
+                    ? '<br><br><strong style="color: var(--success);">Is freedom better? Yes.</strong>'
+                    : '<br><br><strong style="color: var(--danger);">Is freedom better? Not for this metric.</strong>';
                 interpBox.innerHTML = `
-                    <strong>Interpretation:</strong> Countries with higher economic freedom tend to have
+                    Countries with higher economic freedom tend to have
                     <strong>${direction}</strong> ${correlation.name.toLowerCase()}, which represents
-                    <strong>${outcome}</strong> outcomes. This correlation is statistically significant
-                    (r = ${correlation.correlation.toFixed(3)}, p < 0.05).${countryInfo}
+                    <strong>${outcome}</strong> outcomes (r = ${correlation.correlation.toFixed(2)}).${countryInfo}${freedomVerdict}
                 `;
             } else {
                 interpBox.innerHTML = `
-                    <strong>Interpretation:</strong> No statistically significant relationship was found
+                    No statistically significant relationship was found
                     between economic freedom and ${correlation.name.toLowerCase()}.
+                    <br><br><strong style="color: var(--text-muted);">Is freedom better? The data doesn't say.</strong>
                 `;
             }
         }
@@ -2043,12 +2012,7 @@
             // Summary cards
             let html = `
                 <div class="comparison-container">
-                    <div class="comparison-header">
-                        <span class="comparison-metric">Quality of Life Metric</span>
-                        <span class="comparison-bar-col" style="text-align: center;">Economic Freedom</span>
-                        <span class="comparison-bar-col" style="text-align: center;">Equality</span>
-                        <span class="comparison-winner">Winner</span>
-                    </div>
+                    <div class="comparison-grid">
             `;
 
             comparison.metrics.forEach(m => {
@@ -2092,9 +2056,10 @@
             });
 
             html += `
+                    </div>
                 </div>
                 <div class="comparison-conclusion">
-                    <strong>Bottom line:</strong> Economic Freedom shows stronger correlations with positive outcomes in <strong>${comparison.economic_freedom_wins} out of ${comparison.metrics.length}</strong> metrics. Turns out "a rising tide lifts all boats" might have some data behind it after all.
+                    <strong>So, is freedom better?</strong> When it comes to quality of life, economic freedom wins in <strong>${comparison.economic_freedom_wins} out of ${comparison.metrics.length}</strong> metrics. The data suggests: yes, freedom is better.
                 </div>
             `;
 
