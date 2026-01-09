@@ -813,9 +813,20 @@
             .selector-row { flex-direction: column; align-items: stretch; gap: 5px; }
             .chart-selector select { min-width: 100%; }
             .chart-wrapper { height: 300px; }
-            .correlations-table { font-size: 0.8rem; }
+            .correlations-table { font-size: 0.8rem; min-width: auto; }
             .correlations-table th, .correlations-table td { padding: 8px 6px; }
-            .correlation-bar-container { display: none; }
+            .correlations-table td:nth-child(2) {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .correlation-bar-container {
+                display: inline-flex;
+                margin-left: 0;
+                order: -1;
+            }
+            .correlation-bar { width: 80px; }
             .correlation-value { width: auto; }
             .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .card { padding: 16px; }
