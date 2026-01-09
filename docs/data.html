@@ -250,34 +250,34 @@
         nav {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 32px;
             margin-top: 25px;
         }
 
         nav a {
-            color: rgba(255,255,255,0.85);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            padding: 10px 24px;
+            padding: 8px 0;
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.2s;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.1);
+            border-bottom: 2px solid transparent;
         }
 
         nav a:hover {
             color: white;
-            background: rgba(255,255,255,0.2);
         }
 
         nav a.active {
             color: white;
-            background: rgba(255,255,255,0.25);
+            border-bottom-color: white;
         }
 
         @media (max-width: 480px) {
+            nav {
+                gap: 20px;
+            }
             nav a {
-                padding: 8px 16px;
                 font-size: 0.85rem;
             }
         }
