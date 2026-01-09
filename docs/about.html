@@ -53,33 +53,31 @@
         }
 
         nav {
-            background: #1e3a5f;
-            padding: 0;
             display: flex;
             justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            gap: 8px;
+            margin-top: 25px;
         }
 
         nav a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            padding: 14px 28px;
+            padding: 10px 24px;
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.2s;
-            border-bottom: 3px solid transparent;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.1);
         }
 
         nav a:hover {
             color: white;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.2);
         }
 
         nav a.active {
             color: white;
-            border-bottom-color: #60a5fa;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.25);
         }
 
         .card {
@@ -189,13 +187,12 @@
     <header>
         <h1>About This Project</h1>
         <p>Understanding the methodology and purpose behind this analysis</p>
+        <nav>
+            <a href="index.html">Dashboard</a>
+            <a href="data.html">Raw Data</a>
+            <a href="about.html" class="active">About</a>
+        </nav>
     </header>
-
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="data.html">Raw Data</a>
-        <a href="about.html" class="active">About</a>
-    </nav>
 
     <div class="container">
         <div class="card">
