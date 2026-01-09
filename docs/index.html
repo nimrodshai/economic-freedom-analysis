@@ -48,16 +48,11 @@
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         nav {
             display: flex;
             justify-content: center;
             gap: 32px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         nav a {
@@ -952,7 +947,6 @@
 <body>
     <header>
         <h1>Economic Freedom vs Quality of Life</h1>
-        <p>A data-driven analysis of how economic freedom correlates with societal outcomes</p>
         <nav>
             <a onclick="navigateTo(0)" class="active" data-panel="0">Dashboard</a>
             <a onclick="navigateTo(1)" data-panel="1">Raw Data</a>
@@ -1173,6 +1167,8 @@
                 `Last updated: ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
 
             content.innerHTML = `
+                <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.05rem;">We let the data settle the debate — no cherry-picking, no ideology, just numbers doing their thing.</p>
+
                 <!-- Correlations Table -->
                 <div class="section">
                     <h2>Correlation Results</h2>
