@@ -924,6 +924,14 @@
                     </div>
 
                     <div class="about-card">
+                        <h2>On Correlation and Causation</h2>
+                        <p><strong>Correlation does not imply causation</strong> — this is a fundamental principle of statistics. However, when studying complex societal phenomena like the relationship between economic systems and quality of life, establishing direct causation is practically impossible.</p>
+                        <p>Unlike laboratory experiments where we can isolate variables and test hypotheses in controlled conditions, we cannot simply "remove" geography, history, culture, natural resources, or political systems from the equation to see how economies would behave differently. We cannot run randomized controlled trials on entire nations.</p>
+                        <p>This means that <strong>correlation analysis, while imperfect, represents the best available evidence</strong> we can gather on this subject. The consistent, statistically significant correlations across multiple independent metrics and data sources provide a compelling picture — not proof, but the strongest empirical foundation currently available.</p>
+                        <p>Until someone develops a better methodology to study these complex systems, this data-driven approach offers the clearest window into how economic freedom relates to human flourishing.</p>
+                    </div>
+
+                    <div class="about-card">
                         <h2>Methodology</h2>
                         <div class="methodology-step">
                             <div class="step-number">1</div>
@@ -983,9 +991,25 @@
                         <p>For metrics where lower is better (like infant mortality), the sign is flipped in the "effective correlation" to make all positive correlations represent better outcomes.</p>
                     </div>
 
-                    <div class="disclaimer">
-                        <h3>Important Disclaimer</h3>
-                        <p><strong>Correlation does not imply causation.</strong> While this analysis shows statistical relationships between economic freedom and various outcomes, it does not prove that economic freedom directly causes these outcomes. Many confounding factors (geography, history, resources, culture) may influence both economic freedom and quality of life. This analysis is meant to inform, not to provide definitive proof of causal relationships.</p>
+                    <div class="about-card">
+                        <h2>Contact Us</h2>
+                        <p>Found a bug? Have a suggestion? Want to discuss the methodology? We'd love to hear from you.</p>
+                        <form id="contactForm" onsubmit="sendContactMessage(event)" style="margin-top: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <label for="contactName" style="display: block; margin-bottom: 5px; font-weight: 500;">Name (optional)</label>
+                                <input type="text" id="contactName" placeholder="Your name" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="contactEmail" style="display: block; margin-bottom: 5px; font-weight: 500;">Email (optional)</label>
+                                <input type="email" id="contactEmail" placeholder="your@email.com" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="contactMessage" style="display: block; margin-bottom: 5px; font-weight: 500;">Message *</label>
+                                <textarea id="contactMessage" placeholder="What's on your mind?" required rows="4" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                            </div>
+                            <button type="submit" id="contactSubmit" style="background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 500;">Send Message</button>
+                            <div id="contactStatus" style="margin-top: 15px;"></div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1080,36 +1104,6 @@
                 `Last updated: ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
 
             content.innerHTML = `
-                <!-- Summary Cards -->
-                <div class="summary-cards">
-                    <div class="card">
-                        <h3>Countries Analyzed</h3>
-                        <div class="value">${data.metadata.num_countries}</div>
-                        <div class="label">from all regions</div>
-                    </div>
-                    <div class="card">
-                        <h3>Positive Correlations</h3>
-                        <div class="value positive">${data.summary.positive_correlations}</div>
-                        <div class="label">more freedom = better</div>
-                    </div>
-                    <div class="card">
-                        <h3>Negative Correlations</h3>
-                        <div class="value negative">${data.summary.negative_correlations}</div>
-                        <div class="label">more freedom = worse</div>
-                    </div>
-                    <div class="card">
-                        <h3>Indices Tested</h3>
-                        <div class="value">${data.summary.total_indices}</div>
-                        <div class="label">quality of life metrics</div>
-                    </div>
-                    <div class="card verdict-card">
-                        <h3>Overall Finding</h3>
-                        <div class="verdict ${data.summary.verdict === 'supports' ? 'positive' : data.summary.verdict === 'contradicts' ? 'negative' : 'neutral'}">
-                            ${getVerdictText(data.summary)}
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Correlations Table -->
                 <div class="section">
                     <h2>Correlation Results</h2>
@@ -1165,8 +1159,8 @@
 
                 <!-- Economic Freedom vs Equality Comparison -->
                 <div class="section">
-                    <h2>Economic Freedom vs Equality: Which Predicts Better Outcomes?</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">Comparing correlations between quality-of-life metrics and two different measures: Economic Freedom Index (higher = more free markets) vs Gini Index inverted (lower Gini = more equality). Higher effective correlation = stronger predictor of good outcomes.</p>
+                    <h2>The Big Question: Freedom or Equality?</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Some argue that free markets lead to prosperity, others say reducing inequality is what really matters. Rather than picking sides, let's ask the data: which one actually correlates better with the outcomes we care about? Below, we compare Economic Freedom (more free markets) against the Gini Index inverted (more equality). The bars show correlation strength — longer bars mean a stronger link to good outcomes.</p>
                     <div id="comparisonSection"></div>
                 </div>
 
@@ -1185,6 +1179,36 @@
                             <li>Economic freedom indices have methodological limitations and biases.</li>
                             <li>Data availability and quality varies significantly by country.</li>
                         </ul>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Countries Analyzed</h3>
+                        <div class="value">${data.metadata.num_countries}</div>
+                        <div class="label">from all regions</div>
+                    </div>
+                    <div class="card">
+                        <h3>Positive Correlations</h3>
+                        <div class="value positive">${data.summary.positive_correlations}</div>
+                        <div class="label">more freedom = better</div>
+                    </div>
+                    <div class="card">
+                        <h3>Negative Correlations</h3>
+                        <div class="value negative">${data.summary.negative_correlations}</div>
+                        <div class="label">more freedom = worse</div>
+                    </div>
+                    <div class="card">
+                        <h3>Indices Tested</h3>
+                        <div class="value">${data.summary.total_indices}</div>
+                        <div class="label">quality of life metrics</div>
+                    </div>
+                    <div class="card verdict-card">
+                        <h3>Overall Finding</h3>
+                        <div class="verdict ${data.summary.verdict === 'supports' ? 'positive' : data.summary.verdict === 'contradicts' ? 'negative' : 'neutral'}">
+                            ${getVerdictText(data.summary)}
+                        </div>
                     </div>
                 </div>
             `;
@@ -1536,6 +1560,12 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            top: 35,
+                            right: 20
+                        }
+                    },
                     plugins: {
                         tooltip: {
                             callbacks: {
@@ -1546,6 +1576,9 @@
                         },
                         legend: {
                             display: true
+                        },
+                        annotation: {
+                            clip: false
                         }
                     },
                     scales: {
@@ -1646,9 +1679,18 @@
             scatterChart.data.datasets = datasets;
             scatterChart.options.scales.y.title.text = correlation.name;
 
-            // Update annotation for highlighted country
+            // Update annotation for highlighted country - position dynamically
             if (highlightedPoint && isUserCountry) {
+                // Get the Y axis range to determine if point is near top
+                const yScale = scatterChart.scales.y;
+                const yRange = yScale.max - yScale.min;
+                const pointYPercent = (highlightedPoint.y - yScale.min) / yRange;
+
+                // If point is in top 30% of chart, show label below; otherwise above
+                const yAdjust = pointYPercent > 0.7 ? 30 : -30;
+
                 scatterChart.options.plugins.annotation = {
+                    clip: false,
                     annotations: {
                         label1: {
                             type: 'label',
@@ -1660,7 +1702,7 @@
                             font: { size: 11, weight: 'bold' },
                             padding: { top: 4, bottom: 4, left: 8, right: 8 },
                             borderRadius: 4,
-                            yAdjust: -25
+                            yAdjust: yAdjust
                         }
                     }
                 };
@@ -1671,11 +1713,14 @@
             scatterChart.update();
 
             const interpBox = document.getElementById('chartInterpretation');
-            const favorable = (isPositive === correlation.higher_better);
+            // Effective correlation > 0 means good outcomes (already adjusted for "lower is better" metrics)
+            const favorable = correlation.effective_correlation > 0;
+            // Use raw correlation to determine if values go up or down
+            const rawCorrelationPositive = correlation.correlation > 0;
             interpBox.className = `interpretation-box ${favorable ? 'positive' : 'negative'}`;
 
             if (correlation.significant) {
-                const direction = isPositive ? 'higher' : 'lower';
+                const direction = rawCorrelationPositive ? 'higher' : 'lower';
                 const outcome = favorable ? 'better' : 'worse';
                 let countryInfo = '';
                 if (highlightedPoint) {
@@ -1705,19 +1750,6 @@
 
             // Summary cards
             let html = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                    <div class="card" style="text-align: center; border: 2px solid var(--success);">
-                        <h3>Economic Freedom</h3>
-                        <div class="value positive" style="font-size: 3rem;">${comparison.economic_freedom_wins}</div>
-                        <div class="label">metrics won</div>
-                    </div>
-                    <div class="card" style="text-align: center; border: 2px solid var(--danger);">
-                        <h3>Equality (Low Gini)</h3>
-                        <div class="value negative" style="font-size: 3rem;">${comparison.equality_wins}</div>
-                        <div class="label">metrics won</div>
-                    </div>
-                </div>
-
                 <div class="comparison-container">
                     <div class="comparison-header">
                         <span class="comparison-metric">Quality of Life Metric</span>
@@ -1770,11 +1802,66 @@
             html += `
                 </div>
                 <div class="comparison-conclusion">
-                    <strong>Conclusion:</strong> Economic Freedom is a better predictor of positive outcomes than economic equality (measured by Gini Index) for <strong>${comparison.economic_freedom_wins} out of ${comparison.metrics.length}</strong> quality-of-life metrics. Higher effective correlation values indicate stronger predictive power for good outcomes.
+                    <strong>Bottom line:</strong> Economic Freedom shows stronger correlations with positive outcomes in <strong>${comparison.economic_freedom_wins} out of ${comparison.metrics.length}</strong> metrics. Turns out "a rising tide lifts all boats" might have some data behind it after all.
                 </div>
             `;
 
             container.innerHTML = html;
+        }
+
+        // Contact form - send to Telegram
+        async function sendContactMessage(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            const statusDiv = document.getElementById('contactStatus');
+            const submitBtn = document.getElementById('contactSubmit');
+
+            if (!message) {
+                statusDiv.innerHTML = '<span style="color: var(--danger);">Please enter a message.</span>';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Format the message
+            let telegramMessage = '📬 A new message from Capitalism\n\n';
+            if (name) telegramMessage += `👤 Name: ${name}\n`;
+            if (email) telegramMessage += `📧 Email: ${email}\n`;
+            telegramMessage += `\n💬 Message:\n${message}`;
+
+            const botToken = '8338347162:AAFpBkN-tR0ZFiK4stYf4riflq7bcUEgd2M';
+            const chatId = '484630945';
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: telegramMessage,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.ok) {
+                    statusDiv.innerHTML = '<span style="color: var(--success);">Message sent successfully! Thanks for reaching out.</span>';
+                    document.getElementById('contactForm').reset();
+                } else {
+                    throw new Error(result.description || 'Failed to send message');
+                }
+            } catch (error) {
+                statusDiv.innerHTML = `<span style="color: var(--danger);">Failed to send message. Please try again later.</span>`;
+                console.error('Telegram error:', error);
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
         }
 
         // Handle hash navigation
