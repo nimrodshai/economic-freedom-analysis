@@ -522,10 +522,11 @@ class DataFetcher:
         return df
 
     def fetch_purchasing_power_index(self):
-        """Fetch Purchasing Power Index data."""
+        """Fetch Purchasing Power Index data from Numbeo 2024."""
         print("Fetching Purchasing Power Index data...")
 
-        # Purchasing Power Index (based on cost of living adjusted income)
+        # Real data from Numbeo Purchasing Power Index 2024
+        # Source: https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2024
         # Higher = more purchasing power
         data = {
             'Country': [
@@ -546,21 +547,21 @@ class DataFetcher:
                 'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
             ],
             'Purchasing_Power_Index': [
-                98.2, 118.5, 92.3, 72.8, 78.4,
-                52.6, 105.2, 85.3, 89.7, 83.2,
-                91.5, 88.7, 74.8, 82.1, 79.6,
-                106.3, 94.8, 68.5, 71.2, 78.9,
-                62.4, 38.5, 75.4, 58.2, 48.7,
-                61.3, 48.9, 55.2, 58.7, 46.8,
-                42.5, 43.8, 32.4, 28.6, 24.8,
-                26.5, 25.3, 18.2, 22.6, 16.8,
-                35.2, 19.8, 42.5, 34.2, 14.5,
-                8.5, 9.2, 12.4, 22.8, 4.2,
-                None, None, 15.8, 6.2, 18.5,
-                45.6, 32.5, 38.4, 42.8, 26.5,
-                28.6, 25.8, 18.5, 12.4, 14.2,
-                9.8, 28.5, 35.8, 62.5, 78.4,
-                95.2, 72.8, 58.6, 22.5, 18.2
+                102.99, 118.91, 81.99, 80.03, 93.01,  # Singapore, Switzerland, Ireland, Taiwan, New Zealand
+                69.05, 148.92, 103.25, 103.32, 94.56,  # Estonia, Luxembourg, Netherlands, Denmark, Sweden
+                101.05, 93.60, 90.06, 97.26, 83.26,  # Germany, Australia, UK, Finland, Canada
+                120.91, 94.95, 90.57, 99.53, 84.43,  # USA, Norway, South Korea, Japan, Austria
+                79.51, 36.39, 83.45, 78.18, 46.51,  # Israel, Chile, France, Spain, Portugal
+                62.80, 66.19, 64.91, 67.97, 55.77,  # Italy, Poland, Czech Republic, Slovenia, Slovakia
+                49.85, 42.07, 37.96, 39.32, 28.07,  # Hungary, Greece, Mexico, Turkey, Colombia
+                84.66, 30.08, 60.69, 25.76, 25.86,  # South Africa, Brazil, India, Indonesia, Philippines
+                32.94, 32.49, 60.54, 41.47, 15.23,  # Thailand, Vietnam, China, Russia, Egypt
+                9.38, 24.45, 25.81, 35.79, 12.61,  # Nigeria, Pakistan, Bangladesh, Argentina, Venezuela
+                None, None, 21.16, None, 32.23,  # Cuba, North Korea, Iran, Zimbabwe, Ukraine
+                62.14, None, 47.01, 34.65, None,  # Malaysia, Costa Rica, Uruguay, Panama, Jamaica
+                27.30, None, 30.37, 30.61, None,  # Peru, Dominican Republic, Morocco, Kenya, Ghana
+                None, None, None, 105.11, 98.70,  # Rwanda, Botswana, Mauritius, Saudi Arabia, UAE
+                127.40, 128.52, None, 36.37, None  # Qatar, Kuwait, Bahrain, Jordan, Tunisia
             ]
         }
 
@@ -569,47 +570,64 @@ class DataFetcher:
         return df
 
     def fetch_military_strength_index(self):
-        """Fetch Military Strength Index data (Global Firepower)."""
+        """Fetch Military Strength Index data from Global Firepower 2025."""
         print("Fetching Military Strength Index data...")
 
-        # Global Firepower Index 2024 (inverted: higher = stronger military)
-        # Original GFP uses lower = stronger, so we invert it
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Military_Strength_Index': [
-                52.4, 42.8, 18.5, 68.5, 28.4,
-                35.2, 15.8, 48.6, 38.5, 45.2,
-                72.5, 58.4, 78.2, 52.8, 55.6,
-                98.5, 42.5, 82.4, 75.8, 38.5,
-                68.2, 48.5, 82.8, 62.5, 42.8,
-                68.5, 65.8, 52.4, 35.2, 38.5,
-                42.5, 55.2, 52.8, 75.5, 45.8,
-                52.5, 72.8, 88.5, 65.8, 48.2,
-                58.5, 62.4, 95.8, 92.5, 72.5,
-                48.5, 78.2, 52.5, 45.8, 42.5,
-                38.5, 72.8, 75.2, 28.5, 65.8,
-                52.5, 8.5, 32.5, 18.5, 12.5,
-                42.8, 28.5, 55.2, 35.8, 32.5,
-                28.5, 32.8, 18.5, 72.8, 58.5,
-                45.2, 48.5, 35.8, 42.5, 38.5
-            ]
+        # Real data from Global Firepower 2025
+        # Source: https://www.globalfirepower.com/countries-listing.php
+        # PowerIndex score - LOWER = STRONGER military
+        # Converting to 0-100 scale where HIGHER = STRONGER for consistency
+        # Formula: 100 * (1 - PowerIndex/4) capped at 0-100
+        raw_scores = {
+            'Singapore': 0.5271, 'Switzerland': 0.7869, 'Ireland': 2.1103, 'Taiwan': 0.3988, 'New Zealand': 1.9039,
+            'Estonia': 2.2917, 'Luxembourg': 2.6415, 'Netherlands': 0.6412, 'Denmark': 0.8109, 'Sweden': 0.4835,
+            'Germany': 0.2601, 'Australia': 0.3298, 'United Kingdom': 0.1785, 'Finland': 0.8437, 'Canada': 0.5179,
+            'United States': 0.0744, 'Norway': 0.6811, 'South Korea': 0.1656, 'Japan': 0.1839, 'Austria': 1.3704,
+            'Israel': 0.2661, 'Chile': 0.8361, 'France': 0.1878, 'Spain': 0.3242, 'Portugal': 0.6856,
+            'Italy': 0.2164, 'Poland': 0.3776, 'Czech Republic': 0.9994, 'Slovenia': 2.1016, 'Slovakia': 1.3978,
+            'Hungary': 1.0259, 'Greece': 0.5337, 'Mexico': 0.5965, 'Turkey': 0.1902, 'Colombia': 0.8353,
+            'South Africa': 0.6889, 'Brazil': 0.2415, 'India': 0.1184, 'Indonesia': 0.2557, 'Philippines': 0.6987,
+            'Thailand': 0.4536, 'Vietnam': 0.4024, 'China': 0.0788, 'Russia': 0.0788, 'Egypt': 0.3427,
+            'Nigeria': 0.5771, 'Pakistan': 0.2513, 'Bangladesh': 0.6062, 'Argentina': 0.6013, 'Venezuela': 0.8882,
+            'Cuba': 1.3286, 'North Korea': 0.6016, 'Iran': 0.3048, 'Zimbabwe': 2.3863, 'Ukraine': 0.3755,
+            'Malaysia': 0.7429, 'Peru': 0.8588, 'Morocco': 1.1273, 'Kenya': 1.8135,
+            'Saudi Arabia': 0.4201, 'UAE': 1.0186, 'Qatar': 1.4307, 'Kuwait': 1.6982, 'Bahrain': 1.7448,
+            'Jordan': 1.6139, 'Tunisia': 1.9538
         }
+
+        # Convert to 0-100 scale (higher = stronger)
+        data = {
+            'Country': [],
+            'Military_Strength_Index': []
+        }
+
+        countries = [
+            'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
+            'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
+            'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
+            'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
+            'Israel', 'Chile', 'France', 'Spain', 'Portugal',
+            'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
+            'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
+            'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
+            'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
+            'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
+            'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
+            'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
+            'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
+            'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
+            'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
+        ]
+
+        for country in countries:
+            data['Country'].append(country)
+            if country in raw_scores:
+                # Convert: lower PowerIndex = stronger, so invert
+                # Score of 0.07 (USA) -> ~98, Score of 2.5 -> ~37
+                converted = max(0, min(100, 100 * (1 - raw_scores[country] / 3)))
+                data['Military_Strength_Index'].append(round(converted, 1))
+            else:
+                data['Military_Strength_Index'].append(None)
 
         df = pd.DataFrame(data)
         df.to_csv(f"{self.cache_dir}/military_strength_index.csv", index=False)
