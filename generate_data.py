@@ -45,6 +45,7 @@ def generate_web_data(output_dir="docs"):
     peace = fetcher.fetch_peace_index()
     democracy = fetcher.fetch_democracy_index()
     social_mobility = fetcher.fetch_social_mobility_index()
+    gini = fetcher.fetch_gini_index()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -57,7 +58,8 @@ def generate_web_data(output_dir="docs"):
         (happiness, 'Country'),
         (peace, 'Country'),
         (democracy, 'Country'),
-        (social_mobility, 'Country')
+        (social_mobility, 'Country'),
+        (gini, 'Country')
     ]
 
     for df, key in datasets:
@@ -179,14 +181,80 @@ def generate_web_data(output_dir="docs"):
         "verdict": "supports" if sig_positive > sig_negative else ("contradicts" if sig_negative > sig_positive else "mixed")
     }
 
-    # Calculate correlation matrix
-    numeric_cols = ['Economic_Freedom_Score'] + list(indices_config.keys())
-    available_cols = [col for col in numeric_cols if col in merged.columns]
-    corr_matrix = merged[available_cols].corr()
+    # Calculate comparison: Economic Freedom vs Gini Index correlations
+    # For Gini, lower is better (less inequality), so we invert the correlation for comparison
+    comparison_indices = [
+        ('GDP_Per_Capita', 'GDP per Capita', True),
+        ('Life_Expectancy', 'Life Expectancy', True),
+        ('Infant_Mortality', 'Infant Mortality', False),
+        ('Corruption_Score', 'Anti-Corruption', True),
+        ('HDI', 'Human Development Index', True),
+        ('Happiness_Score', 'Happiness', True),
+        ('Peace_Score', 'Peace', True),
+        ('Democracy_Score', 'Democracy', True),
+        ('Social_Mobility_Score', 'Social Mobility', True)
+    ]
 
-    output_data["correlation_matrix"] = {
-        "columns": available_cols,
-        "values": corr_matrix.values.tolist()
+    comparison_data = []
+    ef_wins = 0
+    gini_wins = 0
+
+    for col, display_name, higher_better in comparison_indices:
+        if col in merged.columns and 'Gini_Index' in merged.columns:
+            # Economic Freedom correlation
+            ef_valid = merged[['Economic_Freedom_Score', col]].dropna()
+            if len(ef_valid) > 10:
+                ef_corr, ef_p = stats.pearsonr(ef_valid['Economic_Freedom_Score'], ef_valid[col])
+                ef_effective = ef_corr if higher_better else -ef_corr
+            else:
+                ef_corr, ef_p, ef_effective = None, None, None
+
+            # Gini correlation (inverted since lower Gini = better)
+            gini_valid = merged[['Gini_Index', col]].dropna()
+            if len(gini_valid) > 10:
+                gini_corr, gini_p = stats.pearsonr(gini_valid['Gini_Index'], gini_valid[col])
+                # For Gini, negative correlation with good outcomes = good (less inequality = better outcomes)
+                # So we negate it to make positive = good for comparison
+                gini_effective = -gini_corr if higher_better else gini_corr
+            else:
+                gini_corr, gini_p, gini_effective = None, None, None
+
+            # Determine winner
+            winner = None
+            if ef_effective is not None and gini_effective is not None:
+                if ef_effective > gini_effective:
+                    winner = "economic_freedom"
+                    ef_wins += 1
+                elif gini_effective > ef_effective:
+                    winner = "equality"
+                    gini_wins += 1
+                else:
+                    winner = "tie"
+
+            comparison_data.append({
+                "metric": display_name,
+                "metric_id": col,
+                "economic_freedom": {
+                    "correlation": round(ef_corr, 4) if ef_corr is not None else None,
+                    "effective": round(ef_effective, 4) if ef_effective is not None else None,
+                    "p_value": ef_p if ef_p is not None else None,
+                    "significant": ef_p < 0.05 if ef_p is not None else False,
+                    "n": len(ef_valid) if ef_corr is not None else 0
+                },
+                "equality": {
+                    "correlation": round(gini_corr, 4) if gini_corr is not None else None,
+                    "effective": round(gini_effective, 4) if gini_effective is not None else None,
+                    "p_value": gini_p if gini_p is not None else None,
+                    "significant": gini_p < 0.05 if gini_p is not None else False,
+                    "n": len(gini_valid) if gini_corr is not None else 0
+                },
+                "winner": winner
+            })
+
+    output_data["comparison"] = {
+        "economic_freedom_wins": ef_wins,
+        "equality_wins": gini_wins,
+        "metrics": comparison_data
     }
 
     # Write JSON file

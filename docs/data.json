@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-09T10:42:09.574369Z",
+    "generated_at": "2026-01-09T11:21:21.402008Z",
     "num_countries": 75,
     "data_sources": [
       {
@@ -4477,140 +4477,181 @@
     "total_indices": 9,
     "verdict": "supports"
   },
-  "correlation_matrix": {
-    "columns": [
-      "Economic_Freedom_Score",
-      "GDP_Per_Capita",
-      "Life_Expectancy",
-      "Infant_Mortality",
-      "Corruption_Score",
-      "HDI",
-      "Happiness_Score",
-      "Peace_Score",
-      "Democracy_Score",
-      "Social_Mobility_Score"
-    ],
-    "values": [
-      [
-        1.0,
-        0.7203712712409426,
-        0.5750534420850278,
-        -0.509123771626443,
-        0.7966882965534746,
-        0.6321042311133062,
-        0.6758083214636369,
-        0.666396478008385,
-        0.7530008159844025,
-        0.7841518679460212
-      ],
-      [
-        0.7203712712409426,
-        1.0,
-        0.6589683706926192,
-        -0.5486665695836594,
-        0.7863451360151759,
-        0.7444200302026288,
-        0.7076188434782279,
-        0.5258866590609668,
-        0.48229951080755157,
-        0.7434991657256046
-      ],
-      [
-        0.5750534420850278,
-        0.6589683706926192,
-        1.0,
-        -0.9036720090175732,
-        0.6978597067918663,
-        0.9022059626552226,
-        0.7809114647367976,
-        0.6586409238311186,
-        0.5042950497824357,
-        0.8251280590861405
-      ],
-      [
-        -0.509123771626443,
-        -0.5486665695836594,
-        -0.9036720090175732,
-        1.0,
-        -0.6323293343759382,
-        -0.8851393433868189,
-        -0.7616383764942785,
-        -0.5834653032992392,
-        -0.4719921310774727,
-        -0.7918517946973811
-      ],
-      [
-        0.7966882965534746,
-        0.7863451360151759,
-        0.6978597067918663,
-        -0.6323293343759382,
-        1.0,
-        0.7730062815961763,
-        0.7446057528863335,
-        0.7288325100049233,
-        0.7320632055104296,
-        0.8665820581077099
-      ],
-      [
-        0.6321042311133062,
-        0.7444200302026288,
-        0.9022059626552226,
-        -0.8851393433868189,
-        0.7730062815961763,
-        1.0,
-        0.86050835251833,
-        0.6244523997962035,
-        0.5887131956886107,
-        0.9103442897216631
-      ],
-      [
-        0.6758083214636369,
-        0.7076188434782279,
-        0.7809114647367976,
-        -0.7616383764942785,
-        0.7446057528863335,
-        0.86050835251833,
-        1.0,
-        0.5701939402585999,
-        0.6208167225067928,
-        0.8463682981651501
-      ],
-      [
-        0.666396478008385,
-        0.5258866590609668,
-        0.6586409238311186,
-        -0.5834653032992392,
-        0.7288325100049233,
-        0.6244523997962035,
-        0.5701939402585999,
-        1.0,
-        0.6118191275180926,
-        0.6817299978878998
-      ],
-      [
-        0.7530008159844025,
-        0.48229951080755157,
-        0.5042950497824357,
-        -0.4719921310774727,
-        0.7320632055104296,
-        0.5887131956886107,
-        0.6208167225067928,
-        0.6118191275180926,
-        1.0,
-        0.725240275047246
-      ],
-      [
-        0.7841518679460212,
-        0.7434991657256046,
-        0.8251280590861405,
-        -0.7918517946973811,
-        0.8665820581077099,
-        0.9103442897216631,
-        0.8463682981651501,
-        0.6817299978878998,
-        0.725240275047246,
-        1.0
-      ]
+  "comparison": {
+    "economic_freedom_wins": 9,
+    "equality_wins": 0,
+    "metrics": [
+      {
+        "metric": "GDP per Capita",
+        "metric_id": "GDP_Per_Capita",
+        "economic_freedom": {
+          "correlation": 0.7204,
+          "effective": 0.7204,
+          "p_value": 4.1052824044477894e-11,
+          "significant": true,
+          "n": 62
+        },
+        "equality": {
+          "correlation": -0.3829,
+          "effective": 0.3829,
+          "p_value": 0.003008167870635991,
+          "significant": true,
+          "n": 58
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Life Expectancy",
+        "metric_id": "Life_Expectancy",
+        "economic_freedom": {
+          "correlation": 0.5751,
+          "effective": 0.5751,
+          "p_value": 8.250564661688929e-07,
+          "significant": true,
+          "n": 63
+        },
+        "equality": {
+          "correlation": -0.4271,
+          "effective": 0.4271,
+          "p_value": 0.0008281123373514028,
+          "significant": true,
+          "n": 58
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Infant Mortality",
+        "metric_id": "Infant_Mortality",
+        "economic_freedom": {
+          "correlation": -0.5091,
+          "effective": 0.5091,
+          "p_value": 2.0348150715003973e-05,
+          "significant": true,
+          "n": 63
+        },
+        "equality": {
+          "correlation": 0.3606,
+          "effective": 0.3606,
+          "p_value": 0.005427430336192978,
+          "significant": true,
+          "n": 58
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Anti-Corruption",
+        "metric_id": "Corruption_Score",
+        "economic_freedom": {
+          "correlation": 0.7967,
+          "effective": 0.7967,
+          "p_value": 1.2601202250662896e-17,
+          "significant": true,
+          "n": 75
+        },
+        "equality": {
+          "correlation": -0.4015,
+          "effective": 0.4015,
+          "p_value": 0.0006269924389111374,
+          "significant": true,
+          "n": 69
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Human Development Index",
+        "metric_id": "HDI",
+        "economic_freedom": {
+          "correlation": 0.6321,
+          "effective": 0.6321,
+          "p_value": 1.1856077468433294e-09,
+          "significant": true,
+          "n": 75
+        },
+        "equality": {
+          "correlation": -0.441,
+          "effective": 0.441,
+          "p_value": 0.0001489469751373147,
+          "significant": true,
+          "n": 69
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Happiness",
+        "metric_id": "Happiness_Score",
+        "economic_freedom": {
+          "correlation": 0.6758,
+          "effective": 0.6758,
+          "p_value": 3.946006624927484e-11,
+          "significant": true,
+          "n": 74
+        },
+        "equality": {
+          "correlation": -0.3437,
+          "effective": 0.3437,
+          "p_value": 0.003830504169165847,
+          "significant": true,
+          "n": 69
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Peace",
+        "metric_id": "Peace_Score",
+        "economic_freedom": {
+          "correlation": 0.6664,
+          "effective": 0.6664,
+          "p_value": 6.775004687998502e-11,
+          "significant": true,
+          "n": 75
+        },
+        "equality": {
+          "correlation": -0.3664,
+          "effective": 0.3664,
+          "p_value": 0.0019619238312360444,
+          "significant": true,
+          "n": 69
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Democracy",
+        "metric_id": "Democracy_Score",
+        "economic_freedom": {
+          "correlation": 0.753,
+          "effective": 0.753,
+          "p_value": 6.593438398759317e-15,
+          "significant": true,
+          "n": 75
+        },
+        "equality": {
+          "correlation": -0.2539,
+          "effective": 0.2539,
+          "p_value": 0.03528005726847827,
+          "significant": true,
+          "n": 69
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Social Mobility",
+        "metric_id": "Social_Mobility_Score",
+        "economic_freedom": {
+          "correlation": 0.7842,
+          "effective": 0.7842,
+          "p_value": 3.758742273720077e-16,
+          "significant": true,
+          "n": 72
+        },
+        "equality": {
+          "correlation": -0.53,
+          "effective": 0.53,
+          "p_value": 3.349476075879181e-06,
+          "significant": true,
+          "n": 68
+        },
+        "winner": "economic_freedom"
+      }
     ]
   }
 }

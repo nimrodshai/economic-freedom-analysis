@@ -310,6 +310,21 @@
 
         .chart-selector {
             margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .selector-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .selector-row label {
+            font-weight: 500;
+            white-space: nowrap;
         }
 
         .chart-selector select {
@@ -319,7 +334,7 @@
             border-radius: 8px;
             background: var(--card-bg);
             cursor: pointer;
-            min-width: 300px;
+            min-width: 200px;
         }
 
         /* Data sources */
@@ -716,12 +731,86 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Comparison section styles */
+        .comparison-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .comparison-row {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-metric { flex: 1.5; }
+        .comparison-bar-col { flex: 1; padding: 0 10px; }
+        .comparison-winner { flex: 0.5; text-align: center; }
+
+        .comparison-bar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comparison-bar-track {
+            flex: 1;
+            height: 24px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .comparison-bar-fill-green {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            border-radius: 4px;
+        }
+
+        .comparison-bar-fill-red {
+            height: 100%;
+            background: linear-gradient(90deg, #f87171, #dc2626);
+            border-radius: 4px;
+        }
+
+        .comparison-value {
+            font-family: monospace;
+            font-weight: 600;
+            min-width: 50px;
+        }
+
+        .comparison-conclusion {
+            margin-top: 20px;
+            padding: 16px;
+            background: #dcfce7;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+        }
+
         @media (max-width: 768px) {
             header { padding: 30px 15px; }
             header h1 { font-size: 1.6rem; }
             header p { font-size: 0.95rem; }
             .container { padding: 15px; }
             .charts-grid { grid-template-columns: 1fr; }
+            .chart-selector { flex-direction: column; align-items: stretch; }
+            .selector-row { flex-direction: column; align-items: stretch; gap: 5px; }
             .chart-selector select { min-width: 100%; }
             .chart-wrapper { height: 300px; }
             .correlations-table { font-size: 0.8rem; }
@@ -751,6 +840,38 @@
             .about-card { padding: 20px; }
             .methodology-step { flex-direction: column; gap: 10px; }
             .section h2 { font-size: 1.25rem; }
+            /* Comparison section mobile styles */
+            .comparison-header { display: none; }
+            .comparison-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 16px;
+            }
+            .comparison-metric {
+                font-size: 0.95rem;
+                padding-bottom: 8px;
+                border-bottom: 1px solid var(--border);
+            }
+            .comparison-bar-col {
+                padding: 0;
+            }
+            .comparison-bar-col::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                margin-bottom: 4px;
+            }
+            .comparison-winner {
+                text-align: left;
+                padding-top: 8px;
+            }
+            .comparison-winner::before {
+                content: "Winner: ";
+                font-weight: normal;
+                color: var(--text-muted);
+            }
         }
 
         @media (max-width: 480px) {
@@ -880,6 +1001,33 @@
         let allData = [];
         let sortColumn = 'economic_freedom';
         let sortDirection = 'desc';
+        let userCountry = null;
+        let isUserCountry = false;
+
+        // Detect user's country via IP geolocation
+        async function detectUserCountry() {
+            try {
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                if (data.country_name) {
+                    userCountry = data.country_name;
+                    // Set the country selector if it exists and country is in our data
+                    const countrySelect = document.getElementById('countrySelect');
+                    if (countrySelect) {
+                        const option = Array.from(countrySelect.options).find(
+                            opt => opt.value.toLowerCase() === userCountry.toLowerCase()
+                        );
+                        if (option) {
+                            countrySelect.value = option.value;
+                            isUserCountry = true;
+                            updateChart();
+                        }
+                    }
+                }
+            } catch (error) {
+                console.log('Could not detect country:', error);
+            }
+        }
 
         // Navigation
         function navigateTo(panelIndex) {
@@ -909,6 +1057,8 @@
                 allData = data.countries;
                 renderDashboard(data);
                 renderDataPanel(data);
+                // Detect user country after charts are initialized
+                detectUserCountry();
             } catch (error) {
                 document.getElementById('dashboardContent').innerHTML = `
                     <div class="card" style="text-align: center; color: var(--danger);">
@@ -985,12 +1135,25 @@
                 <div class="section">
                     <h2>Interactive Scatter Plots</h2>
                     <div class="chart-selector">
-                        <label for="indexSelect">Select Index: </label>
-                        <select id="indexSelect" onchange="updateChart()">
-                            ${data.correlations.map(c =>
-                                `<option value="${c.id}">${c.name}</option>`
-                            ).join('')}
-                        </select>
+                        <div class="selector-row">
+                            <label for="indexSelect">Select Index: </label>
+                            <select id="indexSelect" onchange="updateChart()">
+                                ${data.correlations.map(c =>
+                                    `<option value="${c.id}">${c.name}</option>`
+                                ).join('')}
+                            </select>
+                        </div>
+                        <div class="selector-row">
+                            <label for="countrySelect">Highlight Country: </label>
+                            <select id="countrySelect" onchange="updateChart()">
+                                <option value="">None</option>
+                                ${data.countries
+                                    .filter(c => c.economic_freedom)
+                                    .sort((a, b) => a.name.localeCompare(b.name))
+                                    .map(c => `<option value="${c.name}">${c.name}</option>`)
+                                    .join('')}
+                            </select>
+                        </div>
                     </div>
                     <div class="chart-container">
                         <div class="chart-wrapper">
@@ -1000,27 +1163,11 @@
                     </div>
                 </div>
 
-                <!-- Correlation Matrix -->
+                <!-- Economic Freedom vs Equality Comparison -->
                 <div class="section">
-                    <h2>Correlation Matrix</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">How all indices correlate with each other. Green = positive correlation, Red = negative correlation. Darker colors = stronger correlation.</p>
-                    <div class="chart-container" style="overflow-x: auto;">
-                        <div id="heatmapTable"></div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 20px; margin-top: 15px; justify-content: center; flex-wrap: wrap;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 20px; height: 20px; background: #dc2626; border-radius: 4px;"></div>
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">Strong negative (-1)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 20px; height: 20px; background: #fef9c3; border-radius: 4px; border: 1px solid #e2e8f0;"></div>
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">No correlation (0)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <div style="width: 20px; height: 20px; background: #166534; border-radius: 4px;"></div>
-                            <span style="font-size: 0.85rem; color: var(--text-muted);">Strong positive (+1)</span>
-                        </div>
-                    </div>
+                    <h2>Economic Freedom vs Equality: Which Predicts Better Outcomes?</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Comparing correlations between quality-of-life metrics and two different measures: Economic Freedom Index (higher = more free markets) vs Gini Index inverted (lower Gini = more equality). Higher effective correlation = stronger predictor of good outcomes.</p>
+                    <div id="comparisonSection"></div>
                 </div>
 
                 <!-- Data Sources -->
@@ -1044,7 +1191,7 @@
 
             // Initialize charts
             initScatterChart();
-            initHeatmap();
+            renderComparison();
         }
 
         function renderDataPanel(data) {
@@ -1424,13 +1571,22 @@
 
         function updateChart() {
             const select = document.getElementById('indexSelect');
+            const countrySelect = document.getElementById('countrySelect');
             const selectedId = select.value;
+            const selectedCountry = countrySelect ? countrySelect.value : '';
             const data = window.analysisData;
 
             const scatterData = data.scatter_data[selectedId];
             const correlation = data.correlations.find(c => c.id === selectedId);
 
             if (!scatterData || !correlation) return;
+
+            // Check if user manually changed the country (no longer auto-detected)
+            if (selectedCountry && userCountry && selectedCountry.toLowerCase() !== userCountry.toLowerCase()) {
+                isUserCountry = false;
+            } else if (selectedCountry && userCountry && selectedCountry.toLowerCase() === userCountry.toLowerCase()) {
+                isUserCountry = true;
+            }
 
             const trendPoints = [];
             const slope = scatterData.trend_line.slope;
@@ -1444,10 +1600,18 @@
             const isPositive = correlation.effective_correlation > 0;
             const pointColor = isPositive ? 'rgba(22, 163, 74, 0.6)' : 'rgba(220, 38, 38, 0.6)';
 
-            scatterChart.data.datasets = [
+            // Separate highlighted country from others
+            const highlightedPoint = selectedCountry
+                ? scatterData.points.find(p => p.country.toLowerCase() === selectedCountry.toLowerCase())
+                : null;
+            const otherPoints = selectedCountry
+                ? scatterData.points.filter(p => p.country.toLowerCase() !== selectedCountry.toLowerCase())
+                : scatterData.points;
+
+            const datasets = [
                 {
                     label: 'Countries',
-                    data: scatterData.points,
+                    data: otherPoints,
                     backgroundColor: pointColor,
                     pointRadius: 6,
                     pointHoverRadius: 8
@@ -1464,7 +1628,46 @@
                 }
             ];
 
+            // Add highlighted country as separate dataset
+            if (highlightedPoint) {
+                const labelText = isUserCountry ? `${selectedCountry} (You're here)` : selectedCountry;
+                datasets.push({
+                    label: labelText,
+                    data: [highlightedPoint],
+                    backgroundColor: 'rgba(37, 99, 235, 1)',
+                    borderColor: 'rgba(30, 64, 175, 1)',
+                    borderWidth: 2,
+                    pointRadius: 10,
+                    pointHoverRadius: 12,
+                    pointStyle: 'circle'
+                });
+            }
+
+            scatterChart.data.datasets = datasets;
             scatterChart.options.scales.y.title.text = correlation.name;
+
+            // Update annotation for highlighted country
+            if (highlightedPoint && isUserCountry) {
+                scatterChart.options.plugins.annotation = {
+                    annotations: {
+                        label1: {
+                            type: 'label',
+                            xValue: highlightedPoint.x,
+                            yValue: highlightedPoint.y,
+                            content: ["You're here"],
+                            backgroundColor: 'rgba(37, 99, 235, 0.9)',
+                            color: 'white',
+                            font: { size: 11, weight: 'bold' },
+                            padding: { top: 4, bottom: 4, left: 8, right: 8 },
+                            borderRadius: 4,
+                            yAdjust: -25
+                        }
+                    }
+                };
+            } else {
+                scatterChart.options.plugins.annotation = { annotations: {} };
+            }
+
             scatterChart.update();
 
             const interpBox = document.getElementById('chartInterpretation');
@@ -1474,11 +1677,15 @@
             if (correlation.significant) {
                 const direction = isPositive ? 'higher' : 'lower';
                 const outcome = favorable ? 'better' : 'worse';
+                let countryInfo = '';
+                if (highlightedPoint) {
+                    countryInfo = `<br><br><strong>${selectedCountry}:</strong> Economic Freedom: ${highlightedPoint.x}, ${correlation.name}: ${highlightedPoint.y}`;
+                }
                 interpBox.innerHTML = `
                     <strong>Interpretation:</strong> Countries with higher economic freedom tend to have
                     <strong>${direction}</strong> ${correlation.name.toLowerCase()}, which represents
                     <strong>${outcome}</strong> outcomes. This correlation is statistically significant
-                    (r = ${correlation.correlation.toFixed(3)}, p < 0.05).
+                    (r = ${correlation.correlation.toFixed(3)}, p < 0.05).${countryInfo}
                 `;
             } else {
                 interpBox.innerHTML = `
@@ -1488,60 +1695,86 @@
             }
         }
 
-        function initHeatmap() {
+        function renderComparison() {
             const data = window.analysisData;
-            const matrix = data.correlation_matrix;
+            const comparison = data.comparison;
 
-            const nameMap = {
-                'Economic_Freedom_Score': 'Economic Freedom',
-                'GDP_Per_Capita': 'GDP per Capita',
-                'Life_Expectancy': 'Life Expectancy',
-                'Corruption_Score': 'Anti-Corruption',
-                'HDI': 'HDI',
-                'Happiness_Score': 'Happiness',
-                'Peace_Score': 'Peace',
-                'Democracy_Score': 'Democracy',
-                'Infant_Mortality': 'Infant Mortality',
-                'Social_Mobility_Score': 'Social Mobility'
-            };
+            if (!comparison) return;
 
-            const labels = matrix.columns.map(c => nameMap[c] || c);
+            const container = document.getElementById('comparisonSection');
 
-            function getColor(value) {
-                if (value >= 0.7) return { bg: '#166534', text: '#ffffff' };
-                if (value >= 0.5) return { bg: '#22c55e', text: '#ffffff' };
-                if (value >= 0.3) return { bg: '#86efac', text: '#166534' };
-                if (value >= 0) return { bg: '#fef9c3', text: '#854d0e' };
-                if (value >= -0.3) return { bg: '#fecaca', text: '#991b1b' };
-                if (value >= -0.5) return { bg: '#f87171', text: '#ffffff' };
-                return { bg: '#dc2626', text: '#ffffff' };
-            }
+            // Summary cards
+            let html = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <div class="card" style="text-align: center; border: 2px solid var(--success);">
+                        <h3>Economic Freedom</h3>
+                        <div class="value positive" style="font-size: 3rem;">${comparison.economic_freedom_wins}</div>
+                        <div class="label">metrics won</div>
+                    </div>
+                    <div class="card" style="text-align: center; border: 2px solid var(--danger);">
+                        <h3>Equality (Low Gini)</h3>
+                        <div class="value negative" style="font-size: 3rem;">${comparison.equality_wins}</div>
+                        <div class="label">metrics won</div>
+                    </div>
+                </div>
 
-            let html = '<table class="heatmap-table"><thead><tr><th></th>';
+                <div class="comparison-container">
+                    <div class="comparison-header">
+                        <span class="comparison-metric">Quality of Life Metric</span>
+                        <span class="comparison-bar-col" style="text-align: center;">Economic Freedom</span>
+                        <span class="comparison-bar-col" style="text-align: center;">Equality</span>
+                        <span class="comparison-winner">Winner</span>
+                    </div>
+            `;
 
-            labels.forEach(label => {
-                html += `<th>${label}</th>`;
+            comparison.metrics.forEach(m => {
+                const efCorr = m.economic_freedom.effective;
+                const eqCorr = m.equality.effective;
+                const efWidth = Math.round(efCorr * 100);
+                const eqWidth = Math.round(eqCorr * 100);
+
+                const winnerText = m.winner === 'economic_freedom'
+                    ? '<span style="color: var(--success); font-weight: bold;">Freedom</span>'
+                    : m.winner === 'equality'
+                        ? '<span style="color: var(--danger); font-weight: bold;">Equality</span>'
+                        : '<span style="color: var(--warning);">Tie</span>';
+
+                html += `
+                    <div class="comparison-row">
+                        <div class="comparison-metric">
+                            <strong>${m.metric}</strong>
+                        </div>
+                        <div class="comparison-bar-col" data-label="Economic Freedom">
+                            <div class="comparison-bar-wrapper">
+                                <div class="comparison-bar-track">
+                                    <div class="comparison-bar-fill-green" style="width: ${efWidth}%;"></div>
+                                </div>
+                                <span class="comparison-value" style="color: var(--success);">${efCorr.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="comparison-bar-col" data-label="Equality (Gini)">
+                            <div class="comparison-bar-wrapper">
+                                <div class="comparison-bar-track">
+                                    <div class="comparison-bar-fill-red" style="width: ${eqWidth}%;"></div>
+                                </div>
+                                <span class="comparison-value" style="color: var(--danger);">${eqCorr.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <div class="comparison-winner">
+                            ${winnerText}
+                        </div>
+                    </div>
+                `;
             });
-            html += '</tr></thead><tbody>';
 
-            for (let i = 0; i < matrix.values.length; i++) {
-                html += `<tr><th class="row-header">${labels[i]}</th>`;
-                for (let j = 0; j < matrix.values[i].length; j++) {
-                    const value = matrix.values[i][j];
-                    if (!isNaN(value)) {
-                        const colors = getColor(value);
-                        const displayValue = value === 1 ? '1.00' : value.toFixed(2);
-                        html += `<td style="background-color: ${colors.bg}; color: ${colors.text};" title="${labels[i]} vs ${labels[j]}: r = ${displayValue}">${displayValue}</td>`;
-                    } else {
-                        html += '<td>-</td>';
-                    }
-                }
-                html += '</tr>';
-            }
+            html += `
+                </div>
+                <div class="comparison-conclusion">
+                    <strong>Conclusion:</strong> Economic Freedom is a better predictor of positive outcomes than economic equality (measured by Gini Index) for <strong>${comparison.economic_freedom_wins} out of ${comparison.metrics.length}</strong> quality-of-life metrics. Higher effective correlation values indicate stronger predictive power for good outcomes.
+                </div>
+            `;
 
-            html += '</tbody></table>';
-
-            document.getElementById('heatmapTable').innerHTML = html;
+            container.innerHTML = html;
         }
 
         // Handle hash navigation

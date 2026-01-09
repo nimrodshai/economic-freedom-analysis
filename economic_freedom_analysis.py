@@ -521,6 +521,53 @@ class DataFetcher:
         df.to_csv(f"{self.cache_dir}/social_mobility_index.csv", index=False)
         return df
 
+    def fetch_gini_index(self):
+        """Fetch Gini Index data (World Bank) - measure of income inequality."""
+        print("Fetching Gini Index data...")
+
+        # Gini Index data (World Bank, most recent available year per country)
+        # Scale 0-100, higher = more inequality (0 = perfect equality, 100 = perfect inequality)
+        data = {
+            'Country': [
+                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
+                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
+                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
+                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
+                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
+                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
+                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
+                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
+                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
+                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
+                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
+                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
+                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
+                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
+                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
+            ],
+            'Gini_Index': [
+                45.9, 33.1, 30.6, 33.6, 32.0,
+                30.6, 32.3, 28.4, 28.2, 28.8,
+                31.7, 34.3, 35.1, 27.3, 33.3,
+                41.5, 27.6, 31.4, 32.9, 30.5,
+                39.0, 44.9, 32.4, 34.7, 33.8,
+                35.2, 29.7, 25.3, 24.4, 23.2,
+                30.0, 34.4, 45.4, 41.9, 51.3,
+                63.0, 52.9, 35.7, 37.9, 42.3,
+                36.4, 36.8, 38.2, 36.0, 31.5,
+                35.1, 29.6, 32.4, 42.3, 44.0,
+                None, None, 42.0, 50.3, 25.6,
+                41.2, 48.2, 40.2, 49.2, 40.2,
+                41.5, 39.6, 39.5, 40.8, 43.5,
+                43.7, 53.3, 36.8, None, 32.5,
+                None, None, None, 33.7, 32.8
+            ]
+        }
+
+        df = pd.DataFrame(data)
+        df.to_csv(f"{self.cache_dir}/gini_index.csv", index=False)
+        return df
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
