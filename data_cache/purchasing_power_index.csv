@@ -1,76 +1,140 @@
 Country,Purchasing_Power_Index
-Singapore,102.99
-Switzerland,118.91
-Ireland,81.99
-Taiwan,80.03
-New Zealand,93.01
-Estonia,69.05
-Luxembourg,148.92
-Netherlands,103.25
-Denmark,103.32
-Sweden,94.56
-Germany,101.05
-Australia,93.6
-United Kingdom,90.06
-Finland,97.26
-Canada,83.26
-United States,120.91
-Norway,94.95
-South Korea,90.57
-Japan,99.53
-Austria,84.43
-Israel,79.51
-Chile,36.39
-France,83.45
-Spain,78.18
-Portugal,46.51
-Italy,62.8
-Poland,66.19
-Czech Republic,64.91
-Slovenia,67.97
-Slovakia,55.77
-Hungary,49.85
-Greece,42.07
-Mexico,37.96
-Turkey,39.32
-Colombia,28.07
-South Africa,84.66
-Brazil,30.08
-India,60.69
-Indonesia,25.76
-Philippines,25.86
-Thailand,32.94
-Vietnam,32.49
-China,60.54
-Russia,41.47
-Egypt,15.23
-Nigeria,9.38
-Pakistan,24.45
-Bangladesh,25.81
-Argentina,35.79
-Venezuela,12.61
-Cuba,
-North Korea,
-Iran,21.16
-Zimbabwe,
-Ukraine,32.23
-Malaysia,62.14
-Costa Rica,
-Uruguay,47.01
-Panama,34.65
-Jamaica,
-Peru,27.3
-Dominican Republic,
-Morocco,30.37
-Kenya,30.61
-Ghana,
-Rwanda,
-Botswana,
-Mauritius,
-Saudi Arabia,105.11
-UAE,98.7
-Qatar,127.4
-Kuwait,128.52
-Bahrain,
-Jordan,36.37
-Tunisia,
+Us Virgin Islands,72.3
+Switzerland,159.7
+Iceland,123.5
+Bahamas,58.4
+Singapore,93.8
+Hong Kong (China),101.0
+Barbados,45.9
+Norway,119.5
+Papua New Guinea,14.0
+Denmark,133.6
+Guernsey,136.6
+Israel,110.0
+United States,146.2
+Luxembourg,177.1
+Australia,135.4
+Austria,107.1
+Netherlands,129.9
+Ireland,108.9
+United Kingdom,119.9
+Puerto Rico,111.0
+Finland,124.5
+Canada,109.1
+Germany,127.1
+France,110.0
+Macao (China),103.8
+South Korea,105.0
+Belgium,116.1
+New Zealand,130.5
+Sweden,130.3
+UAE,128.3
+Italy,85.1
+Jamaica,36.4
+Costa Rica,50.9
+Cyprus,80.4
+Estonia,84.2
+Trinidad and Tobago,46.1
+Yemen,20.0
+Bahrain,117.5
+Malta,75.3
+Qatar,177.9
+Greece,59.5
+Uruguay,54.1
+Slovenia,83.6
+Japan,119.8
+Maldives,51.9
+Brunei,117.6
+Taiwan,101.2
+Lithuania,79.8
+Panama,46.3
+Spain,98.1
+Latvia,75.8
+Croatia,78.8
+Ethiopia,13.3
+Czech Republic,88.5
+Slovakia,74.0
+Saudi Arabia,146.1
+Belize,69.9
+Portugal,59.7
+Cuba,2.5
+Kuwait,174.0
+Albania,42.7
+Oman,150.3
+Armenia,37.6
+Palestine,48.9
+Botswana,63.5
+Mozambique,25.3
+Poland,91.4
+Lebanon,35.1
+Ivory Coast,13.3
+Somalia,27.7
+El Salvador,33.8
+Jordan,51.7
+Guatemala,38.6
+Hungary,70.7
+Montenegro,56.8
+Cameroon,9.7
+Serbia,57.6
+Venezuela,15.8
+Argentina,41.1
+Mauritius,49.4
+Bulgaria,74.4
+Chile,51.0
+Zimbabwe,29.6
+Turkey,51.2
+Rwanda,20.7
+Honduras,42.5
+Mexico,46.9
+Dominican Republic,31.4
+Romania,73.1
+Cambodia,26.7
+Zambia,23.0
+Thailand,46.0
+Sri Lanka,18.2
+Fiji,56.9
+Tanzania,22.1
+Bosnia and Herzegovina,63.3
+Moldova,46.3
+China,77.9
+Ghana,16.7
+Mongolia,30.8
+Georgia,39.6
+Macedonia,59.7
+Ecuador,45.6
+South Africa,111.2
+Malaysia,83.8
+Azerbaijan,41.4
+Peru,38.2
+Namibia,62.2
+Philippines,37.3
+Kenya,35.1
+Morocco,41.7
+Iraq,54.5
+Vietnam,42.3
+Kazakhstan,50.8
+Nigeria,10.6
+Uganda,16.4
+Colombia,36.0
+Kosovo (Disputed Territory),52.9
+Brazil,42.3
+Tunisia,34.7
+Kyrgyzstan,35.6
+Bolivia,43.9
+Belarus,54.7
+Indonesia,33.9
+Ukraine,46.3
+Algeria,34.5
+Uzbekistan,44.5
+Iran,28.4
+Syria,5.4
+Paraguay,41.0
+Nepal,29.0
+Russia,56.2
+Bangladesh,35.6
+Madagascar,15.0
+Afghanistan,35.0
+India,82.2
+Egypt,21.1
+Libya,51.6
+Pakistan,30.5

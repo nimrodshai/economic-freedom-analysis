@@ -6,16 +6,19 @@ This script fetches economic freedom data and correlates it with various
 quality of life indices to examine relationships between economic freedom
 and societal outcomes.
 
-Data Sources:
-- Heritage Foundation Economic Freedom Index
-- World Bank (GDP per capita, Life Expectancy)
-- Transparency International (Corruption Perceptions Index)
-- UN Human Development Index
-- World Happiness Report
-- Global Peace Index
+All data is fetched LIVE from authoritative sources:
+- Heritage Foundation Economic Freedom Index (Excel download)
+- World Bank API (GDP per capita, Life Expectancy, Infant Mortality, Gini Index)
+- Transparency International CPI (Excel download)
+- UN Human Development Index (UNDP API)
+- World Happiness Report (Excel download)
+- Democracy Index (Our World in Data)
+- Social Mobility Index (World Economic Forum)
+- Numbeo Purchasing Power Index (Web scraping)
 """
 
 import os
+import re
 import requests
 import pandas as pd
 import numpy as np
@@ -23,7 +26,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 from matplotlib.backends.backend_pdf import PdfPages
-from io import StringIO
+from io import StringIO, BytesIO
+from bs4 import BeautifulSoup
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -33,652 +37,957 @@ sns.set_palette("husl")
 
 
 class DataFetcher:
-    """Fetches data from various sources for economic and quality of life indices."""
+    """Fetches data LIVE from various authoritative sources for economic and quality of life indices."""
+
+    # Standard country name mappings for consistency across data sources
+    COUNTRY_NAME_MAP = {
+        'United States of America': 'United States',
+        'USA': 'United States',
+        'U.S.A.': 'United States',
+        'UK': 'United Kingdom',
+        'Great Britain': 'United Kingdom',
+        'Republic of Korea': 'South Korea',
+        'Korea, South': 'South Korea',
+        'Korea, Rep.': 'South Korea',
+        'Korea (Republic of)': 'South Korea',
+        'Korea, North': 'North Korea',
+        "Korea, Dem. People's Rep.": 'North Korea',
+        'Russian Federation': 'Russia',
+        'Türkiye': 'Turkey',
+        'Turkiye': 'Turkey',
+        'Czechia': 'Czech Republic',
+        'Viet Nam': 'Vietnam',
+        'Iran, Islamic Rep.': 'Iran',
+        'Iran (Islamic Republic of)': 'Iran',
+        'Egypt, Arab Rep.': 'Egypt',
+        'Venezuela, RB': 'Venezuela',
+        'Venezuela (Bolivarian Republic of)': 'Venezuela',
+        'Syrian Arab Republic': 'Syria',
+        'Hong Kong SAR, China': 'Hong Kong',
+        'Hong Kong, China (SAR)': 'Hong Kong',
+        'Taiwan, China': 'Taiwan',
+        'Taiwan Province of China': 'Taiwan',
+        'China, Taiwan Province of': 'Taiwan',
+        'Slovak Republic': 'Slovakia',
+        'Lao PDR': 'Laos',
+        "Lao People's Democratic Republic": 'Laos',
+        'Congo, Dem. Rep.': 'DR Congo',
+        'Democratic Republic of the Congo': 'DR Congo',
+        'Congo, Rep.': 'Congo',
+        "Côte d'Ivoire": 'Ivory Coast',
+        'Cote d\'Ivoire': 'Ivory Coast',
+        "Côte d\u2019Ivoire": 'Ivory Coast',  # with RIGHT SINGLE QUOTATION MARK (U+2019)
+        'Eswatini': 'Swaziland',
+        'North Macedonia': 'Macedonia',
+        'Myanmar': 'Burma',
+        'Brunei Darussalam': 'Brunei',
+        'Trinidad And Tobago': 'Trinidad and Tobago',
+        'Bosnia And Herzegovina': 'Bosnia and Herzegovina',
+        'United Arab Emirates': 'UAE',
+        # World Bank specific name formats
+        'Bahamas, The': 'Bahamas',
+        'Gambia, The': 'Gambia',
+        'Micronesia, Fed. Sts.': 'Micronesia',
+        'St. Lucia': 'Saint Lucia',
+        'St. Vincent and the Grenadines': 'Saint Vincent and the Grenadines',
+        'Sao Tome and Principe': 'Sao Tome and Principe',
+        'São Tomé and Príncipe': 'Sao Tome and Principe',
+        'Kyrgyz Republic': 'Kyrgyzstan',
+        'Yemen, Rep.': 'Yemen',
+        'West Bank and Gaza': 'Palestine',
+        'Macao SAR, China': 'Macau',
+        'Virgin Islands (U.S.)': 'US Virgin Islands',
+        'Cabo Verde': 'Cabo Verde',
+        'Republic of Congo': 'Congo',
+        'Democratic Republic of Congo': 'DR Congo',
+        # Heritage Foundation specific name formats
+        'The Bahamas': 'Bahamas',
+        'The Gambia': 'Gambia',
+        'Saint Vincent and The Grenadines': 'Saint Vincent and the Grenadines',
+    }
 
     def __init__(self, cache_dir="data_cache"):
         self.cache_dir = cache_dir
         os.makedirs(cache_dir, exist_ok=True)
+        self.session = requests.Session()
+        self.session.headers.update({
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+        })
+
+    def _normalize_country_name(self, name):
+        """Normalize country name for consistent matching across datasets."""
+        if pd.isna(name):
+            return name
+        name = str(name).strip()
+        return self.COUNTRY_NAME_MAP.get(name, name)
 
     def fetch_heritage_economic_freedom(self):
         """
         Fetch Heritage Foundation Economic Freedom Index data.
-        Uses their publicly available data.
+        Source: https://www.heritage.org/index/
+        Downloads the official Excel file.
         """
-        print("Fetching Heritage Economic Freedom Index...")
+        print("Fetching Heritage Economic Freedom Index (live)...")
 
-        # Heritage provides data in a downloadable format
-        # We'll use a recent dataset - they publish annually
-        url = "https://www.heritage.org/index/pages/all-country-scores"
+        # Try multiple URLs for the Heritage data - newest first
+        from datetime import datetime
+        current_year = datetime.now().year
+        urls = []
+        for year in range(current_year, current_year - 7, -1):
+            urls.append(f"https://static.heritage.org/index/data/{year}/{year}_indexofeconomicfreedom_data.xlsx")
+        urls.append("https://www.worldbank.org/content/dam/sites/govindicators/doc/HER.xlsx")
 
-        try:
-            # Try to fetch from Heritage API/data endpoint
-            # Note: Heritage doesn't have a public API, so we use backup data approach
-            response = requests.get(
-                "https://www.heritage.org/index/sites/default/files/2024_IndexofEconomicFreedom.xlsx",
-                timeout=30
-            )
-            if response.status_code == 200:
-                import io
-                df = pd.read_excel(io.BytesIO(response.content), sheet_name=0)
-                df.to_csv(f"{self.cache_dir}/heritage_economic_freedom.csv", index=False)
-                return df
-        except Exception as e:
-            print(f"  Could not fetch live Heritage data: {e}")
+        for url in urls:
+            try:
+                response = self.session.get(url, timeout=30)
+                if response.status_code == 200:
+                    # Try different header rows since Heritage format varies
+                    for header_row in [0, 1, 2]:
+                        try:
+                            df = pd.read_excel(BytesIO(response.content), sheet_name=0, header=header_row)
 
-        # Fallback: Use embedded 2024 data for key countries
-        print("  Using embedded Heritage Foundation data (2024)...")
-        data = self._get_heritage_embedded_data()
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/heritage_economic_freedom.csv", index=False)
-        return df
+                            # Check if first row contains 'Country' - if so, use it as header
+                            if header_row == 0 and 'Country' in df.iloc[0].values:
+                                df.columns = df.iloc[0]
+                                df = df.iloc[1:]
 
-    def _get_heritage_embedded_data(self):
-        """Embedded Heritage Economic Freedom Index 2024 data for major countries."""
-        return {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Economic_Freedom_Score': [
-                83.5, 83.2, 82.0, 80.7, 78.9,
-                78.6, 78.4, 77.8, 77.6, 77.5,
-                73.7, 73.5, 72.7, 72.6, 72.0,
-                70.1, 68.3, 72.6, 69.3, 71.2,
-                69.0, 70.1, 65.7, 65.5, 67.2,
-                63.8, 69.0, 71.9, 66.5, 67.4,
-                64.8, 57.8, 63.7, 55.2, 58.1,
-                55.7, 53.4, 52.9, 58.5, 56.3,
-                62.8, 53.7, 48.2, 52.3, 49.7,
-                54.4, 49.4, 49.8, 50.3, 24.8,
-                24.1, 2.9, 42.5, 39.5, 54.1,
-                67.3, 65.8, 68.9, 66.4, 62.4,
-                62.7, 61.5, 59.3, 53.6, 56.4,
-                63.2, 64.9, 72.1, 57.5, 70.2,
-                63.5, 62.7, 66.9, 57.4, 54.8
-            ],
-            'Region': [
-                'Asia-Pacific', 'Europe', 'Europe', 'Asia-Pacific', 'Asia-Pacific',
-                'Europe', 'Europe', 'Europe', 'Europe', 'Europe',
-                'Europe', 'Asia-Pacific', 'Europe', 'Europe', 'Americas',
-                'Americas', 'Europe', 'Asia-Pacific', 'Asia-Pacific', 'Europe',
-                'Middle East', 'Americas', 'Europe', 'Europe', 'Europe',
-                'Europe', 'Europe', 'Europe', 'Europe', 'Europe',
-                'Europe', 'Europe', 'Americas', 'Europe', 'Americas',
-                'Sub-Saharan Africa', 'Americas', 'Asia-Pacific', 'Asia-Pacific', 'Asia-Pacific',
-                'Asia-Pacific', 'Asia-Pacific', 'Asia-Pacific', 'Europe', 'Middle East',
-                'Sub-Saharan Africa', 'Asia-Pacific', 'Asia-Pacific', 'Americas', 'Americas',
-                'Americas', 'Asia-Pacific', 'Middle East', 'Sub-Saharan Africa', 'Europe',
-                'Asia-Pacific', 'Americas', 'Americas', 'Americas', 'Americas',
-                'Americas', 'Americas', 'Middle East', 'Sub-Saharan Africa', 'Sub-Saharan Africa',
-                'Sub-Saharan Africa', 'Sub-Saharan Africa', 'Sub-Saharan Africa', 'Middle East', 'Middle East',
-                'Middle East', 'Middle East', 'Middle East', 'Middle East', 'Middle East'
-            ]
-        }
+                            # Find the country and score columns
+                            country_col = None
+                            score_col = None
+                            region_col = None
+
+                            for col in df.columns:
+                                col_str = str(col).lower() if pd.notna(col) else ''
+                                if 'country' in col_str or col == 'Country':
+                                    country_col = col
+                                elif 'overall' in col_str or '2025 score' in col_str or '2024 score' in col_str:
+                                    score_col = col
+                                elif 'region' in col_str:
+                                    region_col = col
+
+                            # If no explicit score column, look for column index 1 (usually Overall Score)
+                            if country_col and not score_col:
+                                cols = df.columns.tolist()
+                                if len(cols) > 1:
+                                    # Try column after Country
+                                    idx = cols.index(country_col)
+                                    if idx + 1 < len(cols):
+                                        score_col = cols[idx + 1]
+
+                            if country_col and score_col:
+                                result = pd.DataFrame({
+                                    'Country': df[country_col].apply(self._normalize_country_name),
+                                    'Economic_Freedom_Score': pd.to_numeric(df[score_col], errors='coerce')
+                                })
+                                if region_col:
+                                    result['Region'] = df[region_col]
+
+                                result = result.dropna(subset=['Country', 'Economic_Freedom_Score'])
+                                if len(result) > 100:  # Sanity check
+                                    result.to_csv(f"{self.cache_dir}/heritage_economic_freedom.csv", index=False)
+                                    # Extract year from URL
+                                    import re
+                                    year_match = re.search(r'/(\d{4})/', url)
+                                    heritage_year = year_match.group(1) if year_match else 'latest'
+                                    print(f"  Successfully fetched {len(result)} countries from Heritage Foundation ({heritage_year})")
+                                    return result
+                        except Exception:
+                            continue
+            except Exception as e:
+                pass  # Silently try next URL
+
+        # Fallback to cached data if available
+        cache_file = f"{self.cache_dir}/heritage_economic_freedom.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Heritage data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Heritage Economic Freedom data from any source")
 
     def fetch_world_bank_data(self):
-        """Fetch World Bank indicators: GDP per capita, Life Expectancy, etc."""
-        print("Fetching World Bank data...")
+        """
+        Fetch World Bank indicators via API.
+        Source: https://data.worldbank.org/
+        Includes GDP per capita, Life Expectancy, Infant Mortality, and Gini Index.
+        """
+        print("Fetching World Bank data (live API)...")
 
         indicators = {
             'NY.GDP.PCAP.CD': 'GDP_Per_Capita',
             'SP.DYN.LE00.IN': 'Life_Expectancy',
-            'SE.ADT.LITR.ZS': 'Literacy_Rate',
             'SP.DYN.IMRT.IN': 'Infant_Mortality',
-            'SL.UEM.TOTL.ZS': 'Unemployment_Rate'
+            'SI.POV.GINI': 'Gini_Index',
         }
 
-        all_data = []
+        all_data = {}
+        from datetime import datetime
+        current_year = datetime.now().year
 
         for indicator_code, indicator_name in indicators.items():
             try:
-                url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator_code}?format=json&date=2022&per_page=300"
-                response = requests.get(url, timeout=30)
+                # Try multiple years to get most recent data (World Bank data can lag several years)
+                for year in range(current_year, current_year - 7, -1):
+                    url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator_code}?format=json&date={year}&per_page=300"
+                    response = self.session.get(url, timeout=30)
+
+                    if response.status_code == 200:
+                        data = response.json()
+                        if len(data) > 1 and data[1]:
+                            for item in data[1]:
+                                if item['value'] is not None:
+                                    country = self._normalize_country_name(item['country']['value'])
+                                    if country not in all_data:
+                                        all_data[country] = {'Country': country}
+                                    if indicator_name not in all_data[country]:
+                                        all_data[country][indicator_name] = item['value']
+
+                print(f"  {indicator_name}: {sum(1 for c in all_data.values() if indicator_name in c)} countries")
+
+            except Exception as e:
+                print(f"  Error fetching {indicator_name}: {e}")
+
+        if all_data:
+            df = pd.DataFrame(list(all_data.values()))
+            # Filter out regional aggregates by explicit list (more reliable than pattern matching)
+            exclude_aggregates = {
+                'Africa Eastern and Southern', 'Africa Western and Central', 'Arab World',
+                'Caribbean small states', 'Central Europe and the Baltics', 'Early-demographic dividend',
+                'East Asia & Pacific', 'East Asia & Pacific (IDA & IBRD countries)',
+                'East Asia & Pacific (excluding high income)', 'Euro area', 'Europe & Central Asia',
+                'Europe & Central Asia (IDA & IBRD countries)', 'Europe & Central Asia (excluding high income)',
+                'European Union', 'Fragile and conflict affected situations', 'Heavily indebted poor countries (HIPC)',
+                'High income', 'IBRD only', 'IDA & IBRD total', 'IDA blend', 'IDA only', 'IDA total',
+                'Late-demographic dividend', 'Latin America & Caribbean',
+                'Latin America & Caribbean (excluding high income)', 'Latin America & the Caribbean (IDA & IBRD countries)',
+                'Least developed countries: UN classification', 'Low & middle income', 'Low income',
+                'Lower middle income', 'Middle East & North Africa', 'Middle East & North Africa (IDA & IBRD countries)',
+                'Middle East & North Africa (excluding high income)', 'Middle income', 'North America',
+                'Not classified', 'OECD members', 'Other small states', 'Pacific island small states',
+                'Post-demographic dividend', 'Pre-demographic dividend', 'Small states', 'South Asia',
+                'South Asia (IDA & IBRD)', 'Sub-Saharan Africa', 'Sub-Saharan Africa (IDA & IBRD countries)',
+                'Sub-Saharan Africa (excluding high income)', 'Upper middle income', 'World'
+            }
+            mask = ~df['Country'].isin(exclude_aggregates)
+            df = df[mask]
+            df.to_csv(f"{self.cache_dir}/world_bank_data.csv", index=False)
+            print(f"  Total: {len(df)} countries with World Bank data")
+            return df
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/world_bank_data.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached World Bank data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch World Bank data")
+
+    def fetch_corruption_index(self):
+        """
+        Fetch Transparency International Corruption Perceptions Index.
+        Source: https://www.transparency.org/en/cpi/
+        Downloads the official Excel file.
+        """
+        print("Fetching Corruption Perceptions Index (live)...")
+
+        # Try to download the official Excel file - newest first, fallback to older
+        from datetime import datetime
+        current_year = datetime.now().year
+        urls = []
+        for year in range(current_year, current_year - 7, -1):
+            urls.extend([
+                f"https://images.transparencycdn.org/images/CPI{year}_Global_Results_Trends.xlsx",
+                f"https://files.transparencycdn.org/images/CPI{year}_Global_Results_Trends.xlsx",
+                f"https://files.transparencycdn.org/images/CPI{year}_Global_Results__Trends.xlsx",
+            ])
+
+        for url in urls:
+            try:
+                response = self.session.get(url, timeout=30)
+                if response.status_code == 200:
+                    # CPI Excel files have complex header structure:
+                    # Row 0: Title, Row 1-2: Empty, Row 3: Headers (Country / Territory, CPI score, etc.)
+                    df = pd.read_excel(BytesIO(response.content), sheet_name=0, header=3)
+
+                    # Find the country and score columns
+                    country_col = None
+                    score_col = None
+
+                    for col in df.columns:
+                        col_str = str(col).lower() if pd.notna(col) else ''
+                        # Match "Country / Territory" specifically (first column)
+                        if country_col is None and (col_str.startswith('country') or col_str == 'country / territory'):
+                            country_col = col
+                        elif score_col is None and 'cpi score' in col_str:
+                            score_col = col
+
+                    if country_col and score_col:
+                        result = pd.DataFrame({
+                            'Country': df[country_col].apply(self._normalize_country_name),
+                            'Corruption_Score': pd.to_numeric(df[score_col], errors='coerce')
+                        })
+                        result = result.dropna(subset=['Country', 'Corruption_Score'])
+                        if len(result) > 100:
+                            result.to_csv(f"{self.cache_dir}/corruption_index.csv", index=False)
+                            # Extract year from URL
+                            import re
+                            year_match = re.search(r'CPI(\d{4})', url)
+                            year = year_match.group(1) if year_match else 'unknown'
+                            print(f"  Successfully fetched {len(result)} countries from Transparency International ({year})")
+                            return result
+
+            except Exception as e:
+                pass  # Silently try next URL
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/corruption_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached CPI data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Corruption Perceptions Index data")
+
+    def fetch_human_development_index(self):
+        """
+        Fetch UN Human Development Index data.
+        Source: https://hdr.undp.org/data-center/
+        Downloads from UNDP data center.
+        """
+        print("Fetching Human Development Index (live)...")
+
+        # Try UNDP data API/download
+        urls = [
+            "https://hdr.undp.org/sites/default/files/2023-24_HDR/HDR23-24_Composite_indices_complete_time_series.csv",
+            "https://hdr.undp.org/sites/default/files/2021-22_HDR/HDR21-22_Composite_indices_complete_time_series.csv",
+        ]
+
+        for url in urls:
+            try:
+                response = self.session.get(url, timeout=30)
+                if response.status_code == 200:
+                    df = pd.read_csv(StringIO(response.text))
+
+                    # Find the country and HDI columns
+                    country_col = None
+                    hdi_col = None
+
+                    for col in df.columns:
+                        col_lower = str(col).lower()
+                        if 'country' in col_lower:
+                            country_col = col
+                        # Look for most recent HDI column (e.g., hdi_2022, hdi_2021)
+                        elif col_lower.startswith('hdi_'):
+                            year = col_lower.replace('hdi_', '')
+                            if year.isdigit() and (hdi_col is None or year > hdi_col.split('_')[1]):
+                                hdi_col = col
+
+                    if country_col and hdi_col:
+                        result = pd.DataFrame({
+                            'Country': df[country_col].apply(self._normalize_country_name),
+                            'HDI': pd.to_numeric(df[hdi_col], errors='coerce')
+                        })
+                        result = result.dropna(subset=['Country', 'HDI'])
+                        result.to_csv(f"{self.cache_dir}/hdi.csv", index=False)
+                        # Extract year from column name (e.g., hdi_2022)
+                        hdi_year = hdi_col.split('_')[-1] if '_' in str(hdi_col) else 'latest'
+                        print(f"  Successfully fetched {len(result)} countries from UNDP ({hdi_year})")
+                        return result
+
+            except Exception as e:
+                print(f"  Could not fetch from {url}: {e}")
+
+        # Try Our World in Data as alternative source
+        try:
+            url = "https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Human%20Development%20Index%20-%20UNDP/Human%20Development%20Index%20-%20UNDP.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+                # Get most recent year for each country
+                df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+                result = pd.DataFrame({
+                    'Country': df['Entity'].apply(self._normalize_country_name),
+                    'HDI': pd.to_numeric(df['Human Development Index (UNDP)'], errors='coerce')
+                })
+                result = result.dropna(subset=['Country', 'HDI'])
+                result.to_csv(f"{self.cache_dir}/hdi.csv", index=False)
+                print(f"  Successfully fetched {len(result)} countries from Our World in Data")
+                return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/hdi.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached HDI data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Human Development Index data")
+
+    def fetch_happiness_index(self):
+        """
+        Fetch World Happiness Report data.
+        Source: https://worldhappiness.report/
+        Downloads from official AWS S3 bucket.
+        """
+        print("Fetching World Happiness Report (live)...")
+
+        # Try to download the official Excel file - newest first
+        from datetime import datetime
+        current_year = datetime.now().year
+        urls = []
+        for year in range(current_year, current_year - 7, -1):
+            short_year = str(year)[2:]  # e.g., 26, 25, 24
+            urls.extend([
+                f"https://files.worldhappiness.report/WHR{short_year}_Data_Figure_2.1v3.xlsx",
+                f"https://files.worldhappiness.report/WHR{short_year}_Data_Figure_2.1.xlsx",
+                f"https://happiness-report.s3.amazonaws.com/{year}/DataForFigure2.1WHR{year}.xls",
+            ])
+
+        for url in urls:
+            try:
+                response = self.session.get(url, timeout=30)
+                if response.status_code == 200:
+                    df = pd.read_excel(BytesIO(response.content), sheet_name=0)
+
+                    # Find the country, year, and happiness score columns
+                    country_col = None
+                    score_col = None
+                    year_col = None
+
+                    for col in df.columns:
+                        col_str = str(col).lower()
+                        if 'country' in col_str or col_str == 'entity':
+                            country_col = col
+                        elif col_str == 'year':
+                            year_col = col
+                        elif 'ladder' in col_str or 'life evaluation' in col_str or 'cantril' in col_str:
+                            score_col = col
+
+                    if country_col and score_col:
+                        # Filter for most recent year if year column exists
+                        if year_col:
+                            max_year = df[year_col].max()
+                            df = df[df[year_col] == max_year]
+                            print(f"  Filtering for year {max_year}")
+
+                        # Deduplicate by country
+                        df = df.drop_duplicates(subset=[country_col])
+
+                        result = pd.DataFrame({
+                            'Country': df[country_col].apply(self._normalize_country_name),
+                            'Happiness_Score': pd.to_numeric(df[score_col], errors='coerce')
+                        })
+                        result = result.dropna(subset=['Country', 'Happiness_Score'])
+                        result.to_csv(f"{self.cache_dir}/happiness.csv", index=False)
+                        # Extract year from URL
+                        import re
+                        year_match = re.search(r'WHR(\d{2})|/(\d{4})/', url)
+                        if year_match:
+                            report_year = year_match.group(1) or year_match.group(2)
+                            if len(report_year) == 2:
+                                report_year = '20' + report_year
+                        else:
+                            report_year = str(max_year) if year_col else 'latest'
+                        print(f"  Successfully fetched {len(result)} countries from World Happiness Report ({report_year})")
+                        return result
+
+            except Exception as e:
+                pass  # Silently try next URL
+
+        # Try Our World in Data as alternative
+        try:
+            url = "https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Happiness%20and%20Life%20Satisfaction%20-%20World%20Happiness%20Report%202024/Happiness%20and%20Life%20Satisfaction%20-%20World%20Happiness%20Report%202024.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+                df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+                for col in df.columns:
+                    if 'satisfaction' in col.lower() or 'happiness' in col.lower():
+                        result = pd.DataFrame({
+                            'Country': df['Entity'].apply(self._normalize_country_name),
+                            'Happiness_Score': pd.to_numeric(df[col], errors='coerce')
+                        })
+                        result = result.dropna(subset=['Country', 'Happiness_Score'])
+                        result.to_csv(f"{self.cache_dir}/happiness.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from OWID")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/happiness.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Happiness data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch World Happiness Report data")
+
+    def fetch_peace_index(self):
+        """
+        Fetch Global Peace Index data.
+        Source: https://www.visionofhumanity.org/ (Institute for Economics & Peace)
+        Downloads from Our World in Data or QoG Data Finder.
+        """
+        print("Fetching Global Peace Index (live)...")
+
+        # Try Vision of Humanity / IEP direct data page
+        try:
+            # The GPI data can be found in the interactive map page JavaScript
+            url = "https://www.visionofhumanity.org/wp-json/gpi/v1/countries"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                import json
+                data = response.json()
+                countries = []
+                scores = []
+                for item in data:
+                    country = item.get('name', item.get('country', ''))
+                    gpi = item.get('score', item.get('gpi', item.get('overall_score', None)))
+                    if country and gpi:
+                        try:
+                            gpi_val = float(gpi)
+                            # Invert: Peace_Score = 100 * (5 - GPI) / 4 to get 0-100 scale
+                            peace_score = 100 * (5 - gpi_val) / 4
+                            countries.append(self._normalize_country_name(country))
+                            scores.append(round(peace_score, 1))
+                        except (ValueError, TypeError):
+                            continue
+                if len(countries) > 100:
+                    result = pd.DataFrame({'Country': countries, 'Peace_Score': scores})
+                    result.to_csv(f"{self.cache_dir}/peace_index.csv", index=False)
+                    print(f"  Successfully fetched {len(result)} countries from Vision of Humanity API")
+                    return result
+        except Exception as e:
+            print(f"  Could not fetch from Vision of Humanity API: {e}")
+
+        # Try Vision of Humanity website scraping
+        try:
+            url = "https://www.visionofhumanity.org/maps/"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                # Parse the JavaScript data from the page
+                soup = BeautifulSoup(response.text, 'html.parser')
+                scripts = soup.find_all('script')
+                for script in scripts:
+                    if script.string and 'gpiData' in script.string:
+                        # Extract JSON data
+                        match = re.search(r'gpiData\s*=\s*(\[.*?\]);', script.string, re.DOTALL)
+                        if match:
+                            import json
+                            data = json.loads(match.group(1))
+                            countries = []
+                            scores = []
+                            for item in data:
+                                countries.append(self._normalize_country_name(item.get('country', '')))
+                                gpi = item.get('score', item.get('gpi', None))
+                                if gpi:
+                                    # Invert score
+                                    scores.append(100 * (5 - float(gpi)) / 4)
+                                else:
+                                    scores.append(None)
+                            result = pd.DataFrame({'Country': countries, 'Peace_Score': scores})
+                            result = result.dropna(subset=['Country', 'Peace_Score'])
+                            result.to_csv(f"{self.cache_dir}/peace_index.csv", index=False)
+                            print(f"  Successfully fetched {len(result)} countries from Vision of Humanity")
+                            return result
+        except Exception as e:
+            print(f"  Could not scrape Vision of Humanity: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/peace_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Peace Index data...")
+            return pd.read_csv(cache_file)
+
+        # Final fallback: embedded GPI 2024 data from visionofhumanity.org
+        print("  Using embedded Peace Index data (GPI 2024)...")
+        # GPI scores (lower = more peaceful, converted to 0-100 where higher = more peaceful)
+        gpi_raw = {
+            'Iceland': 1.124, 'Ireland': 1.303, 'Austria': 1.316, 'New Zealand': 1.329, 'Singapore': 1.339,
+            'Switzerland': 1.357, 'Portugal': 1.372, 'Denmark': 1.377, 'Slovenia': 1.384, 'Malaysia': 1.387,
+            'Czech Republic': 1.4, 'Japan': 1.407, 'Canada': 1.432, 'Hungary': 1.502, 'Finland': 1.507,
+            'Croatia': 1.519, 'Germany': 1.53, 'Belgium': 1.531, 'Slovakia': 1.541, 'Netherlands': 1.544,
+            'Australia': 1.559, 'Norway': 1.578, 'Poland': 1.597, 'Spain': 1.609, 'Italy': 1.618,
+            'Estonia': 1.627, 'United Kingdom': 1.638, 'South Korea': 1.657, 'Taiwan': 1.66, 'France': 1.683,
+            'Chile': 1.717, 'Romania': 1.737, 'Botswana': 1.757, 'Lithuania': 1.769, 'Latvia': 1.814,
+            'Vietnam': 1.818, 'Costa Rica': 1.823, 'Uruguay': 1.837, 'Greece': 1.874, 'Argentina': 1.894,
+            'Ghana': 1.905, 'Indonesia': 1.918, 'Panama': 1.932, 'Serbia': 1.938, 'Bulgaria': 1.944,
+            'Morocco': 1.956, 'Albania': 1.96, 'Bolivia': 1.972, 'Jamaica': 1.978, 'Paraguay': 1.986,
+            'Jordan': 2.002, 'Kuwait': 2.024, 'Tunisia': 2.057, 'UAE': 2.086, 'Peru': 2.091,
+            'Saudi Arabia': 2.104, 'Dominican Republic': 2.136, 'Kenya': 2.141, 'Thailand': 2.158, 'Qatar': 2.164,
+            'China': 2.186, 'Ecuador': 2.204, 'Egypt': 2.23, 'South Africa': 2.326, 'Mexico': 2.424,
+            'India': 2.455, 'Philippines': 2.464, 'Brazil': 2.502, 'Colombia': 2.531, 'Turkey': 2.55,
+            'United States': 2.565, 'Nigeria': 2.778, 'Iran': 2.789, 'Zimbabwe': 2.812, 'Venezuela': 2.837,
+            'Pakistan': 2.853, 'Israel': 2.914, 'Russia': 3.142, 'Ukraine': 3.386, 'North Korea': 3.442
+        }
+        countries = []
+        scores = []
+        for country, gpi in gpi_raw.items():
+            countries.append(country)
+            # Convert: Peace_Score = 100 * (5 - GPI) / 4
+            scores.append(round(100 * (5 - gpi) / 4, 1))
+        result = pd.DataFrame({'Country': countries, 'Peace_Score': scores})
+        result.to_csv(f"{self.cache_dir}/peace_index.csv", index=False)
+        print(f"  Embedded {len(result)} countries")
+        return result
+
+    def fetch_democracy_index(self):
+        """
+        Fetch Democracy Index data (Economist Intelligence Unit).
+        Source: https://www.eiu.com/n/campaigns/democracy-index/
+        Downloads from Our World in Data.
+        """
+        print("Fetching Democracy Index (live)...")
+
+        # Try Our World in Data CSV download
+        try:
+            url = "https://ourworldindata.org/grapher/democracy-index-eiu.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Find year column and get most recent data
+                if 'Year' in df.columns:
+                    df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+                elif 'year' in df.columns:
+                    df = df.sort_values('year', ascending=False).drop_duplicates('Entity')
+
+                # Find the country and democracy score columns
+                country_col = None
+                score_col = None
+                for col in df.columns:
+                    col_lower = col.lower()
+                    if col_lower in ['entity', 'country']:
+                        country_col = col
+                    elif 'democracy' in col_lower:
+                        score_col = col
+
+                if country_col and score_col:
+                    result = pd.DataFrame({
+                        'Country': df[country_col].apply(self._normalize_country_name),
+                        'Democracy_Score': pd.to_numeric(df[score_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Democracy_Score'])
+                    result.to_csv(f"{self.cache_dir}/democracy_index.csv", index=False)
+                    print(f"  Successfully fetched {len(result)} countries from Our World in Data")
+                    return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/democracy_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Democracy Index data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Democracy Index data")
+
+    def fetch_social_mobility_index(self):
+        """
+        Fetch Global Social Mobility Index data (World Economic Forum).
+        Source: https://www.weforum.org/publications/global-social-mobility-index-2020/
+        Note: WEF only published this index once in 2020, so we try to download the PDF
+        and parse it, or use cached data.
+        """
+        print("Fetching Social Mobility Index (live)...")
+
+        # Try to fetch from WEF or alternative sources
+        # The WEF report is primarily in PDF format, so we try known data aggregators
+
+        # Try GitHub datasets that may have compiled this data
+        try:
+            url = "https://raw.githubusercontent.com/datasets/social-mobility/master/data/social-mobility.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+                if 'Country' in df.columns or 'Entity' in df.columns:
+                    country_col = 'Country' if 'Country' in df.columns else 'Entity'
+                    for col in df.columns:
+                        if 'mobility' in col.lower() or 'score' in col.lower():
+                            result = pd.DataFrame({
+                                'Country': df[country_col].apply(self._normalize_country_name),
+                                'Social_Mobility_Score': pd.to_numeric(df[col], errors='coerce')
+                            })
+                            result = result.dropna(subset=['Country', 'Social_Mobility_Score'])
+                            result.to_csv(f"{self.cache_dir}/social_mobility_index.csv", index=False)
+                            print(f"  Successfully fetched {len(result)} countries")
+                            return result
+        except Exception as e:
+            print(f"  Could not fetch from GitHub: {e}")
+
+        # Try World Population Review (they aggregate this data)
+        try:
+            url = "https://worldpopulationreview.com/country-rankings/social-mobility-by-country"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                # Look for table data
+                tables = soup.find_all('table')
+                for table in tables:
+                    try:
+                        df = pd.read_html(str(table))[0]
+                        for col in df.columns:
+                            if 'country' in str(col).lower():
+                                country_col = col
+                            if 'mobility' in str(col).lower() or 'index' in str(col).lower() or 'score' in str(col).lower():
+                                score_col = col
+                                result = pd.DataFrame({
+                                    'Country': df[country_col].apply(self._normalize_country_name),
+                                    'Social_Mobility_Score': pd.to_numeric(df[score_col], errors='coerce')
+                                })
+                                result = result.dropna(subset=['Country', 'Social_Mobility_Score'])
+                                if len(result) > 50:
+                                    result.to_csv(f"{self.cache_dir}/social_mobility_index.csv", index=False)
+                                    print(f"  Successfully fetched {len(result)} countries from World Population Review")
+                                    return result
+                    except Exception:
+                        continue
+        except Exception as e:
+            print(f"  Could not scrape World Population Review: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/social_mobility_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Social Mobility data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Social Mobility Index data")
+
+    def fetch_purchasing_power_index(self):
+        """
+        Fetch Purchasing Power Index data from Numbeo.
+        Source: https://www.numbeo.com/cost-of-living/rankings_by_country.jsp
+        Scrapes the current year's data.
+        """
+        print("Fetching Purchasing Power Index (live scraping)...")
+
+        # Try multiple year URLs
+        years = ['2025', '2024', '2024-mid', '2023']
+        for year in years:
+            try:
+                url = f"https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title={year}&displayColumn=5"
+                response = self.session.get(url, timeout=30)
+
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+
+                    # Find the data table
+                    table = soup.find('table', {'id': 't2'})
+                    if table:
+                        rows = table.find_all('tr')
+                        countries = []
+                        scores = []
+
+                        for row in rows[1:]:  # Skip header
+                            cols = row.find_all('td')
+                            if len(cols) >= 2:
+                                # Country name is usually in the second column (first is rank)
+                                country_td = cols[1] if len(cols) > 1 else cols[0]
+                                country = country_td.get_text(strip=True)
+
+                                # Local Purchasing Power Index is in the last column
+                                score_td = cols[-1]
+                                try:
+                                    score = float(score_td.get_text(strip=True))
+                                    countries.append(self._normalize_country_name(country))
+                                    scores.append(score)
+                                except ValueError:
+                                    continue
+
+                        if len(countries) > 50:
+                            result = pd.DataFrame({
+                                'Country': countries,
+                                'Purchasing_Power_Index': scores
+                            })
+                            result.to_csv(f"{self.cache_dir}/purchasing_power_index.csv", index=False)
+                            print(f"  Successfully fetched {len(result)} countries from Numbeo ({year})")
+                            return result
+
+                    # Alternative: try to parse from JavaScript data
+                    scripts = soup.find_all('script')
+                    for script in scripts:
+                        if script.string and 'displayColumn' in str(script.string):
+                            # Look for array data
+                            match = re.search(r'\[([^\]]+)\]', script.string)
+                            if match:
+                                pass  # Complex parsing
+
+            except Exception as e:
+                print(f"  Could not fetch from Numbeo for {year}: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/purchasing_power_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Purchasing Power data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Purchasing Power Index data")
+
+    def fetch_military_strength_index(self):
+        """
+        Fetch Military Strength Index data from Global Firepower.
+        Source: https://www.globalfirepower.com/countries-listing.php
+        Scrapes the PowerIndex data and converts to 0-100 scale (higher = stronger).
+        """
+        print("Fetching Military Strength Index (live scraping)...")
+
+        try:
+            url = "https://www.globalfirepower.com/countries-listing.php"
+            response = self.session.get(url, timeout=30)
+
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+
+                countries = []
+                scores = []
+
+                # Find all country entries with their PwrIndx scores
+                # The page structure has country divs with picTrans class
+                country_divs = soup.find_all('div', class_='picTrans')
+
+                for div in country_divs:
+                    try:
+                        # Get country name from the link
+                        link = div.find('a')
+                        if link:
+                            country_name = link.get_text(strip=True)
+                            # Clean up country name
+                            country_name = re.sub(r'\s+', ' ', country_name).strip()
+
+                            # Find the PowerIndex value (usually in a span with class pwrIndxData)
+                            pwrindx_span = div.find('span', class_='pwrIndxData')
+                            if pwrindx_span:
+                                try:
+                                    pwr_index = float(pwrindx_span.get_text(strip=True))
+                                    # Convert: lower PowerIndex = stronger military
+                                    # Score of 0.07 (USA) -> ~98, Score of 3.0 -> ~0
+                                    converted = max(0, min(100, 100 * (1 - pwr_index / 3)))
+                                    countries.append(self._normalize_country_name(country_name))
+                                    scores.append(round(converted, 1))
+                                except ValueError:
+                                    continue
+                    except Exception:
+                        continue
+
+                # Alternative parsing: try table structure
+                if len(countries) < 50:
+                    tables = soup.find_all('table')
+                    for table in tables:
+                        rows = table.find_all('tr')
+                        for row in rows:
+                            cols = row.find_all('td')
+                            for i, col in enumerate(cols):
+                                text = col.get_text(strip=True)
+                                # Look for PowerIndex pattern (0.XXXX)
+                                if re.match(r'^\d+\.\d{4}$', text):
+                                    try:
+                                        pwr_index = float(text)
+                                        # Get country from previous cell
+                                        if i > 0:
+                                            country = cols[i-1].get_text(strip=True)
+                                            if country and len(country) > 2:
+                                                converted = max(0, min(100, 100 * (1 - pwr_index / 3)))
+                                                countries.append(self._normalize_country_name(country))
+                                                scores.append(round(converted, 1))
+                                    except ValueError:
+                                        continue
+
+                if len(countries) > 50:
+                    result = pd.DataFrame({
+                        'Country': countries,
+                        'Military_Strength_Index': scores
+                    })
+                    result = result.drop_duplicates(subset=['Country'])
+                    result.to_csv(f"{self.cache_dir}/military_strength_index.csv", index=False)
+                    print(f"  Successfully fetched {len(result)} countries from Global Firepower")
+                    return result
+
+        except Exception as e:
+            print(f"  Could not scrape Global Firepower: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/military_strength_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Military Strength data...")
+            return pd.read_csv(cache_file)
+
+        # Final fallback: embedded Global Firepower 2025 data
+        print("  Using embedded Military Strength data (GFP 2025)...")
+        # PowerIndex scores (lower = stronger), converted to 0-100 where higher = stronger
+        gfp_raw = {
+            'United States': 0.0744, 'Russia': 0.0788, 'China': 0.0788, 'India': 0.1184, 'South Korea': 0.1656,
+            'United Kingdom': 0.1785, 'Japan': 0.1839, 'France': 0.1878, 'Turkey': 0.1902, 'Italy': 0.2164,
+            'Brazil': 0.2415, 'Indonesia': 0.2557, 'Pakistan': 0.2513, 'Germany': 0.2601, 'Israel': 0.2661,
+            'Australia': 0.3298, 'Spain': 0.3242, 'Egypt': 0.3427, 'Ukraine': 0.3755, 'Poland': 0.3776,
+            'Taiwan': 0.3988, 'Vietnam': 0.4024, 'Thailand': 0.4536, 'Iran': 0.3048, 'Saudi Arabia': 0.4201,
+            'Sweden': 0.4835, 'Singapore': 0.5271, 'Canada': 0.5179, 'Greece': 0.5337, 'Nigeria': 0.5771,
+            'Mexico': 0.5965, 'Argentina': 0.6013, 'North Korea': 0.6016, 'Bangladesh': 0.6062, 'Netherlands': 0.6412,
+            'Norway': 0.6811, 'Portugal': 0.6856, 'South Africa': 0.6889, 'Philippines': 0.6987, 'Malaysia': 0.7429,
+            'Switzerland': 0.7869, 'Chile': 0.8361, 'Colombia': 0.8353, 'Finland': 0.8437, 'Denmark': 0.8109,
+            'Peru': 0.8588, 'Venezuela': 0.8882, 'Czech Republic': 0.9994, 'Hungary': 1.0259, 'UAE': 1.0186,
+            'Morocco': 1.1273, 'Cuba': 1.3286, 'Austria': 1.3704, 'Slovakia': 1.3978, 'Qatar': 1.4307,
+            'Jordan': 1.6139, 'Kuwait': 1.6982, 'Bahrain': 1.7448, 'Kenya': 1.8135, 'New Zealand': 1.9039,
+            'Tunisia': 1.9538, 'Slovenia': 2.1016, 'Ireland': 2.1103, 'Estonia': 2.2917, 'Zimbabwe': 2.3863,
+            'Luxembourg': 2.6415
+        }
+        countries = []
+        scores = []
+        for country, pwr in gfp_raw.items():
+            countries.append(country)
+            # Convert: Military_Strength = 100 * (1 - PowerIndex / 3)
+            scores.append(round(max(0, min(100, 100 * (1 - pwr / 3))), 1))
+        result = pd.DataFrame({'Country': countries, 'Military_Strength_Index': scores})
+        result.to_csv(f"{self.cache_dir}/military_strength_index.csv", index=False)
+        print(f"  Embedded {len(result)} countries")
+        return result
+
+    def fetch_gini_index(self):
+        """
+        Fetch Gini Index data from World Bank API.
+        Source: https://data.worldbank.org/indicator/SI.POV.GINI
+        Note: This is included in World Bank data fetch, but kept for backwards compatibility.
+        """
+        print("Fetching Gini Index (via World Bank API)...")
+
+        # Gini is already fetched via World Bank API in fetch_world_bank_data()
+        # This method is kept for backwards compatibility and explicit Gini-only requests
+
+        try:
+            from datetime import datetime
+            current_year = datetime.now().year
+            all_data = {}
+            # Gini data can lag several years, so check back further
+            for year in range(current_year, current_year - 7, -1):
+                url = f"https://api.worldbank.org/v2/country/all/indicator/SI.POV.GINI?format=json&date={year}&per_page=300"
+                response = self.session.get(url, timeout=30)
 
                 if response.status_code == 200:
                     data = response.json()
                     if len(data) > 1 and data[1]:
                         for item in data[1]:
                             if item['value'] is not None:
-                                all_data.append({
-                                    'Country': item['country']['value'],
-                                    'Country_Code': item['countryiso3code'],
-                                    indicator_name: item['value']
-                                })
-            except Exception as e:
-                print(f"  Error fetching {indicator_name}: {e}")
+                                country = self._normalize_country_name(item['country']['value'])
+                                if country not in all_data:
+                                    all_data[country] = item['value']
 
-        if all_data:
-            df = pd.DataFrame(all_data)
-            # Aggregate by country (taking the latest value)
-            df = df.groupby(['Country', 'Country_Code']).first().reset_index()
-            df.to_csv(f"{self.cache_dir}/world_bank_data.csv", index=False)
-            return df
+            if all_data:
+                result = pd.DataFrame({
+                    'Country': list(all_data.keys()),
+                    'Gini_Index': list(all_data.values())
+                })
+                result.to_csv(f"{self.cache_dir}/gini_index.csv", index=False)
+                print(f"  Successfully fetched {len(result)} countries from World Bank")
+                return result
 
-        # Fallback embedded data
-        print("  Using embedded World Bank data...")
-        return pd.DataFrame(self._get_world_bank_embedded_data())
+        except Exception as e:
+            print(f"  Error fetching Gini Index: {e}")
 
-    def _get_world_bank_embedded_data(self):
-        """Embedded World Bank data for key countries."""
-        return {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'GDP_Per_Capita': [
-                65233, 93457, 103685, 32756, 48249,
-                28247, 126426, 57768, 67803, 56424,
-                51204, 65366, 46125, 53983, 54966,
-                76330, 106149, 32255, 33815, 53268,
-                54771, 16265, 44408, 30103, 24521,
-                34776, 18688, 27221, 28439, 21088,
-                18728, 20867, 11497, 10674, 6630,
-                6776, 8918, 2389, 4788, 3499,
-                7066, 4164, 12720, 15345, 3699,
-                2184, 1596, 2688, 13650, None,
-                None, None, 4078, 1773, 4534,
-                12364, 13612, 20795, 17357, 5859,
-                7126, 10111, 3795, 2099, 2363,
-                966, 7347, 10216, 30436, 49451,
-                83891, 38124, 29103, 4543, 3893
-            ],
-            'Life_Expectancy': [
-                84.1, 84.0, 82.8, 81.0, 82.5,
-                78.8, 82.6, 82.0, 81.5, 83.2,
-                81.2, 84.5, 81.8, 82.2, 82.7,
-                77.5, 83.2, 83.7, 84.8, 82.0,
-                83.0, 80.7, 82.5, 83.3, 82.2,
-                83.5, 78.0, 79.4, 81.3, 77.8,
-                76.7, 80.8, 75.1, 78.0, 77.3,
-                64.9, 75.3, 70.4, 71.8, 71.7,
-                78.7, 75.4, 78.2, 72.4, 71.5,
-                53.9, 67.3, 72.4, 76.7, 72.1,
-                79.0, 72.0, 76.7, 61.5, 71.6,
-                76.3, 80.3, 78.4, 78.5, 75.2,
-                77.0, 74.1, 76.7, 67.0, 64.1,
-                69.6, 61.1, 74.4, 78.2, 78.4,
-                80.2, 78.7, 78.0, 74.5, 76.7
-            ],
-            'Infant_Mortality': [
-                1.5, 3.4, 2.6, 3.8, 3.5,
-                2.1, 3.2, 3.1, 2.9, 2.0,
-                3.0, 2.9, 3.5, 1.8, 4.2,
-                5.4, 1.6, 2.5, 1.7, 2.8,
-                2.7, 5.7, 3.3, 2.5, 2.4,
-                2.4, 3.5, 2.3, 1.6, 4.4,
-                3.6, 3.1, 11.1, 8.2, 11.7,
-                26.5, 12.4, 26.6, 18.8, 20.8,
-                7.0, 15.6, 5.1, 4.4, 16.3,
-                71.2, 52.3, 23.3, 8.0, 21.0,
-                4.0, 14.0, 11.7, 34.5, 6.4,
-                6.2, 6.9, 5.6, 12.3, 11.6,
-                10.7, 23.5, 17.1, 29.8, 32.1,
-                27.7, 27.1, 11.3, 5.0, 5.0,
-                5.4, 6.3, 5.3, 12.4, 12.8
-            ]
-        }
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/gini_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Gini Index data...")
+            return pd.read_csv(cache_file)
 
-    def fetch_corruption_index(self):
-        """Fetch Transparency International Corruption Perceptions Index."""
-        print("Fetching Corruption Perceptions Index...")
-
-        # Embedded CPI data (2023)
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Corruption_Score': [
-                83, 82, 77, 68, 85,
-                76, 78, 79, 90, 82,
-                78, 75, 71, 87, 76,
-                69, 84, 63, 73, 71,
-                62, 66, 71, 60, 61,
-                56, 54, 57, 56, 54,
-                42, 49, 31, 34, 40,
-                41, 36, 39, 34, 33,
-                35, 41, 42, 26, 30,
-                25, 29, 24, 37, 13,
-                42, 17, 24, 24, 36,
-                50, 55, 74, 36, 44,
-                36, 32, 38, 31, 43,
-                53, 55, 50, 52, 68,
-                58, 46, 42, 46, 40
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/corruption_index.csv", index=False)
-        return df
-
-    def fetch_human_development_index(self):
-        """Fetch UN Human Development Index data."""
-        print("Fetching Human Development Index...")
-
-        # HDI 2022 data
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'HDI': [
-                0.939, 0.967, 0.950, 0.926, 0.939,
-                0.899, 0.927, 0.946, 0.952, 0.947,
-                0.950, 0.946, 0.940, 0.942, 0.935,
-                0.927, 0.966, 0.929, 0.920, 0.926,
-                0.915, 0.860, 0.910, 0.911, 0.874,
-                0.906, 0.881, 0.895, 0.926, 0.855,
-                0.851, 0.893, 0.781, 0.855, 0.758,
-                0.717, 0.760, 0.644, 0.713, 0.710,
-                0.803, 0.726, 0.788, 0.821, 0.728,
-                0.548, 0.544, 0.670, 0.849, 0.699,
-                0.764, 0.733, 0.780, 0.550, 0.773,
-                0.807, 0.806, 0.830, 0.820, 0.709,
-                0.762, 0.766, 0.698, 0.601, 0.602,
-                0.548, 0.708, 0.796, 0.875, 0.937,
-                0.875, 0.831, 0.888, 0.736, 0.732
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/hdi.csv", index=False)
-        return df
-
-    def fetch_happiness_index(self):
-        """Fetch World Happiness Report data."""
-        print("Fetching World Happiness Report data...")
-
-        # World Happiness Report 2024 data
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Happiness_Score': [
-                6.587, 7.060, 6.838, 6.535, 7.029,
-                5.972, 7.122, 7.319, 7.583, 7.344,
-                6.892, 7.057, 6.749, 7.804, 6.900,
-                6.725, 7.302, 5.882, 6.129, 7.097,
-                7.473, 6.172, 6.687, 6.421, 6.224,
-                6.324, 6.260, 6.822, 6.650, 6.469,
-                6.041, 5.931, 6.678, 4.614, 5.881,
-                5.275, 6.330, 4.036, 5.450, 5.961,
-                6.368, 5.485, 5.973, 5.466, 4.288,
-                4.740, 4.657, 4.359, 6.024, 5.607,
-                5.353, None, 4.876, 3.204, 4.872,
-                5.975, 6.609, 6.494, 6.265, 5.890,
-                5.526, 5.569, 5.184, 4.509, 4.605,
-                3.728, 4.941, 5.902, 6.594, 6.765,
-                6.596, 6.170, 6.173, 5.328, 4.596
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/happiness.csv", index=False)
-        return df
-
-    def fetch_peace_index(self):
-        """Fetch Global Peace Index data."""
-        print("Fetching Global Peace Index data...")
-
-        # Global Peace Index 2024 (inverted so higher = more peaceful)
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Peace_Score': [  # Higher = more peaceful (inverted from GPI raw scores)
-                81.5, 83.2, 82.7, 72.4, 84.1,
-                78.5, 82.3, 79.2, 82.8, 78.3,
-                77.4, 79.6, 74.3, 82.5, 79.4,
-                61.7, 82.9, 71.2, 83.4, 80.1,
-                39.2, 72.8, 73.6, 74.8, 82.1,
-                77.9, 76.4, 80.2, 81.3, 78.7,
-                77.1, 74.5, 48.3, 56.2, 52.4,
-                51.8, 53.6, 56.4, 69.3, 58.4,
-                67.3, 72.1, 68.4, 36.5, 57.8,
-                42.1, 42.8, 62.4, 69.1, 48.5,
-                65.3, 38.4, 49.3, 54.2, 28.6,
-                72.8, 79.5, 78.4, 69.5, 66.4,
-                61.3, 67.8, 72.5, 56.3, 62.1,
-                58.4, 73.2, 80.5, 54.6, 75.4,
-                79.2, 71.3, 76.8, 65.4, 68.2
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/peace_index.csv", index=False)
-        return df
-
-    def fetch_democracy_index(self):
-        """Fetch Democracy Index data (Economist Intelligence Unit)."""
-        print("Fetching Democracy Index data...")
-
-        # Democracy Index 2023
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Democracy_Score': [
-                6.22, 9.14, 9.19, 8.99, 9.61,
-                7.96, 8.81, 9.00, 9.28, 9.39,
-                8.80, 8.96, 8.54, 9.30, 8.88,
-                7.85, 9.81, 8.09, 8.33, 8.41,
-                7.93, 7.98, 7.99, 8.07, 8.03,
-                7.68, 6.80, 7.97, 7.96, 7.17,
-                6.50, 7.45, 5.57, 4.35, 6.80,
-                7.05, 6.78, 7.18, 6.71, 6.12,
-                6.04, 2.60, 1.94, 2.22, 2.93,
-                4.12, 3.25, 5.50, 6.62, 2.36,
-                2.46, 1.08, 1.96, 2.60, 5.42,
-                7.30, 8.29, 8.66, 7.24, 7.11,
-                6.60, 6.15, 5.04, 5.05, 5.56,
-                3.10, 7.81, 8.14, 2.08, 2.90,
-                3.78, 3.83, 3.38, 3.93, 5.51
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/democracy_index.csv", index=False)
-        return df
-
-    def fetch_social_mobility_index(self):
-        """Fetch Global Social Mobility Index data (World Economic Forum)."""
-        print("Fetching Social Mobility Index data...")
-
-        # Global Social Mobility Index 2020 (WEF)
-        # Score 0-100, higher = more social mobility
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Social_Mobility_Score': [
-                74.6, 82.4, 75.9, None, 77.7,
-                73.3, 77.3, 82.4, 85.2, 83.5,
-                78.8, 75.1, 74.4, 83.6, 76.1,
-                70.4, 83.2, 67.4, 76.1, 78.0,
-                68.7, 59.1, 76.7, 70.0, 72.0,
-                67.4, 65.1, 72.2, 75.6, 66.7,
-                63.2, 65.7, 52.6, 52.5, 50.4,
-                41.4, 52.1, 42.7, 49.2, 49.7,
-                55.5, 52.0, 61.5, 64.4, 47.9,
-                37.3, 36.1, 38.9, 57.1, 42.0,
-                None, None, 48.1, 38.2, 56.4,
-                60.1, 64.1, 66.8, 56.8, 55.1,
-                53.6, 52.0, 48.4, 40.8, 44.9,
-                35.8, 51.0, 59.8, 52.0, 58.3,
-                54.2, 56.4, 59.3, 50.5, 52.1
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/social_mobility_index.csv", index=False)
-        return df
-
-    def fetch_purchasing_power_index(self):
-        """Fetch Purchasing Power Index data from Numbeo 2024."""
-        print("Fetching Purchasing Power Index data...")
-
-        # Real data from Numbeo Purchasing Power Index 2024
-        # Source: https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2024
-        # Higher = more purchasing power
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Purchasing_Power_Index': [
-                102.99, 118.91, 81.99, 80.03, 93.01,  # Singapore, Switzerland, Ireland, Taiwan, New Zealand
-                69.05, 148.92, 103.25, 103.32, 94.56,  # Estonia, Luxembourg, Netherlands, Denmark, Sweden
-                101.05, 93.60, 90.06, 97.26, 83.26,  # Germany, Australia, UK, Finland, Canada
-                120.91, 94.95, 90.57, 99.53, 84.43,  # USA, Norway, South Korea, Japan, Austria
-                79.51, 36.39, 83.45, 78.18, 46.51,  # Israel, Chile, France, Spain, Portugal
-                62.80, 66.19, 64.91, 67.97, 55.77,  # Italy, Poland, Czech Republic, Slovenia, Slovakia
-                49.85, 42.07, 37.96, 39.32, 28.07,  # Hungary, Greece, Mexico, Turkey, Colombia
-                84.66, 30.08, 60.69, 25.76, 25.86,  # South Africa, Brazil, India, Indonesia, Philippines
-                32.94, 32.49, 60.54, 41.47, 15.23,  # Thailand, Vietnam, China, Russia, Egypt
-                9.38, 24.45, 25.81, 35.79, 12.61,  # Nigeria, Pakistan, Bangladesh, Argentina, Venezuela
-                None, None, 21.16, None, 32.23,  # Cuba, North Korea, Iran, Zimbabwe, Ukraine
-                62.14, None, 47.01, 34.65, None,  # Malaysia, Costa Rica, Uruguay, Panama, Jamaica
-                27.30, None, 30.37, 30.61, None,  # Peru, Dominican Republic, Morocco, Kenya, Ghana
-                None, None, None, 105.11, 98.70,  # Rwanda, Botswana, Mauritius, Saudi Arabia, UAE
-                127.40, 128.52, None, 36.37, None  # Qatar, Kuwait, Bahrain, Jordan, Tunisia
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/purchasing_power_index.csv", index=False)
-        return df
-
-    def fetch_military_strength_index(self):
-        """Fetch Military Strength Index data from Global Firepower 2025."""
-        print("Fetching Military Strength Index data...")
-
-        # Real data from Global Firepower 2025
-        # Source: https://www.globalfirepower.com/countries-listing.php
-        # PowerIndex score - LOWER = STRONGER military
-        # Converting to 0-100 scale where HIGHER = STRONGER for consistency
-        # Formula: 100 * (1 - PowerIndex/4) capped at 0-100
-        raw_scores = {
-            'Singapore': 0.5271, 'Switzerland': 0.7869, 'Ireland': 2.1103, 'Taiwan': 0.3988, 'New Zealand': 1.9039,
-            'Estonia': 2.2917, 'Luxembourg': 2.6415, 'Netherlands': 0.6412, 'Denmark': 0.8109, 'Sweden': 0.4835,
-            'Germany': 0.2601, 'Australia': 0.3298, 'United Kingdom': 0.1785, 'Finland': 0.8437, 'Canada': 0.5179,
-            'United States': 0.0744, 'Norway': 0.6811, 'South Korea': 0.1656, 'Japan': 0.1839, 'Austria': 1.3704,
-            'Israel': 0.2661, 'Chile': 0.8361, 'France': 0.1878, 'Spain': 0.3242, 'Portugal': 0.6856,
-            'Italy': 0.2164, 'Poland': 0.3776, 'Czech Republic': 0.9994, 'Slovenia': 2.1016, 'Slovakia': 1.3978,
-            'Hungary': 1.0259, 'Greece': 0.5337, 'Mexico': 0.5965, 'Turkey': 0.1902, 'Colombia': 0.8353,
-            'South Africa': 0.6889, 'Brazil': 0.2415, 'India': 0.1184, 'Indonesia': 0.2557, 'Philippines': 0.6987,
-            'Thailand': 0.4536, 'Vietnam': 0.4024, 'China': 0.0788, 'Russia': 0.0788, 'Egypt': 0.3427,
-            'Nigeria': 0.5771, 'Pakistan': 0.2513, 'Bangladesh': 0.6062, 'Argentina': 0.6013, 'Venezuela': 0.8882,
-            'Cuba': 1.3286, 'North Korea': 0.6016, 'Iran': 0.3048, 'Zimbabwe': 2.3863, 'Ukraine': 0.3755,
-            'Malaysia': 0.7429, 'Peru': 0.8588, 'Morocco': 1.1273, 'Kenya': 1.8135,
-            'Saudi Arabia': 0.4201, 'UAE': 1.0186, 'Qatar': 1.4307, 'Kuwait': 1.6982, 'Bahrain': 1.7448,
-            'Jordan': 1.6139, 'Tunisia': 1.9538
-        }
-
-        # Convert to 0-100 scale (higher = stronger)
-        data = {
-            'Country': [],
-            'Military_Strength_Index': []
-        }
-
-        countries = [
-            'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-            'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-            'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-            'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-            'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-            'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-            'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-            'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-            'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-            'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-            'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-            'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-            'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-            'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-            'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-        ]
-
-        for country in countries:
-            data['Country'].append(country)
-            if country in raw_scores:
-                # Convert: lower PowerIndex = stronger, so invert
-                # Score of 0.07 (USA) -> ~98, Score of 2.5 -> ~37
-                converted = max(0, min(100, 100 * (1 - raw_scores[country] / 3)))
-                data['Military_Strength_Index'].append(round(converted, 1))
-            else:
-                data['Military_Strength_Index'].append(None)
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/military_strength_index.csv", index=False)
-        return df
-
-    def fetch_gini_index(self):
-        """Fetch Gini Index data (World Bank) - measure of income inequality."""
-        print("Fetching Gini Index data...")
-
-        # Gini Index data (World Bank, most recent available year per country)
-        # Scale 0-100, higher = more inequality (0 = perfect equality, 100 = perfect inequality)
-        data = {
-            'Country': [
-                'Singapore', 'Switzerland', 'Ireland', 'Taiwan', 'New Zealand',
-                'Estonia', 'Luxembourg', 'Netherlands', 'Denmark', 'Sweden',
-                'Germany', 'Australia', 'United Kingdom', 'Finland', 'Canada',
-                'United States', 'Norway', 'South Korea', 'Japan', 'Austria',
-                'Israel', 'Chile', 'France', 'Spain', 'Portugal',
-                'Italy', 'Poland', 'Czech Republic', 'Slovenia', 'Slovakia',
-                'Hungary', 'Greece', 'Mexico', 'Turkey', 'Colombia',
-                'South Africa', 'Brazil', 'India', 'Indonesia', 'Philippines',
-                'Thailand', 'Vietnam', 'China', 'Russia', 'Egypt',
-                'Nigeria', 'Pakistan', 'Bangladesh', 'Argentina', 'Venezuela',
-                'Cuba', 'North Korea', 'Iran', 'Zimbabwe', 'Ukraine',
-                'Malaysia', 'Costa Rica', 'Uruguay', 'Panama', 'Jamaica',
-                'Peru', 'Dominican Republic', 'Morocco', 'Kenya', 'Ghana',
-                'Rwanda', 'Botswana', 'Mauritius', 'Saudi Arabia', 'UAE',
-                'Qatar', 'Kuwait', 'Bahrain', 'Jordan', 'Tunisia'
-            ],
-            'Gini_Index': [
-                45.9, 33.1, 30.6, 33.6, 32.0,
-                30.6, 32.3, 28.4, 28.2, 28.8,
-                31.7, 34.3, 35.1, 27.3, 33.3,
-                41.5, 27.6, 31.4, 32.9, 30.5,
-                39.0, 44.9, 32.4, 34.7, 33.8,
-                35.2, 29.7, 25.3, 24.4, 23.2,
-                30.0, 34.4, 45.4, 41.9, 51.3,
-                63.0, 52.9, 35.7, 37.9, 42.3,
-                36.4, 36.8, 38.2, 36.0, 31.5,
-                35.1, 29.6, 32.4, 42.3, 44.0,
-                None, None, 42.0, 50.3, 25.6,
-                41.2, 48.2, 40.2, 49.2, 40.2,
-                41.5, 39.6, 39.5, 40.8, 43.5,
-                43.7, 53.3, 36.8, None, 32.5,
-                None, None, None, 33.7, 32.8
-            ]
-        }
-
-        df = pd.DataFrame(data)
-        df.to_csv(f"{self.cache_dir}/gini_index.csv", index=False)
-        return df
+        raise Exception("Could not fetch Gini Index data")
 
 
 class CorrelationAnalyzer:
@@ -700,11 +1009,9 @@ class CorrelationAnalyzer:
             ('Corruption_Score', 'Anti-Corruption Score', 'higher is better'),
             ('HDI', 'Human Development Index', 'higher is better'),
             ('Happiness_Score', 'Happiness Score', 'higher is better'),
-            ('Peace_Score', 'Peace Score', 'higher is better'),
             ('Democracy_Score', 'Democracy Score', 'higher is better'),
             ('Social_Mobility_Score', 'Social Mobility Index', 'higher is better'),
-            ('Purchasing_Power_Index', 'Purchasing Power', 'higher is better'),
-            ('Military_Strength_Index', 'Military Strength', 'higher is better')
+            ('Purchasing_Power_Index', 'Purchasing Power', 'higher is better')
         ]
 
         for col, display_name, interpretation in indices:
@@ -926,7 +1233,7 @@ class ReportGenerator:
         # Select numeric columns for correlation
         numeric_cols = ['Economic_Freedom_Score', 'GDP_Per_Capita', 'Life_Expectancy',
                        'Corruption_Score', 'HDI', 'Happiness_Score',
-                       'Peace_Score', 'Democracy_Score']
+                       'Democracy_Score']
 
         available_cols = [col for col in numeric_cols if col in self.data.columns]
 
@@ -940,7 +1247,6 @@ class ReportGenerator:
             'Corruption_Score': 'Anti-Corrupt.',
             'HDI': 'HDI',
             'Happiness_Score': 'Happiness',
-            'Peace_Score': 'Peace',
             'Democracy_Score': 'Democracy'
         }
         corr_matrix = corr_matrix.rename(index=rename_dict, columns=rename_dict)
@@ -966,7 +1272,6 @@ class ReportGenerator:
             ('Corruption_Score', 'Anti-Corruption Score (0-100)', True),
             ('HDI', 'Human Development Index', True),
             ('Happiness_Score', 'Happiness Score', True),
-            ('Peace_Score', 'Peace Score', True),
             ('Democracy_Score', 'Democracy Score', True),
             ('Infant_Mortality', 'Infant Mortality (per 1000 births)', False)
         ]
@@ -1063,7 +1368,7 @@ class ReportGenerator:
                                            q=4, labels=['Least Free', 'Less Free',
                                                        'More Free', 'Most Free'])
 
-        indices_to_compare = ['HDI', 'Happiness_Score', 'Peace_Score', 'Life_Expectancy']
+        indices_to_compare = ['HDI', 'Happiness_Score', 'Democracy_Score', 'Life_Expectancy']
         available_indices = [idx for idx in indices_to_compare if idx in self.data.columns]
 
         # Normalize for comparison
@@ -1196,7 +1501,6 @@ def main():
     corruption = fetcher.fetch_corruption_index()
     hdi = fetcher.fetch_human_development_index()
     happiness = fetcher.fetch_happiness_index()
-    peace = fetcher.fetch_peace_index()
     democracy = fetcher.fetch_democracy_index()
     social_mobility = fetcher.fetch_social_mobility_index()
 
@@ -1210,7 +1514,6 @@ def main():
         (corruption, 'Country'),
         (hdi, 'Country'),
         (happiness, 'Country'),
-        (peace, 'Country'),
         (democracy, 'Country'),
         (social_mobility, 'Country')
     ]

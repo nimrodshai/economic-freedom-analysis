@@ -1,76 +1,148 @@
 Country,Happiness_Score
-Singapore,6.587
-Switzerland,7.06
-Ireland,6.838
-Taiwan,6.535
-New Zealand,7.029
-Estonia,5.972
+Afghanistan,1.364
+Albania,5.411
+Algeria,5.571
+Argentina,6.397
+Armenia,5.494
+Australia,6.974
+Austria,6.81
+Azerbaijan,4.875
+Bahrain,6.03
+Bangladesh,3.851
+Belgium,6.91
+Belize,6.711
+Benin,4.357
+Bolivia,5.868
+Bosnia and Herzegovina,6.136
+Botswana,3.438
+Brazil,6.494
+Bulgaria,5.554
+Burkina Faso,4.383
+Cambodia,4.341
+Cameroon,4.887
+Canada,6.803
+Chad,4.384
+Chile,6.361
+China,5.921
+Colombia,6.004
+Comoros,3.754
+Congo,5.03
+Costa Rica,7.274
+Ivory Coast,5.102
+Croatia,5.87
+Cyprus,5.942
+Czech Republic,6.775
+Denmark,7.521
+Dominican Republic,5.846
+DR Congo,3.469
+Ecuador,5.965
+Egypt,3.817
+El Salvador,6.492
+Estonia,6.417
+Swaziland,3.774
+Ethiopia,3.898
+Finland,7.736
+France,6.593
+Gabon,5.12
+Gambia,4.423
+Georgia,5.4
+Germany,6.753
+Ghana,4.34
+Greece,5.776
+Guatemala,6.362
+Guinea,4.929
+Honduras,5.964
+Hong Kong SAR of China,5.491
+Hungary,5.915
+Iceland,7.515
+India,4.389
+Indonesia,5.617
+Iran,5.093
+Iraq,4.976
+Ireland,6.889
+Israel,7.234
+Italy,6.415
+Jamaica,5.87
+Japan,6.147
+Jordan,4.31
+Kazakhstan,6.378
+Kenya,4.51
+Kosovo,6.659
+Kuwait,6.629
+Kyrgyzstan,5.858
+Laos,5.301
+Latvia,6.207
+Lebanon,3.188
+Lesotho,3.757
+Liberia,4.277
+Libya,5.82
+Lithuania,6.829
 Luxembourg,7.122
-Netherlands,7.319
-Denmark,7.583
-Sweden,7.344
-Germany,6.892
-Australia,7.057
-United Kingdom,6.749
-Finland,7.804
-Canada,6.9
-United States,6.725
-Norway,7.302
-South Korea,5.882
-Japan,6.129
-Austria,7.097
-Israel,7.473
-Chile,6.172
-France,6.687
-Spain,6.421
-Portugal,6.224
-Italy,6.324
-Poland,6.26
-Czech Republic,6.822
-Slovenia,6.65
-Slovakia,6.469
-Hungary,6.041
-Greece,5.931
-Mexico,6.678
-Turkey,4.614
-Colombia,5.881
-South Africa,5.275
-Brazil,6.33
-India,4.036
-Indonesia,5.45
-Philippines,5.961
-Thailand,6.368
-Vietnam,5.485
-China,5.973
-Russia,5.466
-Egypt,4.288
-Nigeria,4.74
-Pakistan,4.657
-Bangladesh,4.359
-Argentina,6.024
-Venezuela,5.607
-Cuba,5.353
-North Korea,
-Iran,4.876
-Zimbabwe,3.204
-Ukraine,4.872
-Malaysia,5.975
-Costa Rica,6.609
-Uruguay,6.494
-Panama,6.265
-Jamaica,5.89
-Peru,5.526
-Dominican Republic,5.569
-Morocco,5.184
-Kenya,4.509
-Ghana,4.605
-Rwanda,3.728
-Botswana,4.941
-Mauritius,5.902
-Saudi Arabia,6.594
-UAE,6.765
-Qatar,6.596
-Kuwait,6.17
-Bahrain,6.173
-Jordan,5.328
-Tunisia,4.596
+Madagascar,4.157
+Malawi,3.26
+Malaysia,5.955
+Mali,4.345
+Malta,6.316
+Mauritania,4.542
+Mauritius,5.832
+Mexico,6.979
+Mongolia,5.833
+Montenegro,5.877
+Morocco,4.622
+Mozambique,5.19
+Burma,4.321
+Namibia,4.911
+Nepal,5.311
+Netherlands,7.306
+New Zealand,6.952
+Nicaragua,6.33
+Niger,4.725
+Nigeria,4.885
+Macedonia,5.503
+Norway,7.262
+Oman,6.197
+Pakistan,4.768
+Panama,6.407
+Paraguay,6.172
+Peru,5.947
+Philippines,6.107
+Poland,6.673
+Portugal,6.013
+South Korea,6.038
+Republic of Moldova,5.819
+Romania,6.563
+Russia,5.945
+Saudi Arabia,6.6
+Senegal,4.856
+Serbia,6.606
+Sierra Leone,2.998
+Singapore,6.565
+Slovakia,6.221
+Slovenia,6.792
+Somalia,4.347
+South Africa,5.213
+Spain,6.466
+Sri Lanka,3.891
+State of Palestine,4.78
+Sweden,7.345
+Switzerland,6.935
+Taiwan,6.669
+Tajikistan,5.411
+Tanzania,3.8
+Thailand,6.222
+Togo,4.315
+Trinidad and Tobago,5.905
+Tunisia,4.552
+Turkey,5.262
+Uganda,4.461
+Ukraine,4.68
+UAE,6.759
+United Kingdom,6.728
+United States,6.724
+Uruguay,6.661
+Uzbekistan,6.193
+Venezuela,5.683
+Vietnam,6.352
+Yemen,3.561
+Zambia,3.912
+Zimbabwe,3.396

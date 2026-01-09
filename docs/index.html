@@ -546,6 +546,8 @@
 
         .table-scroll {
             overflow-x: auto;
+            overflow-y: auto;
+            max-height: 70vh;
         }
 
         .data-table {
@@ -569,9 +571,11 @@
             letter-spacing: 0.5px;
             position: sticky;
             top: 0;
+            z-index: 10;
             cursor: pointer;
             user-select: none;
             white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .data-table th:hover {
@@ -608,6 +612,45 @@
             font-family: inherit;
             font-size: 0.85rem;
             color: var(--text-muted);
+        }
+
+        /* Sticky columns for horizontal scrolling */
+        .data-table th:nth-child(1),
+        .data-table td:nth-child(1) {
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            background: #f1f5f9;
+        }
+
+        .data-table td:nth-child(1) {
+            background: white;
+        }
+
+        .data-table tr:hover td:nth-child(1) {
+            background: #f8fafc;
+        }
+
+        .data-table th:nth-child(2),
+        .data-table td:nth-child(2) {
+            position: sticky;
+            left: 50px;
+            z-index: 5;
+            background: #f1f5f9;
+        }
+
+        .data-table td:nth-child(2) {
+            background: white;
+        }
+
+        .data-table tr:hover td:nth-child(2) {
+            background: #f8fafc;
+        }
+
+        /* Ensure sticky header cells have higher z-index */
+        .data-table th:nth-child(1),
+        .data-table th:nth-child(2) {
+            z-index: 15;
         }
 
         /* About Panel Styles */
@@ -1033,9 +1076,10 @@
                             <li><strong>Corruption:</strong> Transparency International Corruption Perceptions Index</li>
                             <li><strong>Human Development:</strong> UN Human Development Index</li>
                             <li><strong>Happiness:</strong> World Happiness Report</li>
-                            <li><strong>Peace:</strong> Institute for Economics and Peace Global Peace Index</li>
                             <li><strong>Democracy:</strong> Economist Intelligence Unit Democracy Index</li>
                             <li><strong>Social Mobility:</strong> World Economic Forum Global Social Mobility Index</li>
+                            <li><strong>Purchasing Power:</strong> Numbeo Cost of Living Index</li>
+                            <li><strong>Inequality:</strong> World Bank Gini Index</li>
                         </ul>
                     </div>
 
@@ -1169,7 +1213,7 @@
             // Update last updated
             const date = new Date(data.metadata.generated_at);
             document.getElementById('lastUpdated').textContent =
-                `Last updated: ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
+                `Last updated: ${formatDatePretty(date)}`;
 
             content.innerHTML = `
                 <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.05rem;">We let the data settle the debate — no cherry-picking, no ideology, just numbers doing their thing.</p>
@@ -1177,6 +1221,13 @@
                 <!-- Correlations Table -->
                 <div class="section">
                     <h2>Correlation Results</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
+                        Each row shows how strongly economic freedom correlates with a quality-of-life metric.
+                        A correlation of <strong>1.0</strong> means they move in perfect lockstep (best friends forever),
+                        <strong>0</strong> means they couldn't care less about each other, and
+                        <strong>-1.0</strong> means when one goes up, the other sulks and goes down.
+                        Values above <strong>0.7</strong> are considered strong — basically, a statistically significant bromance.
+                    </p>
                     <div class="mobile-note">All correlations statistically significant (p < 0.001)</div>
                     <div class="table-responsive">
                         <table class="correlations-table">
@@ -1293,7 +1344,7 @@
             const content = document.getElementById('dataContent');
             content.classList.remove('loading');
 
-            const lastUpdated = new Date(data.metadata.generated_at).toLocaleDateString();
+            const lastUpdated = formatDatePretty(new Date(data.metadata.generated_at));
 
             content.innerHTML = `
                 <div class="stats">
@@ -1334,6 +1385,7 @@
                         <table class="data-table" id="dataTable">
                             <thead>
                                 <tr>
+                                    <th style="width: 50px;">#</th>
                                     <th onclick="sortTable('name')">Country <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('region')">Region <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('economic_freedom')" class="sorted">Econ Freedom <span class="sort-icon">↓</span></th>
@@ -1343,9 +1395,10 @@
                                     <th onclick="sortTable('corruption_score')">Anti-Corrupt. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('hdi')">HDI <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('happiness_score')">Happiness <span class="sort-icon">↕</span></th>
-                                    <th onclick="sortTable('peace_score')">Peace <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('social_mobility_score')">Social Mob. <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('purchasing_power_index')">Purch. Power <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('gini_index')">Gini <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
@@ -1393,20 +1446,22 @@
             const tbody = document.getElementById('tableBody');
             if (!tbody) return;
 
-            tbody.innerHTML = filtered.map(c => `
+            tbody.innerHTML = filtered.map((c, index) => `
                 <tr>
+                    <td style="color: var(--text-muted); font-weight: 500;">${index + 1}</td>
                     <td class="country-name">${c.name}</td>
                     <td class="region">${c.region || '-'}</td>
-                    <td>${formatValue(c.economic_freedom, 1)}</td>
-                    <td>${formatValue(c.gdp_per_capita, 0, true)}</td>
-                    <td>${formatValue(c.life_expectancy, 1)}</td>
-                    <td>${formatValue(c.infant_mortality, 1)}</td>
-                    <td>${formatValue(c.corruption_score, 0)}</td>
-                    <td>${formatValue(c.hdi, 3)}</td>
-                    <td>${formatValue(c.happiness_score, 2)}</td>
-                    <td>${formatValue(c.peace_score, 1)}</td>
-                    <td>${formatValue(c.democracy_score, 2)}</td>
-                    <td>${formatValue(c.social_mobility_score, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'economic_freedom', c.economic_freedom, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'gdp_per_capita', c.gdp_per_capita, 0, true)}</td>
+                    <td>${formatLinkedValue(c.name, 'life_expectancy', c.life_expectancy, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'infant_mortality', c.infant_mortality, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'corruption_score', c.corruption_score, 0)}</td>
+                    <td>${formatLinkedValue(c.name, 'hdi', c.hdi, 3)}</td>
+                    <td>${formatLinkedValue(c.name, 'happiness_score', c.happiness_score, 2)}</td>
+                    <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
+                    <td>${formatLinkedValue(c.name, 'social_mobility_score', c.social_mobility_score, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'purchasing_power_index', c.purchasing_power_index, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'gini_index', c.gini_index, 1)}</td>
                 </tr>
             `).join('');
 
@@ -1434,6 +1489,114 @@
             return formatted;
         }
 
+        function formatDatePretty(date) {
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const day = date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+
+            // Add ordinal suffix
+            let suffix = 'th';
+            if (day === 1 || day === 21 || day === 31) suffix = 'st';
+            else if (day === 2 || day === 22) suffix = 'nd';
+            else if (day === 3 || day === 23) suffix = 'rd';
+
+            return `${month} ${day}${suffix} ${year}`;
+        }
+
+        // ISO country codes for external links
+        const countryISO = {
+            'Afghanistan': 'AF', 'Albania': 'AL', 'Algeria': 'DZ', 'Angola': 'AO', 'Argentina': 'AR',
+            'Armenia': 'AM', 'Australia': 'AU', 'Austria': 'AT', 'Azerbaijan': 'AZ', 'Bahrain': 'BH',
+            'Bangladesh': 'BD', 'Belarus': 'BY', 'Belgium': 'BE', 'Belize': 'BZ', 'Benin': 'BJ',
+            'Bhutan': 'BT', 'Bolivia': 'BO', 'Bosnia and Herzegovina': 'BA', 'Botswana': 'BW', 'Brazil': 'BR',
+            'Brunei': 'BN', 'Bulgaria': 'BG', 'Burkina Faso': 'BF', 'Burundi': 'BI', 'Cambodia': 'KH',
+            'Cameroon': 'CM', 'Canada': 'CA', 'Cape Verde': 'CV', 'Central African Republic': 'CF', 'Chad': 'TD',
+            'Chile': 'CL', 'China': 'CN', 'Colombia': 'CO', 'Comoros': 'KM', 'Costa Rica': 'CR',
+            'Croatia': 'HR', 'Cuba': 'CU', 'Cyprus': 'CY', 'Czech Republic': 'CZ', 'DR Congo': 'CD',
+            'Denmark': 'DK', 'Djibouti': 'DJ', 'Dominican Republic': 'DO', 'Ecuador': 'EC', 'Egypt': 'EG',
+            'El Salvador': 'SV', 'Equatorial Guinea': 'GQ', 'Estonia': 'EE', 'Ethiopia': 'ET', 'Fiji': 'FJ',
+            'Finland': 'FI', 'France': 'FR', 'Gabon': 'GA', 'Gambia': 'GM', 'Georgia': 'GE',
+            'Germany': 'DE', 'Ghana': 'GH', 'Greece': 'GR', 'Guatemala': 'GT', 'Guinea': 'GN',
+            'Guyana': 'GY', 'Haiti': 'HT', 'Honduras': 'HN', 'Hong Kong': 'HK', 'Hungary': 'HU',
+            'Iceland': 'IS', 'India': 'IN', 'Indonesia': 'ID', 'Iran': 'IR', 'Iraq': 'IQ',
+            'Ireland': 'IE', 'Israel': 'IL', 'Italy': 'IT', 'Ivory Coast': 'CI', 'Jamaica': 'JM',
+            'Japan': 'JP', 'Jordan': 'JO', 'Kazakhstan': 'KZ', 'Kenya': 'KE', 'Kuwait': 'KW',
+            'Kyrgyzstan': 'KG', 'Laos': 'LA', 'Latvia': 'LV', 'Lebanon': 'LB', 'Lesotho': 'LS',
+            'Liberia': 'LR', 'Libya': 'LY', 'Lithuania': 'LT', 'Luxembourg': 'LU', 'Madagascar': 'MG',
+            'Malawi': 'MW', 'Malaysia': 'MY', 'Maldives': 'MV', 'Mali': 'ML', 'Malta': 'MT',
+            'Mauritania': 'MR', 'Mauritius': 'MU', 'Mexico': 'MX', 'Moldova': 'MD', 'Mongolia': 'MN',
+            'Montenegro': 'ME', 'Morocco': 'MA', 'Mozambique': 'MZ', 'Burma': 'MM', 'Namibia': 'NA',
+            'Nepal': 'NP', 'Netherlands': 'NL', 'New Zealand': 'NZ', 'Nicaragua': 'NI', 'Niger': 'NE',
+            'Nigeria': 'NG', 'North Korea': 'KP', 'North Macedonia': 'MK', 'Norway': 'NO', 'Oman': 'OM',
+            'Pakistan': 'PK', 'Panama': 'PA', 'Papua New Guinea': 'PG', 'Paraguay': 'PY', 'Peru': 'PE',
+            'Philippines': 'PH', 'Poland': 'PL', 'Portugal': 'PT', 'Qatar': 'QA', 'Romania': 'RO',
+            'Russia': 'RU', 'Rwanda': 'RW', 'Saudi Arabia': 'SA', 'Senegal': 'SN', 'Serbia': 'RS',
+            'Sierra Leone': 'SL', 'Singapore': 'SG', 'Slovakia': 'SK', 'Slovenia': 'SI', 'South Africa': 'ZA',
+            'South Korea': 'KR', 'Spain': 'ES', 'Sri Lanka': 'LK', 'Sudan': 'SD', 'Suriname': 'SR',
+            'Sweden': 'SE', 'Switzerland': 'CH', 'Syria': 'SY', 'Taiwan': 'TW', 'Tajikistan': 'TJ',
+            'Tanzania': 'TZ', 'Thailand': 'TH', 'Togo': 'TG', 'Trinidad and Tobago': 'TT', 'Tunisia': 'TN',
+            'Turkey': 'TR', 'Turkmenistan': 'TM', 'Uganda': 'UG', 'Ukraine': 'UA', 'UAE': 'AE',
+            'United Kingdom': 'GB', 'United States': 'US', 'Uruguay': 'UY', 'Uzbekistan': 'UZ',
+            'Venezuela': 'VE', 'Vietnam': 'VN', 'Yemen': 'YE', 'Zambia': 'ZM', 'Zimbabwe': 'ZW',
+            'Kosovo': 'XK', 'Macedonia': 'MK', 'Congo': 'CG'
+        };
+
+        function getDataUrl(country, field) {
+            const iso = countryISO[country] || '';
+            const iso2to3 = {
+                'AF': 'AFG', 'AL': 'ALB', 'DZ': 'DZA', 'AD': 'AND', 'AO': 'AGO', 'AG': 'ATG', 'AR': 'ARG', 'AM': 'ARM', 'AU': 'AUS', 'AT': 'AUT',
+                'AZ': 'AZE', 'BS': 'BHS', 'BH': 'BHR', 'BD': 'BGD', 'BB': 'BRB', 'BY': 'BLR', 'BE': 'BEL', 'BZ': 'BLZ', 'BJ': 'BEN', 'BT': 'BTN',
+                'BO': 'BOL', 'BA': 'BIH', 'BW': 'BWA', 'BR': 'BRA', 'BN': 'BRN', 'BG': 'BGR', 'BF': 'BFA', 'BI': 'BDI', 'KH': 'KHM', 'CM': 'CMR',
+                'CA': 'CAN', 'CV': 'CPV', 'CF': 'CAF', 'TD': 'TCD', 'CL': 'CHL', 'CN': 'CHN', 'CO': 'COL', 'KM': 'COM', 'CG': 'COG', 'CD': 'COD',
+                'CR': 'CRI', 'CI': 'CIV', 'HR': 'HRV', 'CU': 'CUB', 'CY': 'CYP', 'CZ': 'CZE', 'DK': 'DNK', 'DJ': 'DJI', 'DM': 'DMA', 'DO': 'DOM',
+                'EC': 'ECU', 'EG': 'EGY', 'SV': 'SLV', 'GQ': 'GNQ', 'ER': 'ERI', 'EE': 'EST', 'SZ': 'SWZ', 'ET': 'ETH', 'FJ': 'FJI', 'FI': 'FIN',
+                'FR': 'FRA', 'GA': 'GAB', 'GM': 'GMB', 'GE': 'GEO', 'DE': 'DEU', 'GH': 'GHA', 'GR': 'GRC', 'GD': 'GRD', 'GT': 'GTM', 'GN': 'GIN',
+                'GW': 'GNB', 'GY': 'GUY', 'HT': 'HTI', 'HN': 'HND', 'HK': 'HKG', 'HU': 'HUN', 'IS': 'ISL', 'IN': 'IND', 'ID': 'IDN', 'IR': 'IRN',
+                'IQ': 'IRQ', 'IE': 'IRL', 'IL': 'ISR', 'IT': 'ITA', 'JM': 'JAM', 'JP': 'JPN', 'JO': 'JOR', 'KZ': 'KAZ', 'KE': 'KEN', 'KI': 'KIR',
+                'KP': 'PRK', 'KR': 'KOR', 'KW': 'KWT', 'KG': 'KGZ', 'LA': 'LAO', 'LV': 'LVA', 'LB': 'LBN', 'LS': 'LSO', 'LR': 'LBR', 'LY': 'LBY',
+                'LI': 'LIE', 'LT': 'LTU', 'LU': 'LUX', 'MG': 'MDG', 'MW': 'MWI', 'MY': 'MYS', 'MV': 'MDV', 'ML': 'MLI', 'MT': 'MLT', 'MH': 'MHL',
+                'MR': 'MRT', 'MU': 'MUS', 'MX': 'MEX', 'FM': 'FSM', 'MD': 'MDA', 'MC': 'MCO', 'MN': 'MNG', 'ME': 'MNE', 'MA': 'MAR', 'MZ': 'MOZ',
+                'MM': 'MMR', 'NA': 'NAM', 'NR': 'NRU', 'NP': 'NPL', 'NL': 'NLD', 'NZ': 'NZL', 'NI': 'NIC', 'NE': 'NER', 'NG': 'NGA', 'MK': 'MKD',
+                'NO': 'NOR', 'OM': 'OMN', 'PK': 'PAK', 'PW': 'PLW', 'PA': 'PAN', 'PG': 'PNG', 'PY': 'PRY', 'PE': 'PER', 'PH': 'PHL', 'PL': 'POL',
+                'PT': 'PRT', 'QA': 'QAT', 'RO': 'ROU', 'RU': 'RUS', 'RW': 'RWA', 'KN': 'KNA', 'LC': 'LCA', 'VC': 'VCT', 'WS': 'WSM', 'SM': 'SMR',
+                'ST': 'STP', 'SA': 'SAU', 'SN': 'SEN', 'RS': 'SRB', 'SC': 'SYC', 'SL': 'SLE', 'SG': 'SGP', 'SK': 'SVK', 'SI': 'SVN', 'SB': 'SLB',
+                'SO': 'SOM', 'ZA': 'ZAF', 'SS': 'SSD', 'ES': 'ESP', 'LK': 'LKA', 'SD': 'SDN', 'SR': 'SUR', 'SE': 'SWE', 'CH': 'CHE', 'SY': 'SYR',
+                'TW': 'TWN', 'TJ': 'TJK', 'TZ': 'TZA', 'TH': 'THA', 'TL': 'TLS', 'TG': 'TGO', 'TO': 'TON', 'TT': 'TTO', 'TN': 'TUN', 'TR': 'TUR',
+                'TM': 'TKM', 'TV': 'TUV', 'UG': 'UGA', 'UA': 'UKR', 'AE': 'ARE', 'GB': 'GBR', 'US': 'USA', 'UY': 'URY', 'UZ': 'UZB', 'VU': 'VUT',
+                'VE': 'VEN', 'VN': 'VNM', 'YE': 'YEM', 'ZM': 'ZMB', 'ZW': 'ZWE', 'XK': 'XKX'
+            };
+            const iso3 = iso2to3[iso] || iso;
+            const countrySlug = country.toLowerCase().replace(/\s+/g, '-');
+
+            const urls = {
+                'economic_freedom': `https://www.heritage.org/index/country/${countrySlug}`,
+                'gdp_per_capita': `https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=${iso}`,
+                'life_expectancy': `https://data.worldbank.org/indicator/SP.DYN.LE00.IN?locations=${iso}`,
+                'infant_mortality': `https://data.worldbank.org/indicator/SP.DYN.IMRT.IN?locations=${iso}`,
+                'corruption_score': `https://www.transparency.org/en/cpi/2023/index/${iso3.toLowerCase()}`,
+                'hdi': `https://hdr.undp.org/data-center/country-insights#/ranks`,
+                'happiness_score': `https://ourworldindata.org/grapher/happiness-cantril-ladder?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'social_mobility_score': `https://worldpopulationreview.com/country-rankings/social-mobility-by-country`,
+                'purchasing_power_index': `https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2025`,
+                'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`
+            };
+            return urls[field] || '#';
+        }
+
+        function formatLinkedValue(country, field, val, decimals, isCurrency = false) {
+            if (val === null || val === undefined) {
+                return '<span style="color: var(--text-muted); font-style: italic;">N/A</span>';
+            }
+            let formatted = decimals === 0 ? Math.round(val).toLocaleString() : val.toFixed(decimals);
+            if (isCurrency) {
+                formatted = '$' + formatted;
+            }
+            const url = getDataUrl(country, field);
+            return `<a href="${url}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--text-muted);" title="View source data">${formatted}</a>`;
+        }
+
         function sortTable(column) {
             if (sortColumn === column) {
                 sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
@@ -1450,7 +1613,7 @@
 
         function downloadCSV() {
             const headers = ['Country', 'Region', 'Economic Freedom', 'GDP per Capita', 'Life Expectancy',
-                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Peace', 'Democracy', 'Social Mobility'];
+                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Democracy', 'Social Mobility', 'Purchasing Power', 'Gini Index'];
 
             const rows = allData.map(c => [
                 c.name,
@@ -1462,9 +1625,10 @@
                 c.corruption_score ?? '',
                 c.hdi ?? '',
                 c.happiness_score ?? '',
-                c.peace_score ?? '',
                 c.democracy_score ?? '',
-                c.social_mobility_score ?? ''
+                c.social_mobility_score ?? '',
+                c.purchasing_power_index ?? '',
+                c.gini_index ?? ''
             ]);
 
             const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
@@ -1531,14 +1695,6 @@
                     indices: ["Happiness Score"]
                 },
                 {
-                    name: "Global Peace Index",
-                    org: "Institute for Economics & Peace",
-                    year: 2024,
-                    desc: "Measures national peacefulness based on societal safety, ongoing conflict, and militarization.",
-                    url: "https://www.visionofhumanity.org/maps/",
-                    indices: ["Peace Score"]
-                },
-                {
                     name: "Democracy Index",
                     org: "Economist Intelligence Unit",
                     year: 2023,
@@ -1553,6 +1709,14 @@
                     desc: "Measures ability of individuals to move up the socioeconomic ladder regardless of background.",
                     url: "https://www.weforum.org/publications/global-social-mobility-index-2020/",
                     indices: ["Social Mobility Score"]
+                },
+                {
+                    name: "Cost of Living Index",
+                    org: "Numbeo",
+                    year: 2025,
+                    desc: "Measures relative purchasing power based on consumer goods prices, rent, and local salaries.",
+                    url: "https://www.numbeo.com/cost-of-living/rankings_by_country.jsp",
+                    indices: ["Purchasing Power Index"]
                 }
             ];
 

@@ -1,76 +1,182 @@
 Country,Democracy_Score
-Singapore,6.22
-Switzerland,9.14
-Ireland,9.19
-Taiwan,8.99
-New Zealand,9.61
-Estonia,7.96
-Luxembourg,8.81
-Netherlands,9.0
-Denmark,9.28
+Zimbabwe,2.98
+Estonia,8.13
+Belgium,7.64
+Mauritius,8.23
+Switzerland,9.32
+Eritrea,1.97
+Syria,1.32
+Belarus,1.99
+Malta,7.93
+Tanzania,5.2
+Taiwan,8.78
+Swaziland,2.6
+Mali,2.4
+Bangladesh,4.44
+Malaysia,7.11
+Tajikistan,1.83
+Mexico,5.32
+Equatorial Guinea,1.92
 Sweden,9.39
-Germany,8.8
-Australia,8.96
-United Kingdom,8.54
-Finland,9.3
-Canada,8.88
-United States,7.85
-Norway,9.81
-South Korea,8.09
-Japan,8.33
-Austria,8.41
-Israel,7.93
-Chile,7.98
+Moldova,6.04
+Suriname,6.79
+El Salvador,4.61
+Benin,4.44
+Mongolia,6.53
+Sudan,1.46
+Montenegro,6.73
+Egypt,2.79
+Bhutan,5.65
+Morocco,4.97
+Ecuador,5.24
+Sri Lanka,6.19
+Mozambique,3.38
+Spain,8.13
+Ethiopia,3.24
+Malawi,5.85
+Armenia,5.35
+Gabon,2.18
 France,7.99
-Spain,8.07
-Portugal,8.03
-Italy,7.68
-Poland,6.8
-Czech Republic,7.97
-Slovenia,7.96
-Slovakia,7.17
-Hungary,6.5
-Greece,7.45
-Mexico,5.57
-Turkey,4.35
-Colombia,6.8
-South Africa,7.05
-Brazil,6.78
-India,7.18
-Indonesia,6.71
-Philippines,6.12
-Thailand,6.04
-Vietnam,2.6
-China,1.94
-Russia,2.22
-Egypt,2.93
-Nigeria,4.12
-Pakistan,3.25
-Bangladesh,5.5
-Argentina,6.62
-Venezuela,2.36
-Cuba,2.46
-North Korea,1.08
-Iran,1.96
-Zimbabwe,2.6
-Ukraine,5.42
-Malaysia,7.3
+Turkey,4.26
+Lebanon,3.56
+Turkmenistan,1.66
+Asia (population-weighted),4.6148143
+Latvia,7.66
+Laos,1.71
+Bahrain,2.45
+Uganda,4.49
+Kyrgyzstan,3.52
+Asia,4.063404
+Gambia,4.47
+Kuwait,2.78
+Ukraine,4.9
+Australia,8.85
+Lesotho,6.06
+Finland,9.3
+Tunisia,4.71
+Liberia,5.57
+Libya,2.31
+Fiji,5.39
+Austria,8.28
+Trinidad and Tobago,7.09
+Lithuania,7.59
+Togo,2.99
+Europe (population-weighted),6.6179056
+Azerbaijan,2.8
+Luxembourg,8.88
+Thailand,6.27
+Madagascar,5.33
+Europe,7.4105
+Burma,0.96
+East Timor,7.03
+Bolivia,4.26
 Costa Rica,8.29
-Uruguay,8.66
-Panama,7.24
-Jamaica,7.11
-Peru,6.6
-Dominican Republic,6.15
-Morocco,5.04
-Kenya,5.05
-Ghana,5.56
-Rwanda,3.1
-Botswana,7.81
-Mauritius,8.14
+Russia,2.03
+Congo,2.79
+Rwanda,3.34
+Canada,8.69
+Pakistan,2.84
+Cameroon,2.56
+Oman,3.05
+Namibia,6.48
+Oceania (population-weighted),8.165917
 Saudi Arabia,2.08
-UAE,2.9
-Qatar,3.78
-Kuwait,3.83
-Bahrain,3.38
-Jordan,3.93
-Tunisia,5.51
+Ivory Coast,4.22
+Cambodia,2.94
+Oceania,7.455
+Norway,9.81
+Palestine,3.44
+Comoros,2.84
+Cape Verde,7.58
+Panama,6.84
+Romania,5.99
+Papua New Guinea,5.97
+Colombia,6.35
+Paraguay,5.92
+Central African Republic,1.18
+Qatar,3.17
+China,2.11
+Portugal,8.08
+Peru,5.69
+Chad,1.89
+Philippines,6.63
+Chile,7.83
+Poland,7.4
+Senegal,5.93
+Croatia,6.5
+Serbia,6.26
+Niger,2.26
+South Korea,7.75
+Dominican Republic,6.62
+Bosnia and Herzegovina,5.06
+South America (population-weighted),6.0882936
+Nepal,4.6
+Netherlands,9.0
+Djibouti,2.7
+Botswana,7.63
+South America,6.0091667
+New Zealand,9.61
+Denmark,9.28
+South Africa,7.16
+Nicaragua,2.09
+Brazil,6.49
+Slovenia,7.82
+Burundi,2.13
+DR Congo,1.92
+Nigeria,4.16
+Bulgaria,6.34
+Slovakia,7.21
+Czech Republic,8.08
+Singapore,6.18
+North America,5.642143
+Cyprus,7.38
+Burkina Faso,2.55
+North America (population-weighted),6.8798876
+Sierra Leone,4.32
+North Korea,1.08
+Cuba,2.58
+Macedonia,6.28
+Georgia,4.7
+Mauritania,3.96
+World (population-weighted),4.922177
+United States,7.85
+Angola,4.05
+Iran,1.96
+Jordan,3.28
+Africa,3.9166
+Guyana,6.11
+Indonesia,6.44
+Yemen,1.95
+United Kingdom,8.34
+Ghana,6.24
+Kazakhstan,3.08
+Argentina,6.51
+Haiti,2.74
+India,7.29
+Germany,8.73
+Iraq,2.8
+World,5.174551
+Guinea-Bissau,2.03
+Japan,8.48
+Uruguay,8.67
+Africa (population-weighted),3.8279371
+Greece,8.07
+Ireland,9.19
+Uzbekistan,2.1
+Guinea,2.04
+Vietnam,2.62
+Algeria,3.55
+Israel,7.8
+Jamaica,6.74
+Albania,6.2
+Italy,7.58
+Guatemala,4.55
+Afghanistan,0.25
+Venezuela,2.25
+Honduras,4.98
+Kenya,5.05
+Hungary,6.51
+UAE,3.07
+Iceland,9.38
+Zambia,5.73
+Hong Kong,5.09

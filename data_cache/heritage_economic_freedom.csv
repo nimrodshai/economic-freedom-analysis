@@ -1,76 +1,177 @@
 Country,Economic_Freedom_Score,Region
-Singapore,83.5,Asia-Pacific
-Switzerland,83.2,Europe
-Ireland,82.0,Europe
-Taiwan,80.7,Asia-Pacific
-New Zealand,78.9,Asia-Pacific
-Estonia,78.6,Europe
-Luxembourg,78.4,Europe
-Netherlands,77.8,Europe
-Denmark,77.6,Europe
-Sweden,77.5,Europe
-Germany,73.7,Europe
-Australia,73.5,Asia-Pacific
-United Kingdom,72.7,Europe
-Finland,72.6,Europe
-Canada,72.0,Americas
-United States,70.1,Americas
-Norway,68.3,Europe
-South Korea,72.6,Asia-Pacific
-Japan,69.3,Asia-Pacific
-Austria,71.2,Europe
-Israel,69.0,Middle East
-Chile,70.1,Americas
-France,65.7,Europe
-Spain,65.5,Europe
-Portugal,67.2,Europe
-Italy,63.8,Europe
-Poland,69.0,Europe
-Czech Republic,71.9,Europe
-Slovenia,66.5,Europe
-Slovakia,67.4,Europe
-Hungary,64.8,Europe
-Greece,57.8,Europe
-Mexico,63.7,Americas
-Turkey,55.2,Europe
-Colombia,58.1,Americas
-South Africa,55.7,Sub-Saharan Africa
-Brazil,53.4,Americas
-India,52.9,Asia-Pacific
-Indonesia,58.5,Asia-Pacific
-Philippines,56.3,Asia-Pacific
-Thailand,62.8,Asia-Pacific
-Vietnam,53.7,Asia-Pacific
-China,48.2,Asia-Pacific
-Russia,52.3,Europe
-Egypt,49.7,Middle East
-Nigeria,54.4,Sub-Saharan Africa
-Pakistan,49.4,Asia-Pacific
-Bangladesh,49.8,Asia-Pacific
-Argentina,50.3,Americas
-Venezuela,24.8,Americas
-Cuba,24.1,Americas
-North Korea,2.9,Asia-Pacific
-Iran,42.5,Middle East
-Zimbabwe,39.5,Sub-Saharan Africa
-Ukraine,54.1,Europe
-Malaysia,67.3,Asia-Pacific
-Costa Rica,65.8,Americas
-Uruguay,68.9,Americas
-Panama,66.4,Americas
-Jamaica,62.4,Americas
-Peru,62.7,Americas
-Dominican Republic,61.5,Americas
-Morocco,59.3,Middle East
-Kenya,53.6,Sub-Saharan Africa
-Ghana,56.4,Sub-Saharan Africa
-Rwanda,63.2,Sub-Saharan Africa
-Botswana,64.9,Sub-Saharan Africa
-Mauritius,72.1,Sub-Saharan Africa
-Saudi Arabia,57.5,Middle East
-UAE,70.2,Middle East
-Qatar,63.5,Middle East
-Kuwait,62.7,Middle East
-Bahrain,66.9,Middle East
-Jordan,57.4,Middle East
-Tunisia,54.8,Middle East
+Albania,66.6,Europe
+Algeria,47.5,Middle East / North Africa
+Angola,55.0,Sub-Saharan Africa
+Argentina,54.2,Americas
+Armenia,65.4,Europe
+Australia,79.3,Asia-Pacific
+Austria,69.7,Europe
+Azerbaijan,62.5,Europe
+Bahamas,63.2,Americas
+Bahrain,65.6,Middle East / North Africa
+Bangladesh,54.7,Asia-Pacific
+Barbados,68.9,Americas
+Belarus,48.9,Europe
+Belgium,69.0,Europe
+Belize,64.2,Americas
+Benin,58.5,Sub-Saharan Africa
+Bhutan,57.5,Asia-Pacific
+Bolivia,44.1,Americas
+Bosnia and Herzegovina,63.5,Europe
+Botswana,69.9,Sub-Saharan Africa
+Brazil,55.1,Americas
+Brunei,67.0,Asia-Pacific
+Bulgaria,68.8,Europe
+Burkina Faso,51.0,Sub-Saharan Africa
+Burma,43.7,Asia-Pacific
+Burundi,39.7,Sub-Saharan Africa
+Cabo Verde,68.7,Sub-Saharan Africa
+Cambodia,58.2,Asia-Pacific
+Cameroon,52.1,Sub-Saharan Africa
+Canada,75.5,Americas
+Central African Republic,42.8,Sub-Saharan Africa
+Chad,52.2,Sub-Saharan Africa
+Chile,73.2,Americas
+China,49.0,Asia-Pacific
+Colombia,59.8,Americas
+Comoros,51.4,Sub-Saharan Africa
+DR Congo,47.3,Sub-Saharan Africa
+Congo,48.6,Sub-Saharan Africa
+Costa Rica,68.6,Americas
+Ivory Coast,57.8,Sub-Saharan Africa
+Croatia,68.7,Europe
+Cuba,25.4,Americas
+Cyprus,73.2,Europe
+Czech Republic,72.9,Europe
+Denmark,79.1,Europe
+Djibouti,55.7,Sub-Saharan Africa
+Dominica,55.3,Americas
+Dominican Republic,64.3,Americas
+Ecuador,55.8,Americas
+Egypt,50.9,Middle East / North Africa
+El Salvador,56.6,Americas
+Equatorial Guinea,47.7,Sub-Saharan Africa
+Eritrea,38.6,Sub-Saharan Africa
+Estonia,78.9,Europe
+Swaziland,56.4,Sub-Saharan Africa
+Ethiopia,48.1,Sub-Saharan Africa
+Fiji,59.1,Asia-Pacific
+Finland,77.0,Europe
+France,64.4,Europe
+Gabon,56.3,Sub-Saharan Africa
+Gambia,56.8,Sub-Saharan Africa
+Georgia,69.0,Europe
+Germany,71.6,Europe
+Ghana,56.0,Sub-Saharan Africa
+Greece,60.6,Europe
+Guatemala,63.4,Americas
+Guinea,54.6,Sub-Saharan Africa
+Guinea-Bissau,43.6,Sub-Saharan Africa
+Guyana,58.2,Americas
+Haiti,46.1,Americas
+Honduras,59.6,Americas
+Hungary,61.4,Europe
+Iceland,72.8,Europe
+India,53.0,Asia-Pacific
+Indonesia,65.2,Asia-Pacific
+Iran,42.5,Middle East / North Africa
+Ireland,83.1,Europe
+Israel,69.9,Middle East / North Africa
+Italy,60.9,Europe
+Jamaica,68.7,Americas
+Japan,70.2,Asia-Pacific
+Jordan,59.4,Middle East / North Africa
+Kazakhstan,63.8,Asia-Pacific
+Kenya,54.8,Sub-Saharan Africa
+Kiribati,50.9,Asia-Pacific
+North Korea,3.0,Asia-Pacific
+South Korea,74.0,Asia-Pacific
+Kosovo,61.7,Europe
+Kuwait,59.9,Middle East / North Africa
+Kyrgyzstan,55.6,Asia-Pacific
+Laos,51.1,Asia-Pacific
+Latvia,71.4,Europe
+Lebanon,44.1,Middle East / North Africa
+Lesotho,54.1,Sub-Saharan Africa
+Liberia,48.5,Sub-Saharan Africa
+Lithuania,74.6,Europe
+Luxembourg,79.5,Europe
+Madagascar,57.0,Sub-Saharan Africa
+Malawi,50.9,Sub-Saharan Africa
+Malaysia,67.1,Asia-Pacific
+Maldives,48.3,Asia-Pacific
+Mali,52.6,Sub-Saharan Africa
+Malta,66.8,Europe
+Mauritania,54.9,Sub-Saharan Africa
+Mauritius,75.0,Sub-Saharan Africa
+Mexico,61.3,Americas
+Micronesia,62.2,Asia-Pacific
+Moldova,58.3,Europe
+Mongolia,62.6,Asia-Pacific
+Montenegro,63.8,Europe
+Morocco,60.3,Middle East / North Africa
+Mozambique,50.7,Sub-Saharan Africa
+Namibia,58.7,Sub-Saharan Africa
+Nepal,52.5,Asia-Pacific
+Netherlands,78.2,Europe
+New Zealand,78.1,Asia-Pacific
+Nicaragua,54.0,Americas
+Niger,51.5,Sub-Saharan Africa
+Nigeria,53.4,Sub-Saharan Africa
+Macedonia,63.2,Europe
+Norway,78.3,Europe
+Oman,65.4,Middle East / North Africa
+Pakistan,49.1,Asia-Pacific
+Panama,65.5,Americas
+Papua New Guinea,52.5,Asia-Pacific
+Paraguay,65.2,Americas
+Peru,65.9,Americas
+Philippines,60.6,Asia-Pacific
+Poland,67.1,Europe
+Portugal,70.5,Europe
+Qatar,70.2,Middle East / North Africa
+Romania,66.5,Europe
+Russia,51.6,Europe
+Rwanda,54.8,Sub-Saharan Africa
+Saint Lucia,67.0,Americas
+Saint Vincent and the Grenadines,60.1,Americas
+Samoa,66.6,Asia-Pacific
+Sao Tome and Principe,60.4,Sub-Saharan Africa
+Saudi Arabia,64.4,Middle East / North Africa
+Senegal,56.4,Sub-Saharan Africa
+Serbia,64.4,Europe
+Seychelles,66.4,Sub-Saharan Africa
+Sierra Leone,48.0,Sub-Saharan Africa
+Singapore,84.1,Asia-Pacific
+Slovakia,68.4,Europe
+Slovenia,68.3,Europe
+Solomon Islands,56.3,Asia-Pacific
+South Africa,57.3,Sub-Saharan Africa
+Spain,66.3,Europe
+Sri Lanka,49.4,Asia-Pacific
+Sudan,35.3,Sub-Saharan Africa
+Suriname,50.9,Americas
+Sweden,77.9,Europe
+Switzerland,83.7,Europe
+Taiwan,79.7,Asia-Pacific
+Tajikistan,51.5,Asia-Pacific
+Tanzania,59.3,Sub-Saharan Africa
+Thailand,60.6,Asia-Pacific
+Timor-Leste,47.9,Asia-Pacific
+Togo,52.3,Sub-Saharan Africa
+Tonga,58.5,Asia-Pacific
+Trinidad and Tobago,63.6,Americas
+Tunisia,49.1,Middle East / North Africa
+Turkey,56.1,Europe
+Turkmenistan,47.1,Asia-Pacific
+Uganda,51.3,Sub-Saharan Africa
+UAE,71.6,Middle East / North Africa
+United Kingdom,69.3,Europe
+United States,70.2,Americas
+Uruguay,70.2,Americas
+Uzbekistan,58.0,Asia-Pacific
+Vanuatu,61.8,Asia-Pacific
+Venezuela,27.6,Americas
+Vietnam,65.2,Asia-Pacific
+Zambia,50.9,Sub-Saharan Africa
+Zimbabwe,35.1,Sub-Saharan Africa

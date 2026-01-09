@@ -42,12 +42,10 @@ def generate_web_data(output_dir="docs"):
     corruption = fetcher.fetch_corruption_index()
     hdi = fetcher.fetch_human_development_index()
     happiness = fetcher.fetch_happiness_index()
-    peace = fetcher.fetch_peace_index()
     democracy = fetcher.fetch_democracy_index()
     social_mobility = fetcher.fetch_social_mobility_index()
     gini = fetcher.fetch_gini_index()
     purchasing_power = fetcher.fetch_purchasing_power_index()
-    military_strength = fetcher.fetch_military_strength_index()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -58,18 +56,26 @@ def generate_web_data(output_dir="docs"):
         (corruption, 'Country'),
         (hdi, 'Country'),
         (happiness, 'Country'),
-        (peace, 'Country'),
         (democracy, 'Country'),
         (social_mobility, 'Country'),
         (gini, 'Country'),
-        (purchasing_power, 'Country'),
-        (military_strength, 'Country')
+        (purchasing_power, 'Country')
     ]
 
     for df, key in datasets:
         if df is not None and len(df) > 0:
             cols_to_use = [key] + [c for c in df.columns if c not in merged.columns]
             merged = merged.merge(df[cols_to_use], on=key, how='left')
+
+    # Fill in missing Gini values from the dedicated Gini fetch
+    if gini is not None and 'Gini_Index' in gini.columns:
+        gini_dict = dict(zip(gini['Country'], gini['Gini_Index']))
+        merged['Gini_Index'] = merged.apply(
+            lambda row: gini_dict.get(row['Country'], row.get('Gini_Index'))
+            if (row.get('Gini_Index') is None or (isinstance(row.get('Gini_Index'), float) and np.isnan(row.get('Gini_Index'))))
+            else row.get('Gini_Index'),
+            axis=1
+        )
 
     print(f"  Merged dataset: {len(merged)} countries")
 
@@ -88,7 +94,6 @@ def generate_web_data(output_dir="docs"):
                 {"name": "Transparency International CPI", "year": 2023},
                 {"name": "UN Human Development Index", "year": 2022},
                 {"name": "World Happiness Report", "year": 2024},
-                {"name": "Global Peace Index", "year": 2024},
                 {"name": "Economist Intelligence Unit Democracy Index", "year": 2023},
                 {"name": "World Economic Forum Social Mobility Index", "year": 2020}
             ]
@@ -107,11 +112,9 @@ def generate_web_data(output_dir="docs"):
         'Corruption_Score': {'display_name': 'Anti-Corruption Score', 'unit': '0-100', 'higher_better': True},
         'HDI': {'display_name': 'Human Development Index', 'unit': '0-1', 'higher_better': True},
         'Happiness_Score': {'display_name': 'Happiness Score', 'unit': '0-10', 'higher_better': True},
-        'Peace_Score': {'display_name': 'Peace Score', 'unit': '0-100', 'higher_better': True},
         'Democracy_Score': {'display_name': 'Democracy Score', 'unit': '0-10', 'higher_better': True},
         'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True},
-        'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True},
-        'Military_Strength_Index': {'display_name': 'Military Strength', 'unit': '0-100', 'higher_better': True}
+        'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True}
     }
 
     for col, result in results.items():
@@ -143,6 +146,11 @@ def generate_web_data(output_dir="docs"):
             if col in row:
                 val = row[col]
                 country_data[col.lower()] = round(val, 2) if not (isinstance(val, float) and np.isnan(val)) else None
+
+        # Add Gini Index separately (for display, not correlation)
+        if 'Gini_Index' in row:
+            val = row['Gini_Index']
+            country_data['gini_index'] = round(val, 1) if not (isinstance(val, float) and np.isnan(val)) else None
 
         output_data["countries"].append(country_data)
 
@@ -196,9 +204,9 @@ def generate_web_data(output_dir="docs"):
         ('Corruption_Score', 'Anti-Corruption', True),
         ('HDI', 'Human Development Index', True),
         ('Happiness_Score', 'Happiness', True),
-        ('Peace_Score', 'Peace', True),
         ('Democracy_Score', 'Democracy', True),
-        ('Social_Mobility_Score', 'Social Mobility', True)
+        ('Social_Mobility_Score', 'Social Mobility', True),
+        ('Purchasing_Power_Index', 'Purchasing Power', True)
     ]
 
     comparison_data = []
