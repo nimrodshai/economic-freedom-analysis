@@ -156,21 +156,38 @@
             font-size: 1rem;
         }
 
+        .correlation-bar-container {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
         .correlation-bar {
-            width: 100px;
-            height: 8px;
+            width: 120px;
+            height: 12px;
             background: #e2e8f0;
             border-radius: 4px;
-            overflow: hidden;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 10px;
+            position: relative;
+            margin: 0 5px;
+        }
+
+        .correlation-bar-center {
+            position: absolute;
+            left: 50%;
+            top: -2px;
+            bottom: -2px;
+            width: 2px;
+            background: #94a3b8;
+            transform: translateX(-50%);
         }
 
         .correlation-bar-fill {
+            position: absolute;
             height: 100%;
             border-radius: 4px;
-            transition: width 0.3s;
+            transition: width 0.3s, left 0.3s;
         }
 
         .significance {
@@ -494,9 +511,15 @@
         }
 
         function renderCorrelationRow(c) {
-            const isPositive = c.effective_correlation > 0;
-            const barColor = isPositive ? '#16a34a' : '#dc2626';
-            const barWidth = Math.abs(c.correlation) * 100;
+            // effective_correlation already accounts for whether higher/lower is better
+            // positive effective_correlation = favorable outcome for economic freedom
+            const isFavorable = c.effective_correlation > 0;
+            const barColor = c.correlation >= 0 ? '#16a34a' : '#dc2626';
+
+            // Calculate bar position: -1 to 1 scale, 0 is center (50%)
+            // correlation of 1 = 100% from left, -1 = 0% from left, 0 = 50%
+            const barWidth = Math.abs(c.correlation) * 50; // max 50% width (half the bar)
+            const barLeft = c.correlation >= 0 ? 50 : 50 - barWidth; // start from center or left of center
 
             let sigClass = 'low';
             let sigText = 'Not significant';
@@ -511,19 +534,23 @@
                 sigText = 'p < 0.05 *';
             }
 
-            const directionIcon = isPositive ? '↑' : '↓';
-            const directionText = isPositive ?
-                (c.higher_better ? 'Better outcomes' : 'Worse outcomes') :
-                (c.higher_better ? 'Worse outcomes' : 'Better outcomes');
-            const directionColor = (isPositive === c.higher_better) ? 'var(--success)' : 'var(--danger)';
+            // Direction is based on effective_correlation, not raw correlation
+            const directionIcon = isFavorable ? '↑' : '↓';
+            const directionText = isFavorable ? 'Better outcomes' : 'Worse outcomes';
+            const directionColor = isFavorable ? 'var(--success)' : 'var(--danger)';
 
             return `
                 <tr>
                     <td><strong>${c.name}</strong><br><small style="color: var(--text-muted)">${c.unit}</small></td>
                     <td>
                         <span class="correlation-value" style="color: ${barColor}">${c.correlation.toFixed(3)}</span>
-                        <div class="correlation-bar">
-                            <div class="correlation-bar-fill" style="width: ${barWidth}%; background: ${barColor};"></div>
+                        <div class="correlation-bar-container">
+                            <span>-1</span>
+                            <div class="correlation-bar">
+                                <div class="correlation-bar-center"></div>
+                                <div class="correlation-bar-fill" style="width: ${barWidth}%; left: ${barLeft}%; background: ${barColor};"></div>
+                            </div>
+                            <span>1</span>
                         </div>
                     </td>
                     <td><span class="significance ${sigClass}">${sigText}</span></td>
