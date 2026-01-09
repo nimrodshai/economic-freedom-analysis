@@ -25,6 +25,10 @@
             padding: 0;
         }
 
+        html, body {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg);
@@ -32,18 +36,11 @@
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         header {
             text-align: center;
             padding: 40px 20px;
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
             color: white;
-            margin-bottom: 30px;
         }
 
         header h1 {
@@ -62,6 +59,58 @@
             margin-top: 10px;
         }
 
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 25px;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a.active {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        /* Sliding panels */
+        .panels-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .panels-container {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 300%;
+        }
+
+        .panel {
+            width: 33.333%;
+            flex-shrink: 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Cards */
         .summary-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -75,32 +124,7 @@
             padding: 24px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             border: 1px solid var(--border);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            animation: fadeInUp 0.5s ease forwards;
-            opacity: 0;
         }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .summary-cards .card:nth-child(1) { animation-delay: 0.1s; }
-        .summary-cards .card:nth-child(2) { animation-delay: 0.2s; }
-        .summary-cards .card:nth-child(3) { animation-delay: 0.3s; }
-        .summary-cards .card:nth-child(4) { animation-delay: 0.4s; }
-        .summary-cards .card:nth-child(5) { animation-delay: 0.5s; }
 
         .card h3 {
             font-size: 0.9rem;
@@ -147,6 +171,7 @@
             border-bottom: 2px solid var(--border);
         }
 
+        /* Correlations table */
         .correlations-table {
             width: 100%;
             border-collapse: collapse;
@@ -215,7 +240,6 @@
             position: absolute;
             height: 100%;
             border-radius: 4px;
-            transition: width 0.3s, left 0.3s;
         }
 
         .significance {
@@ -235,6 +259,7 @@
             margin-right: 5px;
         }
 
+        /* Charts */
         .charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -292,6 +317,7 @@
             min-width: 300px;
         }
 
+        /* Data sources */
         .data-sources {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -361,6 +387,7 @@
             height: 16px;
         }
 
+        /* Heatmap */
         .heatmap-table {
             border-collapse: collapse;
             font-size: 0.85rem;
@@ -420,6 +447,239 @@
             margin-left: 20px;
         }
 
+        /* Raw Data Panel Styles */
+        .controls {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .controls label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .controls input[type="text"] {
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 250px;
+        }
+
+        .controls select {
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .download-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .download-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 1200px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .data-table th:hover {
+            background: #e2e8f0;
+        }
+
+        .data-table th .sort-icon {
+            margin-left: 5px;
+            opacity: 0.3;
+        }
+
+        .data-table th.sorted .sort-icon {
+            opacity: 1;
+        }
+
+        .data-table tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .data-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .data-table td {
+            font-family: monospace;
+        }
+
+        .data-table td.country-name {
+            font-family: inherit;
+            font-weight: 500;
+        }
+
+        .data-table td.region {
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* About Panel Styles */
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .about-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .about-card p {
+            margin-bottom: 15px;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-card ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        .about-card li {
+            margin-bottom: 8px;
+        }
+
+        .methodology-step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .disclaimer {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .disclaimer h3 {
+            color: #92400e;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer p {
+            color: #78350f;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -457,33 +717,16 @@
             .chart-selector select { min-width: 100%; }
             .correlations-table { font-size: 0.85rem; }
             .correlations-table th, .correlations-table td { padding: 10px; }
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-top: 25px;
-        }
-
-        nav a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            padding: 8px 0;
-            font-size: 0.95rem;
-            font-weight: 500;
-            border-bottom: 2px solid transparent;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease;
-        }
-
-        nav a:hover {
-            color: white;
-            transform: translateY(-1px);
-        }
-
-        nav a.active {
-            color: white;
-            border-bottom-color: white;
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .controls input[type="text"] {
+                width: 100%;
+            }
+            .download-btn {
+                margin-left: 0;
+            }
         }
 
         @media (max-width: 480px) {
@@ -502,30 +745,146 @@
         <p>A data-driven analysis of how economic freedom correlates with societal outcomes</p>
         <div class="last-updated" id="lastUpdated">Loading data...</div>
         <nav>
-            <a href="index.html" class="active">Dashboard</a>
-            <a href="data.html">Raw Data</a>
-            <a href="about.html">About</a>
+            <a onclick="navigateTo(0)" class="active" data-panel="0">Dashboard</a>
+            <a onclick="navigateTo(1)" data-panel="1">Raw Data</a>
+            <a onclick="navigateTo(2)" data-panel="2">About</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div id="content" class="loading">Loading analysis data...</div>
+    <div class="panels-wrapper">
+        <div class="panels-container" id="panelsContainer">
+            <!-- Dashboard Panel -->
+            <div class="panel" id="dashboardPanel">
+                <div class="container">
+                    <div id="dashboardContent" class="loading">Loading analysis data...</div>
+                </div>
+            </div>
+
+            <!-- Raw Data Panel -->
+            <div class="panel" id="dataPanel">
+                <div class="container">
+                    <div id="dataContent" class="loading">Loading data...</div>
+                </div>
+            </div>
+
+            <!-- About Panel -->
+            <div class="panel" id="aboutPanel">
+                <div class="container">
+                    <div class="about-card">
+                        <h2>Purpose</h2>
+                        <p>This project examines the statistical relationship between economic freedom and various quality-of-life indicators. The goal is to provide a data-driven, transparent analysis that anyone can verify.</p>
+                        <p>Economic freedom, as measured by the Heritage Foundation's Index of Economic Freedom, encompasses factors like property rights, government integrity, tax burden, business freedom, and trade freedom.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h2>Methodology</h2>
+                        <div class="methodology-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Data Collection</h3>
+                                <p>Data is gathered from reputable international organizations including the Heritage Foundation, World Bank, UN, Transparency International, and others.</p>
+                            </div>
+                        </div>
+                        <div class="methodology-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Country Matching</h3>
+                                <p>Countries are matched across datasets by name. Only countries with valid data in both the Economic Freedom Index and the comparison metric are included in each correlation.</p>
+                            </div>
+                        </div>
+                        <div class="methodology-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Correlation Analysis</h3>
+                                <p>Pearson correlation coefficients are calculated to measure the linear relationship between economic freedom and each quality-of-life indicator.</p>
+                            </div>
+                        </div>
+                        <div class="methodology-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Statistical Significance</h3>
+                                <p>P-values are calculated to determine if correlations are statistically significant (p < 0.05), meaning they're unlikely to occur by chance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <h2>Data Sources</h2>
+                        <ul>
+                            <li><strong>Economic Freedom:</strong> Heritage Foundation Index of Economic Freedom</li>
+                            <li><strong>GDP & Health:</strong> World Bank Development Indicators</li>
+                            <li><strong>Corruption:</strong> Transparency International Corruption Perceptions Index</li>
+                            <li><strong>Human Development:</strong> UN Human Development Index</li>
+                            <li><strong>Happiness:</strong> World Happiness Report</li>
+                            <li><strong>Peace:</strong> Institute for Economics and Peace Global Peace Index</li>
+                            <li><strong>Democracy:</strong> Economist Intelligence Unit Democracy Index</li>
+                            <li><strong>Social Mobility:</strong> World Economic Forum Global Social Mobility Index</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-card">
+                        <h2>Interpreting Correlations</h2>
+                        <p>A <strong>correlation coefficient (r)</strong> measures the strength and direction of a linear relationship between two variables:</p>
+                        <ul>
+                            <li><strong>r = 1.0:</strong> Perfect positive correlation</li>
+                            <li><strong>r = 0.7 to 0.9:</strong> Strong positive correlation</li>
+                            <li><strong>r = 0.4 to 0.6:</strong> Moderate positive correlation</li>
+                            <li><strong>r = 0.1 to 0.3:</strong> Weak positive correlation</li>
+                            <li><strong>r = 0:</strong> No correlation</li>
+                            <li><strong>r = -1.0:</strong> Perfect negative correlation</li>
+                        </ul>
+                        <p>For metrics where lower is better (like infant mortality), the sign is flipped in the "effective correlation" to make all positive correlations represent better outcomes.</p>
+                    </div>
+
+                    <div class="disclaimer">
+                        <h3>Important Disclaimer</h3>
+                        <p><strong>Correlation does not imply causation.</strong> While this analysis shows statistical relationships between economic freedom and various outcomes, it does not prove that economic freedom directly causes these outcomes. Many confounding factors (geography, history, resources, culture) may influence both economic freedom and quality of life. This analysis is meant to inform, not to provide definitive proof of causal relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>Data is automatically refreshed periodically via GitHub Actions.</p>
-        <p>Source code available on <a href="https://github.com">GitHub</a></p>
+        <p>Data is automatically refreshed weekly via GitHub Actions.</p>
     </footer>
 
     <script>
+        let currentPanel = 0;
+        let allData = [];
+        let sortColumn = 'economic_freedom';
+        let sortDirection = 'desc';
+
+        // Navigation
+        function navigateTo(panelIndex) {
+            currentPanel = panelIndex;
+            const container = document.getElementById('panelsContainer');
+            container.style.transform = `translateX(-${panelIndex * 33.333}%)`;
+
+            // Update nav active state
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (parseInt(a.dataset.panel) === panelIndex) {
+                    a.classList.add('active');
+                }
+            });
+
+            // Update URL hash (without triggering hashchange)
+            const hashes = ['', '#data', '#about'];
+            history.replaceState(null, null, hashes[panelIndex] || window.location.pathname);
+        }
+
         // Fetch and render data
         async function loadData() {
             try {
                 const response = await fetch('data.json');
                 const data = await response.json();
-                renderContent(data);
+                window.analysisData = data;
+                allData = data.countries;
+                renderDashboard(data);
+                renderDataPanel(data);
             } catch (error) {
-                document.getElementById('content').innerHTML = `
+                document.getElementById('dashboardContent').innerHTML = `
                     <div class="card" style="text-align: center; color: var(--danger);">
                         <h3>Error Loading Data</h3>
                         <p>Could not load analysis data. Please try again later.</p>
@@ -535,8 +894,8 @@
             }
         }
 
-        function renderContent(data) {
-            const content = document.getElementById('content');
+        function renderDashboard(data) {
+            const content = document.getElementById('dashboardContent');
             content.classList.remove('loading');
 
             // Update last updated
@@ -544,7 +903,6 @@
             document.getElementById('lastUpdated').textContent =
                 `Last updated: ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
 
-            // Build HTML
             content.innerHTML = `
                 <!-- Summary Cards -->
                 <div class="summary-cards">
@@ -656,12 +1014,198 @@
                 </div>
             `;
 
-            // Store data globally for chart updates
-            window.analysisData = data;
-
             // Initialize charts
             initScatterChart();
             initHeatmap();
+        }
+
+        function renderDataPanel(data) {
+            const content = document.getElementById('dataContent');
+            content.classList.remove('loading');
+
+            const lastUpdated = new Date(data.metadata.generated_at).toLocaleDateString();
+
+            content.innerHTML = `
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="label">Countries</div>
+                        <div class="value">${data.countries.length}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Data Points</div>
+                        <div class="value">${data.countries.length * 10}</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">Last Updated</div>
+                        <div class="value" style="font-size: 1rem;">${lastUpdated}</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <div>
+                        <label for="search">Search Country: </label>
+                        <input type="text" id="search" placeholder="Type country name..." oninput="filterTable()">
+                    </div>
+                    <div>
+                        <label for="regionFilter">Filter by Region: </label>
+                        <select id="regionFilter" onchange="filterTable()">
+                            <option value="">All Regions</option>
+                            ${getRegions().map(r => `<option value="${r}">${r}</option>`).join('')}
+                        </select>
+                    </div>
+                    <button class="download-btn" onclick="downloadCSV()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        Download CSV
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-scroll">
+                        <table class="data-table" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th onclick="sortTable('name')">Country <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('region')">Region <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('economic_freedom')" class="sorted">Econ Freedom <span class="sort-icon">↓</span></th>
+                                    <th onclick="sortTable('gdp_per_capita')">GDP/Capita <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('life_expectancy')">Life Exp. <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('infant_mortality')">Infant Mort. <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('corruption_score')">Anti-Corrupt. <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('hdi')">HDI <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('happiness_score')">Happiness <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('peace_score')">Peace <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('social_mobility_score')">Social Mob. <span class="sort-icon">↕</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            renderTable();
+        }
+
+        function getRegions() {
+            const regions = [...new Set(allData.map(c => c.region).filter(r => r))];
+            return regions.sort();
+        }
+
+        function renderTable() {
+            const search = document.getElementById('search')?.value.toLowerCase() || '';
+            const region = document.getElementById('regionFilter')?.value || '';
+
+            let filtered = allData.filter(c => {
+                const matchesSearch = c.name.toLowerCase().includes(search);
+                const matchesRegion = !region || c.region === region;
+                return matchesSearch && matchesRegion;
+            });
+
+            // Sort
+            filtered.sort((a, b) => {
+                let aVal = a[sortColumn];
+                let bVal = b[sortColumn];
+
+                if (aVal === null || aVal === undefined) aVal = sortDirection === 'asc' ? Infinity : -Infinity;
+                if (bVal === null || bVal === undefined) bVal = sortDirection === 'asc' ? Infinity : -Infinity;
+
+                if (sortColumn === 'name' || sortColumn === 'region') {
+                    aVal = String(aVal).toLowerCase();
+                    bVal = String(bVal).toLowerCase();
+                    return sortDirection === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+                }
+
+                return sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
+            });
+
+            const tbody = document.getElementById('tableBody');
+            if (!tbody) return;
+
+            tbody.innerHTML = filtered.map(c => `
+                <tr>
+                    <td class="country-name">${c.name}</td>
+                    <td class="region">${c.region || '-'}</td>
+                    <td>${formatValue(c.economic_freedom, 1)}</td>
+                    <td>${formatValue(c.gdp_per_capita, 0, true)}</td>
+                    <td>${formatValue(c.life_expectancy, 1)}</td>
+                    <td>${formatValue(c.infant_mortality, 1)}</td>
+                    <td>${formatValue(c.corruption_score, 0)}</td>
+                    <td>${formatValue(c.hdi, 3)}</td>
+                    <td>${formatValue(c.happiness_score, 2)}</td>
+                    <td>${formatValue(c.peace_score, 1)}</td>
+                    <td>${formatValue(c.democracy_score, 2)}</td>
+                    <td>${formatValue(c.social_mobility_score, 1)}</td>
+                </tr>
+            `).join('');
+
+            // Update header sort icons
+            document.querySelectorAll('.data-table th').forEach(th => {
+                th.classList.remove('sorted');
+                const icon = th.querySelector('.sort-icon');
+                if (icon) icon.textContent = '↕';
+            });
+            const sortedTh = document.querySelector(`.data-table th[onclick="sortTable('${sortColumn}')"]`);
+            if (sortedTh) {
+                sortedTh.classList.add('sorted');
+                sortedTh.querySelector('.sort-icon').textContent = sortDirection === 'asc' ? '↑' : '↓';
+            }
+        }
+
+        function formatValue(val, decimals, isCurrency = false) {
+            if (val === null || val === undefined) {
+                return '<span style="color: var(--text-muted); font-style: italic;">N/A</span>';
+            }
+            let formatted = decimals === 0 ? Math.round(val).toLocaleString() : val.toFixed(decimals);
+            if (isCurrency) {
+                formatted = '$' + formatted;
+            }
+            return formatted;
+        }
+
+        function sortTable(column) {
+            if (sortColumn === column) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortColumn = column;
+                sortDirection = 'desc';
+            }
+            renderTable();
+        }
+
+        function filterTable() {
+            renderTable();
+        }
+
+        function downloadCSV() {
+            const headers = ['Country', 'Region', 'Economic Freedom', 'GDP per Capita', 'Life Expectancy',
+                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Peace', 'Democracy', 'Social Mobility'];
+
+            const rows = allData.map(c => [
+                c.name,
+                c.region || '',
+                c.economic_freedom ?? '',
+                c.gdp_per_capita ?? '',
+                c.life_expectancy ?? '',
+                c.infant_mortality ?? '',
+                c.corruption_score ?? '',
+                c.hdi ?? '',
+                c.happiness_score ?? '',
+                c.peace_score ?? '',
+                c.democracy_score ?? '',
+                c.social_mobility_score ?? ''
+            ]);
+
+            const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'economic_freedom_data.csv';
+            a.click();
+            URL.revokeObjectURL(url);
         }
 
         function getVerdictText(summary) {
@@ -761,15 +1305,11 @@
         }
 
         function renderCorrelationRow(c) {
-            // effective_correlation already accounts for whether higher/lower is better
-            // positive effective_correlation = favorable outcome for economic freedom
             const isFavorable = c.effective_correlation > 0;
             const barColor = c.correlation >= 0 ? '#16a34a' : '#dc2626';
 
-            // Calculate bar position: -1 to 1 scale, 0 is center (50%)
-            // correlation of 1 = 100% from left, -1 = 0% from left, 0 = 50%
-            const barWidth = Math.abs(c.correlation) * 50; // max 50% width (half the bar)
-            const barLeft = c.correlation >= 0 ? 50 : 50 - barWidth; // start from center or left of center
+            const barWidth = Math.abs(c.correlation) * 50;
+            const barLeft = c.correlation >= 0 ? 50 : 50 - barWidth;
 
             let sigClass = 'low';
             let sigText = 'Not significant';
@@ -784,7 +1324,6 @@
                 sigText = 'p < 0.05 *';
             }
 
-            // Direction is based on effective_correlation, not raw correlation
             const directionIcon = isFavorable ? '↑' : '↓';
             const directionText = isFavorable ? 'Better outcomes' : 'Worse outcomes';
             const directionColor = isFavorable ? 'var(--success)' : 'var(--danger)';
@@ -865,7 +1404,6 @@
 
             if (!scatterData || !correlation) return;
 
-            // Generate trend line points
             const trendPoints = [];
             const slope = scatterData.trend_line.slope;
             const intercept = scatterData.trend_line.intercept;
@@ -901,7 +1439,6 @@
             scatterChart.options.scales.y.title.text = correlation.name;
             scatterChart.update();
 
-            // Update interpretation
             const interpBox = document.getElementById('chartInterpretation');
             const favorable = (isPositive === correlation.higher_better);
             interpBox.className = `interpretation-box ${favorable ? 'positive' : 'negative'}`;
@@ -927,7 +1464,6 @@
             const data = window.analysisData;
             const matrix = data.correlation_matrix;
 
-            // Create labels
             const nameMap = {
                 'Economic_Freedom_Score': 'Economic Freedom',
                 'GDP_Per_Capita': 'GDP per Capita',
@@ -943,7 +1479,6 @@
 
             const labels = matrix.columns.map(c => nameMap[c] || c);
 
-            // Color function
             function getColor(value) {
                 if (value >= 0.7) return { bg: '#166534', text: '#ffffff' };
                 if (value >= 0.5) return { bg: '#22c55e', text: '#ffffff' };
@@ -954,16 +1489,13 @@
                 return { bg: '#dc2626', text: '#ffffff' };
             }
 
-            // Build HTML table
             let html = '<table class="heatmap-table"><thead><tr><th></th>';
 
-            // Header row
             labels.forEach(label => {
                 html += `<th>${label}</th>`;
             });
             html += '</tr></thead><tbody>';
 
-            // Data rows
             for (let i = 0; i < matrix.values.length; i++) {
                 html += `<tr><th class="row-header">${labels[i]}</th>`;
                 for (let j = 0; j < matrix.values[i].length; j++) {
@@ -984,8 +1516,20 @@
             document.getElementById('heatmapTable').innerHTML = html;
         }
 
+        // Handle hash navigation
+        function handleHash() {
+            const hash = window.location.hash;
+            if (hash === '#data') {
+                navigateTo(1);
+            } else if (hash === '#about') {
+                navigateTo(2);
+            }
+        }
+
         // Load data on page load
         loadData();
+        handleHash();
+        window.addEventListener('hashchange', handleHash);
     </script>
 </body>
 </html>
