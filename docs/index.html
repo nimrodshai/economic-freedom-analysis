@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Freedom vs Quality of Life</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        .card h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .card .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .card .value.positive { color: var(--success); }
+        .card .value.negative { color: var(--danger); }
+        .card .value.neutral { color: var(--warning); }
+
+        .card .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .verdict-card {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .verdict-card .verdict {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .correlations-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .correlations-table th,
+        .correlations-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .correlations-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .correlations-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .correlation-value {
+            font-weight: 600;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .correlation-bar {
+            width: 100px;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .correlation-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .significance {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .significance.high { background: #dcfce7; color: #166534; }
+        .significance.medium { background: #fef9c3; color: #854d0e; }
+        .significance.low { background: #fee2e2; color: #991b1b; }
+
+        .direction-icon {
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .chart-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+
+        .chart-container h3 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 350px;
+        }
+
+        .interpretation-box {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .interpretation-box.positive {
+            background: #dcfce7;
+            color: #166534;
+            border-left: 4px solid #16a34a;
+        }
+
+        .interpretation-box.negative {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #dc2626;
+        }
+
+        .chart-selector {
+            margin-bottom: 20px;
+        }
+
+        .chart-selector select {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            cursor: pointer;
+            min-width: 300px;
+        }
+
+        .data-sources {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .data-sources ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .data-sources li {
+            padding: 8px 0;
+            color: var(--text-muted);
+        }
+
+        .data-sources li::before {
+            content: "•";
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .caveats {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+
+        .caveats h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .caveats ul {
+            color: #78350f;
+            margin-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-muted);
+        }
+
+        .loading::after {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .charts-grid { grid-template-columns: 1fr; }
+            .chart-selector select { min-width: 100%; }
+            .correlations-table { font-size: 0.85rem; }
+            .correlations-table th, .correlations-table td { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Economic Freedom vs Quality of Life</h1>
+        <p>A data-driven analysis of how economic freedom correlates with societal outcomes</p>
+        <div class="last-updated" id="lastUpdated">Loading data...</div>
+    </header>
+
+    <div class="container">
+        <div id="content" class="loading">Loading analysis data...</div>
+    </div>
+
+    <footer>
+        <p>Data is automatically refreshed periodically via GitHub Actions.</p>
+        <p>Source code available on <a href="https://github.com">GitHub</a></p>
+    </footer>
+
+    <script>
+        // Fetch and render data
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                renderContent(data);
+            } catch (error) {
+                document.getElementById('content').innerHTML = `
+                    <div class="card" style="text-align: center; color: var(--danger);">
+                        <h3>Error Loading Data</h3>
+                        <p>Could not load analysis data. Please try again later.</p>
+                        <p style="font-size: 0.8rem; margin-top: 10px;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderContent(data) {
+            const content = document.getElementById('content');
+            content.classList.remove('loading');
+
+            // Update last updated
+            const date = new Date(data.metadata.generated_at);
+            document.getElementById('lastUpdated').textContent =
+                `Last updated: ${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`;
+
+            // Build HTML
+            content.innerHTML = `
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Countries Analyzed</h3>
+                        <div class="value">${data.metadata.num_countries}</div>
+                        <div class="label">from all regions</div>
+                    </div>
+                    <div class="card">
+                        <h3>Positive Correlations</h3>
+                        <div class="value positive">${data.summary.positive_correlations}</div>
+                        <div class="label">more freedom = better</div>
+                    </div>
+                    <div class="card">
+                        <h3>Negative Correlations</h3>
+                        <div class="value negative">${data.summary.negative_correlations}</div>
+                        <div class="label">more freedom = worse</div>
+                    </div>
+                    <div class="card">
+                        <h3>Indices Tested</h3>
+                        <div class="value">${data.summary.total_indices}</div>
+                        <div class="label">quality of life metrics</div>
+                    </div>
+                    <div class="card verdict-card">
+                        <h3>Overall Finding</h3>
+                        <div class="verdict ${data.summary.verdict === 'supports' ? 'positive' : data.summary.verdict === 'contradicts' ? 'negative' : 'neutral'}">
+                            ${getVerdictText(data.summary)}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Correlations Table -->
+                <div class="section">
+                    <h2>Correlation Results</h2>
+                    <table class="correlations-table">
+                        <thead>
+                            <tr>
+                                <th>Index</th>
+                                <th>Correlation (r)</th>
+                                <th>Significance</th>
+                                <th>Direction</th>
+                                <th>Sample Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.correlations.map(c => renderCorrelationRow(c)).join('')}
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Interactive Charts -->
+                <div class="section">
+                    <h2>Interactive Scatter Plots</h2>
+                    <div class="chart-selector">
+                        <label for="indexSelect">Select Index: </label>
+                        <select id="indexSelect" onchange="updateChart()">
+                            ${data.correlations.map(c =>
+                                `<option value="${c.id}">${c.name}</option>`
+                            ).join('')}
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <canvas id="scatterChart"></canvas>
+                        </div>
+                        <div id="chartInterpretation" class="interpretation-box positive"></div>
+                    </div>
+                </div>
+
+                <!-- Correlation Matrix -->
+                <div class="section">
+                    <h2>Correlation Matrix Heatmap</h2>
+                    <div class="chart-container">
+                        <div class="chart-wrapper" style="height: 500px;">
+                            <canvas id="heatmapChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Sources -->
+                <div class="section">
+                    <h2>Data Sources</h2>
+                    <div class="data-sources">
+                        <ul>
+                            ${data.metadata.data_sources.map(s =>
+                                `<li>${s.name} (${s.year})</li>`
+                            ).join('')}
+                        </ul>
+                    </div>
+                    <div class="caveats">
+                        <h3>Important Caveats</h3>
+                        <ul>
+                            <li><strong>Correlation does not imply causation.</strong> These relationships do not prove that economic freedom causes better outcomes.</li>
+                            <li>Many confounding variables exist, including historical, geographical, and cultural factors.</li>
+                            <li>Economic freedom indices have methodological limitations and biases.</li>
+                            <li>Data availability and quality varies significantly by country.</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            // Store data globally for chart updates
+            window.analysisData = data;
+
+            // Initialize charts
+            initScatterChart();
+            initHeatmap();
+        }
+
+        function getVerdictText(summary) {
+            if (summary.verdict === 'supports') {
+                return `The data <strong style="color: var(--success);">SUPPORTS</strong> the claim that economic freedom correlates with better quality-of-life outcomes. ${summary.positive_correlations} out of ${summary.total_indices} indices show statistically significant positive correlations.`;
+            } else if (summary.verdict === 'contradicts') {
+                return `The data <strong style="color: var(--danger);">CONTRADICTS</strong> the claim that economic freedom correlates with better quality-of-life outcomes.`;
+            } else {
+                return `The data shows <strong style="color: var(--warning);">MIXED</strong> results regarding economic freedom and quality-of-life outcomes.`;
+            }
+        }
+
+        function renderCorrelationRow(c) {
+            const isPositive = c.effective_correlation > 0;
+            const barColor = isPositive ? '#16a34a' : '#dc2626';
+            const barWidth = Math.abs(c.correlation) * 100;
+
+            let sigClass = 'low';
+            let sigText = 'Not significant';
+            if (c.p_value < 0.001) {
+                sigClass = 'high';
+                sigText = 'p < 0.001 ***';
+            } else if (c.p_value < 0.01) {
+                sigClass = 'high';
+                sigText = 'p < 0.01 **';
+            } else if (c.p_value < 0.05) {
+                sigClass = 'medium';
+                sigText = 'p < 0.05 *';
+            }
+
+            const directionIcon = isPositive ? '↑' : '↓';
+            const directionText = isPositive ?
+                (c.higher_better ? 'Better outcomes' : 'Worse outcomes') :
+                (c.higher_better ? 'Worse outcomes' : 'Better outcomes');
+            const directionColor = (isPositive === c.higher_better) ? 'var(--success)' : 'var(--danger)';
+
+            return `
+                <tr>
+                    <td><strong>${c.name}</strong><br><small style="color: var(--text-muted)">${c.unit}</small></td>
+                    <td>
+                        <span class="correlation-value" style="color: ${barColor}">${c.correlation.toFixed(3)}</span>
+                        <div class="correlation-bar">
+                            <div class="correlation-bar-fill" style="width: ${barWidth}%; background: ${barColor};"></div>
+                        </div>
+                    </td>
+                    <td><span class="significance ${sigClass}">${sigText}</span></td>
+                    <td style="color: ${directionColor}">
+                        <span class="direction-icon">${directionIcon}</span>${directionText}
+                    </td>
+                    <td>n = ${c.n}</td>
+                </tr>
+            `;
+        }
+
+        let scatterChart = null;
+
+        function initScatterChart() {
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+            scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: { datasets: [] },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.raw.country}: (${context.raw.x}, ${context.raw.y})`;
+                                }
+                            }
+                        },
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Economic Freedom Score'
+                            },
+                            min: 0,
+                            max: 100
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: ''
+                            }
+                        }
+                    }
+                }
+            });
+            updateChart();
+        }
+
+        function updateChart() {
+            const select = document.getElementById('indexSelect');
+            const selectedId = select.value;
+            const data = window.analysisData;
+
+            const scatterData = data.scatter_data[selectedId];
+            const correlation = data.correlations.find(c => c.id === selectedId);
+
+            if (!scatterData || !correlation) return;
+
+            // Generate trend line points
+            const trendPoints = [];
+            const slope = scatterData.trend_line.slope;
+            const intercept = scatterData.trend_line.intercept;
+            const [xMin, xMax] = scatterData.trend_line.x_range;
+
+            for (let x = xMin; x <= xMax; x += (xMax - xMin) / 50) {
+                trendPoints.push({ x: x, y: slope * x + intercept });
+            }
+
+            const isPositive = correlation.effective_correlation > 0;
+            const pointColor = isPositive ? 'rgba(22, 163, 74, 0.6)' : 'rgba(220, 38, 38, 0.6)';
+
+            scatterChart.data.datasets = [
+                {
+                    label: 'Countries',
+                    data: scatterData.points,
+                    backgroundColor: pointColor,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                },
+                {
+                    label: `Trend (r = ${correlation.correlation.toFixed(3)})`,
+                    data: trendPoints,
+                    type: 'line',
+                    borderColor: 'rgba(239, 68, 68, 0.8)',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: false
+                }
+            ];
+
+            scatterChart.options.scales.y.title.text = correlation.name;
+            scatterChart.update();
+
+            // Update interpretation
+            const interpBox = document.getElementById('chartInterpretation');
+            const favorable = (isPositive === correlation.higher_better);
+            interpBox.className = `interpretation-box ${favorable ? 'positive' : 'negative'}`;
+
+            if (correlation.significant) {
+                const direction = isPositive ? 'higher' : 'lower';
+                const outcome = favorable ? 'better' : 'worse';
+                interpBox.innerHTML = `
+                    <strong>Interpretation:</strong> Countries with higher economic freedom tend to have
+                    <strong>${direction}</strong> ${correlation.name.toLowerCase()}, which represents
+                    <strong>${outcome}</strong> outcomes. This correlation is statistically significant
+                    (r = ${correlation.correlation.toFixed(3)}, p < 0.05).
+                `;
+            } else {
+                interpBox.innerHTML = `
+                    <strong>Interpretation:</strong> No statistically significant relationship was found
+                    between economic freedom and ${correlation.name.toLowerCase()}.
+                `;
+            }
+        }
+
+        function initHeatmap() {
+            const ctx = document.getElementById('heatmapChart').getContext('2d');
+            const data = window.analysisData;
+            const matrix = data.correlation_matrix;
+
+            // Create labels
+            const labels = matrix.columns.map(c => {
+                const nameMap = {
+                    'Economic_Freedom_Score': 'Econ Freedom',
+                    'GDP_Per_Capita': 'GDP/Capita',
+                    'Life_Expectancy': 'Life Expect.',
+                    'Corruption_Score': 'Anti-Corrupt.',
+                    'HDI': 'HDI',
+                    'Happiness_Score': 'Happiness',
+                    'Peace_Score': 'Peace',
+                    'Democracy_Score': 'Democracy',
+                    'Infant_Mortality': 'Infant Mort.'
+                };
+                return nameMap[c] || c;
+            });
+
+            // Create data points for heatmap (using bubble chart as workaround)
+            const heatmapData = [];
+            for (let i = 0; i < matrix.values.length; i++) {
+                for (let j = 0; j <= i; j++) {
+                    const value = matrix.values[i][j];
+                    if (!isNaN(value)) {
+                        heatmapData.push({
+                            x: j,
+                            y: matrix.values.length - 1 - i,
+                            r: 25,
+                            v: value
+                        });
+                    }
+                }
+            }
+
+            new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        data: heatmapData,
+                        backgroundColor: function(context) {
+                            const value = context.raw.v;
+                            if (value >= 0.7) return 'rgba(22, 101, 52, 0.9)';
+                            if (value >= 0.5) return 'rgba(34, 197, 94, 0.8)';
+                            if (value >= 0.3) return 'rgba(134, 239, 172, 0.7)';
+                            if (value >= 0) return 'rgba(254, 249, 195, 0.7)';
+                            if (value >= -0.3) return 'rgba(254, 202, 202, 0.7)';
+                            return 'rgba(220, 38, 38, 0.8)';
+                        }
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const i = matrix.values.length - 1 - context.raw.y;
+                                    const j = context.raw.x;
+                                    return `${labels[i]} vs ${labels[j]}: r = ${context.raw.v.toFixed(2)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            min: -0.5,
+                            max: labels.length - 0.5,
+                            ticks: {
+                                callback: function(value) {
+                                    return labels[value] || '';
+                                },
+                                stepSize: 1
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            min: -0.5,
+                            max: labels.length - 0.5,
+                            ticks: {
+                                callback: function(value) {
+                                    const idx = labels.length - 1 - value;
+                                    return labels[idx] || '';
+                                },
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>
