@@ -944,10 +944,16 @@
             border-left: 4px solid var(--success);
         }
 
+        /* Responsive text visibility */
+        .desktop-only { display: inline; }
+        .mobile-only { display: none; }
+
         @media (max-width: 768px) {
             header { padding: 30px 15px; }
             header h1 { font-size: 1.6rem; }
             header p { font-size: 0.95rem; }
+            .desktop-only { display: none; }
+            .mobile-only { display: inline; }
             .container { padding: 15px; }
             .charts-grid { grid-template-columns: 1fr; }
             .chart-selector { flex-direction: column; align-items: stretch; }
@@ -961,8 +967,8 @@
             .correlations-table tr {
                 display: grid;
                 grid-template-columns: 1fr auto;
-                grid-template-rows: auto auto auto;
-                gap: 2px 16px;
+                grid-template-rows: auto auto;
+                gap: 6px 12px;
                 padding: 12px 14px;
                 align-items: center;
                 border-bottom: 1px solid var(--border);
@@ -981,43 +987,43 @@
             .correlations-table td:first-child br { display: none; }
             .correlations-table td:nth-child(2) {
                 grid-column: 2;
-                grid-row: 1 / 4;
+                grid-row: 1 / 3;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
-                gap: 4px;
+                gap: 2px;
                 padding: 0;
                 border: none;
             }
-            .correlation-value { font-size: 1.1rem; font-weight: 700; width: auto; }
-            .correlation-bar-container { display: flex; flex-direction: column; align-items: center; margin-left: 0; }
-            .correlation-bar { width: 80px; height: 18px; border-radius: 9px; }
-            .correlation-bar-fill { border-radius: 9px; }
-            .correlation-bar-container > span { font-size: 0.65rem; }
+            .correlation-value { font-size: 1.2rem; font-weight: 700; width: auto; text-align: right; }
+            .correlation-bar-container { display: flex; flex-direction: row; align-items: center; margin-left: 0; gap: 4px; }
+            .correlation-bar { width: 100px; height: 16px; border-radius: 8px; }
+            .correlation-bar-fill { border-radius: 8px; }
+            .correlation-bar-container > span { font-size: 0.6rem; color: var(--text-muted); }
             .correlations-table td:nth-child(3) { display: none; }
             .correlations-table td:nth-child(4) {
-                display: block !important;
-                grid-column: 1;
-                grid-row: 3;
+                display: inline !important;
                 padding: 0;
                 border: none;
                 font-size: 0.7rem;
                 text-align: left;
-                align-self: center;
             }
-            .direction-icon { font-size: 0.85rem; vertical-align: middle; position: relative; top: -1px; }
             .correlations-table td:nth-child(5) {
-                display: block !important;
-                grid-column: 1;
-                grid-row: 2;
+                display: inline !important;
                 padding: 0;
                 border: none;
                 font-size: 0.7rem;
                 color: var(--text-muted);
                 text-align: left;
-                align-self: center;
             }
+            .correlations-table td:nth-child(4),
+            .correlations-table td:nth-child(5) {
+                grid-column: 1;
+                grid-row: 2;
+            }
+            .correlations-table td:nth-child(5)::after { content: " · "; }
+            .direction-icon { font-size: 0.8rem; vertical-align: middle; }
             .mobile-note { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }
             .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .card { padding: 16px; }
@@ -1301,8 +1307,9 @@
                 <!-- Correlations Table -->
                 <div class="section">
                     <h2>Correlation Results</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
-                        Each row shows how economic freedom relates to a quality-of-life metric. Correlations range from <strong>-1</strong> (opposite directions) to <strong>1</strong> (move together), with <strong>0</strong> meaning no relationship. In social sciences, anything above <strong>0.5</strong> is considered strong — most studies don't get that high.
+                    <p class="correlation-intro" style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
+                        <span class="desktop-only">Each row shows how economic freedom relates to a quality-of-life metric. Correlations range from <strong>-1</strong> (opposite directions) to <strong>1</strong> (move together), with <strong>0</strong> meaning no relationship. In social sciences, anything above <strong>0.5</strong> is considered strong — most studies don't get that high.</span>
+                        <span class="mobile-only">Correlations range from <strong>-1</strong> to <strong>1</strong>. Above <strong>0.5</strong> is considered strong.</span>
                     </p>
                     <div class="mobile-note">All correlations statistically significant (p < 0.001)</div>
                     <div class="table-responsive">
