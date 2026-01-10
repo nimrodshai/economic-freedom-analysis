@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Is Economic Freedom Better? | Data-Driven Analysis of Freedom vs Quality of Life</title>
+    <title>Is Freedom Better? | Do Freer Countries Have Better Quality of Life?</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore the relationship between economic freedom and quality of life across 150+ countries. Interactive charts, data analysis, and insights on how free markets correlate with happiness, health, and prosperity.">
+    <meta name="description" content="Do countries with freer markets have happier, healthier, wealthier citizens? We analyzed 150+ countries. The answer: yes, and the data is clear.">
     <meta name="keywords" content="economic freedom, quality of life, free market, capitalism, happiness index, GDP per capita, life expectancy, country comparison, economic data">
     <meta name="author" content="Is Freedom Better">
     <meta name="robots" content="index, follow">
@@ -15,8 +15,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://isfreedombetter.com/">
-    <meta property="og:title" content="Is Economic Freedom Better? | Data-Driven Analysis">
-    <meta property="og:description" content="Explore the relationship between economic freedom and quality of life across 150+ countries with interactive charts and data analysis.">
+    <meta property="og:title" content="Is Freedom Better? | Data-Driven Analysis">
+    <meta property="og:description" content="Do countries with freer markets have better quality of life? We analyzed 150+ countries. The answer is yes.">
     <meta property="og:image" content="https://isfreedombetter.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -26,8 +26,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://isfreedombetter.com/">
-    <meta name="twitter:title" content="Is Economic Freedom Better? | Data-Driven Analysis">
-    <meta name="twitter:description" content="Explore the relationship between economic freedom and quality of life across 150+ countries with interactive charts and data analysis.">
+    <meta name="twitter:title" content="Is Freedom Better? | Data-Driven Analysis">
+    <meta name="twitter:description" content="Do countries with freer markets have better quality of life? We analyzed 150+ countries. The answer is yes.">
     <meta name="twitter:image" content="https://isfreedombetter.com/og-image.jpg">
 
     <!-- Structured Data -->
@@ -1060,7 +1060,8 @@
 </head>
 <body>
     <header>
-        <h1>Economic Freedom<br><span style="font-size: 0.5em; opacity: 0.7;">VS</span><br>Quality of Life</h1>
+        <h1>Is Freedom Better?</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9; margin-top: 10px;">Do countries with freer markets have better quality of life?</p>
         <nav>
             <a onclick="navigateTo(0)" class="active" data-panel="0">Dashboard</a>
             <a onclick="navigateTo(1)" data-panel="1">Raw Data</a>
@@ -1138,16 +1139,16 @@
                     <div class="about-card">
                         <h2>Data Sources</h2>
                         <ul>
-                            <li><strong>Economic Freedom:</strong> Heritage Foundation Index of Economic Freedom</li>
-                            <li><strong>GDP & Health:</strong> World Bank Development Indicators</li>
-                            <li><strong>Corruption:</strong> Transparency International Corruption Perceptions Index</li>
-                            <li><strong>Human Development:</strong> UN Human Development Index</li>
-                            <li><strong>Happiness:</strong> World Happiness Report</li>
-                            <li><strong>Democracy:</strong> Economist Intelligence Unit Democracy Index</li>
-                            <li><strong>Social Mobility:</strong> World Economic Forum Global Social Mobility Index</li>
-                            <li><strong>Purchasing Power:</strong> Numbeo Cost of Living Index</li>
-                            <li><strong>Pollution:</strong> Numbeo Pollution Index</li>
-                            <li><strong>Inequality:</strong> World Bank Gini Index</li>
+                            <li><strong>Economic Freedom:</strong> <a href="https://www.heritage.org/index/" target="_blank" rel="noopener">Heritage Foundation Index of Economic Freedom</a></li>
+                            <li><strong>GDP & Health:</strong> <a href="https://data.worldbank.org/indicator" target="_blank" rel="noopener">World Bank Development Indicators</a></li>
+                            <li><strong>Corruption:</strong> <a href="https://www.transparency.org/en/cpi" target="_blank" rel="noopener">Transparency International Corruption Perceptions Index</a></li>
+                            <li><strong>Human Development:</strong> <a href="https://hdr.undp.org/data-center/human-development-index" target="_blank" rel="noopener">UN Human Development Index</a></li>
+                            <li><strong>Happiness:</strong> <a href="https://worldhappiness.report/" target="_blank" rel="noopener">World Happiness Report</a></li>
+                            <li><strong>Democracy:</strong> <a href="https://www.eiu.com/n/campaigns/democracy-index-2024/" target="_blank" rel="noopener">Economist Intelligence Unit Democracy Index</a></li>
+                            <li><strong>Social Mobility:</strong> <a href="https://www.weforum.org/publications/global-social-mobility-index-2020-why-economies-benefit-from-fixing-inequality/" target="_blank" rel="noopener">World Economic Forum Global Social Mobility Index</a></li>
+                            <li><strong>Purchasing Power:</strong> <a href="https://www.numbeo.com/cost-of-living/" target="_blank" rel="noopener">Numbeo Cost of Living Index</a></li>
+                            <li><strong>Pollution:</strong> <a href="https://www.numbeo.com/pollution/" target="_blank" rel="noopener">Numbeo Pollution Index</a></li>
+                            <li><strong>Inequality:</strong> <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank" rel="noopener">World Bank Gini Index</a></li>
                         </ul>
                     </div>
 
@@ -1295,14 +1296,23 @@
                 `Last updated: ${formatDatePretty(date)}`;
 
             content.innerHTML = `
-                <p style="color: var(--text-muted); text-align: center; margin-bottom: 30px; font-size: 1.05rem;">Is freedom better? We let the data answer — no cherry-picking, no ideology, just numbers.</p>
+                <!-- Quick Intro -->
+                <div style="text-align: center; margin-bottom: 35px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 15px;">
+                        <strong>Economic freedom</strong> = property rights, low corruption, ease of doing business, free trade.<br>
+                        We compared 150+ countries to see if freer economies correlate with better lives.
+                    </p>
+                    <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-radius: 10px; padding: 16px 20px; border-left: 4px solid var(--success);">
+                        <p style="margin: 0; font-size: 1.05rem;"><strong>The short answer:</strong> Yes. Freer countries consistently score higher on happiness, health, wealth, and opportunity.</p>
+                    </div>
+                </div>
 
                 <!-- Correlations Table -->
                 <div class="section">
-                    <h2>Correlation Results</h2>
+                    <h2>The Evidence</h2>
                     <p class="correlation-intro" style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
-                        <span class="desktop-only">Each row shows how economic freedom relates to a quality-of-life metric. Correlations range from <strong>-1</strong> (opposite directions) to <strong>1</strong> (move together), with <strong>0</strong> meaning no relationship. In social sciences, anything above <strong>0.5</strong> is considered strong — most studies don't get that high.</span>
-                        <span class="mobile-only">Correlations range from <strong>-1</strong> to <strong>1</strong>. Above <strong>0.5</strong> is considered strong.</span>
+                        <span class="desktop-only">Each row shows the link between economic freedom and a quality-of-life metric. Higher numbers = stronger relationship. Anything above <strong>0.5</strong> is considered strong in social science.</span>
+                        <span class="mobile-only">Higher numbers = stronger link. Above <strong>0.5</strong> is strong.</span>
                     </p>
                     <div class="mobile-note">All correlations statistically significant (p < 0.001)</div>
                     <div class="table-responsive">
@@ -1357,15 +1367,15 @@
 
                 <!-- Economic Freedom vs Equality Comparison -->
                 <div class="section">
-                    <h2>The Big Question: Freedom or Equality?</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">Some argue that free markets lead to prosperity, others say reducing inequality is what really matters. Rather than picking sides, let's ask the data: which one actually correlates better with the outcomes we care about? Below, we compare Economic Freedom (more free markets) against the Gini Index inverted (more equality). The bars show correlation strength — longer bars mean a stronger link to good outcomes.</p>
+                    <h2>Freedom vs Equality: Which Matters More?</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Free markets or reducing inequality — which correlates better with good outcomes? Longer bars = stronger link.</p>
                     <div id="comparisonSection"></div>
                 </div>
 
                 <!-- Data Sources -->
                 <div class="section">
                     <h2>Data Sources</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">All data used in this analysis comes from reputable international organizations. Click any source to verify the data yourself.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">All from reputable international organizations. Click to verify.</p>
                     <div class="data-sources">
                         ${renderDataSources()}
                     </div>
