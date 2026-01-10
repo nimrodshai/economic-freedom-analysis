@@ -974,8 +974,8 @@
                 background: var(--card-bg);
             }
             .correlations-table tr:hover { background: #f8fafc; }
-            .correlations-table td { display: contents; }
             .correlations-table td:first-child {
+                display: block;
                 grid-column: 1;
                 grid-row: 1;
                 padding: 0;
@@ -1000,27 +1000,22 @@
             .correlation-bar { width: 100px; height: 16px; border-radius: 8px; }
             .correlation-bar-container > span { font-size: 0.6rem; color: var(--text-muted); }
             .correlations-table td:nth-child(3) { display: none; }
-            .correlations-table td:nth-child(4) {
-                display: inline !important;
-                padding: 0;
-                border: none;
-                font-size: 0.7rem;
-                text-align: left;
-            }
-            .correlations-table td:nth-child(5) {
-                display: inline !important;
-                padding: 0;
-                border: none;
-                font-size: 0.7rem;
-                color: var(--text-muted);
-                text-align: left;
-            }
-            .correlations-table td:nth-child(4),
-            .correlations-table td:nth-child(5) {
+            .correlations-table .direction-cell {
+                display: block;
                 grid-column: 1;
                 grid-row: 2;
+                padding: 0;
+                border: none;
+                font-size: 0.7rem;
+                text-align: left;
             }
-            .correlations-table td:nth-child(5)::after { content: " · "; }
+            .correlations-table .direction-cell::after {
+                content: " · " attr(data-n);
+                color: var(--text-muted);
+            }
+            .correlations-table .sample-size-cell {
+                display: none;
+            }
             .direction-icon { font-size: 0.8rem; vertical-align: middle; }
             .mobile-note { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }
             .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -1843,10 +1838,10 @@
                         </div>
                     </td>
                     <td><span class="significance ${sigClass}">${sigText}</span></td>
-                    <td style="color: ${directionColor}">
+                    <td class="direction-cell" style="color: ${directionColor}" data-n="n=${c.n}">
                         <span class="direction-icon">${directionIcon}</span>${directionText}
                     </td>
-                    <td>n = ${c.n}</td>
+                    <td class="sample-size-cell">n = ${c.n}</td>
                 </tr>
             `;
         }
