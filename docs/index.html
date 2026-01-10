@@ -315,7 +315,6 @@
         .correlation-bar-fill {
             position: absolute;
             height: 100%;
-            border-radius: 4px;
         }
 
         .significance {
@@ -999,7 +998,6 @@
             .correlation-value { font-size: 1.2rem; font-weight: 700; width: auto; text-align: right; }
             .correlation-bar-container { display: flex; flex-direction: row; align-items: center; margin-left: 0; gap: 4px; }
             .correlation-bar { width: 100px; height: 16px; border-radius: 8px; }
-            .correlation-bar-fill { border-radius: 8px; }
             .correlation-bar-container > span { font-size: 0.6rem; color: var(--text-muted); }
             .correlations-table td:nth-child(3) { display: none; }
             .correlations-table td:nth-child(4) {
@@ -1810,6 +1808,8 @@
 
             const barWidth = Math.abs(c.correlation) * 50;
             const barLeft = c.correlation >= 0 ? 50 : 50 - barWidth;
+            // Rounded on outer edge only: positive = right rounded, negative = left rounded
+            const barRadius = c.correlation >= 0 ? '0 8px 8px 0' : '8px 0 0 8px';
 
             let sigClass = 'low';
             let sigText = 'Not significant';
@@ -1837,7 +1837,7 @@
                             <span>-1</span>
                             <div class="correlation-bar">
                                 <div class="correlation-bar-center"></div>
-                                <div class="correlation-bar-fill" style="width: ${barWidth}%; left: ${barLeft}%; background: ${barColor};"></div>
+                                <div class="correlation-bar-fill" style="width: ${barWidth}%; left: ${barLeft}%; background: ${barColor}; border-radius: ${barRadius};"></div>
                             </div>
                             <span>1</span>
                         </div>
