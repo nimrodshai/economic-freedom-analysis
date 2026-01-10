@@ -961,9 +961,9 @@
             .correlations-table tr {
                 display: grid;
                 grid-template-columns: 1fr auto;
-                grid-template-rows: auto auto;
-                gap: 2px 12px;
-                padding: 10px 12px;
+                grid-template-rows: auto auto auto;
+                gap: 2px 16px;
+                padding: 12px 14px;
                 align-items: center;
                 border-bottom: 1px solid var(--border);
                 background: var(--card-bg);
@@ -976,42 +976,46 @@
                 padding: 0;
                 border: none;
             }
-            .correlations-table td:first-child strong { font-size: 0.85rem; }
+            .correlations-table td:first-child strong { font-size: 0.9rem; }
             .correlations-table td:first-child small,
             .correlations-table td:first-child br { display: none; }
             .correlations-table td:nth-child(2) {
-                grid-column: 1;
-                grid-row: 2;
+                grid-column: 2;
+                grid-row: 1 / 4;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                gap: 6px;
+                justify-content: center;
+                gap: 4px;
                 padding: 0;
                 border: none;
             }
-            .correlation-value { font-size: 0.95rem; width: 52px; }
-            .correlation-bar-container { display: inline-flex; margin-left: 0; }
-            .correlation-bar { width: 100px; height: 14px; }
+            .correlation-value { font-size: 1.1rem; font-weight: 700; width: auto; }
+            .correlation-bar-container { display: flex; flex-direction: column; align-items: center; margin-left: 0; }
+            .correlation-bar { width: 80px; height: 18px; border-radius: 9px; }
+            .correlation-bar-fill { border-radius: 9px; }
+            .correlation-bar-container > span { font-size: 0.65rem; }
             .correlations-table td:nth-child(3) { display: none; }
             .correlations-table td:nth-child(4) {
                 display: block !important;
-                grid-column: 2;
+                grid-column: 1;
+                grid-row: 3;
+                padding: 0;
+                border: none;
+                font-size: 0.7rem;
+                text-align: left;
+                align-self: center;
+            }
+            .direction-icon { font-size: 0.85rem; vertical-align: middle; position: relative; top: -1px; }
+            .correlations-table td:nth-child(5) {
+                display: block !important;
+                grid-column: 1;
                 grid-row: 2;
                 padding: 0;
                 border: none;
-                font-size: 0.65rem;
-                text-align: right;
-                align-self: center;
-            }
-            .direction-icon { font-size: 0.9rem; vertical-align: middle; position: relative; top: -2px; }
-            .correlations-table td:nth-child(5) {
-                display: block !important;
-                grid-column: 2;
-                grid-row: 1;
-                padding: 0;
-                border: none;
-                font-size: 0.55rem;
+                font-size: 0.7rem;
                 color: var(--text-muted);
-                text-align: right;
+                text-align: left;
                 align-self: center;
             }
             .mobile-note { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }
@@ -1046,11 +1050,12 @@
             nav a { font-size: 0.85rem; padding: 6px 0; }
             .summary-cards { grid-template-columns: 1fr; }
             .card .value { font-size: 1.8rem; }
-            .correlations-table tr { padding: 8px 10px; }
-            .correlations-table td:first-child strong { font-size: 0.8rem; }
-            .correlation-value { font-size: 0.85rem; width: 48px; }
-            .correlation-bar { width: 80px; height: 12px; }
-            .correlations-table td:nth-child(4) { font-size: 0.6rem; }
+            .correlations-table tr { padding: 10px 12px; }
+            .correlations-table td:first-child strong { font-size: 0.85rem; }
+            .correlation-value { font-size: 1rem; width: auto; }
+            .correlation-bar { width: 70px; height: 16px; }
+            .correlations-table td:nth-child(4) { font-size: 0.65rem; }
+            .correlations-table td:nth-child(5) { font-size: 0.65rem; }
         }
     </style>
 </head>
