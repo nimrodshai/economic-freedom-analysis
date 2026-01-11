@@ -1809,12 +1809,16 @@
 
         function renderCorrelationRow(c) {
             const isFavorable = c.effective_correlation > 0;
-            const barColor = c.correlation >= 0 ? '#16a34a' : '#dc2626';
+            const isInverted = c.correlation < 0;
 
-            const barWidth = Math.abs(c.correlation) * 50;
-            const barLeft = c.correlation >= 0 ? 50 : 50 - barWidth;
-            // Rounded on outer edge only: positive = right rounded, negative = left rounded
-            const barRadius = c.correlation >= 0 ? '0 8px 8px 0' : '8px 0 0 8px';
+            // Always show as positive value with green color, add "(Inverted)" to title if negative
+            const displayCorrelation = Math.abs(c.correlation);
+            const barColor = '#16a34a';
+            const displayName = isInverted ? `${c.name} (Inverted)` : c.name;
+
+            const barWidth = displayCorrelation * 50;
+            const barLeft = 50;
+            const barRadius = '0 8px 8px 0';
 
             let sigClass = 'low';
             let sigText = 'Not significant';
@@ -1835,9 +1839,9 @@
 
             return `
                 <tr>
-                    <td><strong>${c.name}</strong><br><small style="color: var(--text-muted)">${c.unit}</small></td>
+                    <td><strong>${displayName}</strong><br><small style="color: var(--text-muted)">${c.unit}</small></td>
                     <td>
-                        <span class="correlation-value" style="color: ${barColor}">${c.correlation.toFixed(3)}</span>
+                        <span class="correlation-value" style="color: ${barColor}">${displayCorrelation.toFixed(3)}</span>
                         <div class="correlation-bar-container">
                             <span>-1</span>
                             <div class="correlation-bar">
