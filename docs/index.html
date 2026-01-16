@@ -1164,6 +1164,7 @@
                             <li><strong>Social Mobility:</strong> <a href="https://www.weforum.org/publications/global-social-mobility-index-2020-why-economies-benefit-from-fixing-inequality/" target="_blank" rel="noopener">World Economic Forum</a></li>
                             <li><strong>Purchasing Power & Pollution:</strong> <a href="https://www.numbeo.com/" target="_blank" rel="noopener">Numbeo</a></li>
                             <li><strong>Inequality:</strong> <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank" rel="noopener">World Bank Gini Index</a></li>
+                            <li><strong>Democracy:</strong> <a href="https://ourworldindata.org/grapher/democracy-index-eiu" target="_blank" rel="noopener">Economist Intelligence Unit</a></li>
                         </ul>
                     </div>
 
@@ -1436,11 +1437,18 @@
                     <div class="table-scroll">
                         <table class="data-table" id="dataTable">
                             <thead>
+                                <tr class="header-groups">
+                                    <th colspan="3"></th>
+                                    <th colspan="3" style="background: rgba(99, 102, 241, 0.1); border-bottom: 2px solid var(--primary);">Method Indices</th>
+                                    <th colspan="9" style="background: rgba(22, 163, 74, 0.1); border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
+                                </tr>
                                 <tr>
                                     <th style="width: 50px;">#</th>
                                     <th onclick="sortTable('name')">Country <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('region')">Region <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('economic_freedom')" class="sorted">Econ Freedom <span class="sort-icon">↓</span></th>
+                                    <th onclick="sortTable('gini_index')">Gini <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('gdp_per_capita')">GDP/Capita <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('life_expectancy')">Life Exp. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('infant_mortality')">Infant Mort. <span class="sort-icon">↕</span></th>
@@ -1450,8 +1458,6 @@
                                     <th onclick="sortTable('social_mobility_score')">Social Mob. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('purchasing_power_index')">Purch. Power <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('pollution_index')">Pollution <span class="sort-icon">↕</span></th>
-                                    <th onclick="sortTable('gini_index')">Gini <span class="sort-icon">↕</span></th>
-                                    <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
@@ -1505,6 +1511,8 @@
                     <td class="country-name">${c.name}</td>
                     <td class="region">${c.region || '-'}</td>
                     <td>${formatLinkedValue(c.name, 'economic_freedom', c.economic_freedom, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'gini_index', c.gini_index, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
                     <td>${formatLinkedValue(c.name, 'gdp_per_capita', c.gdp_per_capita, 0, true)}</td>
                     <td>${formatLinkedValue(c.name, 'life_expectancy', c.life_expectancy, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'infant_mortality', c.infant_mortality, 1)}</td>
@@ -1514,8 +1522,6 @@
                     <td>${formatLinkedValue(c.name, 'social_mobility_score', c.social_mobility_score, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'purchasing_power_index', c.purchasing_power_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'pollution_index', c.pollution_index, 1)}</td>
-                    <td>${formatLinkedValue(c.name, 'gini_index', c.gini_index, 1)}</td>
-                    <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
                 </tr>
             `).join('');
 
@@ -1634,7 +1640,8 @@
                 'social_mobility_score': `https://worldpopulationreview.com/country-rankings/social-mobility-by-country`,
                 'purchasing_power_index': `https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2025`,
                 'pollution_index': `https://www.numbeo.com/pollution/rankings_by_country.jsp?title=2025`,
-                'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`
+                'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`,
+                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}`
             };
             return urls[field] || '#';
         }
@@ -1666,13 +1673,16 @@
         }
 
         function downloadCSV() {
-            const headers = ['Country', 'Region', 'Economic Freedom', 'GDP per Capita', 'Life Expectancy',
-                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Gini Index'];
+            const headers = ['Country', 'Region', 'Economic Freedom', 'Gini Index', 'Democracy',
+                           'GDP per Capita', 'Life Expectancy', 'Infant Mortality', 'Anti-Corruption',
+                           'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution'];
 
             const rows = allData.map(c => [
                 c.name,
                 c.region || '',
                 c.economic_freedom ?? '',
+                c.gini_index ?? '',
+                c.democracy_score ?? '',
                 c.gdp_per_capita ?? '',
                 c.life_expectancy ?? '',
                 c.infant_mortality ?? '',
@@ -1681,8 +1691,7 @@
                 c.happiness_score ?? '',
                 c.social_mobility_score ?? '',
                 c.purchasing_power_index ?? '',
-                c.pollution_index ?? '',
-                c.gini_index ?? ''
+                c.pollution_index ?? ''
             ]);
 
             const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
@@ -1771,6 +1780,14 @@
                     desc: "Measures pollution levels based on air quality, water quality, waste management, and other environmental factors.",
                     url: "https://www.numbeo.com/pollution/rankings_by_country.jsp",
                     indices: ["Pollution Index"]
+                },
+                {
+                    name: "Democracy Index",
+                    org: "Economist Intelligence Unit",
+                    year: 2023,
+                    desc: "Measures the state of democracy based on electoral process, civil liberties, functioning of government, political participation, and political culture.",
+                    url: "https://ourworldindata.org/grapher/democracy-index-eiu",
+                    indices: ["Democracy Score"]
                 }
             ];
 
