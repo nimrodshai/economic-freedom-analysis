@@ -821,6 +821,22 @@
             margin-top: 40px;
         }
 
+        .legal-disclaimer {
+            max-width: 800px;
+            margin: 20px auto 0;
+            padding: 15px 20px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .legal-disclaimer p {
+            margin: 0;
+        }
+
         .loading {
             text-align: center;
             padding: 60px;
@@ -1215,6 +1231,9 @@
     <footer>
         <p id="lastUpdated"></p>
         <p>Data is automatically refreshed weekly via GitHub Actions.</p>
+        <div class="legal-disclaimer">
+            <p><strong>Disclaimer:</strong> This website is for educational and informational purposes only. It does not constitute financial, investment, legal, or policy advice. Correlation does not imply causation. Data is sourced from third-party organizations and may contain errors or limitations. The authors make no guarantees regarding accuracy or completeness and accept no liability for decisions made based on this content. Always consult qualified professionals for advice specific to your situation.</p>
+        </div>
     </footer>
 
     <script>
