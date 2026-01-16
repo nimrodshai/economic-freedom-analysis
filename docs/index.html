@@ -1279,7 +1279,8 @@
         // Fetch and render data
         async function loadData() {
             try {
-                const response = await fetch('data.json');
+                // Add cache-busting parameter to ensure fresh data
+                const response = await fetch('data.json?v=' + Date.now());
                 const data = await response.json();
                 window.analysisData = data;
                 allData = data.countries;
