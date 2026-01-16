@@ -894,10 +894,11 @@
         .comparison-bar-col::before {
             font-size: 0.75rem;
             color: var(--text-muted);
-            min-width: 60px;
+            min-width: 70px;
         }
-        .comparison-bar-col[data-label="Economic Freedom"]::before { content: "Freedom"; }
-        .comparison-bar-col[data-label="Equality (Gini)"]::before { content: "Equality"; }
+        .comparison-bar-col[data-label="Freedom"]::before { content: "Freedom"; color: var(--success); }
+        .comparison-bar-col[data-label="Equality"]::before { content: "Equality"; color: var(--danger); }
+        .comparison-bar-col[data-label="Democracy"]::before { content: "Democracy"; color: #3b82f6; }
         .comparison-winner {
             display: none;
         }
@@ -926,6 +927,11 @@
         .comparison-bar-fill-red {
             height: 100%;
             background: linear-gradient(90deg, #f87171, #dc2626);
+        }
+
+        .comparison-bar-fill-blue {
+            height: 100%;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
             border-radius: 4px;
         }
 
@@ -941,6 +947,17 @@
             background: #dcfce7;
             border-radius: 8px;
             border-left: 4px solid var(--success);
+        }
+
+        .comparison-verdict {
+            margin-top: 24px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 12px;
+            border: 2px solid var(--success);
+            text-align: center;
+            font-size: 1.25rem;
+            line-height: 1.6;
         }
 
         /* Responsive text visibility */
@@ -1091,80 +1108,75 @@
             <div class="panel" id="aboutPanel">
                 <div class="container">
                     <div class="about-card">
-                        <h2>Purpose</h2>
-                        <p>Is freedom better? That's the question this project tries to answer using data. We examine the statistical relationship between economic freedom and quality-of-life indicators across 150+ countries.</p>
-                        <p>Economic freedom, as measured by the Heritage Foundation's Index of Economic Freedom, encompasses factors like property rights, government integrity, tax burden, business freedom, and trade freedom.</p>
+                        <h2>Why We Built This</h2>
+                        <p>Everyone has opinions about what makes societies thrive. Some say it's freedom. Others say it's equality. Many point to democracy. But what does the data actually show?</p>
+                        <p>We wanted to cut through the noise and let the numbers speak. So we gathered data from 150+ countries and asked a simple question: which ideas actually correlate with people living better lives?</p>
                     </div>
 
                     <div class="about-card">
-                        <h2>On Correlation and Causation</h2>
-                        <p><strong>Correlation does not imply causation</strong> — this is a fundamental principle of statistics. However, when studying complex societal phenomena like the relationship between economic systems and quality of life, establishing direct causation is practically impossible.</p>
-                        <p>Unlike laboratory experiments where we can isolate variables and test hypotheses in controlled conditions, we cannot simply "remove" geography, history, culture, natural resources, or political systems from the equation to see how economies would behave differently. We cannot run randomized controlled trials on entire nations.</p>
-                        <p>This means that <strong>correlation analysis, while imperfect, represents the best available evidence</strong> we can gather on this subject. The consistent, statistically significant correlations across multiple independent metrics and data sources provide a compelling picture — not proof, but the strongest empirical foundation currently available.</p>
-                        <p>Until someone develops a better methodology to study these complex systems, this data-driven approach offers the clearest window into how economic freedom relates to human flourishing.</p>
+                        <h2>A Note on What This Can (and Can't) Tell Us</h2>
+                        <p>Let's be honest: <strong>correlation isn't causation</strong>. We can't prove that economic freedom <em>causes</em> better outcomes. We can't run experiments on entire nations or rewind history to test different policies.</p>
+                        <p>But here's the thing — when you're studying something as complex as human societies, correlation is often the best tool we have. And when you see the same patterns showing up again and again, across different metrics, from different organizations, covering different aspects of life... that's worth paying attention to.</p>
+                        <p>Think of this as a compass, not a GPS. It points in a direction, even if it can't tell you exactly how to get there.</p>
                     </div>
 
                     <div class="about-card">
-                        <h2>Methodology</h2>
+                        <h2>How We Did It</h2>
                         <div class="methodology-step">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <h3>Data Collection</h3>
-                                <p>Data is gathered from reputable international organizations including the Heritage Foundation, World Bank, UN, Transparency International, and others.</p>
+                                <h3>Gather the Data</h3>
+                                <p>We pull fresh data from trusted sources — the World Bank, UN, Heritage Foundation, and others. No cherry-picking, no outdated numbers.</p>
                             </div>
                         </div>
                         <div class="methodology-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <h3>Country Matching</h3>
-                                <p>Countries are matched across datasets by name. Only countries with valid data in both the Economic Freedom Index and the comparison metric are included in each correlation.</p>
+                                <h3>Match the Countries</h3>
+                                <p>We line up countries across all datasets. If a country doesn't have data for a specific metric, we leave it out of that comparison. Simple as that.</p>
                             </div>
                         </div>
                         <div class="methodology-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <h3>Correlation Analysis</h3>
-                                <p>Pearson correlation coefficients are calculated to measure the linear relationship between economic freedom and each quality-of-life indicator.</p>
+                                <h3>Crunch the Numbers</h3>
+                                <p>We calculate Pearson correlations — a standard way to measure how strongly two things move together. Higher number = stronger relationship.</p>
                             </div>
                         </div>
                         <div class="methodology-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
-                                <h3>Statistical Significance</h3>
-                                <p>P-values are calculated to determine if correlations are statistically significant (p < 0.05), meaning they're unlikely to occur by chance.</p>
+                                <h3>Check Our Work</h3>
+                                <p>We test for statistical significance (p < 0.05). This tells us whether the pattern is real or just random noise. Spoiler: the patterns here are real.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="about-card">
-                        <h2>Data Sources</h2>
+                        <h2>Where the Data Comes From</h2>
+                        <p>We don't make anything up. Every number comes from established international organizations:</p>
                         <ul>
-                            <li><strong>Economic Freedom:</strong> <a href="https://www.heritage.org/index/" target="_blank" rel="noopener">Heritage Foundation Index of Economic Freedom</a></li>
-                            <li><strong>GDP & Health:</strong> <a href="https://data.worldbank.org/indicator" target="_blank" rel="noopener">World Bank Development Indicators</a></li>
-                            <li><strong>Corruption:</strong> <a href="https://www.transparency.org/en/cpi" target="_blank" rel="noopener">Transparency International Corruption Perceptions Index</a></li>
-                            <li><strong>Human Development:</strong> <a href="https://hdr.undp.org/data-center/human-development-index" target="_blank" rel="noopener">UN Human Development Index</a></li>
+                            <li><strong>Economic Freedom:</strong> <a href="https://www.heritage.org/index/" target="_blank" rel="noopener">Heritage Foundation</a></li>
+                            <li><strong>GDP & Health:</strong> <a href="https://data.worldbank.org/indicator" target="_blank" rel="noopener">World Bank</a></li>
+                            <li><strong>Corruption:</strong> <a href="https://www.transparency.org/en/cpi" target="_blank" rel="noopener">Transparency International</a></li>
+                            <li><strong>Human Development:</strong> <a href="https://hdr.undp.org/data-center/human-development-index" target="_blank" rel="noopener">United Nations</a></li>
                             <li><strong>Happiness:</strong> <a href="https://worldhappiness.report/" target="_blank" rel="noopener">World Happiness Report</a></li>
-                            <li><strong>Democracy:</strong> <a href="https://www.eiu.com/n/campaigns/democracy-index-2024/" target="_blank" rel="noopener">Economist Intelligence Unit Democracy Index</a></li>
-                            <li><strong>Social Mobility:</strong> <a href="https://www.weforum.org/publications/global-social-mobility-index-2020-why-economies-benefit-from-fixing-inequality/" target="_blank" rel="noopener">World Economic Forum Global Social Mobility Index</a></li>
-                            <li><strong>Purchasing Power:</strong> <a href="https://www.numbeo.com/cost-of-living/" target="_blank" rel="noopener">Numbeo Cost of Living Index</a></li>
-                            <li><strong>Pollution:</strong> <a href="https://www.numbeo.com/pollution/" target="_blank" rel="noopener">Numbeo Pollution Index</a></li>
+                            <li><strong>Social Mobility:</strong> <a href="https://www.weforum.org/publications/global-social-mobility-index-2020-why-economies-benefit-from-fixing-inequality/" target="_blank" rel="noopener">World Economic Forum</a></li>
+                            <li><strong>Purchasing Power & Pollution:</strong> <a href="https://www.numbeo.com/" target="_blank" rel="noopener">Numbeo</a></li>
                             <li><strong>Inequality:</strong> <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank" rel="noopener">World Bank Gini Index</a></li>
                         </ul>
                     </div>
 
                     <div class="about-card">
-                        <h2>Interpreting Correlations</h2>
-                        <p>A <strong>correlation coefficient (r)</strong> measures the strength and direction of a linear relationship between two variables:</p>
+                        <h2>Reading the Numbers</h2>
+                        <p>Not sure what a correlation of 0.7 means? Here's a quick guide:</p>
                         <ul>
-                            <li><strong>r = 1.0:</strong> Perfect positive correlation</li>
-                            <li><strong>r = 0.7 to 0.9:</strong> Strong positive correlation</li>
-                            <li><strong>r = 0.4 to 0.6:</strong> Moderate positive correlation</li>
-                            <li><strong>r = 0.1 to 0.3:</strong> Weak positive correlation</li>
-                            <li><strong>r = 0:</strong> No correlation</li>
-                            <li><strong>r = -1.0:</strong> Perfect negative correlation</li>
+                            <li><strong>0.7 - 1.0:</strong> Strong relationship (these two things really move together)</li>
+                            <li><strong>0.4 - 0.6:</strong> Moderate relationship (there's definitely something here)</li>
+                            <li><strong>0.1 - 0.3:</strong> Weak relationship (a hint, but not much to write home about)</li>
+                            <li><strong>Around 0:</strong> No relationship (these things don't seem connected)</li>
                         </ul>
-                        <p><strong>Context matters:</strong> In social sciences, 0.5 is considered a large effect size (Cohen, 1988) — roughly 75% of published correlations fall below that threshold.</p>
-                        <p>For metrics where lower is better (like infant mortality), the sign is flipped in the "effective correlation" to make all positive correlations represent better outcomes.</p>
+                        <p>For context: Jacob Cohen's landmark 1988 work established that in social science, r = 0.5 counts as a "large" effect (<a href="https://www.sciencedirect.com/science/article/abs/pii/S0191886916308194" target="_blank" rel="noopener">Cohen, 1988</a>). Most published findings don't come close. The correlations here are above 0.5 — that's rare.</p>
                     </div>
                 </div>
             </div>
@@ -1173,8 +1185,8 @@
             <div class="panel" id="contactPanel">
                 <div class="container">
                     <div class="about-card">
-                        <h2>Get in Touch</h2>
-                        <p>Found a bug? Have a suggestion? Think we got something wrong? We'd love to hear from you. All feedback helps make this analysis better.</p>
+                        <h2>Talk to Us</h2>
+                        <p>Spotted a mistake? Have an idea? Just want to say hi? We're real people and we read every message. Drop us a line — we'd love to hear from you.</p>
                         <form id="contactForm" onsubmit="sendContactMessage(event)" style="margin-top: 20px;">
                             <div style="margin-bottom: 15px;">
                                 <label for="contactName" style="display: block; margin-bottom: 5px; font-weight: 500;">Name (optional)</label>
@@ -1297,48 +1309,37 @@
 
             content.innerHTML = `
                 <!-- Quick Intro -->
-                <div style="text-align: center; margin-bottom: 35px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 15px;">
-                        <strong>Economic freedom</strong> = property rights, low corruption, ease of doing business, free trade.<br>
-                        We compared 150+ countries to see if freer economies correlate with better lives.
+                <div style="text-align: center; margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto;">
+                    <p style="color: var(--text); font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+                        What does it take for people to live good lives? We all want the same things — to be healthy, to provide for our families, to feel safe, and to have opportunities to grow. But which conditions actually help societies achieve these goals?
                     </p>
-                    <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-radius: 10px; padding: 16px 20px; border-left: 4px solid var(--success);">
-                        <p style="margin: 0; font-size: 1.05rem;"><strong>The short answer:</strong> Yes. Freer countries consistently score higher on happiness, health, wealth, and opportunity.</p>
-                    </div>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
+                        We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy against real quality-of-life outcomes, we can see what the evidence actually shows.
+                    </p>
                 </div>
 
-                <!-- Correlations Table -->
+                <!-- Comparison Section - What matters most? -->
                 <div class="section">
-                    <h2>The Evidence</h2>
-                    <p class="correlation-intro" style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
-                        <span class="desktop-only">Each row shows the link between economic freedom and a quality-of-life metric. Higher numbers = stronger relationship. Anything above <strong>0.5</strong> is considered strong in social science.</span>
-                        <span class="mobile-only">Higher numbers = stronger link. Above <strong>0.5</strong> is strong.</span>
-                    </p>
-                    <div class="mobile-note">All correlations statistically significant (p < 0.001)</div>
-                    <div class="table-responsive">
-                        <table class="correlations-table">
-                            <thead>
-                                <tr>
-                                    <th>Index</th>
-                                    <th>Correlation (r)</th>
-                                    <th>Significance</th>
-                                    <th>Direction</th>
-                                    <th>Sample Size</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${data.correlations.map(c => renderCorrelationRow(c)).join('')}
-                            </tbody>
-                        </table>
-                    </div>
+                    <h2>Three Theories, Nine Metrics, One Winner</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Three popular ideas about what makes societies flourish. Let's see which one correlates best with actual outcomes. Longer bars = stronger link to better lives.</p>
+                    <div id="comparisonSection"></div>
                 </div>
 
                 <!-- Interactive Charts -->
                 <div class="section">
-                    <h2>Interactive Scatter Plots</h2>
+                    <h2>Explore the Data</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">See for yourself. Each dot is a country — watch how they cluster.</p>
                     <div class="chart-selector">
                         <div class="selector-row">
-                            <label for="indexSelect">Select Index: </label>
+                            <label for="xAxisSelect">X-Axis: </label>
+                            <select id="xAxisSelect" onchange="updateChart()">
+                                <option value="economic_freedom">Economic Freedom</option>
+                                <option value="democracy_score">Democracy</option>
+                                <option value="gini_index">Equality (Gini inverted)</option>
+                            </select>
+                        </div>
+                        <div class="selector-row">
+                            <label for="indexSelect">Y-Axis: </label>
                             <select id="indexSelect" onchange="updateChart()">
                                 ${data.correlations.map(c =>
                                     `<option value="${c.id}">${c.name}</option>`
@@ -1346,7 +1347,7 @@
                             </select>
                         </div>
                         <div class="selector-row">
-                            <label for="countrySelect">Highlight Country: </label>
+                            <label for="countrySelect">Highlight: </label>
                             <select id="countrySelect" onchange="updateChart()">
                                 <option value="">None</option>
                                 ${data.countries
@@ -1363,13 +1364,6 @@
                         </div>
                         <div id="chartInterpretation" class="interpretation-box positive"></div>
                     </div>
-                </div>
-
-                <!-- Economic Freedom vs Equality Comparison -->
-                <div class="section">
-                    <h2>Freedom vs Equality: Which Matters More?</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">Free markets or reducing inequality — which correlates better with good outcomes? Longer bars = stronger link.</p>
-                    <div id="comparisonSection"></div>
                 </div>
 
                 <!-- Data Sources -->
@@ -1452,7 +1446,6 @@
                                     <th onclick="sortTable('corruption_score')">Anti-Corrupt. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('hdi')">HDI <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('happiness_score')">Happiness <span class="sort-icon">↕</span></th>
-                                    <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('social_mobility_score')">Social Mob. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('purchasing_power_index')">Purch. Power <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('pollution_index')">Pollution <span class="sort-icon">↕</span></th>
@@ -1516,7 +1509,6 @@
                     <td>${formatLinkedValue(c.name, 'corruption_score', c.corruption_score, 0)}</td>
                     <td>${formatLinkedValue(c.name, 'hdi', c.hdi, 3)}</td>
                     <td>${formatLinkedValue(c.name, 'happiness_score', c.happiness_score, 2)}</td>
-                    <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
                     <td>${formatLinkedValue(c.name, 'social_mobility_score', c.social_mobility_score, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'purchasing_power_index', c.purchasing_power_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'pollution_index', c.pollution_index, 1)}</td>
@@ -1636,7 +1628,6 @@
                 'corruption_score': `https://www.transparency.org/en/cpi/2023/index/${iso3.toLowerCase()}`,
                 'hdi': `https://hdr.undp.org/data-center/country-insights#/ranks`,
                 'happiness_score': `https://ourworldindata.org/grapher/happiness-cantril-ladder?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
-                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'social_mobility_score': `https://worldpopulationreview.com/country-rankings/social-mobility-by-country`,
                 'purchasing_power_index': `https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2025`,
                 'pollution_index': `https://www.numbeo.com/pollution/rankings_by_country.jsp?title=2025`,
@@ -1673,7 +1664,7 @@
 
         function downloadCSV() {
             const headers = ['Country', 'Region', 'Economic Freedom', 'GDP per Capita', 'Life Expectancy',
-                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Democracy', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Gini Index'];
+                           'Infant Mortality', 'Anti-Corruption', 'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Gini Index'];
 
             const rows = allData.map(c => [
                 c.name,
@@ -1685,7 +1676,6 @@
                 c.corruption_score ?? '',
                 c.hdi ?? '',
                 c.happiness_score ?? '',
-                c.democracy_score ?? '',
                 c.social_mobility_score ?? '',
                 c.purchasing_power_index ?? '',
                 c.pollution_index ?? '',
@@ -1756,14 +1746,6 @@
                     indices: ["Happiness Score"]
                 },
                 {
-                    name: "Democracy Index",
-                    org: "Economist Intelligence Unit",
-                    year: 2023,
-                    desc: "Measures democratic governance based on electoral process, civil liberties, and political participation.",
-                    url: "https://www.eiu.com/n/campaigns/democracy-index-2023/",
-                    indices: ["Democracy Score"]
-                },
-                {
                     name: "Global Social Mobility Index",
                     org: "World Economic Forum",
                     year: 2020,
@@ -1805,59 +1787,6 @@
                     </a>
                 </div>
             `).join('');
-        }
-
-        function renderCorrelationRow(c) {
-            const isFavorable = c.effective_correlation > 0;
-            const isInverted = c.correlation < 0;
-
-            // Always show as positive value with green color, add "(Inverted)" to title if negative
-            const displayCorrelation = Math.abs(c.correlation);
-            const barColor = '#16a34a';
-            const displayName = isInverted ? `${c.name} (Inverted)` : c.name;
-
-            const barWidth = displayCorrelation * 50;
-            const barLeft = 50;
-            const barRadius = '0 8px 8px 0';
-
-            let sigClass = 'low';
-            let sigText = 'Not significant';
-            if (c.p_value < 0.001) {
-                sigClass = 'high';
-                sigText = 'p < 0.001 ***';
-            } else if (c.p_value < 0.01) {
-                sigClass = 'high';
-                sigText = 'p < 0.01 **';
-            } else if (c.p_value < 0.05) {
-                sigClass = 'medium';
-                sigText = 'p < 0.05 *';
-            }
-
-            const directionIcon = isFavorable ? '↑' : '↓';
-            const directionText = isFavorable ? 'Better outcomes' : 'Worse outcomes';
-            const directionColor = isFavorable ? 'var(--success)' : 'var(--danger)';
-
-            return `
-                <tr>
-                    <td><strong>${displayName}</strong><br><small style="color: var(--text-muted)">${c.unit}</small></td>
-                    <td>
-                        <span class="correlation-value" style="color: ${barColor}">${displayCorrelation.toFixed(3)}</span>
-                        <div class="correlation-bar-container">
-                            <span>-1</span>
-                            <div class="correlation-bar">
-                                <div class="correlation-bar-center"></div>
-                                <div class="correlation-bar-fill" style="width: ${barWidth}%; left: ${barLeft}%; background: ${barColor}; border-radius: ${barRadius};"></div>
-                            </div>
-                            <span>1</span>
-                        </div>
-                    </td>
-                    <td><span class="significance ${sigClass}">${sigText}</span></td>
-                    <td class="direction-cell" style="color: ${directionColor}" data-n="n=${c.n}">
-                        <span class="direction-icon">${directionIcon}</span>${directionText}
-                    </td>
-                    <td class="sample-size-cell">n = ${c.n}</td>
-                </tr>
-            `;
         }
 
         let scatterChart = null;
@@ -1923,41 +1852,109 @@
         function updateChart() {
             const select = document.getElementById('indexSelect');
             const countrySelect = document.getElementById('countrySelect');
+            const xAxisSelect = document.getElementById('xAxisSelect');
             const selectedId = select.value;
             const selectedCountry = countrySelect ? countrySelect.value : '';
+            const selectedXAxis = xAxisSelect ? xAxisSelect.value : 'economic_freedom';
             const data = window.analysisData;
 
-            const scatterData = data.scatter_data[selectedId];
             const correlation = data.correlations.find(c => c.id === selectedId);
+            if (!correlation) return;
 
-            if (!scatterData || !correlation) return;
+            // X-axis configuration
+            const xAxisConfig = {
+                'economic_freedom': { key: 'economic_freedom', label: 'Economic Freedom Score', invert: false },
+                'democracy_score': { key: 'democracy_score', label: 'Democracy Score', invert: false },
+                'gini_index': { key: 'gini_index', label: 'Equality (100 - Gini)', invert: true }
+            };
+            const xConfig = xAxisConfig[selectedXAxis];
 
-            // Check if user manually changed the country (no longer auto-detected)
+            // Y-axis key mapping
+            const yKeyMap = {
+                'GDP_Per_Capita': 'gdp_per_capita',
+                'Life_Expectancy': 'life_expectancy',
+                'Infant_Mortality': 'infant_mortality',
+                'Corruption_Score': 'corruption_score',
+                'HDI': 'hdi',
+                'Happiness_Score': 'happiness_score',
+                'Social_Mobility_Score': 'social_mobility_score',
+                'Purchasing_Power_Index': 'purchasing_power_index',
+                'Pollution_Index': 'pollution_index'
+            };
+            const yKey = yKeyMap[selectedId];
+
+            // Build scatter points from country data
+            const scatterPoints = [];
+            data.countries.forEach(country => {
+                let xVal = country[xConfig.key];
+                const yVal = country[yKey];
+                if (xVal != null && yVal != null) {
+                    // For Gini, invert to make higher = more equal
+                    if (xConfig.invert) {
+                        xVal = 100 - xVal;
+                    }
+                    scatterPoints.push({
+                        country: country.name,
+                        x: Math.round(xVal * 100) / 100,
+                        y: Math.round(yVal * 100) / 100
+                    });
+                }
+            });
+
+            if (scatterPoints.length < 3) {
+                scatterChart.data.datasets = [];
+                scatterChart.update();
+                document.getElementById('chartInterpretation').innerHTML = 'Not enough data for this combination.';
+                return;
+            }
+
+            // Calculate correlation and trend line
+            const xVals = scatterPoints.map(p => p.x);
+            const yVals = scatterPoints.map(p => p.y);
+            const n = xVals.length;
+            const sumX = xVals.reduce((a, b) => a + b, 0);
+            const sumY = yVals.reduce((a, b) => a + b, 0);
+            const sumXY = xVals.reduce((acc, x, i) => acc + x * yVals[i], 0);
+            const sumX2 = xVals.reduce((acc, x) => acc + x * x, 0);
+            const sumY2 = yVals.reduce((acc, y) => acc + y * y, 0);
+
+            const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+            const intercept = (sumY - slope * sumX) / n;
+
+            // Pearson correlation
+            const numerator = n * sumXY - sumX * sumY;
+            const denominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
+            const r = denominator !== 0 ? numerator / denominator : 0;
+
+            // Check if user manually changed the country
             if (selectedCountry && userCountry && selectedCountry.toLowerCase() !== userCountry.toLowerCase()) {
                 isUserCountry = false;
             } else if (selectedCountry && userCountry && selectedCountry.toLowerCase() === userCountry.toLowerCase()) {
                 isUserCountry = true;
             }
 
+            // Generate trend line points
+            const xMin = Math.min(...xVals);
+            const xMax = Math.max(...xVals);
             const trendPoints = [];
-            const slope = scatterData.trend_line.slope;
-            const intercept = scatterData.trend_line.intercept;
-            const [xMin, xMax] = scatterData.trend_line.x_range;
-
             for (let x = xMin; x <= xMax; x += (xMax - xMin) / 50) {
                 trendPoints.push({ x: x, y: slope * x + intercept });
             }
 
-            const isPositive = correlation.effective_correlation > 0;
+            // Determine if correlation is positive for coloring
+            // For metrics where lower is better (Infant Mortality, Pollution), effective correlation is inverted
+            const higherBetter = correlation.higher_better !== false;
+            const effectiveR = higherBetter ? r : -r;
+            const isPositive = effectiveR > 0;
             const pointColor = isPositive ? 'rgba(22, 163, 74, 0.6)' : 'rgba(220, 38, 38, 0.6)';
 
             // Separate highlighted country from others
             const highlightedPoint = selectedCountry
-                ? scatterData.points.find(p => p.country.toLowerCase() === selectedCountry.toLowerCase())
+                ? scatterPoints.find(p => p.country.toLowerCase() === selectedCountry.toLowerCase())
                 : null;
             const otherPoints = selectedCountry
-                ? scatterData.points.filter(p => p.country.toLowerCase() !== selectedCountry.toLowerCase())
-                : scatterData.points;
+                ? scatterPoints.filter(p => p.country.toLowerCase() !== selectedCountry.toLowerCase())
+                : scatterPoints;
 
             const datasets = [
                 {
@@ -1969,7 +1966,7 @@
                     order: 2
                 },
                 {
-                    label: `Trend (r = ${correlation.correlation.toFixed(3)})`,
+                    label: `Trend (r = ${r.toFixed(3)})`,
                     data: trendPoints,
                     type: 'line',
                     borderColor: 'rgba(239, 68, 68, 0.8)',
@@ -1998,32 +1995,25 @@
             }
 
             scatterChart.data.datasets = datasets;
+            scatterChart.options.scales.x.title.text = xConfig.label;
             scatterChart.options.scales.y.title.text = correlation.name;
 
-            // Calculate actual data bounds with 2% padding
-            const allX = scatterData.points.map(p => p.x);
-            const allY = scatterData.points.map(p => p.y);
-            const xDataMin = Math.min(...allX);
-            const xDataMax = Math.max(...allX);
-            const yDataMin = Math.min(...allY);
-            const yDataMax = Math.max(...allY);
-            const xPadding = (xDataMax - xDataMin) * 0.07;
+            // Calculate actual data bounds with padding
+            const yDataMin = Math.min(...yVals);
+            const yDataMax = Math.max(...yVals);
+            const xPadding = (xMax - xMin) * 0.07;
             const yPadding = (yDataMax - yDataMin) * 0.07;
-            scatterChart.options.scales.x.min = xDataMin - xPadding;
-            scatterChart.options.scales.x.max = xDataMax + xPadding;
+            scatterChart.options.scales.x.min = xMin - xPadding;
+            scatterChart.options.scales.x.max = xMax + xPadding;
             scatterChart.options.scales.x.bounds = 'data';
             scatterChart.options.scales.y.min = yDataMin - yPadding;
             scatterChart.options.scales.y.max = yDataMax + yPadding;
             scatterChart.options.scales.y.bounds = 'data';
 
-            // Update annotation for highlighted country - position dynamically
+            // Update annotation for highlighted country
             if (highlightedPoint && isUserCountry) {
-                // Get the Y axis range to determine if point is near top
-                const yScale = scatterChart.scales.y;
-                const yRange = yScale.max - yScale.min;
-                const pointYPercent = (highlightedPoint.y - yScale.min) / yRange;
-
-                // If point is in top 30% of chart, show label below; otherwise above
+                const yRange = yDataMax - yDataMin;
+                const pointYPercent = (highlightedPoint.y - yDataMin) / yRange;
                 const yAdjust = pointYPercent > 0.7 ? 30 : -30;
 
                 scatterChart.options.plugins.annotation = {
@@ -2049,33 +2039,40 @@
 
             scatterChart.update();
 
+            // Update interpretation box
             const interpBox = document.getElementById('chartInterpretation');
-            // Effective correlation > 0 means good outcomes (already adjusted for "lower is better" metrics)
-            const favorable = correlation.effective_correlation > 0;
-            // Use raw correlation to determine if values go up or down
-            const rawCorrelationPositive = correlation.correlation > 0;
+            const favorable = isPositive;
+            const rawCorrelationPositive = r > 0;
             interpBox.className = `interpretation-box ${favorable ? 'positive' : 'negative'}`;
 
-            if (correlation.significant) {
+            // X-axis name for interpretation
+            const xAxisNames = {
+                'economic_freedom': 'economic freedom',
+                'democracy_score': 'democracy',
+                'gini_index': 'equality'
+            };
+            const xAxisName = xAxisNames[selectedXAxis];
+
+            if (Math.abs(r) > 0.1 && n > 10) {
                 const direction = rawCorrelationPositive ? 'higher' : 'lower';
                 const outcome = favorable ? 'better' : 'worse';
                 let countryInfo = '';
                 if (highlightedPoint) {
-                    countryInfo = `<br><br><strong>${selectedCountry}:</strong> Economic Freedom: ${highlightedPoint.x}, ${correlation.name}: ${highlightedPoint.y}`;
+                    countryInfo = `<br><br><strong>${selectedCountry}:</strong> ${xConfig.label}: ${highlightedPoint.x}, ${correlation.name}: ${highlightedPoint.y}`;
                 }
-                const freedomVerdict = favorable
-                    ? '<br><br><strong style="color: var(--success);">Is freedom better? Yes.</strong>'
-                    : '<br><br><strong style="color: var(--danger);">Is freedom better? Not for this metric.</strong>';
+                const verdict = favorable
+                    ? `<br><br><strong style="color: var(--success);">Does ${xAxisName} correlate with better outcomes? Yes.</strong>`
+                    : `<br><br><strong style="color: var(--danger);">Does ${xAxisName} correlate with better outcomes? No, not for this metric.</strong>`;
                 interpBox.innerHTML = `
-                    Countries with higher economic freedom tend to have
+                    Countries with higher ${xAxisName} tend to have
                     <strong>${direction}</strong> ${correlation.name.toLowerCase()}, which represents
-                    <strong>${outcome}</strong> outcomes (r = ${correlation.correlation.toFixed(2)}).${countryInfo}${freedomVerdict}
+                    <strong>${outcome}</strong> outcomes (r = ${r.toFixed(2)}, n = ${n}).${countryInfo}${verdict}
                 `;
             } else {
                 interpBox.innerHTML = `
-                    No statistically significant relationship was found
-                    between economic freedom and ${correlation.name.toLowerCase()}.
-                    <br><br><strong style="color: var(--text-muted);">Is freedom better? The data doesn't say.</strong>
+                    No strong relationship was found
+                    between ${xAxisName} and ${correlation.name.toLowerCase()} (r = ${r.toFixed(2)}, n = ${n}).
+                    <br><br><strong style="color: var(--text-muted);">Does ${xAxisName} correlate with better outcomes? The data doesn't show a clear pattern.</strong>
                 `;
             }
         }
@@ -2097,48 +2094,159 @@
             comparison.metrics.forEach(m => {
                 const efCorr = m.economic_freedom.effective;
                 const eqCorr = m.equality.effective;
-                const efWidth = Math.round(efCorr * 100);
-                const eqWidth = Math.round(eqCorr * 100);
+                const demCorr = m.democracy ? m.democracy.effective : null;
 
-                const winnerText = m.winner === 'economic_freedom'
-                    ? '<span style="color: var(--success); font-weight: bold;">Freedom</span>'
-                    : m.winner === 'equality'
-                        ? '<span style="color: var(--danger); font-weight: bold;">Equality</span>'
-                        : '<span style="color: var(--warning);">Tie</span>';
+                // Create array of bars and sort by correlation (largest to smallest)
+                const bars = [
+                    { label: 'Freedom', value: efCorr, color: 'var(--success)', fillClass: 'comparison-bar-fill-green' },
+                    { label: 'Equality', value: eqCorr, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red' },
+                    { label: 'Democracy', value: demCorr, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue' }
+                ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 html += `
                     <div class="comparison-row">
                         <div class="comparison-metric">
                             <strong>${m.metric}</strong>
                         </div>
-                        <div class="comparison-bar-col" data-label="Economic Freedom">
+                `;
+
+                bars.forEach(bar => {
+                    const width = bar.value ? Math.round(bar.value * 100) : 0;
+                    const valueText = bar.value !== null ? bar.value.toFixed(2) : 'N/A';
+                    html += `
+                        <div class="comparison-bar-col" data-label="${bar.label}">
                             <div class="comparison-bar-wrapper">
                                 <div class="comparison-bar-track">
-                                    <div class="comparison-bar-fill-green" style="width: ${efWidth}%;"></div>
+                                    <div class="${bar.fillClass}" style="width: ${width}%;"></div>
                                 </div>
-                                <span class="comparison-value" style="color: var(--success);">${efCorr.toFixed(2)}</span>
+                                <span class="comparison-value" style="color: ${bar.color};">${valueText}</span>
                             </div>
                         </div>
-                        <div class="comparison-bar-col" data-label="Equality (Gini)">
-                            <div class="comparison-bar-wrapper">
-                                <div class="comparison-bar-track">
-                                    <div class="comparison-bar-fill-red" style="width: ${eqWidth}%;"></div>
-                                </div>
-                                <span class="comparison-value" style="color: var(--danger);">${eqCorr.toFixed(2)}</span>
-                            </div>
-                        </div>
-                        <div class="comparison-winner">
-                            ${winnerText}
-                        </div>
+                    `;
+                });
+
+                html += `
                     </div>
                 `;
             });
+
+            const efClearWins = comparison.economic_freedom_clear_wins || 0;
+            const demClearWins = comparison.democracy_clear_wins || 0;
+            const eqClearWins = comparison.equality_clear_wins || 0;
+            const ties = comparison.ties || 0;
+
+            // Build dynamic results text
+            const winners = [];
+            if (efClearWins > 0) winners.push(`Economic Freedom clearly wins <strong>${efClearWins}</strong> metric${efClearWins > 1 ? 's' : ''}`);
+            if (demClearWins > 0) winners.push(`Democracy clearly wins <strong>${demClearWins}</strong> metric${demClearWins > 1 ? 's' : ''}`);
+            if (eqClearWins > 0) winners.push(`Equality clearly wins <strong>${eqClearWins}</strong> metric${eqClearWins > 1 ? 's' : ''}`);
+
+            let resultsText = winners.length > 0 ? winners.join('. ') + '.' : 'No clear winners.';
+
+            if (ties > 0) {
+                // Determine who's typically tied by looking at top performers in tie metrics
+                const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
+                if (tieMetrics.length > 0) {
+                    // Find the top 2 performers across tie metrics
+                    const avgScores = { 'Freedom': 0, 'Democracy': 0, 'Equality': 0 };
+                    tieMetrics.forEach(m => {
+                        avgScores['Freedom'] += m.economic_freedom?.effective || 0;
+                        avgScores['Democracy'] += m.democracy?.effective || 0;
+                        avgScores['Equality'] += m.equality?.effective || 0;
+                    });
+                    const sorted = Object.entries(avgScores).sort((a, b) => b[1] - a[1]);
+                    const tiedParties = sorted.slice(0, 2).map(x => x[0]).join(' and ');
+                    resultsText += ` <strong>${ties}</strong> metric${ties > 1 ? 's are a tie' : ' is a tie'} between ${tiedParties}.`;
+                }
+            }
+
+            // Calculate league points (3 for clear win, 1 for tie)
+            // First, determine who participates in ties
+            const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
+            let freedomTies = 0, democracyTies = 0, equalityTies = 0;
+
+            tieMetrics.forEach(m => {
+                // Top 2 performers in each tie get a point
+                const metricScores = [
+                    { name: 'Freedom', score: m.economic_freedom?.effective || 0 },
+                    { name: 'Democracy', score: m.democracy?.effective || 0 },
+                    { name: 'Equality', score: m.equality?.effective || 0 }
+                ].sort((a, b) => b.score - a.score);
+
+                const top2 = metricScores.slice(0, 2).map(x => x.name);
+                if (top2.includes('Freedom')) freedomTies++;
+                if (top2.includes('Democracy')) democracyTies++;
+                if (top2.includes('Equality')) equalityTies++;
+            });
+
+            const points = [
+                { name: 'Freedom', pts: efClearWins * 3 + freedomTies },
+                { name: 'Democracy', pts: demClearWins * 3 + democracyTies },
+                { name: 'Equality', pts: eqClearWins * 3 + equalityTies }
+            ].sort((a, b) => b.pts - a.pts);
+
+            const [first, second, third] = points;
+            let conclusion = '';
+
+            if (first.pts > second.pts) {
+                const margin = first.pts - second.pts;
+                if (margin >= 5) {
+                    conclusion = `<strong>${first.name} is the clear winner.</strong>`;
+                } else {
+                    conclusion = `<strong>${first.name} comes out ahead.</strong>`;
+                }
+            } else if (first.pts === second.pts) {
+                conclusion = `<strong>${first.name} and ${second.name} both lead.</strong>`;
+            }
+
+            // Less than 3 points = clear loser
+            if (third.pts < 3) {
+                const loserAnalogies = [
+                    `${third.name} is the Washington Generals of economic theories.`,
+                    `${third.name} is the Wile E. Coyote of economic theories.`,
+                    `${third.name} is the Charlie Brown of economic theories.`,
+                    `${third.name} is the Tom (chasing Jerry) of economic theories.`,
+                    `${third.name} is the Blockbuster to Freedom's Netflix.`,
+                    `${third.name} is the Nokia of economic theories.`,
+                    `${third.name} pulled a Titanic.`,
+                    `${third.name} is the Myspace of economic theories.`,
+                    `${third.name} is the Internet Explorer of economic theories.`,
+                    `${third.name} is the Kodak of economic theories.`,
+                    `${third.name} is the Blackberry of economic theories.`,
+                    `${third.name} is the Yahoo to Freedom's Google.`,
+                    `${third.name} is the Sears to Freedom's Amazon.`,
+                    `${third.name} is the Goliath of economic theories.`,
+                    `${third.name} is the Hindenburg of economic theories.`,
+                    `${third.name} is the Monstars to Freedom's Michael Jordan.`,
+                    `${third.name} is the Empire to Freedom's Rebellion.`,
+                    `${third.name} is the Voldemort of economic theories.`,
+                    `${third.name} is the Hare to Freedom's Tortoise.`,
+                    `${third.name} is the Napoleon at Waterloo of economics.`,
+                    `${third.name} is the Dodo bird of economic theories.`,
+                    `${third.name} is the Clippy of economic theories.`,
+                    `${third.name} is the Betamax of economic theories.`,
+                    `${third.name} is the Zune to Freedom's iPod.`,
+                    `${third.name} got Pluto'd (demoted).`,
+                    `${third.name} went full Homer Simpson.`,
+                    `${third.name} went full Ned Stark.`,
+                    `${third.name} went full Game of Thrones Season 8.`,
+                    `${third.name} went full Al Bundy.`,
+                    `${third.name} pulled a George Costanza.`,
+                    `${third.name} is as self-destructive as Bojack Horseman.`,
+                    `${third.name} has the success rate of Michael Scott's relationships.`,
+                    `${third.name} is as effective as a Michael Scott leadership seminar.`
+                ];
+                conclusion += ' ' + loserAnalogies[Math.floor(Math.random() * loserAnalogies.length)];
+            }
 
             html += `
                     </div>
                 </div>
                 <div class="comparison-conclusion">
-                    <strong>So, is freedom better?</strong> When it comes to quality of life, economic freedom wins in <strong>${comparison.economic_freedom_wins} out of ${comparison.metrics.length}</strong> metrics. The data suggests: yes, freedom is better.
+                    <strong>Results:</strong> ${resultsText}
+                </div>
+                <div class="comparison-verdict">
+                    ${conclusion}
                 </div>
             `;
 

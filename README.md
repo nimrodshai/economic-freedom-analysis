@@ -22,13 +22,11 @@ This project statistically analyzes whether countries with greater economic free
 | Human Development (HDI) | United Nations | 2022 |
 | Happiness Score | World Happiness Report | 2024 |
 | Peace Score | Global Peace Index | 2024 |
-| Democracy Score | Economist Intelligence Unit | 2023 |
 
 ## Key Findings
 
 The analysis shows **statistically significant positive correlations** between economic freedom and:
 - Lower corruption (r = 0.80)
-- Higher democracy scores (r = 0.75)
 - Higher GDP per capita (r = 0.72)
 - Greater happiness (r = 0.68)
 - More peaceful societies (r = 0.67)
@@ -160,4 +158,3 @@ MIT License - feel free to use this for educational and research purposes.
 - United Nations for HDI data
 - Gallup/WHR for happiness data
 - Institute for Economics & Peace for GPI data
-- Economist Intelligence Unit for democracy data

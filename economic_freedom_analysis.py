@@ -12,7 +12,6 @@ All data is fetched LIVE from authoritative sources:
 - Transparency International CPI (Excel download)
 - UN Human Development Index (UNDP API)
 - World Happiness Report (Excel download)
-- Democracy Index (Our World in Data)
 - Social Mobility Index (World Economic Forum)
 - Numbeo Purchasing Power Index (Web scraping)
 """
@@ -1067,7 +1066,6 @@ class CorrelationAnalyzer:
             ('Corruption_Score', 'Anti-Corruption Score', 'higher is better'),
             ('HDI', 'Human Development Index', 'higher is better'),
             ('Happiness_Score', 'Happiness Score', 'higher is better'),
-            ('Democracy_Score', 'Democracy Score', 'higher is better'),
             ('Social_Mobility_Score', 'Social Mobility Index', 'higher is better'),
             ('Purchasing_Power_Index', 'Purchasing Power', 'higher is better'),
             ('Pollution_Index', 'Pollution', 'lower is better')
@@ -1198,8 +1196,7 @@ class ReportGenerator:
             '• Transparency International Corruption Perceptions Index',
             '• UN Human Development Index',
             '• World Happiness Report',
-            '• Global Peace Index',
-            '• Economist Intelligence Unit Democracy Index'
+            '• Global Peace Index'
         ]
 
         for i, source in enumerate(sources):
@@ -1291,8 +1288,7 @@ class ReportGenerator:
 
         # Select numeric columns for correlation
         numeric_cols = ['Economic_Freedom_Score', 'GDP_Per_Capita', 'Life_Expectancy',
-                       'Corruption_Score', 'HDI', 'Happiness_Score',
-                       'Democracy_Score']
+                       'Corruption_Score', 'HDI', 'Happiness_Score']
 
         available_cols = [col for col in numeric_cols if col in self.data.columns]
 
@@ -1305,8 +1301,7 @@ class ReportGenerator:
             'Life_Expectancy': 'Life Expect.',
             'Corruption_Score': 'Anti-Corrupt.',
             'HDI': 'HDI',
-            'Happiness_Score': 'Happiness',
-            'Democracy_Score': 'Democracy'
+            'Happiness_Score': 'Happiness'
         }
         corr_matrix = corr_matrix.rename(index=rename_dict, columns=rename_dict)
 
@@ -1331,7 +1326,6 @@ class ReportGenerator:
             ('Corruption_Score', 'Anti-Corruption Score (0-100)', True),
             ('HDI', 'Human Development Index', True),
             ('Happiness_Score', 'Happiness Score', True),
-            ('Democracy_Score', 'Democracy Score', True),
             ('Infant_Mortality', 'Infant Mortality (per 1000 births)', False)
         ]
 
@@ -1427,7 +1421,7 @@ class ReportGenerator:
                                            q=4, labels=['Least Free', 'Less Free',
                                                        'More Free', 'Most Free'])
 
-        indices_to_compare = ['HDI', 'Happiness_Score', 'Democracy_Score', 'Life_Expectancy']
+        indices_to_compare = ['HDI', 'Happiness_Score', 'Life_Expectancy']
         available_indices = [idx for idx in indices_to_compare if idx in self.data.columns]
 
         # Normalize for comparison
@@ -1560,7 +1554,6 @@ def main():
     corruption = fetcher.fetch_corruption_index()
     hdi = fetcher.fetch_human_development_index()
     happiness = fetcher.fetch_happiness_index()
-    democracy = fetcher.fetch_democracy_index()
     social_mobility = fetcher.fetch_social_mobility_index()
 
     # Merge all datasets
@@ -1573,7 +1566,6 @@ def main():
         (corruption, 'Country'),
         (hdi, 'Country'),
         (happiness, 'Country'),
-        (democracy, 'Country'),
         (social_mobility, 'Country')
     ]
 

@@ -114,7 +114,6 @@ def generate_web_data(output_dir="docs"):
         'Corruption_Score': {'display_name': 'Anti-Corruption Score', 'unit': '0-100', 'higher_better': True},
         'HDI': {'display_name': 'Human Development Index', 'unit': '0-1', 'higher_better': True},
         'Happiness_Score': {'display_name': 'Happiness Score', 'unit': '0-10', 'higher_better': True},
-        'Democracy_Score': {'display_name': 'Democracy Score', 'unit': '0-10', 'higher_better': True},
         'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True},
         'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True},
         'Pollution_Index': {'display_name': 'Pollution', 'unit': '0-100', 'higher_better': False}
@@ -154,6 +153,11 @@ def generate_web_data(output_dir="docs"):
         if 'Gini_Index' in row:
             val = row['Gini_Index']
             country_data['gini_index'] = round(val, 1) if not (isinstance(val, float) and np.isnan(val)) else None
+
+        # Add Democracy Score separately (for X-axis selection)
+        if 'Democracy_Score' in row:
+            val = row['Democracy_Score']
+            country_data['democracy_score'] = round(val, 2) if not (isinstance(val, float) and np.isnan(val)) else None
 
         output_data["countries"].append(country_data)
 
@@ -198,7 +202,7 @@ def generate_web_data(output_dir="docs"):
         "verdict": "supports" if sig_positive > sig_negative else ("contradicts" if sig_negative > sig_positive else "mixed")
     }
 
-    # Calculate comparison: Economic Freedom vs Gini Index correlations
+    # Calculate comparison: Economic Freedom vs Gini Index vs Democracy correlations
     # For Gini, lower is better (less inequality), so we invert the correlation for comparison
     comparison_indices = [
         ('GDP_Per_Capita', 'GDP per Capita', True),
@@ -207,15 +211,17 @@ def generate_web_data(output_dir="docs"):
         ('Corruption_Score', 'Anti-Corruption', True),
         ('HDI', 'Human Development Index', True),
         ('Happiness_Score', 'Happiness', True),
-        ('Democracy_Score', 'Democracy', True),
         ('Social_Mobility_Score', 'Social Mobility', True),
         ('Purchasing_Power_Index', 'Purchasing Power', True),
         ('Pollution_Index', 'Pollution', False)
     ]
 
     comparison_data = []
-    ef_wins = 0
-    gini_wins = 0
+    ef_clear_wins = 0
+    gini_clear_wins = 0
+    democracy_clear_wins = 0
+    ties = 0
+    MARGIN_THRESHOLD = 0.05  # Minimum margin for a "clear win"
 
     for col, display_name, higher_better in comparison_indices:
         if col in merged.columns and 'Gini_Index' in merged.columns:
@@ -237,17 +243,41 @@ def generate_web_data(output_dir="docs"):
             else:
                 gini_corr, gini_p, gini_effective = None, None, None
 
-            # Determine winner
+            # Democracy correlation
+            democracy_valid = merged[['Democracy_Score', col]].dropna()
+            if len(democracy_valid) > 10:
+                democracy_corr, democracy_p = stats.pearsonr(democracy_valid['Democracy_Score'], democracy_valid[col])
+                democracy_effective = democracy_corr if higher_better else -democracy_corr
+            else:
+                democracy_corr, democracy_p, democracy_effective = None, None, None
+
+            # Determine winner (three-way comparison with margin threshold)
             winner = None
-            if ef_effective is not None and gini_effective is not None:
-                if ef_effective > gini_effective:
-                    winner = "economic_freedom"
-                    ef_wins += 1
-                elif gini_effective > ef_effective:
-                    winner = "equality"
-                    gini_wins += 1
+            effectives = {
+                "economic_freedom": ef_effective,
+                "equality": gini_effective,
+                "democracy": democracy_effective
+            }
+            valid_effectives = {k: v for k, v in effectives.items() if v is not None}
+            if len(valid_effectives) >= 2:
+                sorted_items = sorted(valid_effectives.items(), key=lambda x: x[1], reverse=True)
+                first_key, first_val = sorted_items[0]
+                second_key, second_val = sorted_items[1]
+                margin = first_val - second_val
+
+                if margin >= MARGIN_THRESHOLD:
+                    # Clear winner
+                    winner = first_key
+                    if first_key == "economic_freedom":
+                        ef_clear_wins += 1
+                    elif first_key == "equality":
+                        gini_clear_wins += 1
+                    elif first_key == "democracy":
+                        democracy_clear_wins += 1
                 else:
+                    # Too close to call - it's a tie
                     winner = "tie"
+                    ties += 1
 
             comparison_data.append({
                 "metric": display_name,
@@ -266,12 +296,21 @@ def generate_web_data(output_dir="docs"):
                     "significant": gini_p < 0.05 if gini_p is not None else False,
                     "n": len(gini_valid) if gini_corr is not None else 0
                 },
+                "democracy": {
+                    "correlation": round(democracy_corr, 4) if democracy_corr is not None else None,
+                    "effective": round(democracy_effective, 4) if democracy_effective is not None else None,
+                    "p_value": democracy_p if democracy_p is not None else None,
+                    "significant": democracy_p < 0.05 if democracy_p is not None else False,
+                    "n": len(democracy_valid) if democracy_corr is not None else 0
+                },
                 "winner": winner
             })
 
     output_data["comparison"] = {
-        "economic_freedom_wins": ef_wins,
-        "equality_wins": gini_wins,
+        "economic_freedom_clear_wins": ef_clear_wins,
+        "equality_clear_wins": gini_clear_wins,
+        "democracy_clear_wins": democracy_clear_wins,
+        "ties": ties,
         "metrics": comparison_data
     }
 
