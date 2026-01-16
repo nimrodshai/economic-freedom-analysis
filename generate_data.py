@@ -47,6 +47,10 @@ def generate_web_data(output_dir="docs"):
     gini = fetcher.fetch_gini_index()
     purchasing_power = fetcher.fetch_purchasing_power_index()
     pollution = fetcher.fetch_pollution_index()
+    crime = fetcher.fetch_crime_index()
+    homicide = fetcher.fetch_unodc_homicide_rate()
+    hale = fetcher.fetch_hale()
+    mental_health = fetcher.fetch_mental_health_index()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -61,7 +65,11 @@ def generate_web_data(output_dir="docs"):
         (social_mobility, 'Country'),
         (gini, 'Country'),
         (purchasing_power, 'Country'),
-        (pollution, 'Country')
+        (pollution, 'Country'),
+        (crime, 'Country'),
+        (homicide, 'Country'),
+        (hale, 'Country'),
+        (mental_health, 'Country')
     ]
 
     for df, key in datasets:
@@ -97,7 +105,11 @@ def generate_web_data(output_dir="docs"):
                 {"name": "UN Human Development Index", "year": 2022},
                 {"name": "World Happiness Report", "year": 2024},
                 {"name": "Economist Intelligence Unit Democracy Index", "year": 2023},
-                {"name": "World Economic Forum Social Mobility Index", "year": 2020}
+                {"name": "World Economic Forum Social Mobility Index", "year": 2020},
+                {"name": "Numbeo Crime Index", "year": 2025},
+                {"name": "UNODC Homicide Statistics (via World Bank)", "year": 2022},
+                {"name": "WHO Healthy Life Expectancy (HALE)", "year": 2021},
+                {"name": "WHO Mental Health Atlas", "year": 2021}
             ]
         },
         "correlations": [],
@@ -116,7 +128,11 @@ def generate_web_data(output_dir="docs"):
         'Happiness_Score': {'display_name': 'Happiness Score', 'unit': '0-10', 'higher_better': True},
         'Social_Mobility_Score': {'display_name': 'Social Mobility Index', 'unit': '0-100', 'higher_better': True},
         'Purchasing_Power_Index': {'display_name': 'Purchasing Power', 'unit': '0-100', 'higher_better': True},
-        'Pollution_Index': {'display_name': 'Pollution', 'unit': '0-100', 'higher_better': False}
+        'Pollution_Index': {'display_name': 'Pollution', 'unit': '0-100', 'higher_better': False},
+        'Crime_Index': {'display_name': 'Crime (Numbeo)', 'unit': '0-100', 'higher_better': False},
+        'Homicide_Rate': {'display_name': 'Homicide Rate (UNODC)', 'unit': 'per 100k', 'higher_better': False},
+        'HALE': {'display_name': 'Healthy Life Expectancy (WHO)', 'unit': 'years', 'higher_better': True},
+        'Mental_Health_Index': {'display_name': 'Mental Health Access (WHO)', 'unit': 'per 100k', 'higher_better': True}
     }
 
     for col, result in results.items():
@@ -213,7 +229,11 @@ def generate_web_data(output_dir="docs"):
         ('Happiness_Score', 'Happiness', True),
         ('Social_Mobility_Score', 'Social Mobility', True),
         ('Purchasing_Power_Index', 'Purchasing Power', True),
-        ('Pollution_Index', 'Pollution', False)
+        ('Pollution_Index', 'Pollution', False),
+        ('Crime_Index', 'Crime (Numbeo)', False),
+        ('Homicide_Rate', 'Homicide Rate (UNODC)', False),
+        ('HALE', 'Healthy Life Expectancy', True),
+        ('Mental_Health_Index', 'Mental Health Access', True)
     ]
 
     comparison_data = []

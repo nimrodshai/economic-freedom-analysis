@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-16T13:01:48.413326Z",
+    "generated_at": "2026-01-16T14:01:31.785029Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -30,6 +30,22 @@
       {
         "name": "World Economic Forum Social Mobility Index",
         "year": 2020
+      },
+      {
+        "name": "Numbeo Crime Index",
+        "year": 2025
+      },
+      {
+        "name": "UNODC Homicide Statistics (via World Bank)",
+        "year": 2022
+      },
+      {
+        "name": "WHO Healthy Life Expectancy (HALE)",
+        "year": 2021
+      },
+      {
+        "name": "WHO Mental Health Atlas",
+        "year": 2021
       }
     ]
   },
@@ -123,6 +139,17 @@
       "unit": "years"
     },
     {
+      "id": "HALE",
+      "name": "Healthy Life Expectancy (WHO)",
+      "correlation": 0.5816,
+      "effective_correlation": 0.5816,
+      "p_value": 9.102430663274446e-17,
+      "significant": true,
+      "n": 170,
+      "higher_better": true,
+      "unit": "years"
+    },
+    {
       "id": "Infant_Mortality",
       "name": "Infant Mortality (per 1000)",
       "correlation": -0.546,
@@ -132,6 +159,39 @@
       "n": 175,
       "higher_better": false,
       "unit": "per 1000"
+    },
+    {
+      "id": "Mental_Health_Index",
+      "name": "Mental Health Access (WHO)",
+      "correlation": 0.5381,
+      "effective_correlation": 0.5381,
+      "p_value": 6.808432634399967e-11,
+      "significant": true,
+      "n": 127,
+      "higher_better": true,
+      "unit": "per 100k"
+    },
+    {
+      "id": "Crime_Index",
+      "name": "Crime (Numbeo)",
+      "correlation": -0.4379,
+      "effective_correlation": 0.4379,
+      "p_value": 1.6894527430366075e-07,
+      "significant": true,
+      "n": 131,
+      "higher_better": false,
+      "unit": "0-100"
+    },
+    {
+      "id": "Homicide_Rate",
+      "name": "Homicide Rate (UNODC)",
+      "correlation": -0.1425,
+      "effective_correlation": 0.1425,
+      "p_value": 0.09799733169752406,
+      "significant": false,
+      "n": 136,
+      "higher_better": false,
+      "unit": "per 100k"
     }
   ],
   "countries": [
@@ -148,6 +208,10 @@
       "social_mobility_score": 55.6,
       "purchasing_power_index": 42.7,
       "pollution_index": 77.0,
+      "crime_index": 44.7,
+      "homicide_rate": 1.39,
+      "hale": 66.69,
+      "mental_health_index": 2.0,
       "gini_index": 29.4,
       "democracy_score": 6.2
     },
@@ -164,6 +228,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 34.5,
       "pollution_index": 63.9,
+      "crime_index": 52.6,
+      "homicide_rate": 1.16,
+      "hale": 65.55,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 3.55
     },
@@ -180,6 +248,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": 66.3,
+      "homicide_rate": null,
+      "hale": 53.76,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 4.05
     },
@@ -196,6 +268,10 @@
       "social_mobility_score": 57.3,
       "purchasing_power_index": 41.1,
       "pollution_index": 50.8,
+      "crime_index": 63.4,
+      "homicide_rate": 4.49,
+      "hale": 64.79,
+      "mental_health_index": 15.0,
       "gini_index": 42.4,
       "democracy_score": 6.51
     },
@@ -212,6 +288,10 @@
       "social_mobility_score": 53.9,
       "purchasing_power_index": 37.6,
       "pollution_index": 62.3,
+      "crime_index": 22.1,
+      "homicide_rate": 2.21,
+      "hale": 64.01,
+      "mental_health_index": 2.0,
       "gini_index": 27.2,
       "democracy_score": 5.35
     },
@@ -228,6 +308,10 @@
       "social_mobility_score": 75.1,
       "purchasing_power_index": 135.4,
       "pollution_index": 26.8,
+      "crime_index": 47.3,
+      "homicide_rate": 0.85,
+      "hale": 70.61,
+      "mental_health_index": 13.0,
       "gini_index": 33.8,
       "democracy_score": 8.85
     },
@@ -244,6 +328,10 @@
       "social_mobility_score": 80.1,
       "purchasing_power_index": 107.1,
       "pollution_index": 20.9,
+      "crime_index": 29.5,
+      "homicide_rate": 0.88,
+      "hale": 69.79,
+      "mental_health_index": 15.0,
       "gini_index": 31.2,
       "democracy_score": 8.28
     },
@@ -260,6 +348,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 41.4,
       "pollution_index": 72.7,
+      "crime_index": 31.8,
+      "homicide_rate": 2.16,
+      "hale": 64.04,
+      "mental_health_index": 3.0,
       "gini_index": null,
       "democracy_score": 2.8
     },
@@ -276,6 +368,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 58.4,
       "pollution_index": null,
+      "crime_index": 56.9,
+      "homicide_rate": 32.2,
+      "hale": 61.52,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -292,6 +388,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 117.5,
       "pollution_index": 71.6,
+      "crime_index": 24.5,
+      "homicide_rate": 0.2,
+      "hale": 64.24,
+      "mental_health_index": 4.0,
       "gini_index": null,
       "democracy_score": 2.45
     },
@@ -308,6 +408,10 @@
       "social_mobility_score": 40.2,
       "purchasing_power_index": 35.6,
       "pollution_index": 85.4,
+      "crime_index": 61.6,
+      "homicide_rate": 2.34,
+      "hale": 63.05,
+      "mental_health_index": 0.0,
       "gini_index": 30.9,
       "democracy_score": 4.44
     },
@@ -324,6 +428,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 45.9,
       "pollution_index": null,
+      "crime_index": 44.9,
+      "homicide_rate": 7.44,
+      "hale": 66.67,
+      "mental_health_index": 7.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -340,6 +448,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 54.7,
       "pollution_index": 44.9,
+      "crime_index": 49.8,
+      "homicide_rate": 2.38,
+      "hale": 63.71,
+      "mental_health_index": 11.0,
       "gini_index": 24.4,
       "democracy_score": 1.99
     },
@@ -356,6 +468,10 @@
       "social_mobility_score": 80.1,
       "purchasing_power_index": 116.1,
       "pollution_index": 49.2,
+      "crime_index": 49.4,
+      "homicide_rate": 1.08,
+      "hale": 69.79,
+      "mental_health_index": null,
       "gini_index": 26.8,
       "democracy_score": 7.64
     },
@@ -372,6 +488,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 69.9,
       "pollution_index": null,
+      "crime_index": 52.7,
+      "homicide_rate": 28.06,
+      "hale": 63.82,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -388,6 +508,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 1.13,
+      "hale": 55.72,
+      "mental_health_index": 0.0,
       "gini_index": 34.4,
       "democracy_score": 4.44
     },
@@ -404,6 +528,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 2.47,
+      "hale": 64.8,
+      "mental_health_index": 0.0,
       "gini_index": 28.5,
       "democracy_score": 5.65
     },
@@ -420,6 +548,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 43.9,
       "pollution_index": 71.9,
+      "crime_index": 65.0,
+      "homicide_rate": 4.42,
+      "hale": 57.43,
+      "mental_health_index": 0.0,
       "gini_index": 42.1,
       "democracy_score": 4.26
     },
@@ -436,6 +568,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 63.3,
       "pollution_index": 59.7,
+      "crime_index": 41.7,
+      "homicide_rate": 1.22,
+      "hale": 64.99,
+      "mental_health_index": 9.0,
       "gini_index": null,
       "democracy_score": 5.06
     },
@@ -452,6 +588,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 63.5,
       "pollution_index": null,
+      "crime_index": 52.7,
+      "homicide_rate": 11.37,
+      "hale": 53.1,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 7.63
     },
@@ -468,6 +608,10 @@
       "social_mobility_score": 52.1,
       "purchasing_power_index": 42.3,
       "pollution_index": 52.9,
+      "crime_index": 64.5,
+      "homicide_rate": 19.28,
+      "hale": 61.83,
+      "mental_health_index": 4.0,
       "gini_index": 51.6,
       "democracy_score": 6.49
     },
@@ -484,6 +628,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 117.6,
       "pollution_index": null,
+      "crime_index": 29.3,
+      "homicide_rate": null,
+      "hale": 67.1,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -500,6 +648,10 @@
       "social_mobility_score": 63.8,
       "purchasing_power_index": 74.4,
       "pollution_index": 62.8,
+      "crime_index": 36.1,
+      "homicide_rate": 1.09,
+      "hale": 62.39,
+      "mental_health_index": 10.0,
       "gini_index": 39.5,
       "democracy_score": 6.34
     },
@@ -516,6 +668,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 1.25,
+      "hale": 54.56,
+      "mental_health_index": 0.0,
       "gini_index": 37.4,
       "democracy_score": 2.55
     },
@@ -532,6 +688,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": 89.8,
+      "crime_index": 50.9,
+      "homicide_rate": 2.58,
+      "hale": 59.75,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 0.96
     },
@@ -548,6 +708,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 55.84,
+      "mental_health_index": null,
       "gini_index": 37.5,
       "democracy_score": 2.13
     },
@@ -564,6 +728,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 6.99,
+      "hale": null,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -580,6 +748,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 26.7,
       "pollution_index": 77.7,
+      "crime_index": 51.3,
+      "homicide_rate": null,
+      "hale": 60.63,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 2.94
     },
@@ -596,6 +768,10 @@
       "social_mobility_score": 36.0,
       "purchasing_power_index": 9.7,
       "pollution_index": 93.7,
+      "crime_index": 65.5,
+      "homicide_rate": 6.76,
+      "hale": 54.01,
+      "mental_health_index": 0.0,
       "gini_index": 42.2,
       "democracy_score": 2.56
     },
@@ -612,6 +788,10 @@
       "social_mobility_score": 76.1,
       "purchasing_power_index": 109.1,
       "pollution_index": 29.8,
+      "crime_index": 45.7,
+      "homicide_rate": 1.98,
+      "hale": 69.78,
+      "mental_health_index": 14.0,
       "gini_index": 31.1,
       "democracy_score": 8.69
     },
@@ -628,6 +808,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 45.43,
+      "mental_health_index": null,
       "gini_index": 43.0,
       "democracy_score": 1.18
     },
@@ -644,6 +828,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 51.52,
+      "mental_health_index": 0.0,
       "gini_index": 37.4,
       "democracy_score": 1.89
     },
@@ -660,6 +848,10 @@
       "social_mobility_score": 60.3,
       "purchasing_power_index": 51.0,
       "pollution_index": 77.5,
+      "crime_index": 60.5,
+      "homicide_rate": 6.35,
+      "hale": 67.65,
+      "mental_health_index": 9.0,
       "gini_index": 43.0,
       "democracy_score": 7.83
     },
@@ -676,6 +868,10 @@
       "social_mobility_score": 61.5,
       "purchasing_power_index": 77.9,
       "pollution_index": 77.3,
+      "crime_index": 24.0,
+      "homicide_rate": 0.5,
+      "hale": 68.58,
+      "mental_health_index": 3.0,
       "gini_index": 36.0,
       "democracy_score": 2.11
     },
@@ -692,6 +888,10 @@
       "social_mobility_score": 50.3,
       "purchasing_power_index": 36.0,
       "pollution_index": 62.5,
+      "crime_index": 60.9,
+      "homicide_rate": 24.91,
+      "hale": 65.02,
+      "mental_health_index": 3.0,
       "gini_index": 53.9,
       "democracy_score": 6.35
     },
@@ -708,6 +908,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 59.02,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -724,6 +928,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 53.21,
+      "mental_health_index": null,
       "gini_index": 44.7,
       "democracy_score": 1.92
     },
@@ -740,6 +948,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 54.84,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 2.79
     },
@@ -756,6 +968,10 @@
       "social_mobility_score": 61.6,
       "purchasing_power_index": 50.9,
       "pollution_index": 42.0,
+      "crime_index": 54.1,
+      "homicide_rate": 17.75,
+      "hale": 67.63,
+      "mental_health_index": 3.0,
       "gini_index": 45.8,
       "democracy_score": 8.29
     },
@@ -772,6 +988,10 @@
       "social_mobility_score": 34.5,
       "purchasing_power_index": 13.3,
       "pollution_index": null,
+      "crime_index": 56.4,
+      "homicide_rate": null,
+      "hale": 55.41,
+      "mental_health_index": null,
       "gini_index": 35.3,
       "democracy_score": 4.22
     },
@@ -788,6 +1008,10 @@
       "social_mobility_score": 66.7,
       "purchasing_power_index": 78.8,
       "pollution_index": 31.2,
+      "crime_index": 25.5,
+      "homicide_rate": 0.67,
+      "hale": 66.8,
+      "mental_health_index": 13.0,
       "gini_index": 30.1,
       "democracy_score": 6.5
     },
@@ -804,6 +1028,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 2.5,
       "pollution_index": null,
+      "crime_index": 34.4,
+      "homicide_rate": 4.46,
+      "hale": 64.62,
+      "mental_health_index": 9.0,
       "gini_index": null,
       "democracy_score": 2.58
     },
@@ -820,6 +1048,10 @@
       "social_mobility_score": 69.4,
       "purchasing_power_index": 80.4,
       "pollution_index": 55.3,
+      "crime_index": 33.1,
+      "homicide_rate": 0.82,
+      "hale": 70.74,
+      "mental_health_index": 3.0,
       "gini_index": 31.8,
       "democracy_score": 7.38
     },
@@ -836,6 +1068,10 @@
       "social_mobility_score": 74.7,
       "purchasing_power_index": 88.5,
       "pollution_index": 34.6,
+      "crime_index": 26.5,
+      "homicide_rate": 0.77,
+      "hale": 66.66,
+      "mental_health_index": 16.0,
       "gini_index": 25.7,
       "democracy_score": 8.08
     },
@@ -852,6 +1088,10 @@
       "social_mobility_score": 85.2,
       "purchasing_power_index": 133.6,
       "pollution_index": 20.6,
+      "crime_index": 26.0,
+      "homicide_rate": 0.84,
+      "hale": 70.06,
+      "mental_health_index": null,
       "gini_index": 29.9,
       "democracy_score": 9.28
     },
@@ -868,6 +1108,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 56.99,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.7
     },
@@ -884,6 +1128,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 27.06,
+      "hale": null,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -900,6 +1148,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 31.4,
       "pollution_index": 73.2,
+      "crime_index": 60.5,
+      "homicide_rate": 10.92,
+      "hale": 63.56,
+      "mental_health_index": 3.0,
       "gini_index": 39.0,
       "democracy_score": 6.62
     },
@@ -916,6 +1168,10 @@
       "social_mobility_score": 53.9,
       "purchasing_power_index": 45.6,
       "pollution_index": 59.0,
+      "crime_index": 62.5,
+      "homicide_rate": 45.72,
+      "hale": 64.34,
+      "mental_health_index": 0.0,
       "gini_index": 45.2,
       "democracy_score": 5.24
     },
@@ -932,6 +1188,10 @@
       "social_mobility_score": 44.8,
       "purchasing_power_index": 21.1,
       "pollution_index": 82.7,
+      "crime_index": 47.3,
+      "homicide_rate": 1.31,
+      "hale": 60.36,
+      "mental_health_index": null,
       "gini_index": 28.5,
       "democracy_score": 2.79
     },
@@ -948,6 +1208,10 @@
       "social_mobility_score": 47.4,
       "purchasing_power_index": 33.8,
       "pollution_index": null,
+      "crime_index": 58.6,
+      "homicide_rate": 7.9,
+      "hale": 62.2,
+      "mental_health_index": null,
       "gini_index": 39.8,
       "democracy_score": 4.61
     },
@@ -964,6 +1228,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 53.26,
+      "mental_health_index": 1.0,
       "gini_index": 38.5,
       "democracy_score": 1.92
     },
@@ -980,6 +1248,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 55.42,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 1.97
     },
@@ -996,6 +1268,10 @@
       "social_mobility_score": 73.5,
       "purchasing_power_index": 84.2,
       "pollution_index": 17.0,
+      "crime_index": 23.7,
+      "homicide_rate": 1.54,
+      "hale": 66.74,
+      "mental_health_index": 16.0,
       "gini_index": 30.7,
       "democracy_score": 8.13
     },
@@ -1012,6 +1288,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 12.51,
+      "hale": 47.47,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.6
     },
@@ -1028,6 +1308,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 13.3,
       "pollution_index": 73.2,
+      "crime_index": 50.7,
+      "homicide_rate": null,
+      "hale": 58.83,
+      "mental_health_index": 0.0,
       "gini_index": 31.1,
       "democracy_score": 3.24
     },
@@ -1044,6 +1328,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 56.9,
       "pollution_index": null,
+      "crime_index": 56.6,
+      "homicide_rate": 2.06,
+      "hale": 57.69,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": 5.39
     },
@@ -1060,6 +1348,10 @@
       "social_mobility_score": 83.6,
       "purchasing_power_index": 124.5,
       "pollution_index": 11.8,
+      "crime_index": 26.8,
+      "homicide_rate": 0.98,
+      "hale": 69.93,
+      "mental_health_index": 20.0,
       "gini_index": 27.4,
       "democracy_score": 9.3
     },
@@ -1076,6 +1368,10 @@
       "social_mobility_score": 76.7,
       "purchasing_power_index": 110.0,
       "pollution_index": 43.5,
+      "crime_index": 55.4,
+      "homicide_rate": 1.34,
+      "hale": 70.08,
+      "mental_health_index": 24.0,
       "gini_index": 31.8,
       "democracy_score": 7.99
     },
@@ -1092,6 +1388,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 56.26,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.18
     },
@@ -1108,6 +1408,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 55.84,
+      "mental_health_index": 0.0,
       "gini_index": 38.8,
       "democracy_score": 4.47
     },
@@ -1124,6 +1428,10 @@
       "social_mobility_score": 55.6,
       "purchasing_power_index": 39.6,
       "pollution_index": 67.8,
+      "crime_index": 26.3,
+      "homicide_rate": 2.03,
+      "hale": 62.48,
+      "mental_health_index": null,
       "gini_index": 33.9,
       "democracy_score": 4.7
     },
@@ -1140,6 +1448,10 @@
       "social_mobility_score": 78.8,
       "purchasing_power_index": 127.1,
       "pollution_index": 28.9,
+      "crime_index": 39.4,
+      "homicide_rate": 0.91,
+      "hale": 68.93,
+      "mental_health_index": 14.0,
       "gini_index": 32.4,
       "democracy_score": 8.73
     },
@@ -1156,6 +1468,10 @@
       "social_mobility_score": 45.5,
       "purchasing_power_index": 16.7,
       "pollution_index": 86.9,
+      "crime_index": 45.4,
+      "homicide_rate": 1.83,
+      "hale": 57.88,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 6.24
     },
@@ -1172,6 +1488,10 @@
       "social_mobility_score": 59.8,
       "purchasing_power_index": 59.5,
       "pollution_index": 49.4,
+      "crime_index": 46.4,
+      "homicide_rate": 0.84,
+      "hale": 68.55,
+      "mental_health_index": null,
       "gini_index": 33.4,
       "democracy_score": 8.07
     },
@@ -1188,6 +1508,10 @@
       "social_mobility_score": 43.5,
       "purchasing_power_index": 38.6,
       "pollution_index": 73.5,
+      "crime_index": 57.7,
+      "homicide_rate": 23.37,
+      "hale": 59.25,
+      "mental_health_index": 0.0,
       "gini_index": 45.2,
       "democracy_score": 4.55
     },
@@ -1204,6 +1528,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 53.43,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.04
     },
@@ -1220,6 +1548,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 1.12,
+      "hale": 51.45,
+      "mental_health_index": 0.0,
       "gini_index": 33.4,
       "democracy_score": 2.03
     },
@@ -1236,6 +1568,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": 66.3,
+      "homicide_rate": 19.12,
+      "hale": 56.82,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 6.11
     },
@@ -1252,6 +1588,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": 78.9,
+      "homicide_rate": 41.15,
+      "hale": 53.94,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.74
     },
@@ -1268,6 +1608,10 @@
       "social_mobility_score": 43.5,
       "purchasing_power_index": 42.5,
       "pollution_index": null,
+      "crime_index": 72.0,
+      "homicide_rate": 31.44,
+      "hale": 60.05,
+      "mental_health_index": null,
       "gini_index": 45.7,
       "democracy_score": 4.98
     },
@@ -1284,6 +1628,10 @@
       "social_mobility_score": 65.8,
       "purchasing_power_index": 70.7,
       "pollution_index": 46.5,
+      "crime_index": 33.7,
+      "homicide_rate": 0.72,
+      "hale": 64.84,
+      "mental_health_index": 12.0,
       "gini_index": null,
       "democracy_score": 6.51
     },
@@ -1300,6 +1648,10 @@
       "social_mobility_score": 82.7,
       "purchasing_power_index": 123.5,
       "pollution_index": 16.0,
+      "crime_index": 25.7,
+      "homicide_rate": 1.29,
+      "hale": 71.37,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 9.38
     },
@@ -1316,6 +1668,10 @@
       "social_mobility_score": 42.7,
       "purchasing_power_index": 82.2,
       "pollution_index": 72.9,
+      "crime_index": 44.3,
+      "homicide_rate": 2.82,
+      "hale": 58.15,
+      "mental_health_index": null,
       "gini_index": 25.5,
       "democracy_score": 7.29
     },
@@ -1332,6 +1688,10 @@
       "social_mobility_score": 49.3,
       "purchasing_power_index": 33.9,
       "pollution_index": 68.0,
+      "crime_index": 46.0,
+      "homicide_rate": 0.3,
+      "hale": 60.67,
+      "mental_health_index": 0.0,
       "gini_index": 34.9,
       "democracy_score": 6.44
     },
@@ -1348,6 +1708,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 28.4,
       "pollution_index": 75.2,
+      "crime_index": 50.5,
+      "homicide_rate": null,
+      "hale": 63.98,
+      "mental_health_index": 2.0,
       "gini_index": 35.9,
       "democracy_score": 1.96
     },
@@ -1364,6 +1728,10 @@
       "social_mobility_score": 75.0,
       "purchasing_power_index": 108.9,
       "pollution_index": 35.0,
+      "crime_index": 47.6,
+      "homicide_rate": 0.65,
+      "hale": 70.0,
+      "mental_health_index": 8.0,
       "gini_index": 29.0,
       "democracy_score": 9.19
     },
@@ -1380,6 +1748,10 @@
       "social_mobility_score": 68.1,
       "purchasing_power_index": 110.0,
       "pollution_index": 56.8,
+      "crime_index": 31.8,
+      "homicide_rate": 1.63,
+      "hale": 70.76,
+      "mental_health_index": null,
       "gini_index": 37.9,
       "democracy_score": 7.8
     },
@@ -1396,6 +1768,10 @@
       "social_mobility_score": 67.4,
       "purchasing_power_index": 85.1,
       "pollution_index": 53.5,
+      "crime_index": 46.9,
+      "homicide_rate": 0.57,
+      "hale": 70.56,
+      "mental_health_index": 6.0,
       "gini_index": 34.3,
       "democracy_score": 7.58
     },
@@ -1412,6 +1788,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 36.4,
       "pollution_index": 66.3,
+      "crime_index": 67.4,
+      "homicide_rate": 49.44,
+      "hale": 61.72,
+      "mental_health_index": 1.0,
       "gini_index": 39.9,
       "democracy_score": 6.74
     },
@@ -1428,6 +1808,10 @@
       "social_mobility_score": 76.1,
       "purchasing_power_index": 119.8,
       "pollution_index": 38.5,
+      "crime_index": 22.9,
+      "homicide_rate": 0.23,
+      "hale": 73.4,
+      "mental_health_index": null,
       "gini_index": 32.3,
       "democracy_score": 8.48
     },
@@ -1444,6 +1828,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 51.7,
       "pollution_index": 77.1,
+      "crime_index": 40.0,
+      "homicide_rate": 0.99,
+      "hale": 65.07,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": 3.28
     },
@@ -1460,6 +1848,10 @@
       "social_mobility_score": 64.8,
       "purchasing_power_index": 50.8,
       "pollution_index": 73.2,
+      "crime_index": 45.2,
+      "homicide_rate": 2.55,
+      "hale": 61.55,
+      "mental_health_index": 4.0,
       "gini_index": 29.2,
       "democracy_score": 3.08
     },
@@ -1476,6 +1868,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 35.1,
       "pollution_index": 69.0,
+      "crime_index": 56.0,
+      "homicide_rate": 4.87,
+      "hale": 58.22,
+      "mental_health_index": 0.0,
       "gini_index": 37.7,
       "democracy_score": 5.05
     },
@@ -1492,6 +1888,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 53.65,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1508,6 +1908,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": 54.1,
+      "homicide_rate": null,
+      "hale": 64.73,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 1.08
     },
@@ -1524,6 +1928,10 @@
       "social_mobility_score": 71.4,
       "purchasing_power_index": 105.0,
       "pollution_index": 60.9,
+      "crime_index": 24.9,
+      "homicide_rate": 0.48,
+      "hale": 72.45,
+      "mental_health_index": 8.0,
       "gini_index": 32.9,
       "democracy_score": 7.75
     },
@@ -1540,6 +1948,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 1.89,
+      "hale": null,
+      "mental_health_index": null,
       "gini_index": 38.3,
       "democracy_score": null
     },
@@ -1556,6 +1968,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 174.0,
       "pollution_index": 69.4,
+      "crime_index": 32.8,
+      "homicide_rate": 0.25,
+      "hale": 67.78,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 2.78
     },
@@ -1572,6 +1988,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 35.6,
       "pollution_index": null,
+      "crime_index": 54.3,
+      "homicide_rate": 1.75,
+      "hale": 63.42,
+      "mental_health_index": null,
       "gini_index": 27.2,
       "democracy_score": 3.52
     },
@@ -1588,6 +2008,10 @@
       "social_mobility_score": 43.8,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 60.41,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 1.71
     },
@@ -1604,6 +2028,10 @@
       "social_mobility_score": 69.0,
       "purchasing_power_index": 75.8,
       "pollution_index": 30.3,
+      "crime_index": 37.1,
+      "homicide_rate": 2.5,
+      "hale": 63.76,
+      "mental_health_index": 13.0,
       "gini_index": 34.0,
       "democracy_score": 7.66
     },
@@ -1620,6 +2048,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 35.1,
       "pollution_index": 89.4,
+      "crime_index": 46.8,
+      "homicide_rate": 2.24,
+      "hale": 63.22,
+      "mental_health_index": 1.0,
       "gini_index": 35.3,
       "democracy_score": 3.56
     },
@@ -1636,6 +2068,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 44.63,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 6.06
     },
@@ -1652,6 +2088,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 53.96,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 5.57
     },
@@ -1668,6 +2108,10 @@
       "social_mobility_score": 70.5,
       "purchasing_power_index": 79.8,
       "pollution_index": 26.3,
+      "crime_index": 32.4,
+      "homicide_rate": 2.63,
+      "hale": 64.23,
+      "mental_health_index": 20.0,
       "gini_index": 36.0,
       "democracy_score": 7.59
     },
@@ -1684,6 +2128,10 @@
       "social_mobility_score": 79.8,
       "purchasing_power_index": 177.1,
       "pollution_index": 23.3,
+      "crime_index": 34.2,
+      "homicide_rate": 1.53,
+      "hale": 71.23,
+      "mental_health_index": null,
       "gini_index": 33.6,
       "democracy_score": 8.88
     },
@@ -1700,6 +2148,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 15.0,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 55.14,
+      "mental_health_index": 0.0,
       "gini_index": 36.8,
       "democracy_score": 5.33
     },
@@ -1716,6 +2168,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 54.67,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 5.85
     },
@@ -1732,6 +2188,10 @@
       "social_mobility_score": 62.0,
       "purchasing_power_index": 83.8,
       "pollution_index": 61.0,
+      "crime_index": 48.9,
+      "homicide_rate": 0.73,
+      "hale": 63.95,
+      "mental_health_index": 1.0,
       "gini_index": 40.7,
       "democracy_score": 7.11
     },
@@ -1748,6 +2208,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 51.9,
       "pollution_index": null,
+      "crime_index": 54.1,
+      "homicide_rate": 0.62,
+      "hale": 66.67,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1764,6 +2228,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 53.56,
+      "mental_health_index": 0.0,
       "gini_index": 35.7,
       "democracy_score": 2.4
     },
@@ -1780,6 +2248,10 @@
       "social_mobility_score": 75.0,
       "purchasing_power_index": 75.3,
       "pollution_index": 75.5,
+      "crime_index": 43.0,
+      "homicide_rate": 0.56,
+      "hale": 70.71,
+      "mental_health_index": 7.0,
       "gini_index": 34.6,
       "democracy_score": 7.93
     },
@@ -1796,6 +2268,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 1.0,
+      "hale": 60.39,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 3.96
     },
@@ -1812,6 +2288,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 49.4,
       "pollution_index": 54.6,
+      "crime_index": 50.0,
+      "homicide_rate": 2.27,
+      "hale": 63.63,
+      "mental_health_index": 3.0,
       "gini_index": null,
       "democracy_score": 8.23
     },
@@ -1828,6 +2308,10 @@
       "social_mobility_score": 52.6,
       "purchasing_power_index": 46.9,
       "pollution_index": 58.4,
+      "crime_index": 53.4,
+      "homicide_rate": 24.86,
+      "hale": 61.44,
+      "mental_health_index": 2.0,
       "gini_index": 43.5,
       "democracy_score": 5.32
     },
@@ -1844,6 +2328,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 0.91,
+      "hale": null,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1860,6 +2348,10 @@
       "social_mobility_score": 59.6,
       "purchasing_power_index": 46.3,
       "pollution_index": 61.3,
+      "crime_index": 44.3,
+      "homicide_rate": 2.54,
+      "hale": 61.21,
+      "mental_health_index": 3.0,
       "gini_index": 26.8,
       "democracy_score": 6.04
     },
@@ -1876,6 +2368,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 30.8,
       "pollution_index": 87.8,
+      "crime_index": 52.1,
+      "homicide_rate": 5.92,
+      "hale": 61.31,
+      "mental_health_index": 3.0,
       "gini_index": 31.4,
       "democracy_score": 6.53
     },
@@ -1892,6 +2388,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 56.8,
       "pollution_index": 43.7,
+      "crime_index": 35.4,
+      "homicide_rate": 0.79,
+      "hale": 65.15,
+      "mental_health_index": null,
       "gini_index": 34.3,
       "democracy_score": 6.73
     },
@@ -1908,6 +2408,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 41.7,
       "pollution_index": 68.7,
+      "crime_index": 47.8,
+      "homicide_rate": 1.71,
+      "hale": 62.34,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": 4.97
     },
@@ -1924,6 +2428,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 25.3,
       "pollution_index": null,
+      "crime_index": 60.1,
+      "homicide_rate": null,
+      "hale": 49.72,
+      "mental_health_index": null,
       "gini_index": 49.6,
       "democracy_score": 3.38
     },
@@ -1940,6 +2448,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 62.2,
       "pollution_index": null,
+      "crime_index": 63.5,
+      "homicide_rate": 11.21,
+      "hale": 52.82,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 6.48
     },
@@ -1956,6 +2468,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 29.0,
       "pollution_index": 84.0,
+      "crime_index": 36.7,
+      "homicide_rate": 2.13,
+      "hale": 60.2,
+      "mental_health_index": 1.0,
       "gini_index": 30.0,
       "democracy_score": 4.6
     },
@@ -1972,6 +2488,10 @@
       "social_mobility_score": 82.4,
       "purchasing_power_index": 129.9,
       "pollution_index": 21.6,
+      "crime_index": 26.9,
+      "homicide_rate": 0.69,
+      "hale": 69.97,
+      "mental_health_index": 17.0,
       "gini_index": 25.7,
       "democracy_score": 9.0
     },
@@ -1988,6 +2508,10 @@
       "social_mobility_score": 74.3,
       "purchasing_power_index": 130.5,
       "pollution_index": 26.1,
+      "crime_index": 48.2,
+      "homicide_rate": 1.46,
+      "hale": 69.98,
+      "mental_health_index": 9.0,
       "gini_index": null,
       "democracy_score": 9.61
     },
@@ -2004,6 +2528,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": 50.8,
+      "homicide_rate": 11.35,
+      "hale": 64.61,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 2.09
     },
@@ -2020,6 +2548,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 52.61,
+      "mental_health_index": 0.0,
       "gini_index": 32.9,
       "democracy_score": 2.26
     },
@@ -2036,6 +2568,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 10.6,
       "pollution_index": 87.9,
+      "crime_index": 66.6,
+      "homicide_rate": 15.75,
+      "hale": 54.95,
+      "mental_health_index": null,
       "gini_index": 33.9,
       "democracy_score": 4.16
     },
@@ -2052,6 +2588,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 59.7,
       "pollution_index": 79.6,
+      "crime_index": 41.1,
+      "homicide_rate": 1.53,
+      "hale": 63.71,
+      "mental_health_index": 9.0,
       "gini_index": null,
       "democracy_score": 6.28
     },
@@ -2068,6 +2608,10 @@
       "social_mobility_score": 83.6,
       "purchasing_power_index": 119.5,
       "pollution_index": 18.3,
+      "crime_index": 33.0,
+      "homicide_rate": 0.72,
+      "hale": 71.16,
+      "mental_health_index": 23.0,
       "gini_index": 26.5,
       "democracy_score": 9.81
     },
@@ -2084,6 +2628,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 150.3,
       "pollution_index": 35.6,
+      "crime_index": 18.3,
+      "homicide_rate": 0.14,
+      "hale": 63.19,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 3.05
     },
@@ -2100,6 +2648,10 @@
       "social_mobility_score": 36.7,
       "purchasing_power_index": 30.5,
       "pollution_index": 73.3,
+      "crime_index": 43.7,
+      "homicide_rate": 4.33,
+      "hale": 56.89,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -2116,6 +2668,10 @@
       "social_mobility_score": 51.4,
       "purchasing_power_index": 46.3,
       "pollution_index": 55.6,
+      "crime_index": 42.7,
+      "homicide_rate": 11.71,
+      "hale": 66.74,
+      "mental_health_index": 6.0,
       "gini_index": 49.7,
       "democracy_score": 6.84
     },
@@ -2132,6 +2688,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 14.0,
       "pollution_index": null,
+      "crime_index": 80.3,
+      "homicide_rate": null,
+      "hale": 57.48,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 5.97
     },
@@ -2148,6 +2708,10 @@
       "social_mobility_score": 46.8,
       "purchasing_power_index": 41.0,
       "pollution_index": null,
+      "crime_index": 59.8,
+      "homicide_rate": 6.78,
+      "hale": 60.88,
+      "mental_health_index": 2.0,
       "gini_index": 44.2,
       "democracy_score": 5.92
     },
@@ -2164,6 +2728,10 @@
       "social_mobility_score": 49.9,
       "purchasing_power_index": 38.2,
       "pollution_index": 82.4,
+      "crime_index": 67.1,
+      "homicide_rate": 8.6,
+      "hale": 62.99,
+      "mental_health_index": 3.0,
       "gini_index": 40.1,
       "democracy_score": 5.69
     },
@@ -2180,6 +2748,10 @@
       "social_mobility_score": 51.7,
       "purchasing_power_index": 37.3,
       "pollution_index": 72.4,
+      "crime_index": 43.1,
+      "homicide_rate": 4.35,
+      "hale": 58.77,
+      "mental_health_index": null,
       "gini_index": 39.3,
       "democracy_score": 6.63
     },
@@ -2196,6 +2768,10 @@
       "social_mobility_score": 69.1,
       "purchasing_power_index": 91.4,
       "pollution_index": 55.4,
+      "crime_index": 29.0,
+      "homicide_rate": 0.8,
+      "hale": 65.52,
+      "mental_health_index": null,
       "gini_index": 28.5,
       "democracy_score": 7.4
     },
@@ -2212,6 +2788,10 @@
       "social_mobility_score": 72.0,
       "purchasing_power_index": 59.7,
       "pollution_index": 28.8,
+      "crime_index": 32.1,
+      "homicide_rate": 0.72,
+      "hale": 69.52,
+      "mental_health_index": 6.0,
       "gini_index": 33.9,
       "democracy_score": 8.08
     },
@@ -2228,6 +2808,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 177.9,
       "pollution_index": 60.0,
+      "crime_index": 15.8,
+      "homicide_rate": 0.07,
+      "hale": 66.21,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 3.17
     },
@@ -2244,6 +2828,10 @@
       "social_mobility_score": 63.1,
       "purchasing_power_index": 73.1,
       "pollution_index": 58.7,
+      "crime_index": 32.3,
+      "homicide_rate": 1.11,
+      "hale": 63.85,
+      "mental_health_index": null,
       "gini_index": 29.8,
       "democracy_score": 5.99
     },
@@ -2260,6 +2848,10 @@
       "social_mobility_score": 64.7,
       "purchasing_power_index": 56.2,
       "pollution_index": 59.0,
+      "crime_index": 38.7,
+      "homicide_rate": 6.77,
+      "hale": 60.94,
+      "mental_health_index": 13.0,
       "gini_index": 33.0,
       "democracy_score": 2.03
     },
@@ -2276,6 +2868,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 20.7,
       "pollution_index": null,
+      "crime_index": 26.9,
+      "homicide_rate": 3.61,
+      "hale": 58.71,
+      "mental_health_index": 0.0,
       "gini_index": 39.4,
       "democracy_score": 3.34
     },
@@ -2292,6 +2888,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 39.04,
+      "hale": 61.76,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2308,6 +2908,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 51.32,
+      "hale": 62.88,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2324,6 +2928,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 6.26,
+      "hale": 61.57,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2340,6 +2948,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 62.44,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2356,6 +2968,10 @@
       "social_mobility_score": 57.1,
       "purchasing_power_index": 146.1,
       "pollution_index": 62.5,
+      "crime_index": 23.9,
+      "homicide_rate": 0.94,
+      "hale": 65.64,
+      "mental_health_index": 3.0,
       "gini_index": null,
       "democracy_score": 2.08
     },
@@ -2372,6 +2988,10 @@
       "social_mobility_score": 36.0,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 58.9,
+      "mental_health_index": 0.0,
       "gini_index": 36.2,
       "democracy_score": 5.93
     },
@@ -2388,6 +3008,10 @@
       "social_mobility_score": 63.8,
       "purchasing_power_index": 57.6,
       "pollution_index": 65.8,
+      "crime_index": 37.2,
+      "homicide_rate": 1.31,
+      "hale": 63.87,
+      "mental_health_index": 6.0,
       "gini_index": 32.8,
       "democracy_score": 6.26
     },
@@ -2404,6 +3028,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 7.97,
+      "hale": 64.72,
+      "mental_health_index": 4.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2420,6 +3048,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 2.22,
+      "hale": 53.13,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 4.32
     },
@@ -2436,6 +3068,10 @@
       "social_mobility_score": 74.6,
       "purchasing_power_index": 93.8,
       "pollution_index": 32.6,
+      "crime_index": 22.6,
+      "homicide_rate": 0.07,
+      "hale": 73.65,
+      "mental_health_index": 4.0,
       "gini_index": null,
       "democracy_score": 6.18
     },
@@ -2452,6 +3088,10 @@
       "social_mobility_score": 68.5,
       "purchasing_power_index": 74.0,
       "pollution_index": 37.1,
+      "crime_index": 31.0,
+      "homicide_rate": 1.12,
+      "hale": 64.94,
+      "mental_health_index": null,
       "gini_index": 23.8,
       "democracy_score": 7.21
     },
@@ -2468,6 +3108,10 @@
       "social_mobility_score": 76.4,
       "purchasing_power_index": 83.6,
       "pollution_index": 22.2,
+      "crime_index": 23.8,
+      "homicide_rate": 0.57,
+      "hale": 69.36,
+      "mental_health_index": 12.0,
       "gini_index": 24.7,
       "democracy_score": 7.82
     },
@@ -2484,6 +3128,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 57.37,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2500,6 +3148,10 @@
       "social_mobility_score": 41.4,
       "purchasing_power_index": 111.2,
       "pollution_index": 56.6,
+      "crime_index": 74.7,
+      "homicide_rate": 43.72,
+      "hale": 52.76,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 7.16
     },
@@ -2516,6 +3168,10 @@
       "social_mobility_score": 70.0,
       "purchasing_power_index": 98.1,
       "pollution_index": 35.7,
+      "crime_index": 36.6,
+      "homicide_rate": 0.69,
+      "hale": 71.11,
+      "mental_health_index": 9.0,
       "gini_index": 33.4,
       "democracy_score": 8.13
     },
@@ -2532,6 +3188,10 @@
       "social_mobility_score": 52.3,
       "purchasing_power_index": 18.2,
       "pollution_index": 57.9,
+      "crime_index": 42.1,
+      "homicide_rate": 3.31,
+      "hale": 66.73,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": 6.19
     },
@@ -2548,6 +3208,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": 45.5,
+      "homicide_rate": null,
+      "hale": 58.54,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 1.46
     },
@@ -2564,6 +3228,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 6.52,
+      "hale": 60.3,
+      "mental_health_index": 2.0,
       "gini_index": 39.2,
       "democracy_score": 6.79
     },
@@ -2580,6 +3248,10 @@
       "social_mobility_score": 83.5,
       "purchasing_power_index": 130.3,
       "pollution_index": 17.6,
+      "crime_index": 48.0,
+      "homicide_rate": 1.15,
+      "hale": 71.12,
+      "mental_health_index": null,
       "gini_index": 29.3,
       "democracy_score": 9.39
     },
@@ -2596,6 +3268,10 @@
       "social_mobility_score": 82.1,
       "purchasing_power_index": 159.7,
       "pollution_index": 23.1,
+      "crime_index": 26.5,
+      "homicide_rate": 0.6,
+      "hale": 71.15,
+      "mental_health_index": 47.0,
       "gini_index": 33.8,
       "democracy_score": 9.32
     },
@@ -2612,6 +3288,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 101.2,
       "pollution_index": 64.2,
+      "crime_index": 17.1,
+      "homicide_rate": null,
+      "hale": null,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 8.78
     },
@@ -2628,6 +3308,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 0.89,
+      "hale": 63.09,
+      "mental_health_index": null,
       "gini_index": 36.1,
       "democracy_score": 1.83
     },
@@ -2644,6 +3328,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 22.1,
       "pollution_index": 62.5,
+      "crime_index": 53.5,
+      "homicide_rate": 3.75,
+      "hale": 58.07,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": 5.2
     },
@@ -2660,6 +3348,10 @@
       "social_mobility_score": 55.4,
       "purchasing_power_index": 46.0,
       "pollution_index": 75.7,
+      "crime_index": 37.3,
+      "homicide_rate": null,
+      "hale": 65.76,
+      "mental_health_index": 1.0,
       "gini_index": 33.5,
       "democracy_score": 6.27
     },
@@ -2676,6 +3368,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": null,
+      "mental_health_index": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2692,6 +3388,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 55.85,
+      "mental_health_index": 0.0,
       "gini_index": 37.9,
       "democracy_score": 2.99
     },
@@ -2708,6 +3408,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 0.95,
+      "hale": 63.78,
+      "mental_health_index": 1.0,
       "gini_index": 27.1,
       "democracy_score": null
     },
@@ -2724,6 +3428,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 46.1,
       "pollution_index": 67.1,
+      "crime_index": 70.9,
+      "homicide_rate": 40.44,
+      "hale": 61.94,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 7.09
     },
@@ -2740,6 +3448,10 @@
       "social_mobility_score": 51.7,
       "purchasing_power_index": 34.7,
       "pollution_index": 70.1,
+      "crime_index": 45.1,
+      "homicide_rate": 4.69,
+      "hale": 63.58,
+      "mental_health_index": 3.0,
       "gini_index": 33.7,
       "democracy_score": 4.71
     },
@@ -2756,6 +3468,10 @@
       "social_mobility_score": 51.3,
       "purchasing_power_index": 51.2,
       "pollution_index": 64.3,
+      "crime_index": 41.2,
+      "homicide_rate": 3.23,
+      "hale": 65.21,
+      "mental_health_index": 2.0,
       "gini_index": 44.5,
       "democracy_score": 4.26
     },
@@ -2772,6 +3488,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": null,
+      "hale": 60.82,
+      "mental_health_index": 2.0,
       "gini_index": null,
       "democracy_score": 1.66
     },
@@ -2788,6 +3508,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 16.4,
       "pollution_index": null,
+      "crime_index": 54.1,
+      "homicide_rate": 8.97,
+      "hale": 57.22,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 4.49
     },
@@ -2804,6 +3528,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 128.3,
       "pollution_index": 48.1,
+      "crime_index": 15.5,
+      "homicide_rate": 0.69,
+      "hale": 67.27,
+      "mental_health_index": 4.0,
       "gini_index": null,
       "democracy_score": 3.07
     },
@@ -2820,6 +3548,10 @@
       "social_mobility_score": 74.4,
       "purchasing_power_index": 119.9,
       "pollution_index": 40.7,
+      "crime_index": 48.3,
+      "homicide_rate": 1.12,
+      "hale": 68.64,
+      "mental_health_index": 14.0,
       "gini_index": 32.4,
       "democracy_score": 8.34
     },
@@ -2836,6 +3568,10 @@
       "social_mobility_score": 70.4,
       "purchasing_power_index": 146.2,
       "pollution_index": 36.7,
+      "crime_index": 49.2,
+      "homicide_rate": 5.76,
+      "hale": 63.91,
+      "mental_health_index": null,
       "gini_index": 41.8,
       "democracy_score": 7.85
     },
@@ -2852,6 +3588,10 @@
       "social_mobility_score": 67.1,
       "purchasing_power_index": 54.1,
       "pollution_index": 43.5,
+      "crime_index": 52.0,
+      "homicide_rate": 11.25,
+      "hale": 64.99,
+      "mental_health_index": 16.0,
       "gini_index": 40.0,
       "democracy_score": 8.67
     },
@@ -2868,6 +3608,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 44.5,
       "pollution_index": 54.0,
+      "crime_index": 27.9,
+      "homicide_rate": 1.4,
+      "hale": 63.36,
+      "mental_health_index": 3.0,
       "gini_index": 34.6,
       "democracy_score": 2.1
     },
@@ -2884,6 +3628,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": null,
       "pollution_index": null,
+      "crime_index": null,
+      "homicide_rate": 0.33,
+      "hale": 58.68,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2900,6 +3648,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 15.8,
       "pollution_index": 75.1,
+      "crime_index": 80.7,
+      "homicide_rate": 12.65,
+      "hale": 62.05,
+      "mental_health_index": 1.0,
       "gini_index": null,
       "democracy_score": 2.25
     },
@@ -2916,6 +3668,10 @@
       "social_mobility_score": 57.8,
       "purchasing_power_index": 42.3,
       "pollution_index": 84.2,
+      "crime_index": 40.8,
+      "homicide_rate": null,
+      "hale": 65.35,
+      "mental_health_index": 1.0,
       "gini_index": 36.1,
       "democracy_score": 2.62
     },
@@ -2932,6 +3688,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 23.0,
       "pollution_index": null,
+      "crime_index": 45.6,
+      "homicide_rate": null,
+      "hale": 52.97,
+      "mental_health_index": 0.0,
       "gini_index": 51.5,
       "democracy_score": 5.73
     },
@@ -2948,6 +3708,10 @@
       "social_mobility_score": null,
       "purchasing_power_index": 29.6,
       "pollution_index": 78.5,
+      "crime_index": 60.7,
+      "homicide_rate": 6.76,
+      "hale": 51.25,
+      "mental_health_index": 0.0,
       "gini_index": null,
       "democracy_score": 2.98
     }
@@ -9605,20 +10369,2888 @@
           84.1
         ]
       }
+    },
+    "Crime_Index": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 44.7
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 52.6
+        },
+        {
+          "country": "Angola",
+          "x": 55.0,
+          "y": 66.3
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 63.4
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 22.1
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 47.3
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 29.5
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 31.8
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 56.9
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 24.5
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 61.6
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 44.9
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 49.8
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 49.4
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 52.7
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 65.0
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 41.7
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 52.7
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 64.5
+        },
+        {
+          "country": "Brunei",
+          "x": 67.0,
+          "y": 29.3
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 36.1
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 50.9
+        },
+        {
+          "country": "Cambodia",
+          "x": 58.2,
+          "y": 51.3
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 65.5
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 45.7
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 60.5
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 24.0
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 60.9
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 54.1
+        },
+        {
+          "country": "Ivory Coast",
+          "x": 57.8,
+          "y": 56.4
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 25.5
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 34.4
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 33.1
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 26.5
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 26.0
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 60.5
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 62.5
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 47.3
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 58.6
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 23.7
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 50.7
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 56.6
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 26.8
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 55.4
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 26.3
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 39.4
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 45.4
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 46.4
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 57.7
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 66.3
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 78.9
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 72.0
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 33.7
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 25.7
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 44.3
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 46.0
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 50.5
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 47.6
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 31.8
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 46.9
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 67.4
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 22.9
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 40.0
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 45.2
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 56.0
+        },
+        {
+          "country": "North Korea",
+          "x": 3.0,
+          "y": 54.1
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 24.9
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 32.8
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 54.3
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 37.1
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 46.8
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 32.4
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 34.2
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 48.9
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 54.1
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 43.0
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 50.0
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 53.4
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 44.3
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 52.1
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 35.4
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 47.8
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 60.1
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 63.5
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 36.7
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 26.9
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 48.2
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 50.8
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 66.6
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 41.1
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 33.0
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 18.3
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 43.7
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 42.7
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 80.3
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 59.8
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 67.1
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 43.1
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 29.0
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 32.1
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 15.8
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 32.3
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 38.7
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 26.9
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 23.9
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 37.2
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 22.6
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 31.0
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 23.8
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 74.7
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 36.6
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 42.1
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 45.5
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 48.0
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 26.5
+        },
+        {
+          "country": "Taiwan",
+          "x": 79.7,
+          "y": 17.1
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 53.5
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 37.3
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 70.9
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 45.1
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 41.2
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 54.1
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 15.5
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 48.3
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 49.2
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 52.0
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 27.9
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 80.7
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 40.8
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 45.6
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 60.7
+        }
+      ],
+      "trend_line": {
+        "slope": -0.534119,
+        "intercept": 77.8943,
+        "x_range": [
+          3.0,
+          84.1
+        ]
+      }
+    },
+    "Homicide_Rate": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 1.39
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 1.16
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 4.49
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 2.21
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 0.85
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 0.88
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 2.16
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 32.2
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 0.2
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 2.34
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 7.44
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 2.38
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 1.08
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 28.06
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 1.13
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 2.47
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 4.42
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 1.22
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 11.37
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 19.28
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 1.09
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 1.25
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 2.58
+        },
+        {
+          "country": "Cabo Verde",
+          "x": 68.7,
+          "y": 6.99
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 6.76
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 1.98
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 6.35
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 0.5
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 24.91
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 17.75
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 0.67
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 4.46
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 0.82
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 0.77
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 0.84
+        },
+        {
+          "country": "Dominica",
+          "x": 55.3,
+          "y": 27.06
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 10.92
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 45.72
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 1.31
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 7.9
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 1.54
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 12.51
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 2.06
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 0.98
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 1.34
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 2.03
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 0.91
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 1.83
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 0.84
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 23.37
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 1.12
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 19.12
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 41.15
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 31.44
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 0.72
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 1.29
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 2.82
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 0.3
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 0.65
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 1.63
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 0.57
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 49.44
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 0.23
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 0.99
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 2.55
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 4.87
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 0.48
+        },
+        {
+          "country": "Kosovo",
+          "x": 61.7,
+          "y": 1.89
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 0.25
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 1.75
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 2.5
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 2.24
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 2.63
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 1.53
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 0.73
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 0.62
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 0.56
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 1.0
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 2.27
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 24.86
+        },
+        {
+          "country": "Micronesia",
+          "x": 62.2,
+          "y": 0.91
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 2.54
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 5.92
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 0.79
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 1.71
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 11.21
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 2.13
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 0.69
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 1.46
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 11.35
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 15.75
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 1.53
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 0.72
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 0.14
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 4.33
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 11.71
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 6.78
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 8.6
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 4.35
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 0.8
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 0.72
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 0.07
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 1.11
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 6.77
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 3.61
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 39.04
+        },
+        {
+          "country": "Saint Vincent and the Grenadines",
+          "x": 60.1,
+          "y": 51.32
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 6.26
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 0.94
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 1.31
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 7.97
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 2.22
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 0.07
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 1.12
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 0.57
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 43.72
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 0.69
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 3.31
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 6.52
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 1.15
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 0.6
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 0.89
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 3.75
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 0.95
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 40.44
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 4.69
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 3.23
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 8.97
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 0.69
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 1.12
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 5.76
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 11.25
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 1.4
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 0.33
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 12.65
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 6.76
+        }
+      ],
+      "trend_line": {
+        "slope": -0.150932,
+        "intercept": 16.1647,
+        "x_range": [
+          25.4,
+          84.1
+        ]
+      }
+    },
+    "HALE": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 66.69
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 65.55
+        },
+        {
+          "country": "Angola",
+          "x": 55.0,
+          "y": 53.76
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 64.79
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 64.01
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 70.61
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 69.79
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 64.04
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 61.52
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 64.24
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 63.05
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 66.67
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 63.71
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 69.79
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 63.82
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 55.72
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 64.8
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 57.43
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 64.99
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 53.1
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 61.83
+        },
+        {
+          "country": "Brunei",
+          "x": 67.0,
+          "y": 67.1
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 62.39
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 54.56
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 59.75
+        },
+        {
+          "country": "Burundi",
+          "x": 39.7,
+          "y": 55.84
+        },
+        {
+          "country": "Cambodia",
+          "x": 58.2,
+          "y": 60.63
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 54.01
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 69.78
+        },
+        {
+          "country": "Central African Republic",
+          "x": 42.8,
+          "y": 45.43
+        },
+        {
+          "country": "Chad",
+          "x": 52.2,
+          "y": 51.52
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 67.65
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 68.58
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 65.02
+        },
+        {
+          "country": "Comoros",
+          "x": 51.4,
+          "y": 59.02
+        },
+        {
+          "country": "DR Congo",
+          "x": 47.3,
+          "y": 53.21
+        },
+        {
+          "country": "Congo",
+          "x": 48.6,
+          "y": 54.84
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 67.63
+        },
+        {
+          "country": "Ivory Coast",
+          "x": 57.8,
+          "y": 55.41
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 66.8
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 64.62
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 70.74
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 66.66
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 70.06
+        },
+        {
+          "country": "Djibouti",
+          "x": 55.7,
+          "y": 56.99
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 63.56
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 64.34
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 60.36
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 62.2
+        },
+        {
+          "country": "Equatorial Guinea",
+          "x": 47.7,
+          "y": 53.26
+        },
+        {
+          "country": "Eritrea",
+          "x": 38.6,
+          "y": 55.42
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 66.74
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 47.47
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 58.83
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 57.69
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 69.93
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 70.08
+        },
+        {
+          "country": "Gabon",
+          "x": 56.3,
+          "y": 56.26
+        },
+        {
+          "country": "Gambia",
+          "x": 56.8,
+          "y": 55.84
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 62.48
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 68.93
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 57.88
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 68.55
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 59.25
+        },
+        {
+          "country": "Guinea",
+          "x": 54.6,
+          "y": 53.43
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 51.45
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 56.82
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 53.94
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 60.05
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 64.84
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 71.37
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 58.15
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 60.67
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 63.98
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 70.0
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 70.76
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 70.56
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 61.72
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 73.4
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 65.07
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 61.55
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 58.22
+        },
+        {
+          "country": "Kiribati",
+          "x": 50.9,
+          "y": 53.65
+        },
+        {
+          "country": "North Korea",
+          "x": 3.0,
+          "y": 64.73
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 72.45
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 67.78
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 63.42
+        },
+        {
+          "country": "Laos",
+          "x": 51.1,
+          "y": 60.41
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 63.76
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 63.22
+        },
+        {
+          "country": "Lesotho",
+          "x": 54.1,
+          "y": 44.63
+        },
+        {
+          "country": "Liberia",
+          "x": 48.5,
+          "y": 53.96
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 64.23
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 71.23
+        },
+        {
+          "country": "Madagascar",
+          "x": 57.0,
+          "y": 55.14
+        },
+        {
+          "country": "Malawi",
+          "x": 50.9,
+          "y": 54.67
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 63.95
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 66.67
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 53.56
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 70.71
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 60.39
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 63.63
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 61.44
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 61.21
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 61.31
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 65.15
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 62.34
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 49.72
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 52.82
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 60.2
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 69.97
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 69.98
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 64.61
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 52.61
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 54.95
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 63.71
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 71.16
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 63.19
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 56.89
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 66.74
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 57.48
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 60.88
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 62.99
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 58.77
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 65.52
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 69.52
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 66.21
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 63.85
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 60.94
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 58.71
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 61.76
+        },
+        {
+          "country": "Saint Vincent and the Grenadines",
+          "x": 60.1,
+          "y": 62.88
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 61.57
+        },
+        {
+          "country": "Sao Tome and Principe",
+          "x": 60.4,
+          "y": 62.44
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 65.64
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 58.9
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 63.87
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 64.72
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 53.13
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 73.65
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 64.94
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 69.36
+        },
+        {
+          "country": "Solomon Islands",
+          "x": 56.3,
+          "y": 57.37
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 52.76
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 71.11
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 66.73
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 58.54
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 60.3
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 71.12
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 71.15
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 63.09
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 58.07
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 65.76
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 55.85
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 63.78
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 61.94
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 63.58
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 65.21
+        },
+        {
+          "country": "Turkmenistan",
+          "x": 47.1,
+          "y": 60.82
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 57.22
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 67.27
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 68.64
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 63.91
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 64.99
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 63.36
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 58.68
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 62.05
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 65.35
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 52.97
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 51.25
+        }
+      ],
+      "trend_line": {
+        "slope": 0.300596,
+        "intercept": 44.1627,
+        "x_range": [
+          3.0,
+          84.1
+        ]
+      }
+    },
+    "Mental_Health_Index": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 2.0
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 2.0
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 15.0
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 2.0
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 13.0
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 15.0
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 3.0
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 2.0
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 4.0
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 0.0
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 7.0
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 11.0
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 0.0
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 0.0
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 0.0
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 9.0
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 0.0
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 4.0
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 10.0
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 0.0
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 0.0
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 0.0
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 14.0
+        },
+        {
+          "country": "Chad",
+          "x": 52.2,
+          "y": 0.0
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 9.0
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 3.0
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 3.0
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 3.0
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 13.0
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 9.0
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 3.0
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 16.0
+        },
+        {
+          "country": "Djibouti",
+          "x": 55.7,
+          "y": 0.0
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 3.0
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 0.0
+        },
+        {
+          "country": "Equatorial Guinea",
+          "x": 47.7,
+          "y": 1.0
+        },
+        {
+          "country": "Eritrea",
+          "x": 38.6,
+          "y": 0.0
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 16.0
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 0.0
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 0.0
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 1.0
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 20.0
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 24.0
+        },
+        {
+          "country": "Gabon",
+          "x": 56.3,
+          "y": 0.0
+        },
+        {
+          "country": "Gambia",
+          "x": 56.8,
+          "y": 0.0
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 14.0
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 0.0
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 0.0
+        },
+        {
+          "country": "Guinea",
+          "x": 54.6,
+          "y": 0.0
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 0.0
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 2.0
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 0.0
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 12.0
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 0.0
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 2.0
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 8.0
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 6.0
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 1.0
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 1.0
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 4.0
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 0.0
+        },
+        {
+          "country": "Kiribati",
+          "x": 50.9,
+          "y": 1.0
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 8.0
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 2.0
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 13.0
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 1.0
+        },
+        {
+          "country": "Liberia",
+          "x": 48.5,
+          "y": 0.0
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 20.0
+        },
+        {
+          "country": "Madagascar",
+          "x": 57.0,
+          "y": 0.0
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 1.0
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 0.0
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 7.0
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 3.0
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 2.0
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 3.0
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 3.0
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 1.0
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 0.0
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 1.0
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 17.0
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 9.0
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 0.0
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 9.0
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 23.0
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 2.0
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 0.0
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 6.0
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 0.0
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 2.0
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 3.0
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 6.0
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 2.0
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 13.0
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 0.0
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 2.0
+        },
+        {
+          "country": "Saint Vincent and the Grenadines",
+          "x": 60.1,
+          "y": 1.0
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 3.0
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 0.0
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 6.0
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 4.0
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 0.0
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 4.0
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 12.0
+        },
+        {
+          "country": "Solomon Islands",
+          "x": 56.3,
+          "y": 0.0
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 2.0
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 9.0
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 1.0
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 0.0
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 2.0
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 47.0
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 1.0
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 0.0
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 1.0
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 2.0
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 3.0
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 2.0
+        },
+        {
+          "country": "Turkmenistan",
+          "x": 47.1,
+          "y": 2.0
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 0.0
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 4.0
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 14.0
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 16.0
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 3.0
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 0.0
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 1.0
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 1.0
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 0.0
+        }
+      ],
+      "trend_line": {
+        "slope": 0.330943,
+        "intercept": -15.2366,
+        "x_range": [
+          25.4,
+          84.1
+        ]
+      }
     }
   },
   "summary": {
-    "positive_correlations": 9,
+    "positive_correlations": 12,
     "negative_correlations": 0,
-    "not_significant": 0,
-    "total_indices": 9,
+    "not_significant": 1,
+    "total_indices": 13,
     "verdict": "supports"
   },
   "comparison": {
     "economic_freedom_clear_wins": 5,
-    "equality_clear_wins": 0,
+    "equality_clear_wins": 2,
     "democracy_clear_wins": 0,
-    "ties": 4,
+    "ties": 6,
     "metrics": [
       {
         "metric": "GDP per Capita",
@@ -9851,6 +13483,110 @@
           "p_value": 1.7557678258288224e-15,
           "significant": true,
           "n": 106
+        },
+        "winner": "tie"
+      },
+      {
+        "metric": "Crime (Numbeo)",
+        "metric_id": "Crime_Index",
+        "economic_freedom": {
+          "correlation": -0.4379,
+          "effective": 0.4379,
+          "p_value": 1.6894527430366075e-07,
+          "significant": true,
+          "n": 131
+        },
+        "equality": {
+          "correlation": 0.5367,
+          "effective": 0.5367,
+          "p_value": 9.984757298056404e-08,
+          "significant": true,
+          "n": 86
+        },
+        "democracy": {
+          "correlation": -0.1635,
+          "effective": 0.1635,
+          "p_value": 0.06741994939333584,
+          "significant": false,
+          "n": 126
+        },
+        "winner": "equality"
+      },
+      {
+        "metric": "Homicide Rate (UNODC)",
+        "metric_id": "Homicide_Rate",
+        "economic_freedom": {
+          "correlation": -0.1425,
+          "effective": 0.1425,
+          "p_value": 0.09799733169752406,
+          "significant": false,
+          "n": 136
+        },
+        "equality": {
+          "correlation": 0.5893,
+          "effective": 0.5893,
+          "p_value": 1.914598413900148e-09,
+          "significant": true,
+          "n": 87
+        },
+        "democracy": {
+          "correlation": -0.0565,
+          "effective": 0.0565,
+          "p_value": 0.5362696163759525,
+          "significant": false,
+          "n": 122
+        },
+        "winner": "equality"
+      },
+      {
+        "metric": "Healthy Life Expectancy",
+        "metric_id": "HALE",
+        "economic_freedom": {
+          "correlation": 0.5816,
+          "effective": 0.5816,
+          "p_value": 9.102430663274446e-17,
+          "significant": true,
+          "n": 170
+        },
+        "equality": {
+          "correlation": -0.3721,
+          "effective": 0.3721,
+          "p_value": 0.00010043632357905224,
+          "significant": true,
+          "n": 104
+        },
+        "democracy": {
+          "correlation": 0.5728,
+          "effective": 0.5728,
+          "p_value": 5.612712906781538e-15,
+          "significant": true,
+          "n": 156
+        },
+        "winner": "tie"
+      },
+      {
+        "metric": "Mental Health Access",
+        "metric_id": "Mental_Health_Index",
+        "economic_freedom": {
+          "correlation": 0.5381,
+          "effective": 0.5381,
+          "p_value": 6.808432634399967e-11,
+          "significant": true,
+          "n": 127
+        },
+        "equality": {
+          "correlation": -0.3123,
+          "effective": 0.3123,
+          "p_value": 0.0053824712727089784,
+          "significant": true,
+          "n": 78
+        },
+        "democracy": {
+          "correlation": 0.5757,
+          "effective": 0.5757,
+          "p_value": 9.088456547632747e-12,
+          "significant": true,
+          "n": 118
         },
         "winner": "tie"
       }

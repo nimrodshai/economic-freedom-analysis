@@ -1046,6 +1046,305 @@ class DataFetcher:
 
         raise Exception("Could not fetch Pollution Index data")
 
+    def fetch_crime_index(self):
+        """
+        Fetch Crime Index data from Numbeo.
+        Source: https://www.numbeo.com/crime/rankings_by_country.jsp
+        Higher values = more crime (worse).
+        """
+        print("Fetching Crime Index (live scraping from Numbeo)...")
+
+        years = ['2025', '2024', '2024-mid', '2023']
+        for year in years:
+            try:
+                url = f"https://www.numbeo.com/crime/rankings_by_country.jsp?title={year}"
+                response = self.session.get(url, timeout=30)
+
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+
+                    table = soup.find('table', {'id': 't2'})
+                    if table:
+                        rows = table.find_all('tr')
+                        countries = []
+                        scores = []
+
+                        for row in rows[1:]:  # Skip header
+                            cols = row.find_all('td')
+                            if len(cols) >= 2:
+                                country_td = cols[1] if len(cols) > 1 else cols[0]
+                                country = country_td.get_text(strip=True)
+
+                                # Crime Index is in the 3rd column (index 2)
+                                score_td = cols[2] if len(cols) > 2 else cols[-1]
+                                try:
+                                    score = float(score_td.get_text(strip=True))
+                                    countries.append(self._normalize_country_name(country))
+                                    scores.append(score)
+                                except ValueError:
+                                    continue
+
+                        if len(countries) > 50:
+                            result = pd.DataFrame({
+                                'Country': countries,
+                                'Crime_Index': scores
+                            })
+                            result.to_csv(f"{self.cache_dir}/crime_index.csv", index=False)
+                            print(f"  Successfully fetched {len(result)} countries from Numbeo ({year})")
+                            return result
+
+            except Exception as e:
+                print(f"  Could not fetch Crime Index for {year}: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/crime_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Crime Index data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Crime Index data")
+
+    def fetch_unodc_homicide_rate(self):
+        """
+        Fetch UNODC Intentional Homicide Rate data from World Bank API.
+        Source: https://data.worldbank.org/indicator/VC.IHR.PSRC.P5
+        Data originally from: United Nations Office on Drugs and Crime (UNODC)
+        Measured as: Intentional homicides per 100,000 people
+        Higher values = more homicides (worse).
+        """
+        print("Fetching UNODC Homicide Rate (via World Bank API)...")
+
+        try:
+            from datetime import datetime
+            current_year = datetime.now().year
+            all_data = {}
+
+            # Homicide data can lag several years, so check back further
+            for year in range(current_year, current_year - 10, -1):
+                url = f"https://api.worldbank.org/v2/country/all/indicator/VC.IHR.PSRC.P5?format=json&date={year}&per_page=300"
+                response = self.session.get(url, timeout=30)
+
+                if response.status_code == 200:
+                    data = response.json()
+                    if len(data) > 1 and data[1]:
+                        for item in data[1]:
+                            if item['value'] is not None:
+                                country = self._normalize_country_name(item['country']['value'])
+                                if country not in all_data:
+                                    all_data[country] = {
+                                        'value': item['value'],
+                                        'year': year
+                                    }
+
+            if all_data:
+                # Filter out regional aggregates
+                exclude_aggregates = {
+                    'Africa Eastern and Southern', 'Africa Western and Central', 'Arab World',
+                    'Caribbean small states', 'Central Europe and the Baltics', 'Early-demographic dividend',
+                    'East Asia & Pacific', 'East Asia & Pacific (IDA & IBRD countries)',
+                    'East Asia & Pacific (excluding high income)', 'Euro area', 'Europe & Central Asia',
+                    'Europe & Central Asia (IDA & IBRD countries)', 'Europe & Central Asia (excluding high income)',
+                    'European Union', 'Fragile and conflict affected situations', 'Heavily indebted poor countries (HIPC)',
+                    'High income', 'IBRD only', 'IDA & IBRD total', 'IDA blend', 'IDA only', 'IDA total',
+                    'Late-demographic dividend', 'Latin America & Caribbean',
+                    'Latin America & Caribbean (excluding high income)', 'Latin America & the Caribbean (IDA & IBRD countries)',
+                    'Least developed countries: UN classification', 'Low & middle income', 'Low income',
+                    'Lower middle income', 'Middle East & North Africa', 'Middle East & North Africa (IDA & IBRD countries)',
+                    'Middle East & North Africa (excluding high income)', 'Middle income', 'North America',
+                    'Not classified', 'OECD members', 'Other small states', 'Pacific island small states',
+                    'Post-demographic dividend', 'Pre-demographic dividend', 'Small states', 'South Asia',
+                    'South Asia (IDA & IBRD)', 'Sub-Saharan Africa', 'Sub-Saharan Africa (IDA & IBRD countries)',
+                    'Sub-Saharan Africa (excluding high income)', 'Upper middle income', 'World'
+                }
+
+                result = pd.DataFrame({
+                    'Country': [k for k in all_data.keys() if k not in exclude_aggregates],
+                    'Homicide_Rate': [v['value'] for k, v in all_data.items() if k not in exclude_aggregates]
+                })
+                result.to_csv(f"{self.cache_dir}/unodc_homicide_rate.csv", index=False)
+                print(f"  Successfully fetched {len(result)} countries from World Bank (UNODC data)")
+                return result
+
+        except Exception as e:
+            print(f"  Error fetching UNODC Homicide Rate: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/unodc_homicide_rate.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached UNODC Homicide Rate data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch UNODC Homicide Rate data")
+
+    def fetch_hale(self):
+        """
+        Fetch Healthy Life Expectancy (HALE) data from WHO.
+        Source: https://data.who.int/indicators/i/C64284D
+        Measured as: Years of healthy life at birth
+        Higher values = better health outcomes.
+        """
+        print("Fetching Healthy Life Expectancy (HALE) from WHO...")
+
+        try:
+            # WHO Data Hub CSV endpoint
+            url = "https://srhdpeuwpubsa.blob.core.windows.net/whdh/DATADOT/INDICATOR/C64284D_ALL_LATEST.csv"
+            response = self.session.get(url, timeout=30)
+
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Find relevant columns
+                country_col = None
+                value_col = None
+                sex_col = None
+
+                for col in df.columns:
+                    col_lower = str(col).lower()
+                    if 'geoname' in col_lower or 'country' in col_lower or 'location' in col_lower:
+                        country_col = col
+                    elif 'numericvalue' in col_lower or 'value' in col_lower:
+                        value_col = col
+                    elif 'dim1' in col_lower or 'sex' in col_lower:
+                        sex_col = col
+
+                if country_col and value_col:
+                    # Filter for "Both sexes" if sex column exists
+                    if sex_col:
+                        df = df[df[sex_col].str.contains('Both', case=False, na=False)]
+
+                    result = pd.DataFrame({
+                        'Country': df[country_col].apply(self._normalize_country_name),
+                        'HALE': pd.to_numeric(df[value_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'HALE'])
+
+                    # Average if multiple entries per country
+                    result = result.groupby('Country')['HALE'].mean().reset_index()
+
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/hale.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from WHO")
+                        return result
+
+        except Exception as e:
+            print(f"  Could not fetch HALE from WHO: {e}")
+
+        # Try Our World in Data as alternative
+        try:
+            url = "https://ourworldindata.org/grapher/healthy-life-expectancy-at-birth.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+                # Get most recent year for each country
+                if 'Year' in df.columns:
+                    df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+
+                for col in df.columns:
+                    if 'healthy' in col.lower() and 'life' in col.lower():
+                        result = pd.DataFrame({
+                            'Country': df['Entity'].apply(self._normalize_country_name),
+                            'HALE': pd.to_numeric(df[col], errors='coerce')
+                        })
+                        result = result.dropna(subset=['Country', 'HALE'])
+                        if len(result) > 50:
+                            result.to_csv(f"{self.cache_dir}/hale.csv", index=False)
+                            print(f"  Successfully fetched {len(result)} countries from Our World in Data")
+                            return result
+        except Exception as e:
+            print(f"  Could not fetch HALE from OWID: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/hale.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached HALE data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Healthy Life Expectancy (HALE) data")
+
+    def fetch_mental_health_index(self):
+        """
+        Fetch Mental Health data - psychiatrists per 100,000 population.
+        Source: WHO Global Health Observatory / Our World in Data
+        Higher values = better access to mental health services.
+        """
+        print("Fetching Mental Health Index (psychiatrists per 100k)...")
+
+        # Try Our World in Data
+        try:
+            url = "https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Get most recent year for each country
+                if 'Year' in df.columns:
+                    df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+
+                # Find the psychiatrist column
+                psych_col = None
+                for col in df.columns:
+                    if 'psychiatrist' in col.lower() or 'mental' in col.lower():
+                        psych_col = col
+                        break
+
+                if psych_col:
+                    result = pd.DataFrame({
+                        'Country': df['Entity'].apply(self._normalize_country_name),
+                        'Mental_Health_Index': pd.to_numeric(df[psych_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Mental_Health_Index'])
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/mental_health_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Our World in Data")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Try WHO GHO API
+        try:
+            # WHO indicator for psychiatrists per 100,000
+            url = "https://ghoapi.azureedge.net/api/MH_12"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if 'value' in data:
+                    countries = []
+                    values = []
+                    year_data = {}
+
+                    for item in data['value']:
+                        country = item.get('SpatialDim', '')
+                        value = item.get('NumericValue')
+                        year = item.get('TimeDim', 0)
+
+                        if country and value is not None:
+                            # Keep only the most recent year for each country
+                            if country not in year_data or year > year_data[country]['year']:
+                                year_data[country] = {'value': value, 'year': year}
+
+                    for country, info in year_data.items():
+                        countries.append(self._normalize_country_name(country))
+                        values.append(info['value'])
+
+                    if len(countries) > 30:
+                        result = pd.DataFrame({
+                            'Country': countries,
+                            'Mental_Health_Index': values
+                        })
+                        result.to_csv(f"{self.cache_dir}/mental_health_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from WHO GHO")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from WHO GHO: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/mental_health_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Mental Health data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Mental Health Index data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1068,7 +1367,11 @@ class CorrelationAnalyzer:
             ('Happiness_Score', 'Happiness Score', 'higher is better'),
             ('Social_Mobility_Score', 'Social Mobility Index', 'higher is better'),
             ('Purchasing_Power_Index', 'Purchasing Power', 'higher is better'),
-            ('Pollution_Index', 'Pollution', 'lower is better')
+            ('Pollution_Index', 'Pollution', 'lower is better'),
+            ('Crime_Index', 'Crime (Numbeo)', 'lower is better'),
+            ('Homicide_Rate', 'Homicide Rate (UNODC)', 'lower is better'),
+            ('HALE', 'Healthy Life Expectancy (WHO)', 'higher is better'),
+            ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better')
         ]
 
         for col, display_name, interpretation in indices:

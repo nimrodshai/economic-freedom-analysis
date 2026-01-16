@@ -1165,6 +1165,8 @@
                             <li><strong>Purchasing Power & Pollution:</strong> <a href="https://www.numbeo.com/" target="_blank" rel="noopener">Numbeo</a></li>
                             <li><strong>Inequality:</strong> <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank" rel="noopener">World Bank Gini Index</a></li>
                             <li><strong>Democracy:</strong> <a href="https://ourworldindata.org/grapher/democracy-index-eiu" target="_blank" rel="noopener">Economist Intelligence Unit</a></li>
+                            <li><strong>Crime:</strong> <a href="https://www.numbeo.com/crime/rankings_by_country.jsp" target="_blank" rel="noopener">Numbeo</a></li>
+                            <li><strong>Homicide Rate:</strong> <a href="https://data.worldbank.org/indicator/VC.IHR.PSRC.P5" target="_blank" rel="noopener">UNODC (via World Bank)</a></li>
                         </ul>
                     </div>
 
@@ -1440,7 +1442,7 @@
                                 <tr class="header-groups">
                                     <th colspan="3"></th>
                                     <th colspan="3" style="background: rgba(99, 102, 241, 0.1); border-bottom: 2px solid var(--primary);">Method Indices</th>
-                                    <th colspan="9" style="background: rgba(22, 163, 74, 0.1); border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
+                                    <th colspan="11" style="background: rgba(22, 163, 74, 0.1); border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
                                 </tr>
                                 <tr>
                                     <th style="width: 50px;">#</th>
@@ -1458,6 +1460,10 @@
                                     <th onclick="sortTable('social_mobility_score')">Social Mob. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('purchasing_power_index')">Purch. Power <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('pollution_index')">Pollution <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('crime_index')">Crime <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('homicide_rate')">Homicide <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('hale')">HALE <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('mental_health_index')">Mental Health <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
@@ -1522,6 +1528,10 @@
                     <td>${formatLinkedValue(c.name, 'social_mobility_score', c.social_mobility_score, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'purchasing_power_index', c.purchasing_power_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'pollution_index', c.pollution_index, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'crime_index', c.crime_index, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'homicide_rate', c.homicide_rate, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'hale', c.hale, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'mental_health_index', c.mental_health_index, 2)}</td>
                 </tr>
             `).join('');
 
@@ -1641,7 +1651,11 @@
                 'purchasing_power_index': `https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2025`,
                 'pollution_index': `https://www.numbeo.com/pollution/rankings_by_country.jsp?title=2025`,
                 'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`,
-                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}`
+                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}`,
+                'crime_index': `https://www.numbeo.com/crime/rankings_by_country.jsp?title=2025`,
+                'homicide_rate': `https://data.worldbank.org/indicator/VC.IHR.PSRC.P5?locations=${iso}`,
+                'hale': `https://data.who.int/indicators/i/C64284D`,
+                'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}`
             };
             return urls[field] || '#';
         }
@@ -1675,7 +1689,8 @@
         function downloadCSV() {
             const headers = ['Country', 'Region', 'Economic Freedom', 'Gini Index', 'Democracy',
                            'GDP per Capita', 'Life Expectancy', 'Infant Mortality', 'Anti-Corruption',
-                           'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution'];
+                           'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Crime', 'Homicide Rate',
+                           'HALE', 'Mental Health Access'];
 
             const rows = allData.map(c => [
                 c.name,
@@ -1691,7 +1706,11 @@
                 c.happiness_score ?? '',
                 c.social_mobility_score ?? '',
                 c.purchasing_power_index ?? '',
-                c.pollution_index ?? ''
+                c.pollution_index ?? '',
+                c.crime_index ?? '',
+                c.homicide_rate ?? '',
+                c.hale ?? '',
+                c.mental_health_index ?? ''
             ]);
 
             const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
@@ -1788,6 +1807,38 @@
                     desc: "Measures the state of democracy based on electoral process, civil liberties, functioning of government, political participation, and political culture.",
                     url: "https://ourworldindata.org/grapher/democracy-index-eiu",
                     indices: ["Democracy Score"]
+                },
+                {
+                    name: "Crime Index",
+                    org: "Numbeo",
+                    year: 2025,
+                    desc: "Measures overall crime levels based on surveys about safety, including perception of crime, safety walking alone, and concerns about specific crimes.",
+                    url: "https://www.numbeo.com/crime/rankings_by_country.jsp",
+                    indices: ["Crime Index"]
+                },
+                {
+                    name: "Intentional Homicide Statistics",
+                    org: "UNODC (via World Bank)",
+                    year: 2022,
+                    desc: "Intentional homicides per 100,000 people. Data from UN Office on Drugs and Crime, accessed via World Bank API.",
+                    url: "https://data.worldbank.org/indicator/VC.IHR.PSRC.P5",
+                    indices: ["Homicide Rate"]
+                },
+                {
+                    name: "Healthy Life Expectancy (HALE)",
+                    org: "World Health Organization",
+                    year: 2021,
+                    desc: "Average number of years a person can expect to live in full health, accounting for years lost due to disease and disability.",
+                    url: "https://data.who.int/indicators/i/C64284D",
+                    indices: ["HALE"]
+                },
+                {
+                    name: "Mental Health Atlas",
+                    org: "World Health Organization",
+                    year: 2021,
+                    desc: "Psychiatrists working in the mental health sector per 100,000 population. Measures access to mental health services.",
+                    url: "https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector",
+                    indices: ["Mental Health Access"]
                 }
             ];
 
@@ -1898,7 +1949,11 @@
                 'Happiness_Score': 'happiness_score',
                 'Social_Mobility_Score': 'social_mobility_score',
                 'Purchasing_Power_Index': 'purchasing_power_index',
-                'Pollution_Index': 'pollution_index'
+                'Pollution_Index': 'pollution_index',
+                'Crime_Index': 'crime_index',
+                'Homicide_Rate': 'homicide_rate',
+                'HALE': 'hale',
+                'Mental_Health_Index': 'mental_health_index'
             };
             const yKey = yKeyMap[selectedId];
 
@@ -1951,7 +2006,11 @@
                 'Happiness_Score': 'happiness_score',
                 'Social_Mobility_Score': 'social_mobility_score',
                 'Purchasing_Power_Index': 'purchasing_power_index',
-                'Pollution_Index': 'pollution_index'
+                'Pollution_Index': 'pollution_index',
+                'Crime_Index': 'crime_index',
+                'Homicide_Rate': 'homicide_rate',
+                'HALE': 'hale',
+                'Mental_Health_Index': 'mental_health_index'
             };
             const yKey = yKeyMap[selectedId];
 
@@ -2309,6 +2368,44 @@
                     `${third.name} is as effective as a Michael Scott leadership seminar.`
                 ];
                 conclusion += ' ' + loserAnalogies[Math.floor(Math.random() * loserAnalogies.length)];
+            } else if (third.pts <= 8) {
+                // 3-8 points = subtle loser (put up a fight but still lost)
+                const subtleLoserAnalogies = [
+                    `Like Al Bundy, ${third.name} could have done better.`,
+                    `${third.name} showed up, but so did the other two.`,
+                    `${third.name} brought a knife to a gunfight. A nice knife, though.`,
+                    `${third.name} finished the race. Just... not first. Or second.`,
+                    `${third.name} is the bronze medal of economic theories.`,
+                    `${third.name} tried. The data noticed.`,
+                    `${third.name} peaked early, like a child actor.`,
+                    `${third.name} is the "you tried" star of economic theories.`,
+                    `${third.name}: close, but no cigar.`,
+                    `${third.name} gets a participation trophy.`,
+                    `${third.name} is the Ringo of this competition.`,
+                    `${third.name} is giving strong "almost made the playoffs" energy.`,
+                    `${third.name}: not bad, just... not good.`,
+                    `${third.name} is the "we have freedom at home" of economics.`,
+                    `${third.name} tried harder than the results suggest. Maybe.`,
+                    `${third.name} came in third, but at least it was a podium finish. Oh wait.`,
+                    `${third.name} is the underdog story that stayed under.`,
+                    `${third.name} gets points for effort. Not many, but some.`,
+                    `${third.name} is the "good effort, champ" of economic theories.`,
+                    `${third.name} is like bringing homemade cookies to a bake-off. Sweet, but outclassed.`,
+                    `${third.name} gave it the old college try. Community college.`,
+                    `${third.name} played a good game, just not good enough.`,
+                    `${third.name} is the opening band of economic theories.`,
+                    `${third.name} made it to the dance, just not the spotlight.`,
+                    `${third.name}: A for effort, C for results.`,
+                    `${third.name} is the "at least we have our health" of economics.`,
+                    `${third.name} put up a fight. The fight lost.`,
+                    `${third.name} is the "maybe next year" of economic competition.`,
+                    `${third.name} brought its A-game. The others brought their A+-game.`,
+                    `${third.name} is the honorable mention of economic theories.`,
+                    `${third.name} ran a good race, just in the wrong lane.`,
+                    `${third.name}: not embarrassing, just... third.`,
+                    `${third.name} is the "technically still on the team" of economics.`
+                ];
+                conclusion += ' ' + subtleLoserAnalogies[Math.floor(Math.random() * subtleLoserAnalogies.length)];
             }
 
             html += `
