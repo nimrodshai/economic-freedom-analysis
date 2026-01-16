@@ -1451,6 +1451,7 @@
                                     <th onclick="sortTable('purchasing_power_index')">Purch. Power <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('pollution_index')">Pollution <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('gini_index')">Gini <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
@@ -1514,6 +1515,7 @@
                     <td>${formatLinkedValue(c.name, 'purchasing_power_index', c.purchasing_power_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'pollution_index', c.pollution_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'gini_index', c.gini_index, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
                 </tr>
             `).join('');
 
@@ -1850,10 +1852,62 @@
             updateChart();
         }
 
+        function updateCountryDropdown() {
+            const select = document.getElementById('indexSelect');
+            const countrySelect = document.getElementById('countrySelect');
+            const xAxisSelect = document.getElementById('xAxisSelect');
+            if (!select || !countrySelect || !xAxisSelect) return;
+
+            const selectedId = select.value;
+            const selectedXAxis = xAxisSelect.value || 'economic_freedom';
+            const currentCountry = countrySelect.value;
+            const data = window.analysisData;
+
+            // X-axis key mapping
+            const xAxisKeyMap = {
+                'economic_freedom': 'economic_freedom',
+                'democracy_score': 'democracy_score',
+                'gini_index': 'gini_index'
+            };
+            const xKey = xAxisKeyMap[selectedXAxis];
+
+            // Y-axis key mapping
+            const yKeyMap = {
+                'GDP_Per_Capita': 'gdp_per_capita',
+                'Life_Expectancy': 'life_expectancy',
+                'Infant_Mortality': 'infant_mortality',
+                'Corruption_Score': 'corruption_score',
+                'HDI': 'hdi',
+                'Happiness_Score': 'happiness_score',
+                'Social_Mobility_Score': 'social_mobility_score',
+                'Purchasing_Power_Index': 'purchasing_power_index',
+                'Pollution_Index': 'pollution_index'
+            };
+            const yKey = yKeyMap[selectedId];
+
+            // Filter countries that have data for both X and Y axes
+            const validCountries = data.countries
+                .filter(c => c[xKey] != null && c[yKey] != null)
+                .sort((a, b) => a.name.localeCompare(b.name));
+
+            // Rebuild dropdown
+            countrySelect.innerHTML = '<option value="">None</option>' +
+                validCountries.map(c => `<option value="${c.name}">${c.name}</option>`).join('');
+
+            // Restore selection if still valid
+            if (currentCountry && validCountries.some(c => c.name === currentCountry)) {
+                countrySelect.value = currentCountry;
+            }
+        }
+
         function updateChart() {
             const select = document.getElementById('indexSelect');
             const countrySelect = document.getElementById('countrySelect');
             const xAxisSelect = document.getElementById('xAxisSelect');
+
+            // Update country dropdown to show only countries with data for current axes
+            updateCountryDropdown();
+
             const selectedId = select.value;
             const selectedCountry = countrySelect ? countrySelect.value : '';
             const selectedXAxis = xAxisSelect ? xAxisSelect.value : 'economic_freedom';
