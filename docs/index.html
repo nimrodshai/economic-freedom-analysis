@@ -2248,12 +2248,15 @@
                 const efCorr = m.economic_freedom.effective;
                 const eqCorr = m.equality.effective;
                 const demCorr = m.democracy ? m.democracy.effective : null;
+                const efN = m.economic_freedom.n || 0;
+                const eqN = m.equality.n || 0;
+                const demN = m.democracy ? m.democracy.n : 0;
 
                 // Create array of bars and sort by correlation (largest to smallest)
                 const bars = [
-                    { label: 'Freedom', value: efCorr, color: 'var(--success)', fillClass: 'comparison-bar-fill-green' },
-                    { label: 'Equality', value: eqCorr, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red' },
-                    { label: 'Democracy', value: demCorr, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue' }
+                    { label: 'Freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green' },
+                    { label: 'Equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red' },
+                    { label: 'Democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue' }
                 ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 html += `
@@ -2265,7 +2268,7 @@
 
                 bars.forEach(bar => {
                     const width = bar.value ? Math.round(bar.value * 100) : 0;
-                    const valueText = bar.value !== null ? bar.value.toFixed(2) : 'N/A';
+                    const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})` : 'N/A';
                     html += `
                         <div class="comparison-bar-col" data-label="${bar.label}">
                             <div class="comparison-bar-wrapper">
