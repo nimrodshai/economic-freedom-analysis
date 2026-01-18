@@ -143,7 +143,7 @@ def generate_web_data(output_dir="docs"):
         config = indices_config.get(col, {})
         output_data["correlations"].append({
             "id": col,
-            "name": result['display_name'],
+            "name": f"{result['display_name']} (n={result['n']})",
             "correlation": round(result['correlation'], 4),
             "effective_correlation": round(result['effective_correlation'], 4),
             "p_value": result['p_value'],
