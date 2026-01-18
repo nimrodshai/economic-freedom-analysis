@@ -51,6 +51,7 @@ def generate_web_data(output_dir="docs"):
     homicide = fetcher.fetch_unodc_homicide_rate()
     hale = fetcher.fetch_hale()
     mental_health = fetcher.fetch_mental_health_index()
+    gender_pay_gap = fetcher.fetch_gender_pay_gap()
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -69,7 +70,8 @@ def generate_web_data(output_dir="docs"):
         (crime, 'Country'),
         (homicide, 'Country'),
         (hale, 'Country'),
-        (mental_health, 'Country')
+        (mental_health, 'Country'),
+        (gender_pay_gap, 'Country')
     ]
 
     for df, key in datasets:
@@ -109,7 +111,8 @@ def generate_web_data(output_dir="docs"):
                 {"name": "Numbeo Crime Index", "year": 2025},
                 {"name": "UNODC Homicide Statistics (via World Bank)", "year": 2022},
                 {"name": "WHO Healthy Life Expectancy (HALE)", "year": 2021},
-                {"name": "WHO Mental Health Atlas", "year": 2021}
+                {"name": "WHO Mental Health Atlas", "year": 2021},
+                {"name": "OECD Gender Wage Gap", "year": 2023}
             ]
         },
         "correlations": [],
@@ -132,7 +135,8 @@ def generate_web_data(output_dir="docs"):
         'Crime_Index': {'display_name': 'Crime (Numbeo)', 'unit': '0-100', 'higher_better': False},
         'Homicide_Rate': {'display_name': 'Homicide Rate (UNODC)', 'unit': 'per 100k', 'higher_better': False},
         'HALE': {'display_name': 'Healthy Life Expectancy (WHO)', 'unit': 'years', 'higher_better': True},
-        'Mental_Health_Index': {'display_name': 'Mental Health Access (WHO)', 'unit': 'per 100k', 'higher_better': True}
+        'Mental_Health_Index': {'display_name': 'Mental Health Access (WHO)', 'unit': 'per 100k', 'higher_better': True},
+        'Gender_Pay_Gap': {'display_name': 'Gender Pay Gap', 'unit': '%', 'higher_better': False}
     }
 
     for col, result in results.items():
@@ -233,7 +237,8 @@ def generate_web_data(output_dir="docs"):
         ('Crime_Index', 'Crime (Numbeo)', False),
         ('Homicide_Rate', 'Homicide Rate (UNODC)', False),
         ('HALE', 'Healthy Life Expectancy', True),
-        ('Mental_Health_Index', 'Mental Health Access', True)
+        ('Mental_Health_Index', 'Mental Health Access', True),
+        ('Gender_Pay_Gap', 'Gender Pay Gap', False)
     ]
 
     comparison_data = []

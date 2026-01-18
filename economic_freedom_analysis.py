@@ -1345,6 +1345,151 @@ class DataFetcher:
 
         raise Exception("Could not fetch Mental Health Index data")
 
+    def fetch_gender_pay_gap(self):
+        """
+        Fetch Gender Pay Gap data - difference in median earnings between men and women.
+        Source: OECD / ILO / Our World in Data
+        Lower values = better (smaller gap means more equality).
+        Measured as percentage difference from male earnings.
+        """
+        print("Fetching Gender Pay Gap Index...")
+
+        # Try Our World in Data (ILO data)
+        try:
+            url = "https://ourworldindata.org/grapher/gender-wage-gap-oecd.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Get most recent year for each country
+                if 'Year' in df.columns:
+                    df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+
+                # Find the wage gap column
+                gap_col = None
+                for col in df.columns:
+                    if 'gap' in col.lower() or 'wage' in col.lower() or 'gender' in col.lower():
+                        if col not in ['Entity', 'Code', 'Year']:
+                            gap_col = col
+                            break
+
+                if gap_col:
+                    result = pd.DataFrame({
+                        'Country': df['Entity'].apply(self._normalize_country_name),
+                        'Gender_Pay_Gap': pd.to_numeric(df[gap_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Gender_Pay_Gap'])
+                    if len(result) > 20:
+                        result.to_csv(f"{self.cache_dir}/gender_pay_gap.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Our World in Data (OECD)")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Try World Bank API for female labor force participation as alternative proxy
+        try:
+            # Gender pay gap indicator from World Bank
+            url = "https://api.worldbank.org/v2/country/all/indicator/BI.WAG.PRVS.FM.SM?format=json&per_page=300&date=2018:2024"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if len(data) > 1 and data[1]:
+                    countries = []
+                    values = []
+                    year_data = {}
+
+                    for item in data[1]:
+                        if item.get('value') is not None:
+                            country = item.get('country', {}).get('value', '')
+                            value = item.get('value')
+                            year = int(item.get('date', 0))
+
+                            if country and value is not None:
+                                if country not in year_data or year > year_data[country]['year']:
+                                    year_data[country] = {'value': value, 'year': year}
+
+                    for country, info in year_data.items():
+                        countries.append(self._normalize_country_name(country))
+                        values.append(info['value'])
+
+                    if len(countries) > 20:
+                        result = pd.DataFrame({
+                            'Country': countries,
+                            'Gender_Pay_Gap': values
+                        })
+                        result.to_csv(f"{self.cache_dir}/gender_pay_gap.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from World Bank")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from World Bank: {e}")
+
+        # Try direct OECD data
+        try:
+            # OECD Gender wage gap data
+            url = "https://stats.oecd.org/sdmx-json/data/GENDER_EMP/AUS+AUT+BEL+CAN+CHL+COL+CRI+CZE+DNK+EST+FIN+FRA+DEU+GRC+HUN+ISL+IRL+ISR+ITA+JPN+KOR+LVA+LTU+LUX+MEX+NLD+NZL+NOR+POL+PRT+SVK+SVN+ESP+SWE+CHE+TUR+GBR+USA+OECD+EU27_2020.WAGEGAP/all?startTime=2015&endTime=2024"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if 'dataSets' in data and data['dataSets']:
+                    # Parse OECD SDMX-JSON format
+                    countries = []
+                    values = []
+
+                    # Get country dimension
+                    structure = data.get('structure', {})
+                    dimensions = structure.get('dimensions', {}).get('observation', [])
+                    country_dim = None
+                    for dim in dimensions:
+                        if dim.get('id') == 'REF_AREA':
+                            country_dim = dim.get('values', [])
+                            break
+
+                    if country_dim:
+                        observations = data['dataSets'][0].get('observations', {})
+                        country_codes = {
+                            'AUS': 'Australia', 'AUT': 'Austria', 'BEL': 'Belgium', 'CAN': 'Canada',
+                            'CHL': 'Chile', 'COL': 'Colombia', 'CRI': 'Costa Rica', 'CZE': 'Czech Republic',
+                            'DNK': 'Denmark', 'EST': 'Estonia', 'FIN': 'Finland', 'FRA': 'France',
+                            'DEU': 'Germany', 'GRC': 'Greece', 'HUN': 'Hungary', 'ISL': 'Iceland',
+                            'IRL': 'Ireland', 'ISR': 'Israel', 'ITA': 'Italy', 'JPN': 'Japan',
+                            'KOR': 'South Korea', 'LVA': 'Latvia', 'LTU': 'Lithuania', 'LUX': 'Luxembourg',
+                            'MEX': 'Mexico', 'NLD': 'Netherlands', 'NZL': 'New Zealand', 'NOR': 'Norway',
+                            'POL': 'Poland', 'PRT': 'Portugal', 'SVK': 'Slovakia', 'SVN': 'Slovenia',
+                            'ESP': 'Spain', 'SWE': 'Sweden', 'CHE': 'Switzerland', 'TUR': 'Turkey',
+                            'GBR': 'United Kingdom', 'USA': 'United States'
+                        }
+
+                        for i, country_info in enumerate(country_dim):
+                            code = country_info.get('id', '')
+                            if code in country_codes:
+                                # Get the most recent value for this country
+                                for key, val in observations.items():
+                                    parts = key.split(':')
+                                    if len(parts) > 0 and int(parts[0]) == i:
+                                        if val and len(val) > 0:
+                                            countries.append(country_codes[code])
+                                            values.append(val[0])
+                                            break
+
+                    if len(countries) > 20:
+                        result = pd.DataFrame({
+                            'Country': countries,
+                            'Gender_Pay_Gap': values
+                        })
+                        result.to_csv(f"{self.cache_dir}/gender_pay_gap.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from OECD")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OECD: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/gender_pay_gap.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Gender Pay Gap data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Gender Pay Gap data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1371,7 +1516,8 @@ class CorrelationAnalyzer:
             ('Crime_Index', 'Crime (Numbeo)', 'lower is better'),
             ('Homicide_Rate', 'Homicide Rate (UNODC)', 'lower is better'),
             ('HALE', 'Healthy Life Expectancy (WHO)', 'higher is better'),
-            ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better')
+            ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better'),
+            ('Gender_Pay_Gap', 'Gender Pay Gap', 'lower is better')
         ]
 
         for col, display_name, interpretation in indices:

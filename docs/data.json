@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-16T14:01:31.785029Z",
+    "generated_at": "2026-01-18T08:22:45.009133Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -46,6 +46,10 @@
       {
         "name": "WHO Mental Health Atlas",
         "year": 2021
+      },
+      {
+        "name": "OECD Gender Wage Gap",
+        "year": 2023
       }
     ]
   },
@@ -154,7 +158,7 @@
       "name": "Infant Mortality (per 1000)",
       "correlation": -0.546,
       "effective_correlation": 0.546,
-      "p_value": 5.510525833166965e-15,
+      "p_value": 5.510525833166964e-15,
       "significant": true,
       "n": 175,
       "higher_better": false,
@@ -187,11 +191,22 @@
       "name": "Homicide Rate (UNODC)",
       "correlation": -0.1425,
       "effective_correlation": 0.1425,
-      "p_value": 0.09799733169752406,
+      "p_value": 0.09799733169752378,
       "significant": false,
       "n": 136,
       "higher_better": false,
       "unit": "per 100k"
+    },
+    {
+      "id": "Gender_Pay_Gap",
+      "name": "Gender Pay Gap",
+      "correlation": 0.2315,
+      "effective_correlation": -0.2315,
+      "p_value": 0.16194433683141585,
+      "significant": false,
+      "n": 38,
+      "higher_better": false,
+      "unit": "%"
     }
   ],
   "countries": [
@@ -212,6 +227,7 @@
       "homicide_rate": 1.39,
       "hale": 66.69,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": 29.4,
       "democracy_score": 6.2
     },
@@ -232,6 +248,7 @@
       "homicide_rate": 1.16,
       "hale": 65.55,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 3.55
     },
@@ -252,6 +269,7 @@
       "homicide_rate": null,
       "hale": 53.76,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 4.05
     },
@@ -272,6 +290,7 @@
       "homicide_rate": 4.49,
       "hale": 64.79,
       "mental_health_index": 15.0,
+      "gender_pay_gap": null,
       "gini_index": 42.4,
       "democracy_score": 6.51
     },
@@ -292,6 +311,7 @@
       "homicide_rate": 2.21,
       "hale": 64.01,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": 27.2,
       "democracy_score": 5.35
     },
@@ -312,6 +332,7 @@
       "homicide_rate": 0.85,
       "hale": 70.61,
       "mental_health_index": 13.0,
+      "gender_pay_gap": 14.3,
       "gini_index": 33.8,
       "democracy_score": 8.85
     },
@@ -332,6 +353,7 @@
       "homicide_rate": 0.88,
       "hale": 69.79,
       "mental_health_index": 15.0,
+      "gender_pay_gap": 17.0,
       "gini_index": 31.2,
       "democracy_score": 8.28
     },
@@ -352,6 +374,7 @@
       "homicide_rate": 2.16,
       "hale": 64.04,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.8
     },
@@ -372,6 +395,7 @@
       "homicide_rate": 32.2,
       "hale": 61.52,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -392,6 +416,7 @@
       "homicide_rate": 0.2,
       "hale": 64.24,
       "mental_health_index": 4.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.45
     },
@@ -412,6 +437,7 @@
       "homicide_rate": 2.34,
       "hale": 63.05,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 30.9,
       "democracy_score": 4.44
     },
@@ -432,6 +458,7 @@
       "homicide_rate": 7.44,
       "hale": 66.67,
       "mental_health_index": 7.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -452,6 +479,7 @@
       "homicide_rate": 2.38,
       "hale": 63.71,
       "mental_health_index": 11.0,
+      "gender_pay_gap": null,
       "gini_index": 24.4,
       "democracy_score": 1.99
     },
@@ -472,6 +500,7 @@
       "homicide_rate": 1.08,
       "hale": 69.79,
       "mental_health_index": null,
+      "gender_pay_gap": 3.3,
       "gini_index": 26.8,
       "democracy_score": 7.64
     },
@@ -492,6 +521,7 @@
       "homicide_rate": 28.06,
       "hale": 63.82,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -512,6 +542,7 @@
       "homicide_rate": 1.13,
       "hale": 55.72,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 34.4,
       "democracy_score": 4.44
     },
@@ -532,6 +563,7 @@
       "homicide_rate": 2.47,
       "hale": 64.8,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 28.5,
       "democracy_score": 5.65
     },
@@ -552,6 +584,7 @@
       "homicide_rate": 4.42,
       "hale": 57.43,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 42.1,
       "democracy_score": 4.26
     },
@@ -572,6 +605,7 @@
       "homicide_rate": 1.22,
       "hale": 64.99,
       "mental_health_index": 9.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 5.06
     },
@@ -592,6 +626,7 @@
       "homicide_rate": 11.37,
       "hale": 53.1,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 7.63
     },
@@ -612,6 +647,7 @@
       "homicide_rate": 19.28,
       "hale": 61.83,
       "mental_health_index": 4.0,
+      "gender_pay_gap": null,
       "gini_index": 51.6,
       "democracy_score": 6.49
     },
@@ -632,6 +668,7 @@
       "homicide_rate": null,
       "hale": 67.1,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -652,6 +689,7 @@
       "homicide_rate": 1.09,
       "hale": 62.39,
       "mental_health_index": 10.0,
+      "gender_pay_gap": null,
       "gini_index": 39.5,
       "democracy_score": 6.34
     },
@@ -672,6 +710,7 @@
       "homicide_rate": 1.25,
       "hale": 54.56,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 37.4,
       "democracy_score": 2.55
     },
@@ -692,6 +731,7 @@
       "homicide_rate": 2.58,
       "hale": 59.75,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 0.96
     },
@@ -712,6 +752,7 @@
       "homicide_rate": null,
       "hale": 55.84,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 37.5,
       "democracy_score": 2.13
     },
@@ -732,6 +773,7 @@
       "homicide_rate": 6.99,
       "hale": null,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -752,6 +794,7 @@
       "homicide_rate": null,
       "hale": 60.63,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.94
     },
@@ -772,6 +815,7 @@
       "homicide_rate": 6.76,
       "hale": 54.01,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 42.2,
       "democracy_score": 2.56
     },
@@ -792,6 +836,7 @@
       "homicide_rate": 1.98,
       "hale": 69.78,
       "mental_health_index": 14.0,
+      "gender_pay_gap": 18.6,
       "gini_index": 31.1,
       "democracy_score": 8.69
     },
@@ -812,6 +857,7 @@
       "homicide_rate": null,
       "hale": 45.43,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 43.0,
       "democracy_score": 1.18
     },
@@ -832,6 +878,7 @@
       "homicide_rate": null,
       "hale": 51.52,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 37.4,
       "democracy_score": 1.89
     },
@@ -852,6 +899,7 @@
       "homicide_rate": 6.35,
       "hale": 67.65,
       "mental_health_index": 9.0,
+      "gender_pay_gap": 21.1,
       "gini_index": 43.0,
       "democracy_score": 7.83
     },
@@ -872,6 +920,7 @@
       "homicide_rate": 0.5,
       "hale": 68.58,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 36.0,
       "democracy_score": 2.11
     },
@@ -892,6 +941,7 @@
       "homicide_rate": 24.91,
       "hale": 65.02,
       "mental_health_index": 3.0,
+      "gender_pay_gap": 11.1,
       "gini_index": 53.9,
       "democracy_score": 6.35
     },
@@ -912,6 +962,7 @@
       "homicide_rate": null,
       "hale": 59.02,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -932,6 +983,7 @@
       "homicide_rate": null,
       "hale": 53.21,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 44.7,
       "democracy_score": 1.92
     },
@@ -952,6 +1004,7 @@
       "homicide_rate": null,
       "hale": 54.84,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.79
     },
@@ -972,6 +1025,7 @@
       "homicide_rate": 17.75,
       "hale": 67.63,
       "mental_health_index": 3.0,
+      "gender_pay_gap": 3.7,
       "gini_index": 45.8,
       "democracy_score": 8.29
     },
@@ -992,6 +1046,7 @@
       "homicide_rate": null,
       "hale": 55.41,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 35.3,
       "democracy_score": 4.22
     },
@@ -1012,6 +1067,7 @@
       "homicide_rate": 0.67,
       "hale": 66.8,
       "mental_health_index": 13.0,
+      "gender_pay_gap": null,
       "gini_index": 30.1,
       "democracy_score": 6.5
     },
@@ -1032,6 +1088,7 @@
       "homicide_rate": 4.46,
       "hale": 64.62,
       "mental_health_index": 9.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.58
     },
@@ -1052,6 +1109,7 @@
       "homicide_rate": 0.82,
       "hale": 70.74,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 31.8,
       "democracy_score": 7.38
     },
@@ -1072,6 +1130,7 @@
       "homicide_rate": 0.77,
       "hale": 66.66,
       "mental_health_index": 16.0,
+      "gender_pay_gap": 16.3,
       "gini_index": 25.7,
       "democracy_score": 8.08
     },
@@ -1092,6 +1151,7 @@
       "homicide_rate": 0.84,
       "hale": 70.06,
       "mental_health_index": null,
+      "gender_pay_gap": 5.8,
       "gini_index": 29.9,
       "democracy_score": 9.28
     },
@@ -1112,6 +1172,7 @@
       "homicide_rate": null,
       "hale": 56.99,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.7
     },
@@ -1132,6 +1193,7 @@
       "homicide_rate": 27.06,
       "hale": null,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1152,6 +1214,7 @@
       "homicide_rate": 10.92,
       "hale": 63.56,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 39.0,
       "democracy_score": 6.62
     },
@@ -1172,6 +1235,7 @@
       "homicide_rate": 45.72,
       "hale": 64.34,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 45.2,
       "democracy_score": 5.24
     },
@@ -1192,6 +1256,7 @@
       "homicide_rate": 1.31,
       "hale": 60.36,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 28.5,
       "democracy_score": 2.79
     },
@@ -1212,6 +1277,7 @@
       "homicide_rate": 7.9,
       "hale": 62.2,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 39.8,
       "democracy_score": 4.61
     },
@@ -1232,6 +1298,7 @@
       "homicide_rate": null,
       "hale": 53.26,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 38.5,
       "democracy_score": 1.92
     },
@@ -1252,6 +1319,7 @@
       "homicide_rate": null,
       "hale": 55.42,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 1.97
     },
@@ -1272,6 +1340,7 @@
       "homicide_rate": 1.54,
       "hale": 66.74,
       "mental_health_index": 16.0,
+      "gender_pay_gap": 28.3,
       "gini_index": 30.7,
       "democracy_score": 8.13
     },
@@ -1292,6 +1361,7 @@
       "homicide_rate": 12.51,
       "hale": 47.47,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.6
     },
@@ -1312,6 +1382,7 @@
       "homicide_rate": null,
       "hale": 58.83,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 31.1,
       "democracy_score": 3.24
     },
@@ -1332,6 +1403,7 @@
       "homicide_rate": 2.06,
       "hale": 57.69,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 5.39
     },
@@ -1352,6 +1424,7 @@
       "homicide_rate": 0.98,
       "hale": 69.93,
       "mental_health_index": 20.0,
+      "gender_pay_gap": 18.1,
       "gini_index": 27.4,
       "democracy_score": 9.3
     },
@@ -1372,6 +1445,7 @@
       "homicide_rate": 1.34,
       "hale": 70.08,
       "mental_health_index": 24.0,
+      "gender_pay_gap": 9.9,
       "gini_index": 31.8,
       "democracy_score": 7.99
     },
@@ -1392,6 +1466,7 @@
       "homicide_rate": null,
       "hale": 56.26,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.18
     },
@@ -1412,6 +1487,7 @@
       "homicide_rate": null,
       "hale": 55.84,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 38.8,
       "democracy_score": 4.47
     },
@@ -1432,6 +1508,7 @@
       "homicide_rate": 2.03,
       "hale": 62.48,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 33.9,
       "democracy_score": 4.7
     },
@@ -1452,6 +1529,7 @@
       "homicide_rate": 0.91,
       "hale": 68.93,
       "mental_health_index": 14.0,
+      "gender_pay_gap": 17.1,
       "gini_index": 32.4,
       "democracy_score": 8.73
     },
@@ -1472,6 +1550,7 @@
       "homicide_rate": 1.83,
       "hale": 57.88,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.24
     },
@@ -1492,6 +1571,7 @@
       "homicide_rate": 0.84,
       "hale": 68.55,
       "mental_health_index": null,
+      "gender_pay_gap": 6.2,
       "gini_index": 33.4,
       "democracy_score": 8.07
     },
@@ -1512,6 +1592,7 @@
       "homicide_rate": 23.37,
       "hale": 59.25,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 45.2,
       "democracy_score": 4.55
     },
@@ -1532,6 +1613,7 @@
       "homicide_rate": null,
       "hale": 53.43,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.04
     },
@@ -1552,6 +1634,7 @@
       "homicide_rate": 1.12,
       "hale": 51.45,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 33.4,
       "democracy_score": 2.03
     },
@@ -1572,6 +1655,7 @@
       "homicide_rate": 19.12,
       "hale": 56.82,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.11
     },
@@ -1592,6 +1676,7 @@
       "homicide_rate": 41.15,
       "hale": 53.94,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.74
     },
@@ -1612,6 +1697,7 @@
       "homicide_rate": 31.44,
       "hale": 60.05,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 45.7,
       "democracy_score": 4.98
     },
@@ -1632,6 +1718,7 @@
       "homicide_rate": 0.72,
       "hale": 64.84,
       "mental_health_index": 12.0,
+      "gender_pay_gap": 9.5,
       "gini_index": null,
       "democracy_score": 6.51
     },
@@ -1652,6 +1739,7 @@
       "homicide_rate": 1.29,
       "hale": 71.37,
       "mental_health_index": null,
+      "gender_pay_gap": 9.9,
       "gini_index": null,
       "democracy_score": 9.38
     },
@@ -1672,6 +1760,7 @@
       "homicide_rate": 2.82,
       "hale": 58.15,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 25.5,
       "democracy_score": 7.29
     },
@@ -1692,6 +1781,7 @@
       "homicide_rate": 0.3,
       "hale": 60.67,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 34.9,
       "democracy_score": 6.44
     },
@@ -1712,6 +1802,7 @@
       "homicide_rate": null,
       "hale": 63.98,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": 35.9,
       "democracy_score": 1.96
     },
@@ -1732,6 +1823,7 @@
       "homicide_rate": 0.65,
       "hale": 70.0,
       "mental_health_index": 8.0,
+      "gender_pay_gap": 14.4,
       "gini_index": 29.0,
       "democracy_score": 9.19
     },
@@ -1752,6 +1844,7 @@
       "homicide_rate": 1.63,
       "hale": 70.76,
       "mental_health_index": null,
+      "gender_pay_gap": 21.8,
       "gini_index": 37.9,
       "democracy_score": 7.8
     },
@@ -1772,6 +1865,7 @@
       "homicide_rate": 0.57,
       "hale": 70.56,
       "mental_health_index": 6.0,
+      "gender_pay_gap": 5.6,
       "gini_index": 34.3,
       "democracy_score": 7.58
     },
@@ -1792,6 +1886,7 @@
       "homicide_rate": 49.44,
       "hale": 61.72,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 39.9,
       "democracy_score": 6.74
     },
@@ -1812,6 +1907,7 @@
       "homicide_rate": 0.23,
       "hale": 73.4,
       "mental_health_index": null,
+      "gender_pay_gap": 25.7,
       "gini_index": 32.3,
       "democracy_score": 8.48
     },
@@ -1832,6 +1928,7 @@
       "homicide_rate": 0.99,
       "hale": 65.07,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 3.28
     },
@@ -1852,6 +1949,7 @@
       "homicide_rate": 2.55,
       "hale": 61.55,
       "mental_health_index": 4.0,
+      "gender_pay_gap": null,
       "gini_index": 29.2,
       "democracy_score": 3.08
     },
@@ -1872,6 +1970,7 @@
       "homicide_rate": 4.87,
       "hale": 58.22,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 37.7,
       "democracy_score": 5.05
     },
@@ -1892,6 +1991,7 @@
       "homicide_rate": null,
       "hale": 53.65,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1912,6 +2012,7 @@
       "homicide_rate": null,
       "hale": 64.73,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 1.08
     },
@@ -1932,6 +2033,7 @@
       "homicide_rate": 0.48,
       "hale": 72.45,
       "mental_health_index": 8.0,
+      "gender_pay_gap": 36.7,
       "gini_index": 32.9,
       "democracy_score": 7.75
     },
@@ -1952,6 +2054,7 @@
       "homicide_rate": 1.89,
       "hale": null,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 38.3,
       "democracy_score": null
     },
@@ -1972,6 +2075,7 @@
       "homicide_rate": 0.25,
       "hale": 67.78,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.78
     },
@@ -1992,6 +2096,7 @@
       "homicide_rate": 1.75,
       "hale": 63.42,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 27.2,
       "democracy_score": 3.52
     },
@@ -2012,6 +2117,7 @@
       "homicide_rate": null,
       "hale": 60.41,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 1.71
     },
@@ -2032,6 +2138,7 @@
       "homicide_rate": 2.5,
       "hale": 63.76,
       "mental_health_index": 13.0,
+      "gender_pay_gap": 21.1,
       "gini_index": 34.0,
       "democracy_score": 7.66
     },
@@ -2052,6 +2159,7 @@
       "homicide_rate": 2.24,
       "hale": 63.22,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 35.3,
       "democracy_score": 3.56
     },
@@ -2072,6 +2180,7 @@
       "homicide_rate": null,
       "hale": 44.63,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.06
     },
@@ -2092,6 +2201,7 @@
       "homicide_rate": null,
       "hale": 53.96,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 5.57
     },
@@ -2112,6 +2222,7 @@
       "homicide_rate": 2.63,
       "hale": 64.23,
       "mental_health_index": 20.0,
+      "gender_pay_gap": 12.5,
       "gini_index": 36.0,
       "democracy_score": 7.59
     },
@@ -2132,6 +2243,7 @@
       "homicide_rate": 1.53,
       "hale": 71.23,
       "mental_health_index": null,
+      "gender_pay_gap": 3.4,
       "gini_index": 33.6,
       "democracy_score": 8.88
     },
@@ -2152,6 +2264,7 @@
       "homicide_rate": null,
       "hale": 55.14,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 36.8,
       "democracy_score": 5.33
     },
@@ -2172,6 +2285,7 @@
       "homicide_rate": null,
       "hale": 54.67,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 5.85
     },
@@ -2192,6 +2306,7 @@
       "homicide_rate": 0.73,
       "hale": 63.95,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 40.7,
       "democracy_score": 7.11
     },
@@ -2212,6 +2327,7 @@
       "homicide_rate": 0.62,
       "hale": 66.67,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2232,6 +2348,7 @@
       "homicide_rate": null,
       "hale": 53.56,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 35.7,
       "democracy_score": 2.4
     },
@@ -2252,6 +2369,7 @@
       "homicide_rate": 0.56,
       "hale": 70.71,
       "mental_health_index": 7.0,
+      "gender_pay_gap": null,
       "gini_index": 34.6,
       "democracy_score": 7.93
     },
@@ -2272,6 +2390,7 @@
       "homicide_rate": 1.0,
       "hale": 60.39,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 3.96
     },
@@ -2292,6 +2411,7 @@
       "homicide_rate": 2.27,
       "hale": 63.63,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 8.23
     },
@@ -2312,6 +2432,7 @@
       "homicide_rate": 24.86,
       "hale": 61.44,
       "mental_health_index": 2.0,
+      "gender_pay_gap": 16.5,
       "gini_index": 43.5,
       "democracy_score": 5.32
     },
@@ -2332,6 +2453,7 @@
       "homicide_rate": 0.91,
       "hale": null,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2352,6 +2474,7 @@
       "homicide_rate": 2.54,
       "hale": 61.21,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 26.8,
       "democracy_score": 6.04
     },
@@ -2372,6 +2495,7 @@
       "homicide_rate": 5.92,
       "hale": 61.31,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 31.4,
       "democracy_score": 6.53
     },
@@ -2392,6 +2516,7 @@
       "homicide_rate": 0.79,
       "hale": 65.15,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 34.3,
       "democracy_score": 6.73
     },
@@ -2412,6 +2537,7 @@
       "homicide_rate": 1.71,
       "hale": 62.34,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 4.97
     },
@@ -2432,6 +2558,7 @@
       "homicide_rate": null,
       "hale": 49.72,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 49.6,
       "democracy_score": 3.38
     },
@@ -2452,6 +2579,7 @@
       "homicide_rate": 11.21,
       "hale": 52.82,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.48
     },
@@ -2472,6 +2600,7 @@
       "homicide_rate": 2.13,
       "hale": 60.2,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 30.0,
       "democracy_score": 4.6
     },
@@ -2492,6 +2621,7 @@
       "homicide_rate": 0.69,
       "hale": 69.97,
       "mental_health_index": 17.0,
+      "gender_pay_gap": 14.1,
       "gini_index": 25.7,
       "democracy_score": 9.0
     },
@@ -2512,6 +2642,7 @@
       "homicide_rate": 1.46,
       "hale": 69.98,
       "mental_health_index": 9.0,
+      "gender_pay_gap": 6.1,
       "gini_index": null,
       "democracy_score": 9.61
     },
@@ -2532,6 +2663,7 @@
       "homicide_rate": 11.35,
       "hale": 64.61,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.09
     },
@@ -2552,6 +2684,7 @@
       "homicide_rate": null,
       "hale": 52.61,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 32.9,
       "democracy_score": 2.26
     },
@@ -2572,6 +2705,7 @@
       "homicide_rate": 15.75,
       "hale": 54.95,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 33.9,
       "democracy_score": 4.16
     },
@@ -2592,6 +2726,7 @@
       "homicide_rate": 1.53,
       "hale": 63.71,
       "mental_health_index": 9.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.28
     },
@@ -2612,6 +2747,7 @@
       "homicide_rate": 0.72,
       "hale": 71.16,
       "mental_health_index": 23.0,
+      "gender_pay_gap": 7.1,
       "gini_index": 26.5,
       "democracy_score": 9.81
     },
@@ -2632,6 +2768,7 @@
       "homicide_rate": 0.14,
       "hale": 63.19,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 3.05
     },
@@ -2652,6 +2789,7 @@
       "homicide_rate": 4.33,
       "hale": 56.89,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -2672,6 +2810,7 @@
       "homicide_rate": 11.71,
       "hale": 66.74,
       "mental_health_index": 6.0,
+      "gender_pay_gap": null,
       "gini_index": 49.7,
       "democracy_score": 6.84
     },
@@ -2692,6 +2831,7 @@
       "homicide_rate": null,
       "hale": 57.48,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 5.97
     },
@@ -2712,6 +2852,7 @@
       "homicide_rate": 6.78,
       "hale": 60.88,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": 44.2,
       "democracy_score": 5.92
     },
@@ -2732,6 +2873,7 @@
       "homicide_rate": 8.6,
       "hale": 62.99,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 40.1,
       "democracy_score": 5.69
     },
@@ -2752,6 +2894,7 @@
       "homicide_rate": 4.35,
       "hale": 58.77,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 39.3,
       "democracy_score": 6.63
     },
@@ -2772,6 +2915,7 @@
       "homicide_rate": 0.8,
       "hale": 65.52,
       "mental_health_index": null,
+      "gender_pay_gap": 11.1,
       "gini_index": 28.5,
       "democracy_score": 7.4
     },
@@ -2792,6 +2936,7 @@
       "homicide_rate": 0.72,
       "hale": 69.52,
       "mental_health_index": 6.0,
+      "gender_pay_gap": 18.9,
       "gini_index": 33.9,
       "democracy_score": 8.08
     },
@@ -2812,6 +2957,7 @@
       "homicide_rate": 0.07,
       "hale": 66.21,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 3.17
     },
@@ -2832,6 +2978,7 @@
       "homicide_rate": 1.11,
       "hale": 63.85,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 29.8,
       "democracy_score": 5.99
     },
@@ -2852,6 +2999,7 @@
       "homicide_rate": 6.77,
       "hale": 60.94,
       "mental_health_index": 13.0,
+      "gender_pay_gap": null,
       "gini_index": 33.0,
       "democracy_score": 2.03
     },
@@ -2872,6 +3020,7 @@
       "homicide_rate": 3.61,
       "hale": 58.71,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 39.4,
       "democracy_score": 3.34
     },
@@ -2892,6 +3041,7 @@
       "homicide_rate": 39.04,
       "hale": 61.76,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2912,6 +3062,7 @@
       "homicide_rate": 51.32,
       "hale": 62.88,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2932,6 +3083,7 @@
       "homicide_rate": 6.26,
       "hale": 61.57,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2952,6 +3104,7 @@
       "homicide_rate": null,
       "hale": 62.44,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2972,6 +3125,7 @@
       "homicide_rate": 0.94,
       "hale": 65.64,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.08
     },
@@ -2992,6 +3146,7 @@
       "homicide_rate": null,
       "hale": 58.9,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 36.2,
       "democracy_score": 5.93
     },
@@ -3012,6 +3167,7 @@
       "homicide_rate": 1.31,
       "hale": 63.87,
       "mental_health_index": 6.0,
+      "gender_pay_gap": null,
       "gini_index": 32.8,
       "democracy_score": 6.26
     },
@@ -3032,6 +3188,7 @@
       "homicide_rate": 7.97,
       "hale": 64.72,
       "mental_health_index": 4.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3052,6 +3209,7 @@
       "homicide_rate": 2.22,
       "hale": 53.13,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 4.32
     },
@@ -3072,6 +3230,7 @@
       "homicide_rate": 0.07,
       "hale": 73.65,
       "mental_health_index": 4.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.18
     },
@@ -3092,6 +3251,7 @@
       "homicide_rate": 1.12,
       "hale": 64.94,
       "mental_health_index": null,
+      "gender_pay_gap": 13.9,
       "gini_index": 23.8,
       "democracy_score": 7.21
     },
@@ -3112,6 +3272,7 @@
       "homicide_rate": 0.57,
       "hale": 69.36,
       "mental_health_index": 12.0,
+      "gender_pay_gap": 5.0,
       "gini_index": 24.7,
       "democracy_score": 7.82
     },
@@ -3132,6 +3293,7 @@
       "homicide_rate": null,
       "hale": 57.37,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3152,6 +3314,7 @@
       "homicide_rate": 43.72,
       "hale": 52.76,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 7.16
     },
@@ -3172,6 +3335,7 @@
       "homicide_rate": 0.69,
       "hale": 71.11,
       "mental_health_index": 9.0,
+      "gender_pay_gap": 11.5,
       "gini_index": 33.4,
       "democracy_score": 8.13
     },
@@ -3192,6 +3356,7 @@
       "homicide_rate": 3.31,
       "hale": 66.73,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 6.19
     },
@@ -3212,6 +3377,7 @@
       "homicide_rate": null,
       "hale": 58.54,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 1.46
     },
@@ -3232,6 +3398,7 @@
       "homicide_rate": 6.52,
       "hale": 60.3,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": 39.2,
       "democracy_score": 6.79
     },
@@ -3252,6 +3419,7 @@
       "homicide_rate": 1.15,
       "hale": 71.12,
       "mental_health_index": null,
+      "gender_pay_gap": 13.4,
       "gini_index": 29.3,
       "democracy_score": 9.39
     },
@@ -3272,6 +3440,7 @@
       "homicide_rate": 0.6,
       "hale": 71.15,
       "mental_health_index": 47.0,
+      "gender_pay_gap": 16.9,
       "gini_index": 33.8,
       "democracy_score": 9.32
     },
@@ -3292,6 +3461,7 @@
       "homicide_rate": null,
       "hale": null,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 8.78
     },
@@ -3312,6 +3482,7 @@
       "homicide_rate": 0.89,
       "hale": 63.09,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": 36.1,
       "democracy_score": 1.83
     },
@@ -3332,6 +3503,7 @@
       "homicide_rate": 3.75,
       "hale": 58.07,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 5.2
     },
@@ -3352,6 +3524,7 @@
       "homicide_rate": null,
       "hale": 65.76,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 33.5,
       "democracy_score": 6.27
     },
@@ -3372,6 +3545,7 @@
       "homicide_rate": null,
       "hale": null,
       "mental_health_index": null,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3392,6 +3566,7 @@
       "homicide_rate": null,
       "hale": 55.85,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 37.9,
       "democracy_score": 2.99
     },
@@ -3412,6 +3587,7 @@
       "homicide_rate": 0.95,
       "hale": 63.78,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 27.1,
       "democracy_score": null
     },
@@ -3432,6 +3608,7 @@
       "homicide_rate": 40.44,
       "hale": 61.94,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 7.09
     },
@@ -3452,6 +3629,7 @@
       "homicide_rate": 4.69,
       "hale": 63.58,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 33.7,
       "democracy_score": 4.71
     },
@@ -3472,6 +3650,7 @@
       "homicide_rate": 3.23,
       "hale": 65.21,
       "mental_health_index": 2.0,
+      "gender_pay_gap": 6.9,
       "gini_index": 44.5,
       "democracy_score": 4.26
     },
@@ -3492,6 +3671,7 @@
       "homicide_rate": null,
       "hale": 60.82,
       "mental_health_index": 2.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 1.66
     },
@@ -3512,6 +3692,7 @@
       "homicide_rate": 8.97,
       "hale": 57.22,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 4.49
     },
@@ -3532,6 +3713,7 @@
       "homicide_rate": 0.69,
       "hale": 67.27,
       "mental_health_index": 4.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 3.07
     },
@@ -3552,6 +3734,7 @@
       "homicide_rate": 1.12,
       "hale": 68.64,
       "mental_health_index": 14.0,
+      "gender_pay_gap": 16.8,
       "gini_index": 32.4,
       "democracy_score": 8.34
     },
@@ -3572,6 +3755,7 @@
       "homicide_rate": 5.76,
       "hale": 63.91,
       "mental_health_index": null,
+      "gender_pay_gap": 18.1,
       "gini_index": 41.8,
       "democracy_score": 7.85
     },
@@ -3592,6 +3776,7 @@
       "homicide_rate": 11.25,
       "hale": 64.99,
       "mental_health_index": 16.0,
+      "gender_pay_gap": null,
       "gini_index": 40.0,
       "democracy_score": 8.67
     },
@@ -3612,6 +3797,7 @@
       "homicide_rate": 1.4,
       "hale": 63.36,
       "mental_health_index": 3.0,
+      "gender_pay_gap": null,
       "gini_index": 34.6,
       "democracy_score": 2.1
     },
@@ -3632,6 +3818,7 @@
       "homicide_rate": 0.33,
       "hale": 58.68,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3652,6 +3839,7 @@
       "homicide_rate": 12.65,
       "hale": 62.05,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.25
     },
@@ -3672,6 +3860,7 @@
       "homicide_rate": null,
       "hale": 65.35,
       "mental_health_index": 1.0,
+      "gender_pay_gap": null,
       "gini_index": 36.1,
       "democracy_score": 2.62
     },
@@ -3692,6 +3881,7 @@
       "homicide_rate": null,
       "hale": 52.97,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": 51.5,
       "democracy_score": 5.73
     },
@@ -3712,6 +3902,7 @@
       "homicide_rate": 6.76,
       "hale": 51.25,
       "mental_health_index": 0.0,
+      "gender_pay_gap": null,
       "gini_index": null,
       "democracy_score": 2.98
     }
@@ -13237,20 +13428,222 @@
           84.1
         ]
       }
+    },
+    "Gender_Pay_Gap": {
+      "points": [
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 14.3
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 17.0
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 3.3
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 18.6
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 21.1
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 11.1
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 3.7
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 16.3
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 5.8
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 28.3
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 18.1
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 9.9
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 17.1
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 6.2
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 9.5
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 9.9
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 14.4
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 21.8
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 5.6
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 25.7
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 36.7
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 21.1
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 12.5
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 3.4
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 16.5
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 14.1
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 6.1
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 7.1
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 11.1
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 18.9
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 13.9
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 5.0
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 11.5
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 13.4
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 16.9
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 6.9
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 16.8
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 18.1
+        }
+      ],
+      "trend_line": {
+        "slope": 0.249262,
+        "intercept": -3.8967,
+        "x_range": [
+          56.1,
+          83.7
+        ]
+      }
     }
   },
   "summary": {
     "positive_correlations": 12,
     "negative_correlations": 0,
-    "not_significant": 1,
-    "total_indices": 13,
+    "not_significant": 2,
+    "total_indices": 14,
     "verdict": "supports"
   },
   "comparison": {
     "economic_freedom_clear_wins": 5,
     "equality_clear_wins": 2,
     "democracy_clear_wins": 0,
-    "ties": 6,
+    "ties": 7,
     "metrics": [
       {
         "metric": "GDP per Capita",
@@ -13265,7 +13658,7 @@
         "equality": {
           "correlation": -0.3029,
           "effective": 0.3029,
-          "p_value": 0.0016830950360704983,
+          "p_value": 0.001683095036070498,
           "significant": true,
           "n": 105
         },
@@ -13310,7 +13703,7 @@
         "economic_freedom": {
           "correlation": -0.546,
           "effective": 0.546,
-          "p_value": 5.510525833166965e-15,
+          "p_value": 5.510525833166964e-15,
           "significant": true,
           "n": 175
         },
@@ -13395,7 +13788,7 @@
         "equality": {
           "correlation": -0.1549,
           "effective": 0.1549,
-          "p_value": 0.1338869813019186,
+          "p_value": 0.1338869813019185,
           "significant": false,
           "n": 95
         },
@@ -13506,7 +13899,7 @@
         "democracy": {
           "correlation": -0.1635,
           "effective": 0.1635,
-          "p_value": 0.06741994939333584,
+          "p_value": 0.06741994939333593,
           "significant": false,
           "n": 126
         },
@@ -13518,7 +13911,7 @@
         "economic_freedom": {
           "correlation": -0.1425,
           "effective": 0.1425,
-          "p_value": 0.09799733169752406,
+          "p_value": 0.09799733169752378,
           "significant": false,
           "n": 136
         },
@@ -13551,7 +13944,7 @@
         "equality": {
           "correlation": -0.3721,
           "effective": 0.3721,
-          "p_value": 0.00010043632357905224,
+          "p_value": 0.00010043632357905226,
           "significant": true,
           "n": 104
         },
@@ -13587,6 +13980,32 @@
           "p_value": 9.088456547632747e-12,
           "significant": true,
           "n": 118
+        },
+        "winner": "tie"
+      },
+      {
+        "metric": "Gender Pay Gap",
+        "metric_id": "Gender_Pay_Gap",
+        "economic_freedom": {
+          "correlation": 0.2315,
+          "effective": -0.2315,
+          "p_value": 0.16194433683141585,
+          "significant": false,
+          "n": 38
+        },
+        "equality": {
+          "correlation": 0.006,
+          "effective": 0.006,
+          "p_value": 0.9725918754868493,
+          "significant": false,
+          "n": 35
+        },
+        "democracy": {
+          "correlation": 0.0054,
+          "effective": -0.0054,
+          "p_value": 0.9742373979438649,
+          "significant": false,
+          "n": 38
         },
         "winner": "tie"
       }
