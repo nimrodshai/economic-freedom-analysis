@@ -2149,7 +2149,7 @@
 
             scatterChart.data.datasets = datasets;
             scatterChart.options.scales.x.title.text = xConfig.label;
-            scatterChart.options.scales.y.title.text = correlation.name;
+            scatterChart.options.scales.y.title.text = `${correlation.name} (n=${n})`;
 
             // Calculate actual data bounds with padding
             const yDataMin = Math.min(...yVals);

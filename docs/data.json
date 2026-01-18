@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-18T08:35:05.704437Z",
+    "generated_at": "2026-01-18T14:02:09.347177Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -56,7 +56,7 @@
   "correlations": [
     {
       "id": "Social_Mobility_Score",
-      "name": "Social Mobility Index (n=80)",
+      "name": "Social Mobility Index",
       "correlation": 0.7905,
       "effective_correlation": 0.7905,
       "p_value": 2.803354292776178e-18,
@@ -67,7 +67,7 @@
     },
     {
       "id": "Corruption_Score",
-      "name": "Anti-Corruption Score (n=170)",
+      "name": "Anti-Corruption Score",
       "correlation": 0.7819,
       "effective_correlation": 0.7819,
       "p_value": 2.5700493868252843e-36,
@@ -78,7 +78,7 @@
     },
     {
       "id": "HDI",
-      "name": "Human Development Index (n=167)",
+      "name": "Human Development Index",
       "correlation": 0.7164,
       "effective_correlation": 0.7164,
       "p_value": 1.3765517195725467e-27,
@@ -89,7 +89,7 @@
     },
     {
       "id": "Happiness_Score",
-      "name": "Happiness Score (n=138)",
+      "name": "Happiness Score",
       "correlation": 0.7068,
       "effective_correlation": 0.7068,
       "p_value": 3.445391012613344e-22,
@@ -100,7 +100,7 @@
     },
     {
       "id": "GDP_Per_Capita",
-      "name": "GDP per Capita (USD) (n=173)",
+      "name": "GDP per Capita (USD)",
       "correlation": 0.7015,
       "effective_correlation": 0.7015,
       "p_value": 6.010629775931473e-27,
@@ -111,7 +111,7 @@
     },
     {
       "id": "Pollution_Index",
-      "name": "Pollution (n=106)",
+      "name": "Pollution",
       "correlation": -0.6706,
       "effective_correlation": 0.6706,
       "p_value": 3.731142270659916e-15,
@@ -122,7 +122,7 @@
     },
     {
       "id": "Purchasing_Power_Index",
-      "name": "Purchasing Power (n=125)",
+      "name": "Purchasing Power",
       "correlation": 0.6648,
       "effective_correlation": 0.6648,
       "p_value": 2.8260303623466615e-17,
@@ -133,7 +133,7 @@
     },
     {
       "id": "Life_Expectancy",
-      "name": "Life Expectancy (years) (n=175)",
+      "name": "Life Expectancy (years)",
       "correlation": 0.5915,
       "effective_correlation": 0.5915,
       "p_value": 6.815543080640962e-18,
@@ -144,7 +144,7 @@
     },
     {
       "id": "HALE",
-      "name": "Healthy Life Expectancy (WHO) (n=170)",
+      "name": "Healthy Life Expectancy (WHO)",
       "correlation": 0.5816,
       "effective_correlation": 0.5816,
       "p_value": 9.102430663274446e-17,
@@ -155,7 +155,7 @@
     },
     {
       "id": "Infant_Mortality",
-      "name": "Infant Mortality (per 1000) (n=175)",
+      "name": "Infant Mortality (per 1000)",
       "correlation": -0.546,
       "effective_correlation": 0.546,
       "p_value": 5.510525833166964e-15,
@@ -166,7 +166,7 @@
     },
     {
       "id": "Mental_Health_Index",
-      "name": "Mental Health Access (WHO) (n=127)",
+      "name": "Mental Health Access (WHO)",
       "correlation": 0.5381,
       "effective_correlation": 0.5381,
       "p_value": 6.808432634399967e-11,
@@ -177,7 +177,7 @@
     },
     {
       "id": "Crime_Index",
-      "name": "Crime (Numbeo) (n=131)",
+      "name": "Crime (Numbeo)",
       "correlation": -0.4379,
       "effective_correlation": 0.4379,
       "p_value": 1.6894527430366075e-07,
@@ -188,7 +188,7 @@
     },
     {
       "id": "Homicide_Rate",
-      "name": "Homicide Rate (UNODC) (n=136)",
+      "name": "Homicide Rate (UNODC)",
       "correlation": -0.1425,
       "effective_correlation": 0.1425,
       "p_value": 0.09799733169752378,
@@ -199,7 +199,7 @@
     },
     {
       "id": "Gender_Pay_Gap",
-      "name": "Gender Pay Gap (n=38)",
+      "name": "Gender Pay Gap",
       "correlation": 0.2315,
       "effective_correlation": -0.2315,
       "p_value": 0.16194433683141585,
