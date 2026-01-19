@@ -1490,6 +1490,116 @@ class DataFetcher:
 
         raise Exception("Could not fetch Gender Pay Gap data")
 
+    def fetch_education_index(self):
+        """
+        Fetch Education Index data - composite measure of education achievement.
+        Source: UNDP Human Development Report / Our World in Data
+        Higher values = better (more years of schooling, higher enrollment).
+        Scale: 0-1 (normalized index)
+        """
+        print("Fetching Education Index...")
+
+        # Try Our World in Data (UNDP Education Index)
+        try:
+            url = "https://ourworldindata.org/grapher/education-index-undp.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Get most recent year for each country
+                if 'Year' in df.columns:
+                    df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+
+                # Find the education index column
+                edu_col = None
+                for col in df.columns:
+                    if 'education' in col.lower() or 'index' in col.lower():
+                        if col not in ['Entity', 'Code', 'Year']:
+                            edu_col = col
+                            break
+
+                if edu_col:
+                    result = pd.DataFrame({
+                        'Country': df['Entity'].apply(self._normalize_country_name),
+                        'Education_Index': pd.to_numeric(df[edu_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Education_Index'])
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/education_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Our World in Data (UNDP)")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Try UNDP HDR API directly
+        try:
+            url = "https://hdr.undp.org/sites/default/files/2023-24_HDR/HDR23-24_Statistical_Annex_Table_1.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text), encoding='utf-8-sig')
+
+                # Find country and education index columns
+                country_col = None
+                edu_col = None
+                for col in df.columns:
+                    col_lower = str(col).lower()
+                    if 'country' in col_lower or 'nation' in col_lower:
+                        country_col = col
+                    elif 'education' in col_lower and 'index' in col_lower:
+                        edu_col = col
+
+                if country_col and edu_col:
+                    result = pd.DataFrame({
+                        'Country': df[country_col].apply(self._normalize_country_name),
+                        'Education_Index': pd.to_numeric(df[edu_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Education_Index'])
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/education_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from UNDP HDR")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from UNDP: {e}")
+
+        # Try World Bank - Mean years of schooling
+        try:
+            url = "https://api.worldbank.org/v2/country/all/indicator/HD.HCI.EYRS?format=json&per_page=300&date=2018:2024"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if len(data) > 1 and data[1]:
+                    year_data = {}
+                    for item in data[1]:
+                        if item.get('value') is not None:
+                            country = item.get('country', {}).get('value', '')
+                            value = item.get('value')
+                            year = int(item.get('date', 0))
+                            if country and value is not None:
+                                if country not in year_data or year > year_data[country]['year']:
+                                    year_data[country] = {'value': value, 'year': year}
+
+                    if len(year_data) > 30:
+                        countries = [self._normalize_country_name(c) for c in year_data.keys()]
+                        # Normalize to 0-1 scale (assuming max ~15 years of schooling)
+                        values = [min(info['value'] / 15, 1.0) for info in year_data.values()]
+                        result = pd.DataFrame({
+                            'Country': countries,
+                            'Education_Index': values
+                        })
+                        result.to_csv(f"{self.cache_dir}/education_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from World Bank")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from World Bank: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/education_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Education Index data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Education Index data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1517,7 +1627,8 @@ class CorrelationAnalyzer:
             ('Homicide_Rate', 'Homicide Rate (UNODC)', 'lower is better'),
             ('HALE', 'Healthy Life Expectancy (WHO)', 'higher is better'),
             ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better'),
-            ('Gender_Pay_Gap', 'Gender Pay Gap', 'lower is better')
+            ('Gender_Pay_Gap', 'Gender Pay Gap', 'lower is better'),
+            ('Education_Index', 'Education Index (UNDP)', 'higher is better')
         ]
 
         for col, display_name, interpretation in indices:
