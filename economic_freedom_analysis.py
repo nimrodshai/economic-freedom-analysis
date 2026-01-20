@@ -1600,6 +1600,88 @@ class DataFetcher:
 
         raise Exception("Could not fetch Education Index data")
 
+    def fetch_gender_inequality_index(self):
+        """Fetch UNDP Gender Inequality Index (GII) data.
+        Scale: 0-1 where 0 = perfect equality, 1 = maximum inequality.
+        Lower is better.
+        Source: UNDP Human Development Report via Our World in Data"""
+        print("Fetching Gender Inequality Index...")
+
+        # Try Our World in Data - UNDP Gender Inequality Index
+        try:
+            url = "https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report.csv?v=1&csvType=full&useColumnShortNames=true"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Get most recent year for each country
+                year_col = [c for c in df.columns if 'year' in c.lower() or c == 'Year'][0] if any('year' in c.lower() or c == 'Year' for c in df.columns) else None
+                country_col = [c for c in df.columns if c.lower() in ['entity', 'country']][0] if any(c.lower() in ['entity', 'country'] for c in df.columns) else None
+                gii_col = [c for c in df.columns if 'gender' in c.lower() and 'inequality' in c.lower()][0] if any('gender' in c.lower() and 'inequality' in c.lower() for c in df.columns) else None
+
+                if not gii_col:
+                    # Try alternative column names
+                    for col in df.columns:
+                        if 'gii' in col.lower() or col == 'gender_inequality_index':
+                            gii_col = col
+                            break
+
+                if country_col and gii_col:
+                    if year_col:
+                        df = df.sort_values(year_col, ascending=False)
+                        df = df.drop_duplicates(subset=[country_col], keep='first')
+
+                    result = pd.DataFrame({
+                        'Country': df[country_col].apply(self._normalize_country_name),
+                        'Gender_Inequality_Index': pd.to_numeric(df[gii_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Gender_Inequality_Index'])
+
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/gender_inequality_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Our World in Data (UNDP)")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from Our World in Data: {e}")
+
+        # Try alternative UNDP source
+        try:
+            url = "https://hdr.undp.org/sites/default/files/2023-24_HDR/HDR23-24_Statistical_Annex_GII_Table.xlsx"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_excel(BytesIO(response.content), sheet_name=0, skiprows=5)
+
+                country_col = df.columns[1] if len(df.columns) > 1 else None
+                gii_col = None
+                for col in df.columns:
+                    if 'gender' in str(col).lower() or 'gii' in str(col).lower() or 'value' in str(col).lower():
+                        gii_col = col
+                        break
+                if not gii_col and len(df.columns) > 2:
+                    gii_col = df.columns[2]
+
+                if country_col and gii_col:
+                    result = pd.DataFrame({
+                        'Country': df[country_col].apply(self._normalize_country_name),
+                        'Gender_Inequality_Index': pd.to_numeric(df[gii_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Gender_Inequality_Index'])
+
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/gender_inequality_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from UNDP HDR")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from UNDP: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/gender_inequality_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Gender Inequality Index data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Gender Inequality Index data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1627,7 +1709,8 @@ class CorrelationAnalyzer:
             ('Homicide_Rate', 'Homicide Rate (UNODC)', 'lower is better'),
             ('HALE', 'Healthy Life Expectancy (WHO)', 'higher is better'),
             ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better'),
-            ('Education_Index', 'Education Index (UNDP)', 'higher is better')
+            ('Education_Index', 'Education Index (UNDP)', 'higher is better'),
+            ('Gender_Inequality_Index', 'Gender Inequality (UNDP)', 'lower is better')
         ]
 
         for col, display_name, interpretation in indices:
