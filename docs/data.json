@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-19T08:53:38.514115Z",
+    "generated_at": "2026-01-20T16:18:46.311041Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -46,10 +46,6 @@
       {
         "name": "WHO Mental Health Atlas",
         "year": 2021
-      },
-      {
-        "name": "OECD Gender Wage Gap",
-        "year": 2023
       },
       {
         "name": "UNDP Education Index",
@@ -103,17 +99,6 @@
       "unit": "0-10"
     },
     {
-      "id": "GDP_Per_Capita",
-      "name": "GDP per Capita (USD)",
-      "correlation": 0.7015,
-      "effective_correlation": 0.7015,
-      "p_value": 6.010629775931473e-27,
-      "significant": true,
-      "n": 173,
-      "higher_better": true,
-      "unit": "USD"
-    },
-    {
       "id": "Pollution_Index",
       "name": "Pollution",
       "correlation": -0.6706,
@@ -140,22 +125,11 @@
       "name": "Education Index (UNDP)",
       "correlation": 0.61,
       "effective_correlation": 0.61,
-      "p_value": 1.6279461660052583e-08,
+      "p_value": 1.6279461660052817e-08,
       "significant": true,
       "n": 71,
       "higher_better": true,
       "unit": "0-1"
-    },
-    {
-      "id": "Life_Expectancy",
-      "name": "Life Expectancy (years)",
-      "correlation": 0.5915,
-      "effective_correlation": 0.5915,
-      "p_value": 6.815543080640962e-18,
-      "significant": true,
-      "n": 175,
-      "higher_better": true,
-      "unit": "years"
     },
     {
       "id": "HALE",
@@ -211,17 +185,6 @@
       "n": 136,
       "higher_better": false,
       "unit": "per 100k"
-    },
-    {
-      "id": "Gender_Pay_Gap",
-      "name": "Gender Pay Gap",
-      "correlation": 0.2315,
-      "effective_correlation": -0.2315,
-      "p_value": 0.16194433683141585,
-      "significant": false,
-      "n": 38,
-      "higher_better": false,
-      "unit": "%"
     }
   ],
   "countries": [
@@ -229,8 +192,6 @@
       "name": "Albania",
       "region": "Europe",
       "economic_freedom": 66.6,
-      "gdp_per_capita": 11377.78,
-      "life_expectancy": 79.6,
       "infant_mortality": 8.3,
       "corruption_score": 37.0,
       "hdi": 0.79,
@@ -242,7 +203,6 @@
       "homicide_rate": 1.39,
       "hale": 66.69,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": 0.86,
       "gini_index": 29.4,
       "democracy_score": 6.2
@@ -251,8 +211,6 @@
       "name": "Algeria",
       "region": "Middle East / North Africa",
       "economic_freedom": 47.5,
-      "gdp_per_capita": 5752.99,
-      "life_expectancy": 76.26,
       "infant_mortality": 19.7,
       "corruption_score": 36.0,
       "hdi": 0.74,
@@ -264,7 +222,6 @@
       "homicide_rate": 1.16,
       "hale": 65.55,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": 0.79,
       "gini_index": null,
       "democracy_score": 3.55
@@ -273,8 +230,6 @@
       "name": "Angola",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 55.0,
-      "gdp_per_capita": 2665.87,
-      "life_expectancy": 64.62,
       "infant_mortality": 38.3,
       "corruption_score": 33.0,
       "hdi": 0.59,
@@ -286,7 +241,6 @@
       "homicide_rate": null,
       "hale": 53.76,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.54,
       "gini_index": null,
       "democracy_score": 4.05
@@ -295,8 +249,6 @@
       "name": "Argentina",
       "region": "Americas",
       "economic_freedom": 54.2,
-      "gdp_per_capita": 13969.78,
-      "life_expectancy": 77.39,
       "infant_mortality": 8.2,
       "corruption_score": 37.0,
       "hdi": 0.85,
@@ -308,7 +260,6 @@
       "homicide_rate": 4.49,
       "hale": 64.79,
       "mental_health_index": 15.0,
-      "gender_pay_gap": null,
       "education_index": 0.86,
       "gini_index": 42.4,
       "democracy_score": 6.51
@@ -317,8 +268,6 @@
       "name": "Armenia",
       "region": "Europe",
       "economic_freedom": 65.4,
-      "gdp_per_capita": 8556.21,
-      "life_expectancy": 77.47,
       "infant_mortality": 8.9,
       "corruption_score": 47.0,
       "hdi": 0.79,
@@ -330,7 +279,6 @@
       "homicide_rate": 2.21,
       "hale": 64.01,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": 0.75,
       "gini_index": 27.2,
       "democracy_score": 5.35
@@ -339,8 +287,6 @@
       "name": "Australia",
       "region": "Asia-Pacific",
       "economic_freedom": 79.3,
-      "gdp_per_capita": 64603.99,
-      "life_expectancy": 83.05,
       "infant_mortality": 3.1,
       "corruption_score": 75.0,
       "hdi": 0.95,
@@ -352,7 +298,6 @@
       "homicide_rate": 0.85,
       "hale": 70.61,
       "mental_health_index": 13.0,
-      "gender_pay_gap": 14.3,
       "education_index": 0.91,
       "gini_index": 33.8,
       "democracy_score": 8.85
@@ -361,8 +306,6 @@
       "name": "Austria",
       "region": "Europe",
       "economic_freedom": 69.7,
-      "gdp_per_capita": 58268.88,
-      "life_expectancy": 81.54,
       "infant_mortality": 2.6,
       "corruption_score": 71.0,
       "hdi": 0.93,
@@ -374,7 +317,6 @@
       "homicide_rate": 0.88,
       "hale": 69.79,
       "mental_health_index": 15.0,
-      "gender_pay_gap": 17.0,
       "education_index": 0.9,
       "gini_index": 31.2,
       "democracy_score": 8.28
@@ -383,8 +325,6 @@
       "name": "Azerbaijan",
       "region": "Europe",
       "economic_freedom": 62.5,
-      "gdp_per_capita": 7283.85,
-      "life_expectancy": 74.43,
       "infant_mortality": 13.3,
       "corruption_score": 23.0,
       "hdi": 0.76,
@@ -396,7 +336,6 @@
       "homicide_rate": 2.16,
       "hale": 64.04,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": 0.83,
       "gini_index": null,
       "democracy_score": 2.8
@@ -405,8 +344,6 @@
       "name": "Bahamas",
       "region": "Americas",
       "economic_freedom": 63.2,
-      "gdp_per_capita": 39455.45,
-      "life_expectancy": 74.55,
       "infant_mortality": 11.4,
       "corruption_score": 64.0,
       "hdi": 0.82,
@@ -418,7 +355,6 @@
       "homicide_rate": 32.2,
       "hale": 61.52,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -427,8 +363,6 @@
       "name": "Bahrain",
       "region": "Middle East / North Africa",
       "economic_freedom": 65.6,
-      "gdp_per_capita": 29653.57,
-      "life_expectancy": 81.28,
       "infant_mortality": 7.2,
       "corruption_score": 42.0,
       "hdi": 0.89,
@@ -440,7 +374,6 @@
       "homicide_rate": 0.2,
       "hale": 64.24,
       "mental_health_index": 4.0,
-      "gender_pay_gap": null,
       "education_index": 0.86,
       "gini_index": null,
       "democracy_score": 2.45
@@ -449,8 +382,6 @@
       "name": "Bangladesh",
       "region": "Asia-Pacific",
       "economic_freedom": 54.7,
-      "gdp_per_capita": 2593.42,
-      "life_expectancy": 74.67,
       "infant_mortality": 24.4,
       "corruption_score": 24.0,
       "hdi": 0.67,
@@ -462,7 +393,6 @@
       "homicide_rate": 2.34,
       "hale": 63.05,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.68,
       "gini_index": 30.9,
       "democracy_score": 4.44
@@ -471,8 +401,6 @@
       "name": "Barbados",
       "region": "Americas",
       "economic_freedom": 68.9,
-      "gdp_per_capita": 26544.87,
-      "life_expectancy": 76.18,
       "infant_mortality": 9.3,
       "corruption_score": 69.0,
       "hdi": 0.81,
@@ -484,7 +412,6 @@
       "homicide_rate": 7.44,
       "hale": 66.67,
       "mental_health_index": 7.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -493,8 +420,6 @@
       "name": "Belarus",
       "region": "Europe",
       "economic_freedom": 48.9,
-      "gdp_per_capita": 8317.63,
-      "life_expectancy": 74.18,
       "infant_mortality": 1.9,
       "corruption_score": 37.0,
       "hdi": 0.8,
@@ -506,7 +431,6 @@
       "homicide_rate": 2.38,
       "hale": 63.71,
       "mental_health_index": 11.0,
-      "gender_pay_gap": null,
       "education_index": 0.92,
       "gini_index": 24.4,
       "democracy_score": 1.99
@@ -515,8 +439,6 @@
       "name": "Belgium",
       "region": "Europe",
       "economic_freedom": 69.0,
-      "gdp_per_capita": 56614.57,
-      "life_expectancy": 82.4,
       "infant_mortality": 3.0,
       "corruption_score": 73.0,
       "hdi": 0.94,
@@ -528,7 +450,6 @@
       "homicide_rate": 1.08,
       "hale": 69.79,
       "mental_health_index": null,
-      "gender_pay_gap": 3.3,
       "education_index": 0.9,
       "gini_index": 26.8,
       "democracy_score": 7.64
@@ -537,8 +458,6 @@
       "name": "Belize",
       "region": "Americas",
       "economic_freedom": 64.2,
-      "gdp_per_capita": 7681.24,
-      "life_expectancy": 73.57,
       "infant_mortality": 10.8,
       "corruption_score": null,
       "hdi": 0.7,
@@ -550,7 +469,6 @@
       "homicide_rate": 28.06,
       "hale": 63.82,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -559,8 +477,6 @@
       "name": "Benin",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 58.5,
-      "gdp_per_capita": 1485.38,
-      "life_expectancy": 60.77,
       "infant_mortality": 46.4,
       "corruption_score": 43.0,
       "hdi": 0.5,
@@ -572,7 +488,6 @@
       "homicide_rate": 1.13,
       "hale": 55.72,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.61,
       "gini_index": 34.4,
       "democracy_score": 4.44
@@ -581,8 +496,6 @@
       "name": "Bhutan",
       "region": "Asia-Pacific",
       "economic_freedom": 57.5,
-      "gdp_per_capita": 3831.33,
-      "life_expectancy": 72.97,
       "infant_mortality": 18.5,
       "corruption_score": 68.0,
       "hdi": 0.68,
@@ -594,7 +507,6 @@
       "homicide_rate": 2.47,
       "hale": 64.8,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.68,
       "gini_index": 28.5,
       "democracy_score": 5.65
@@ -603,8 +515,6 @@
       "name": "Bolivia",
       "region": "Americas",
       "economic_freedom": 44.1,
-      "gdp_per_capita": 4421.17,
-      "life_expectancy": 68.58,
       "infant_mortality": 20.0,
       "corruption_score": 29.0,
       "hdi": null,
@@ -616,7 +526,6 @@
       "homicide_rate": 4.42,
       "hale": 57.43,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 42.1,
       "democracy_score": 4.26
@@ -625,8 +534,6 @@
       "name": "Bosnia and Herzegovina",
       "region": "Europe",
       "economic_freedom": 63.5,
-      "gdp_per_capita": 9358.79,
-      "life_expectancy": 77.85,
       "infant_mortality": 5.3,
       "corruption_score": 35.0,
       "hdi": 0.78,
@@ -638,7 +545,6 @@
       "homicide_rate": 1.22,
       "hale": 64.99,
       "mental_health_index": 9.0,
-      "gender_pay_gap": null,
       "education_index": 0.78,
       "gini_index": null,
       "democracy_score": 5.06
@@ -647,8 +553,6 @@
       "name": "Botswana",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 69.9,
-      "gdp_per_capita": 7695.75,
-      "life_expectancy": 69.16,
       "infant_mortality": 38.2,
       "corruption_score": 59.0,
       "hdi": 0.71,
@@ -660,7 +564,6 @@
       "homicide_rate": 11.37,
       "hale": 53.1,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.54,
       "gini_index": null,
       "democracy_score": 7.63
@@ -669,8 +572,6 @@
       "name": "Brazil",
       "region": "Americas",
       "economic_freedom": 55.1,
-      "gdp_per_capita": 10310.55,
-      "life_expectancy": 75.85,
       "infant_mortality": 12.5,
       "corruption_score": 36.0,
       "hdi": 0.76,
@@ -682,7 +583,6 @@
       "homicide_rate": 19.28,
       "hale": 61.83,
       "mental_health_index": 4.0,
-      "gender_pay_gap": null,
       "education_index": 0.79,
       "gini_index": 51.6,
       "democracy_score": 6.49
@@ -691,8 +591,6 @@
       "name": "Brunei",
       "region": "Asia-Pacific",
       "economic_freedom": 67.0,
-      "gdp_per_capita": 33153.47,
-      "life_expectancy": 75.33,
       "infant_mortality": 8.2,
       "corruption_score": null,
       "hdi": 0.82,
@@ -704,7 +602,6 @@
       "homicide_rate": null,
       "hale": 67.1,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.88,
       "gini_index": null,
       "democracy_score": null
@@ -713,8 +610,6 @@
       "name": "Bulgaria",
       "region": "Europe",
       "economic_freedom": 68.8,
-      "gdp_per_capita": 17596.02,
-      "life_expectancy": 75.71,
       "infant_mortality": 5.0,
       "corruption_score": 45.0,
       "hdi": 0.8,
@@ -726,7 +621,6 @@
       "homicide_rate": 1.09,
       "hale": 62.39,
       "mental_health_index": 10.0,
-      "gender_pay_gap": null,
       "education_index": 0.82,
       "gini_index": 39.5,
       "democracy_score": 6.34
@@ -735,8 +629,6 @@
       "name": "Burkina Faso",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 51.0,
-      "gdp_per_capita": 981.99,
-      "life_expectancy": 61.09,
       "infant_mortality": 44.8,
       "corruption_score": 41.0,
       "hdi": 0.44,
@@ -748,7 +640,6 @@
       "homicide_rate": 1.25,
       "hale": 54.56,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.47,
       "gini_index": 37.4,
       "democracy_score": 2.55
@@ -757,8 +648,6 @@
       "name": "Burma",
       "region": "Asia-Pacific",
       "economic_freedom": 43.7,
-      "gdp_per_capita": 1359.05,
-      "life_expectancy": 66.89,
       "infant_mortality": 34.1,
       "corruption_score": 20.0,
       "hdi": 0.61,
@@ -770,7 +659,6 @@
       "homicide_rate": 2.58,
       "hale": 59.75,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 0.96
@@ -779,8 +667,6 @@
       "name": "Burundi",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 39.7,
-      "gdp_per_capita": 219.42,
-      "life_expectancy": 63.65,
       "infant_mortality": 31.5,
       "corruption_score": 20.0,
       "hdi": 0.42,
@@ -792,7 +678,6 @@
       "homicide_rate": null,
       "hale": 55.84,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.51,
       "gini_index": 37.5,
       "democracy_score": 2.13
@@ -801,8 +686,6 @@
       "name": "Cabo Verde",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 68.7,
-      "gdp_per_capita": 5192.48,
-      "life_expectancy": 76.06,
       "infant_mortality": 11.0,
       "corruption_score": 64.0,
       "hdi": 0.66,
@@ -814,7 +697,6 @@
       "homicide_rate": 6.99,
       "hale": null,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -823,8 +705,6 @@
       "name": "Cambodia",
       "region": "Asia-Pacific",
       "economic_freedom": 58.2,
-      "gdp_per_capita": 2627.88,
-      "life_expectancy": 70.67,
       "infant_mortality": 20.3,
       "corruption_score": 22.0,
       "hdi": 0.6,
@@ -836,7 +716,6 @@
       "homicide_rate": null,
       "hale": 60.63,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.63,
       "gini_index": null,
       "democracy_score": 2.94
@@ -845,8 +724,6 @@
       "name": "Cameroon",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 52.1,
-      "gdp_per_capita": 1830.01,
-      "life_expectancy": 63.7,
       "infant_mortality": 41.2,
       "corruption_score": 27.0,
       "hdi": 0.59,
@@ -858,7 +735,6 @@
       "homicide_rate": 6.76,
       "hale": 54.01,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.58,
       "gini_index": 42.2,
       "democracy_score": 2.56
@@ -867,8 +743,6 @@
       "name": "Canada",
       "region": "Americas",
       "economic_freedom": 75.5,
-      "gdp_per_capita": 54340.35,
-      "life_expectancy": 81.65,
       "infant_mortality": 4.4,
       "corruption_score": 76.0,
       "hdi": 0.94,
@@ -880,7 +754,6 @@
       "homicide_rate": 1.98,
       "hale": 69.78,
       "mental_health_index": 14.0,
-      "gender_pay_gap": 18.6,
       "education_index": 0.91,
       "gini_index": 31.1,
       "democracy_score": 8.69
@@ -889,8 +762,6 @@
       "name": "Central African Republic",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 42.8,
-      "gdp_per_capita": 516.16,
-      "life_expectancy": 57.41,
       "infant_mortality": 60.4,
       "corruption_score": 24.0,
       "hdi": 0.39,
@@ -902,7 +773,6 @@
       "homicide_rate": null,
       "hale": 45.43,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.3,
       "gini_index": 43.0,
       "democracy_score": 1.18
@@ -911,8 +781,6 @@
       "name": "Chad",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 52.2,
-      "gdp_per_capita": 961.56,
-      "life_expectancy": 55.07,
       "infant_mortality": 58.7,
       "corruption_score": 20.0,
       "hdi": 0.39,
@@ -924,7 +792,6 @@
       "homicide_rate": null,
       "hale": 51.52,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.35,
       "gini_index": 37.4,
       "democracy_score": 1.89
@@ -933,8 +800,6 @@
       "name": "Chile",
       "region": "Americas",
       "economic_freedom": 73.2,
-      "gdp_per_capita": 16709.89,
-      "life_expectancy": 81.17,
       "infant_mortality": 6.2,
       "corruption_score": 66.0,
       "hdi": 0.86,
@@ -946,7 +811,6 @@
       "homicide_rate": 6.35,
       "hale": 67.65,
       "mental_health_index": 9.0,
-      "gender_pay_gap": 21.1,
       "education_index": 0.87,
       "gini_index": 43.0,
       "democracy_score": 7.83
@@ -955,8 +819,6 @@
       "name": "China",
       "region": "Asia-Pacific",
       "economic_freedom": 49.0,
-      "gdp_per_capita": 13303.15,
-      "life_expectancy": 77.95,
       "infant_mortality": 4.5,
       "corruption_score": 42.0,
       "hdi": 0.79,
@@ -968,7 +830,6 @@
       "homicide_rate": 0.5,
       "hale": 68.58,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": 0.88,
       "gini_index": 36.0,
       "democracy_score": 2.11
@@ -977,8 +838,6 @@
       "name": "Colombia",
       "region": "Americas",
       "economic_freedom": 59.8,
-      "gdp_per_capita": 7919.21,
-      "life_expectancy": 77.72,
       "infant_mortality": 10.9,
       "corruption_score": 40.0,
       "hdi": 0.76,
@@ -990,7 +849,6 @@
       "homicide_rate": 24.91,
       "hale": 65.02,
       "mental_health_index": 3.0,
-      "gender_pay_gap": 11.1,
       "education_index": 0.86,
       "gini_index": 53.9,
       "democracy_score": 6.35
@@ -999,8 +857,6 @@
       "name": "Comoros",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 51.4,
-      "gdp_per_capita": 1662.76,
-      "life_expectancy": 66.78,
       "infant_mortality": 35.7,
       "corruption_score": 20.0,
       "hdi": 0.59,
@@ -1012,7 +868,6 @@
       "homicide_rate": null,
       "hale": 59.02,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.54,
       "gini_index": null,
       "democracy_score": 2.84
@@ -1021,8 +876,6 @@
       "name": "DR Congo",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 47.3,
-      "gdp_per_capita": 649.38,
-      "life_expectancy": 61.9,
       "infant_mortality": 44.5,
       "corruption_score": 20.0,
       "hdi": null,
@@ -1034,7 +887,6 @@
       "homicide_rate": null,
       "hale": 53.21,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.61,
       "gini_index": 44.7,
       "democracy_score": 1.92
@@ -1043,8 +895,6 @@
       "name": "Congo",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 48.6,
-      "gdp_per_capita": 2482.25,
-      "life_expectancy": 65.77,
       "infant_mortality": 27.6,
       "corruption_score": 22.0,
       "hdi": 0.59,
@@ -1056,7 +906,6 @@
       "homicide_rate": null,
       "hale": 54.84,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.59,
       "gini_index": null,
       "democracy_score": 2.79
@@ -1065,8 +914,6 @@
       "name": "Costa Rica",
       "region": "Americas",
       "economic_freedom": 68.6,
-      "gdp_per_capita": 18587.15,
-      "life_expectancy": 80.8,
       "infant_mortality": 9.2,
       "corruption_score": 55.0,
       "hdi": 0.81,
@@ -1078,7 +925,6 @@
       "homicide_rate": 17.75,
       "hale": 67.63,
       "mental_health_index": 3.0,
-      "gender_pay_gap": 3.7,
       "education_index": 0.87,
       "gini_index": 45.8,
       "democracy_score": 8.29
@@ -1087,8 +933,6 @@
       "name": "Ivory Coast",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 57.8,
-      "gdp_per_capita": 2727.89,
-      "life_expectancy": 61.94,
       "infant_mortality": 46.6,
       "corruption_score": 40.0,
       "hdi": 0.53,
@@ -1100,7 +944,6 @@
       "homicide_rate": null,
       "hale": 55.41,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.54,
       "gini_index": 35.3,
       "democracy_score": 4.22
@@ -1109,8 +952,6 @@
       "name": "Croatia",
       "region": "Europe",
       "economic_freedom": 68.7,
-      "gdp_per_capita": 24050.44,
-      "life_expectancy": 78.47,
       "infant_mortality": 3.9,
       "corruption_score": 50.0,
       "hdi": 0.88,
@@ -1122,7 +963,6 @@
       "homicide_rate": 0.67,
       "hale": 66.8,
       "mental_health_index": 13.0,
-      "gender_pay_gap": null,
       "education_index": 0.89,
       "gini_index": 30.1,
       "democracy_score": 6.5
@@ -1131,8 +971,6 @@
       "name": "Cuba",
       "region": "Americas",
       "economic_freedom": 25.4,
-      "gdp_per_capita": 9605.28,
-      "life_expectancy": 78.08,
       "infant_mortality": 6.6,
       "corruption_score": 42.0,
       "hdi": 0.76,
@@ -1144,7 +982,6 @@
       "homicide_rate": 4.46,
       "hale": 64.62,
       "mental_health_index": 9.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.58
@@ -1153,8 +990,6 @@
       "name": "Cyprus",
       "region": "Europe",
       "economic_freedom": 73.2,
-      "gdp_per_capita": 38674.29,
-      "life_expectancy": 81.65,
       "infant_mortality": 2.9,
       "corruption_score": 53.0,
       "hdi": 0.91,
@@ -1166,7 +1001,6 @@
       "homicide_rate": 0.82,
       "hale": 70.74,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": 0.91,
       "gini_index": 31.8,
       "democracy_score": 7.38
@@ -1175,8 +1009,6 @@
       "name": "Czech Republic",
       "region": "Europe",
       "economic_freedom": 72.9,
-      "gdp_per_capita": 31823.31,
-      "life_expectancy": 79.88,
       "infant_mortality": 2.1,
       "corruption_score": 57.0,
       "hdi": 0.9,
@@ -1188,7 +1020,6 @@
       "homicide_rate": 0.77,
       "hale": 66.66,
       "mental_health_index": 16.0,
-      "gender_pay_gap": 16.3,
       "education_index": 0.9,
       "gini_index": 25.7,
       "democracy_score": 8.08
@@ -1197,8 +1028,6 @@
       "name": "Denmark",
       "region": "Europe",
       "economic_freedom": 79.1,
-      "gdp_per_capita": 71026.48,
-      "life_expectancy": 81.85,
       "infant_mortality": 3.0,
       "corruption_score": 90.0,
       "hdi": 0.95,
@@ -1210,7 +1039,6 @@
       "homicide_rate": 0.84,
       "hale": 70.06,
       "mental_health_index": null,
-      "gender_pay_gap": 5.8,
       "education_index": 0.89,
       "gini_index": 29.9,
       "democracy_score": 9.28
@@ -1219,8 +1047,6 @@
       "name": "Djibouti",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 55.7,
-      "gdp_per_capita": 3552.72,
-      "life_expectancy": 65.99,
       "infant_mortality": 44.4,
       "corruption_score": 30.0,
       "hdi": 0.52,
@@ -1232,7 +1058,6 @@
       "homicide_rate": null,
       "hale": 56.99,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.7
@@ -1241,8 +1066,6 @@
       "name": "Dominica",
       "region": "Americas",
       "economic_freedom": 55.3,
-      "gdp_per_capita": 10405.28,
-      "life_expectancy": 71.13,
       "infant_mortality": 33.1,
       "corruption_score": 56.0,
       "hdi": 0.74,
@@ -1254,7 +1077,6 @@
       "homicide_rate": 27.06,
       "hale": null,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.83,
       "gini_index": null,
       "democracy_score": null
@@ -1263,8 +1085,6 @@
       "name": "Dominican Republic",
       "region": "Americas",
       "economic_freedom": 64.3,
-      "gdp_per_capita": 10875.66,
-      "life_expectancy": 73.72,
       "infant_mortality": 28.4,
       "corruption_score": 35.0,
       "hdi": 0.77,
@@ -1276,7 +1096,6 @@
       "homicide_rate": 10.92,
       "hale": 63.56,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": 0.79,
       "gini_index": 39.0,
       "democracy_score": 6.62
@@ -1285,8 +1104,6 @@
       "name": "Ecuador",
       "region": "Americas",
       "economic_freedom": 55.8,
-      "gdp_per_capita": 6874.71,
-      "life_expectancy": 77.39,
       "infant_mortality": 11.1,
       "corruption_score": 34.0,
       "hdi": 0.77,
@@ -1298,7 +1115,6 @@
       "homicide_rate": 45.72,
       "hale": 64.34,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.86,
       "gini_index": 45.2,
       "democracy_score": 5.24
@@ -1307,8 +1123,6 @@
       "name": "Egypt",
       "region": "Middle East / North Africa",
       "economic_freedom": 50.9,
-      "gdp_per_capita": 3338.47,
-      "life_expectancy": 71.63,
       "infant_mortality": 16.1,
       "corruption_score": 35.0,
       "hdi": 0.73,
@@ -1320,7 +1134,6 @@
       "homicide_rate": 1.31,
       "hale": 60.36,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.76,
       "gini_index": 28.5,
       "democracy_score": 2.79
@@ -1329,8 +1142,6 @@
       "name": "El Salvador",
       "region": "Americas",
       "economic_freedom": 56.6,
-      "gdp_per_capita": 5579.66,
-      "life_expectancy": 72.1,
       "infant_mortality": 9.2,
       "corruption_score": 31.0,
       "hdi": 0.67,
@@ -1342,7 +1153,6 @@
       "homicide_rate": 7.9,
       "hale": 62.2,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.73,
       "gini_index": 39.8,
       "democracy_score": 4.61
@@ -1351,8 +1161,6 @@
       "name": "Equatorial Guinea",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 47.7,
-      "gdp_per_capita": 6745.4,
-      "life_expectancy": 63.71,
       "infant_mortality": 49.1,
       "corruption_score": 17.0,
       "hdi": 0.65,
@@ -1364,7 +1172,6 @@
       "homicide_rate": null,
       "hale": 53.26,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 38.5,
       "democracy_score": 1.92
@@ -1373,8 +1180,6 @@
       "name": "Eritrea",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 38.6,
-      "gdp_per_capita": null,
-      "life_expectancy": 68.62,
       "infant_mortality": 25.5,
       "corruption_score": 21.0,
       "hdi": 0.49,
@@ -1386,7 +1191,6 @@
       "homicide_rate": null,
       "hale": 55.42,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 1.97
@@ -1395,8 +1199,6 @@
       "name": "Estonia",
       "region": "Europe",
       "economic_freedom": 78.9,
-      "gdp_per_capita": 31428.35,
-      "life_expectancy": 78.49,
       "infant_mortality": 1.6,
       "corruption_score": 76.0,
       "hdi": 0.9,
@@ -1408,7 +1210,6 @@
       "homicide_rate": 1.54,
       "hale": 66.74,
       "mental_health_index": 16.0,
-      "gender_pay_gap": 28.3,
       "education_index": 0.9,
       "gini_index": 30.7,
       "democracy_score": 8.13
@@ -1417,8 +1218,6 @@
       "name": "Swaziland",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 56.4,
-      "gdp_per_capita": 3909.56,
-      "life_expectancy": 64.12,
       "infant_mortality": 43.5,
       "corruption_score": 30.0,
       "hdi": null,
@@ -1430,7 +1229,6 @@
       "homicide_rate": 12.51,
       "hale": 47.47,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.43,
       "gini_index": null,
       "democracy_score": 2.6
@@ -1439,8 +1237,6 @@
       "name": "Ethiopia",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 48.1,
-      "gdp_per_capita": 1133.88,
-      "life_expectancy": 67.31,
       "infant_mortality": 35.7,
       "corruption_score": 37.0,
       "hdi": 0.49,
@@ -1452,7 +1248,6 @@
       "homicide_rate": null,
       "hale": 58.83,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.52,
       "gini_index": 31.1,
       "democracy_score": 3.24
@@ -1461,8 +1256,6 @@
       "name": "Fiji",
       "region": "Asia-Pacific",
       "economic_freedom": 59.1,
-      "gdp_per_capita": 6425.74,
-      "life_expectancy": 67.32,
       "infant_mortality": 23.8,
       "corruption_score": 52.0,
       "hdi": 0.73,
@@ -1474,7 +1267,6 @@
       "homicide_rate": 2.06,
       "hale": 57.69,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": 0.76,
       "gini_index": null,
       "democracy_score": 5.39
@@ -1483,8 +1275,6 @@
       "name": "Finland",
       "region": "Europe",
       "economic_freedom": 77.0,
-      "gdp_per_capita": 53149.77,
-      "life_expectancy": 81.69,
       "infant_mortality": 1.8,
       "corruption_score": 87.0,
       "hdi": 0.94,
@@ -1496,7 +1286,6 @@
       "homicide_rate": 0.98,
       "hale": 69.93,
       "mental_health_index": 20.0,
-      "gender_pay_gap": 18.1,
       "education_index": 0.92,
       "gini_index": 27.4,
       "democracy_score": 9.3
@@ -1505,8 +1294,6 @@
       "name": "France",
       "region": "Europe",
       "economic_freedom": 64.4,
-      "gdp_per_capita": 46103.08,
-      "life_expectancy": 82.93,
       "infant_mortality": 3.4,
       "corruption_score": 71.0,
       "hdi": 0.91,
@@ -1518,7 +1305,6 @@
       "homicide_rate": 1.34,
       "hale": 70.08,
       "mental_health_index": 24.0,
-      "gender_pay_gap": 9.9,
       "education_index": 0.92,
       "gini_index": 31.8,
       "democracy_score": 7.99
@@ -1527,8 +1313,6 @@
       "name": "Gabon",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 56.3,
-      "gdp_per_capita": 8230.04,
-      "life_expectancy": 68.34,
       "infant_mortality": 26.5,
       "corruption_score": 28.0,
       "hdi": 0.69,
@@ -1540,7 +1324,6 @@
       "homicide_rate": null,
       "hale": 56.26,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.55,
       "gini_index": null,
       "democracy_score": 2.18
@@ -1549,8 +1332,6 @@
       "name": "Gambia",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 56.8,
-      "gdp_per_capita": 871.34,
-      "life_expectancy": 65.86,
       "infant_mortality": 33.8,
       "corruption_score": 37.0,
       "hdi": 0.49,
@@ -1562,7 +1343,6 @@
       "homicide_rate": null,
       "hale": 55.84,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.63,
       "gini_index": 38.8,
       "democracy_score": 4.47
@@ -1571,8 +1351,6 @@
       "name": "Georgia",
       "region": "Europe",
       "economic_freedom": 69.0,
-      "gdp_per_capita": 9241.49,
-      "life_expectancy": 74.5,
       "infant_mortality": 8.0,
       "corruption_score": 53.0,
       "hdi": 0.81,
@@ -1584,7 +1362,6 @@
       "homicide_rate": 2.03,
       "hale": 62.48,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.86,
       "gini_index": 33.9,
       "democracy_score": 4.7
@@ -1593,8 +1370,6 @@
       "name": "Germany",
       "region": "Europe",
       "economic_freedom": 71.6,
-      "gdp_per_capita": 56103.73,
-      "life_expectancy": 80.54,
       "infant_mortality": 3.1,
       "corruption_score": 78.0,
       "hdi": 0.95,
@@ -1606,7 +1381,6 @@
       "homicide_rate": 0.91,
       "hale": 68.93,
       "mental_health_index": 14.0,
-      "gender_pay_gap": 17.1,
       "education_index": 0.89,
       "gini_index": 32.4,
       "democracy_score": 8.73
@@ -1615,8 +1389,6 @@
       "name": "Ghana",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 56.0,
-      "gdp_per_capita": 2390.77,
-      "life_expectancy": 65.5,
       "infant_mortality": 28.2,
       "corruption_score": 43.0,
       "hdi": 0.6,
@@ -1628,7 +1400,6 @@
       "homicide_rate": 1.83,
       "hale": 57.88,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.81,
       "gini_index": null,
       "democracy_score": 6.24
@@ -1637,8 +1408,6 @@
       "name": "Greece",
       "region": "Europe",
       "economic_freedom": 60.6,
-      "gdp_per_capita": 24626.15,
-      "life_expectancy": 81.54,
       "infant_mortality": 3.2,
       "corruption_score": 49.0,
       "hdi": 0.89,
@@ -1650,7 +1419,6 @@
       "homicide_rate": 0.84,
       "hale": 68.55,
       "mental_health_index": null,
-      "gender_pay_gap": 6.2,
       "education_index": 0.89,
       "gini_index": 33.4,
       "democracy_score": 8.07
@@ -1659,8 +1427,6 @@
       "name": "Guatemala",
       "region": "Americas",
       "economic_freedom": 63.4,
-      "gdp_per_capita": 6150.03,
-      "life_expectancy": 72.6,
       "infant_mortality": 17.9,
       "corruption_score": 23.0,
       "hdi": 0.63,
@@ -1672,7 +1438,6 @@
       "homicide_rate": 23.37,
       "hale": 59.25,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.65,
       "gini_index": 45.2,
       "democracy_score": 4.55
@@ -1681,8 +1446,6 @@
       "name": "Guinea",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 54.6,
-      "gdp_per_capita": 1694.95,
-      "life_expectancy": 60.74,
       "infant_mortality": 61.5,
       "corruption_score": 26.0,
       "hdi": 0.47,
@@ -1694,7 +1457,6 @@
       "homicide_rate": null,
       "hale": 53.43,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.47,
       "gini_index": null,
       "democracy_score": 2.04
@@ -1703,8 +1465,6 @@
       "name": "Guinea-Bissau",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 43.6,
-      "gdp_per_capita": 1007.74,
-      "life_expectancy": 64.08,
       "infant_mortality": 43.1,
       "corruption_score": 22.0,
       "hdi": 0.48,
@@ -1716,7 +1476,6 @@
       "homicide_rate": 1.12,
       "hale": 51.45,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 33.4,
       "democracy_score": 2.03
@@ -1725,8 +1484,6 @@
       "name": "Guyana",
       "region": "Americas",
       "economic_freedom": 58.2,
-      "gdp_per_capita": 29675.24,
-      "life_expectancy": 70.18,
       "infant_mortality": 23.8,
       "corruption_score": 40.0,
       "hdi": 0.74,
@@ -1738,7 +1495,6 @@
       "homicide_rate": 19.12,
       "hale": 56.82,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": 0.81,
       "gini_index": null,
       "democracy_score": 6.11
@@ -1747,8 +1503,6 @@
       "name": "Haiti",
       "region": "Americas",
       "economic_freedom": 46.1,
-      "gdp_per_capita": 2142.62,
-      "life_expectancy": 64.94,
       "infant_mortality": 40.3,
       "corruption_score": 17.0,
       "hdi": 0.55,
@@ -1760,7 +1514,6 @@
       "homicide_rate": 41.15,
       "hale": 53.94,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.76,
       "gini_index": null,
       "democracy_score": 2.74
@@ -1769,8 +1522,6 @@
       "name": "Honduras",
       "region": "Americas",
       "economic_freedom": 59.6,
-      "gdp_per_capita": 3426.43,
-      "life_expectancy": 72.88,
       "infant_mortality": 13.3,
       "corruption_score": 23.0,
       "hdi": 0.62,
@@ -1782,7 +1533,6 @@
       "homicide_rate": 31.44,
       "hale": 60.05,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.64,
       "gini_index": 45.7,
       "democracy_score": 4.98
@@ -1791,8 +1541,6 @@
       "name": "Hungary",
       "region": "Europe",
       "economic_freedom": 61.4,
-      "gdp_per_capita": 23292.33,
-      "life_expectancy": 76.77,
       "infant_mortality": 3.2,
       "corruption_score": 42.0,
       "hdi": 0.85,
@@ -1804,7 +1552,6 @@
       "homicide_rate": 0.72,
       "hale": 64.84,
       "mental_health_index": 12.0,
-      "gender_pay_gap": 9.5,
       "education_index": 0.86,
       "gini_index": null,
       "democracy_score": 6.51
@@ -1813,8 +1560,6 @@
       "name": "Iceland",
       "region": "Europe",
       "economic_freedom": 72.8,
-      "gdp_per_capita": 86040.53,
-      "life_expectancy": 82.61,
       "infant_mortality": 1.9,
       "corruption_score": 72.0,
       "hdi": 0.96,
@@ -1826,7 +1571,6 @@
       "homicide_rate": 1.29,
       "hale": 71.37,
       "mental_health_index": null,
-      "gender_pay_gap": 9.9,
       "education_index": 0.9,
       "gini_index": null,
       "democracy_score": 9.38
@@ -1835,8 +1579,6 @@
       "name": "India",
       "region": "Asia-Pacific",
       "economic_freedom": 53.0,
-      "gdp_per_capita": 2694.74,
-      "life_expectancy": 72.0,
       "infant_mortality": 24.5,
       "corruption_score": 39.0,
       "hdi": 0.64,
@@ -1848,7 +1590,6 @@
       "homicide_rate": 2.82,
       "hale": 58.15,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": 0.74,
       "gini_index": 25.5,
       "democracy_score": 7.29
@@ -1857,8 +1598,6 @@
       "name": "Indonesia",
       "region": "Asia-Pacific",
       "economic_freedom": 65.2,
-      "gdp_per_capita": 4925.43,
-      "life_expectancy": 71.15,
       "infant_mortality": 17.0,
       "corruption_score": 34.0,
       "hdi": 0.71,
@@ -1870,7 +1609,6 @@
       "homicide_rate": 0.3,
       "hale": 60.67,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": 0.83,
       "gini_index": 34.9,
       "democracy_score": 6.44
@@ -1879,8 +1617,6 @@
       "name": "Iran",
       "region": "Middle East / North Africa",
       "economic_freedom": 42.5,
-      "gdp_per_capita": 5190.17,
-      "life_expectancy": 77.65,
       "infant_mortality": 10.7,
       "corruption_score": 24.0,
       "hdi": 0.78,
@@ -1892,7 +1628,6 @@
       "homicide_rate": null,
       "hale": 63.98,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": 0.79,
       "gini_index": 35.9,
       "democracy_score": 1.96
@@ -1901,8 +1636,6 @@
       "name": "Ireland",
       "region": "Europe",
       "economic_freedom": 83.1,
-      "gdp_per_capita": 112894.95,
-      "life_expectancy": 82.86,
       "infant_mortality": 3.4,
       "corruption_score": 77.0,
       "hdi": 0.95,
@@ -1914,7 +1647,6 @@
       "homicide_rate": 0.65,
       "hale": 70.0,
       "mental_health_index": 8.0,
-      "gender_pay_gap": 14.4,
       "education_index": 0.93,
       "gini_index": 29.0,
       "democracy_score": 9.19
@@ -1923,8 +1655,6 @@
       "name": "Israel",
       "region": "Middle East / North Africa",
       "economic_freedom": 69.9,
-      "gdp_per_capita": 54176.68,
-      "life_expectancy": 83.2,
       "infant_mortality": 2.7,
       "corruption_score": 62.0,
       "hdi": 0.92,
@@ -1936,7 +1666,6 @@
       "homicide_rate": 1.63,
       "hale": 70.76,
       "mental_health_index": null,
-      "gender_pay_gap": 21.8,
       "education_index": 0.92,
       "gini_index": 37.9,
       "democracy_score": 7.8
@@ -1945,8 +1674,6 @@
       "name": "Italy",
       "region": "Europe",
       "economic_freedom": 60.9,
-      "gdp_per_capita": 40385.34,
-      "life_expectancy": 83.7,
       "infant_mortality": 2.3,
       "corruption_score": 56.0,
       "hdi": 0.91,
@@ -1958,7 +1685,6 @@
       "homicide_rate": 0.57,
       "hale": 70.56,
       "mental_health_index": 6.0,
-      "gender_pay_gap": 5.6,
       "education_index": 0.88,
       "gini_index": 34.3,
       "democracy_score": 7.58
@@ -1967,8 +1693,6 @@
       "name": "Jamaica",
       "region": "Americas",
       "economic_freedom": 68.7,
-      "gdp_per_capita": 7753.8,
-      "life_expectancy": 71.48,
       "infant_mortality": 18.3,
       "corruption_score": 44.0,
       "hdi": 0.71,
@@ -1980,7 +1704,6 @@
       "homicide_rate": 49.44,
       "hale": 61.72,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": 0.76,
       "gini_index": 39.9,
       "democracy_score": 6.74
@@ -1989,8 +1712,6 @@
       "name": "Japan",
       "region": "Asia-Pacific",
       "economic_freedom": 70.2,
-      "gdp_per_capita": 32487.08,
-      "life_expectancy": 84.04,
       "infant_mortality": 1.8,
       "corruption_score": 73.0,
       "hdi": 0.92,
@@ -2002,7 +1723,6 @@
       "homicide_rate": 0.23,
       "hale": 73.4,
       "mental_health_index": null,
-      "gender_pay_gap": 25.7,
       "education_index": 0.91,
       "gini_index": 32.3,
       "democracy_score": 8.48
@@ -2011,8 +1731,6 @@
       "name": "Jordan",
       "region": "Middle East / North Africa",
       "economic_freedom": 59.4,
-      "gdp_per_capita": 4618.1,
-      "life_expectancy": 77.81,
       "infant_mortality": 12.2,
       "corruption_score": 46.0,
       "hdi": 0.74,
@@ -2024,7 +1742,6 @@
       "homicide_rate": 0.99,
       "hale": 65.07,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": 0.74,
       "gini_index": null,
       "democracy_score": 3.28
@@ -2033,8 +1750,6 @@
       "name": "Kazakhstan",
       "region": "Asia-Pacific",
       "economic_freedom": 63.8,
-      "gdp_per_capita": 14154.63,
-      "life_expectancy": 74.4,
       "infant_mortality": 7.6,
       "corruption_score": 39.0,
       "hdi": 0.8,
@@ -2046,7 +1761,6 @@
       "homicide_rate": 2.55,
       "hale": 61.55,
       "mental_health_index": 4.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 29.2,
       "democracy_score": 3.08
@@ -2055,8 +1769,6 @@
       "name": "Kenya",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 54.8,
-      "gdp_per_capita": 2132.43,
-      "life_expectancy": 63.65,
       "infant_mortality": 34.7,
       "corruption_score": 31.0,
       "hdi": 0.6,
@@ -2068,7 +1780,6 @@
       "homicide_rate": 4.87,
       "hale": 58.22,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 37.7,
       "democracy_score": 5.05
@@ -2077,8 +1788,6 @@
       "name": "Kiribati",
       "region": "Asia-Pacific",
       "economic_freedom": 50.9,
-      "gdp_per_capita": 2288.63,
-      "life_expectancy": 66.47,
       "infant_mortality": 39.7,
       "corruption_score": null,
       "hdi": 0.63,
@@ -2090,7 +1799,6 @@
       "homicide_rate": null,
       "hale": 53.65,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -2099,8 +1807,6 @@
       "name": "North Korea",
       "region": "Asia-Pacific",
       "economic_freedom": 3.0,
-      "gdp_per_capita": null,
-      "life_expectancy": 73.64,
       "infant_mortality": 14.5,
       "corruption_score": 17.0,
       "hdi": null,
@@ -2112,7 +1818,6 @@
       "homicide_rate": null,
       "hale": 64.73,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 1.08
@@ -2121,8 +1826,6 @@
       "name": "South Korea",
       "region": "Asia-Pacific",
       "economic_freedom": 74.0,
-      "gdp_per_capita": 36238.64,
-      "life_expectancy": 83.43,
       "infant_mortality": 2.3,
       "corruption_score": 63.0,
       "hdi": 0.93,
@@ -2134,7 +1837,6 @@
       "homicide_rate": 0.48,
       "hale": 72.45,
       "mental_health_index": 8.0,
-      "gender_pay_gap": 36.7,
       "education_index": null,
       "gini_index": 32.9,
       "democracy_score": 7.75
@@ -2143,8 +1845,6 @@
       "name": "Kosovo",
       "region": "Europe",
       "economic_freedom": 61.7,
-      "gdp_per_capita": 7023.07,
-      "life_expectancy": 78.03,
       "infant_mortality": 8.3,
       "corruption_score": 41.0,
       "hdi": null,
@@ -2156,7 +1856,6 @@
       "homicide_rate": 1.89,
       "hale": null,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 38.3,
       "democracy_score": null
@@ -2165,8 +1864,6 @@
       "name": "Kuwait",
       "region": "Middle East / North Africa",
       "economic_freedom": 59.9,
-      "gdp_per_capita": 32717.72,
-      "life_expectancy": 83.19,
       "infant_mortality": 7.6,
       "corruption_score": 46.0,
       "hdi": 0.85,
@@ -2178,7 +1875,6 @@
       "homicide_rate": 0.25,
       "hale": 67.78,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.78
@@ -2187,8 +1883,6 @@
       "name": "Kyrgyzstan",
       "region": "Asia-Pacific",
       "economic_freedom": 55.6,
-      "gdp_per_capita": 2420.19,
-      "life_expectancy": 72.25,
       "infant_mortality": 14.9,
       "corruption_score": 26.0,
       "hdi": 0.7,
@@ -2200,7 +1894,6 @@
       "homicide_rate": 1.75,
       "hale": 63.42,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 27.2,
       "democracy_score": 3.52
@@ -2209,8 +1902,6 @@
       "name": "Laos",
       "region": "Asia-Pacific",
       "economic_freedom": 51.1,
-      "gdp_per_capita": 2123.98,
-      "life_expectancy": 68.96,
       "infant_mortality": 35.2,
       "corruption_score": 28.0,
       "hdi": 0.62,
@@ -2222,7 +1913,6 @@
       "homicide_rate": null,
       "hale": 60.41,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 1.71
@@ -2231,8 +1921,6 @@
       "name": "Latvia",
       "region": "Europe",
       "economic_freedom": 71.4,
-      "gdp_per_capita": 23409.08,
-      "life_expectancy": 75.68,
       "infant_mortality": 2.5,
       "corruption_score": 60.0,
       "hdi": 0.88,
@@ -2244,7 +1932,6 @@
       "homicide_rate": 2.5,
       "hale": 63.76,
       "mental_health_index": 13.0,
-      "gender_pay_gap": 21.1,
       "education_index": null,
       "gini_index": 34.0,
       "democracy_score": 7.66
@@ -2253,8 +1940,6 @@
       "name": "Lebanon",
       "region": "Middle East / North Africa",
       "economic_freedom": 44.1,
-      "gdp_per_capita": 3477.72,
-      "life_expectancy": 77.82,
       "infant_mortality": 16.0,
       "corruption_score": 24.0,
       "hdi": 0.72,
@@ -2266,7 +1951,6 @@
       "homicide_rate": 2.24,
       "hale": 63.22,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 35.3,
       "democracy_score": 3.56
@@ -2275,8 +1959,6 @@
       "name": "Lesotho",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 54.1,
-      "gdp_per_capita": 971.91,
-      "life_expectancy": 57.38,
       "infant_mortality": 55.4,
       "corruption_score": 39.0,
       "hdi": 0.52,
@@ -2288,7 +1970,6 @@
       "homicide_rate": null,
       "hale": 44.63,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 6.06
@@ -2297,8 +1978,6 @@
       "name": "Liberia",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 48.5,
-      "gdp_per_capita": 851.5,
-      "life_expectancy": 62.16,
       "infant_mortality": 52.6,
       "corruption_score": 25.0,
       "hdi": 0.49,
@@ -2310,7 +1989,6 @@
       "homicide_rate": null,
       "hale": 53.96,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 5.57
@@ -2319,8 +1997,6 @@
       "name": "Lithuania",
       "region": "Europe",
       "economic_freedom": 74.6,
-      "gdp_per_capita": 29384.02,
-      "life_expectancy": 76.99,
       "infant_mortality": 2.8,
       "corruption_score": 61.0,
       "hdi": 0.88,
@@ -2332,7 +2008,6 @@
       "homicide_rate": 2.63,
       "hale": 64.23,
       "mental_health_index": 20.0,
-      "gender_pay_gap": 12.5,
       "education_index": null,
       "gini_index": 36.0,
       "democracy_score": 7.59
@@ -2341,8 +2016,6 @@
       "name": "Luxembourg",
       "region": "Europe",
       "economic_freedom": 79.5,
-      "gdp_per_capita": 137781.68,
-      "life_expectancy": 83.36,
       "infant_mortality": 2.0,
       "corruption_score": 78.0,
       "hdi": 0.93,
@@ -2354,7 +2027,6 @@
       "homicide_rate": 1.53,
       "hale": 71.23,
       "mental_health_index": null,
-      "gender_pay_gap": 3.4,
       "education_index": null,
       "gini_index": 33.6,
       "democracy_score": 8.88
@@ -2363,8 +2035,6 @@
       "name": "Madagascar",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 57.0,
-      "gdp_per_capita": 544.99,
-      "life_expectancy": 63.63,
       "infant_mortality": 44.2,
       "corruption_score": 25.0,
       "hdi": 0.49,
@@ -2376,7 +2046,6 @@
       "homicide_rate": null,
       "hale": 55.14,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 36.8,
       "democracy_score": 5.33
@@ -2385,8 +2054,6 @@
       "name": "Malawi",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 50.9,
-      "gdp_per_capita": 522.57,
-      "life_expectancy": 67.35,
       "infant_mortality": 29.4,
       "corruption_score": 34.0,
       "hdi": 0.51,
@@ -2398,7 +2065,6 @@
       "homicide_rate": null,
       "hale": 54.67,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 5.85
@@ -2407,8 +2073,6 @@
       "name": "Malaysia",
       "region": "Asia-Pacific",
       "economic_freedom": 67.1,
-      "gdp_per_capita": 11874.43,
-      "life_expectancy": 76.66,
       "infant_mortality": 6.8,
       "corruption_score": 50.0,
       "hdi": 0.81,
@@ -2420,7 +2084,6 @@
       "homicide_rate": 0.73,
       "hale": 63.95,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 40.7,
       "democracy_score": 7.11
@@ -2429,8 +2092,6 @@
       "name": "Maldives",
       "region": "Asia-Pacific",
       "economic_freedom": 48.3,
-      "gdp_per_capita": 13379.35,
-      "life_expectancy": 81.04,
       "infant_mortality": 5.0,
       "corruption_score": 39.0,
       "hdi": 0.76,
@@ -2442,7 +2103,6 @@
       "homicide_rate": 0.62,
       "hale": 66.67,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -2451,8 +2111,6 @@
       "name": "Mali",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 52.6,
-      "gdp_per_capita": 1094.62,
-      "life_expectancy": 60.44,
       "infant_mortality": 57.6,
       "corruption_score": 28.0,
       "hdi": 0.41,
@@ -2464,7 +2122,6 @@
       "homicide_rate": null,
       "hale": 53.56,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 35.7,
       "democracy_score": 2.4
@@ -2473,8 +2130,6 @@
       "name": "Malta",
       "region": "Europe",
       "economic_freedom": 66.8,
-      "gdp_per_capita": 43898.58,
-      "life_expectancy": 83.51,
       "infant_mortality": 4.8,
       "corruption_score": 51.0,
       "hdi": 0.92,
@@ -2486,7 +2141,6 @@
       "homicide_rate": 0.56,
       "hale": 70.71,
       "mental_health_index": 7.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 34.6,
       "democracy_score": 7.93
@@ -2495,8 +2149,6 @@
       "name": "Mauritania",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 54.9,
-      "gdp_per_capita": 2110.12,
-      "life_expectancy": 68.48,
       "infant_mortality": 31.0,
       "corruption_score": 30.0,
       "hdi": 0.54,
@@ -2508,7 +2160,6 @@
       "homicide_rate": 1.0,
       "hale": 60.39,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 3.96
@@ -2517,8 +2168,6 @@
       "name": "Mauritius",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 75.0,
-      "gdp_per_capita": 11990.78,
-      "life_expectancy": 73.41,
       "infant_mortality": 13.5,
       "corruption_score": 51.0,
       "hdi": 0.8,
@@ -2530,7 +2179,6 @@
       "homicide_rate": 2.27,
       "hale": 63.63,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 8.23
@@ -2539,8 +2187,6 @@
       "name": "Mexico",
       "region": "Americas",
       "economic_freedom": 61.3,
-      "gdp_per_capita": 14185.78,
-      "life_expectancy": 75.07,
       "infant_mortality": 10.8,
       "corruption_score": 31.0,
       "hdi": 0.78,
@@ -2552,7 +2198,6 @@
       "homicide_rate": 24.86,
       "hale": 61.44,
       "mental_health_index": 2.0,
-      "gender_pay_gap": 16.5,
       "education_index": null,
       "gini_index": 43.5,
       "democracy_score": 5.32
@@ -2561,8 +2206,6 @@
       "name": "Micronesia",
       "region": "Asia-Pacific",
       "economic_freedom": 62.2,
-      "gdp_per_capita": 4166.0,
-      "life_expectancy": 67.2,
       "infant_mortality": 20.8,
       "corruption_score": null,
       "hdi": null,
@@ -2574,7 +2217,6 @@
       "homicide_rate": 0.91,
       "hale": null,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -2583,8 +2225,6 @@
       "name": "Moldova",
       "region": "Europe",
       "economic_freedom": 58.3,
-      "gdp_per_capita": 7576.2,
-      "life_expectancy": 71.2,
       "infant_mortality": 13.5,
       "corruption_score": 42.0,
       "hdi": null,
@@ -2596,7 +2236,6 @@
       "homicide_rate": 2.54,
       "hale": 61.21,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 26.8,
       "democracy_score": 6.04
@@ -2605,8 +2244,6 @@
       "name": "Mongolia",
       "region": "Asia-Pacific",
       "economic_freedom": 62.6,
-      "gdp_per_capita": 6750.63,
-      "life_expectancy": 72.12,
       "infant_mortality": 11.4,
       "corruption_score": 33.0,
       "hdi": 0.74,
@@ -2618,7 +2255,6 @@
       "homicide_rate": 5.92,
       "hale": 61.31,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 31.4,
       "democracy_score": 6.53
@@ -2627,8 +2263,6 @@
       "name": "Montenegro",
       "region": "Europe",
       "economic_freedom": 63.8,
-      "gdp_per_capita": 13263.33,
-      "life_expectancy": 77.59,
       "infant_mortality": 2.1,
       "corruption_score": 46.0,
       "hdi": 0.84,
@@ -2640,7 +2274,6 @@
       "homicide_rate": 0.79,
       "hale": 65.15,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 34.3,
       "democracy_score": 6.73
@@ -2649,8 +2282,6 @@
       "name": "Morocco",
       "region": "Middle East / North Africa",
       "economic_freedom": 60.3,
-      "gdp_per_capita": 4153.19,
-      "life_expectancy": 75.31,
       "infant_mortality": 15.5,
       "corruption_score": 38.0,
       "hdi": 0.7,
@@ -2662,7 +2293,6 @@
       "homicide_rate": 1.71,
       "hale": 62.34,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 4.97
@@ -2671,8 +2301,6 @@
       "name": "Mozambique",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 50.7,
-      "gdp_per_capita": 656.78,
-      "life_expectancy": 63.61,
       "infant_mortality": 45.4,
       "corruption_score": 25.0,
       "hdi": 0.46,
@@ -2684,7 +2312,6 @@
       "homicide_rate": null,
       "hale": 49.72,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 49.6,
       "democracy_score": 3.38
@@ -2693,8 +2320,6 @@
       "name": "Namibia",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 58.7,
-      "gdp_per_capita": 4413.13,
-      "life_expectancy": 67.39,
       "infant_mortality": 38.4,
       "corruption_score": 49.0,
       "hdi": 0.61,
@@ -2706,7 +2331,6 @@
       "homicide_rate": 11.21,
       "hale": 52.82,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 6.48
@@ -2715,8 +2339,6 @@
       "name": "Nepal",
       "region": "Asia-Pacific",
       "economic_freedom": 52.5,
-      "gdp_per_capita": 1447.31,
-      "life_expectancy": 70.35,
       "infant_mortality": 23.3,
       "corruption_score": 35.0,
       "hdi": 0.6,
@@ -2728,7 +2350,6 @@
       "homicide_rate": 2.13,
       "hale": 60.2,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 30.0,
       "democracy_score": 4.6
@@ -2737,8 +2358,6 @@
       "name": "Netherlands",
       "region": "Europe",
       "economic_freedom": 78.2,
-      "gdp_per_capita": 67520.42,
-      "life_expectancy": 81.91,
       "infant_mortality": 3.5,
       "corruption_score": 79.0,
       "hdi": 0.95,
@@ -2750,7 +2369,6 @@
       "homicide_rate": 0.69,
       "hale": 69.97,
       "mental_health_index": 17.0,
-      "gender_pay_gap": 14.1,
       "education_index": null,
       "gini_index": 25.7,
       "democracy_score": 9.0
@@ -2759,8 +2377,6 @@
       "name": "New Zealand",
       "region": "Asia-Pacific",
       "economic_freedom": 78.1,
-      "gdp_per_capita": 49205.18,
-      "life_expectancy": 83.0,
       "infant_mortality": 4.0,
       "corruption_score": 85.0,
       "hdi": 0.94,
@@ -2772,7 +2388,6 @@
       "homicide_rate": 1.46,
       "hale": 69.98,
       "mental_health_index": 9.0,
-      "gender_pay_gap": 6.1,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 9.61
@@ -2781,8 +2396,6 @@
       "name": "Nicaragua",
       "region": "Americas",
       "economic_freedom": 54.0,
-      "gdp_per_capita": 2847.54,
-      "life_expectancy": 74.95,
       "infant_mortality": 10.3,
       "corruption_score": 17.0,
       "hdi": 0.67,
@@ -2794,7 +2407,6 @@
       "homicide_rate": 11.35,
       "hale": 64.61,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.09
@@ -2803,8 +2415,6 @@
       "name": "Niger",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 51.5,
-      "gdp_per_capita": 735.27,
-      "life_expectancy": 61.18,
       "infant_mortality": 67.4,
       "corruption_score": 32.0,
       "hdi": 0.39,
@@ -2816,7 +2426,6 @@
       "homicide_rate": null,
       "hale": 52.61,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 32.9,
       "democracy_score": 2.26
@@ -2825,8 +2434,6 @@
       "name": "Nigeria",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 53.4,
-      "gdp_per_capita": 1084.16,
-      "life_expectancy": 54.46,
       "infant_mortality": 60.1,
       "corruption_score": 25.0,
       "hdi": 0.55,
@@ -2838,7 +2445,6 @@
       "homicide_rate": 15.75,
       "hale": 54.95,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 33.9,
       "democracy_score": 4.16
@@ -2847,8 +2453,6 @@
       "name": "Macedonia",
       "region": "Europe",
       "economic_freedom": 63.2,
-      "gdp_per_capita": 9291.86,
-      "life_expectancy": 75.32,
       "infant_mortality": 2.8,
       "corruption_score": 42.0,
       "hdi": 0.77,
@@ -2860,7 +2464,6 @@
       "homicide_rate": 1.53,
       "hale": 63.71,
       "mental_health_index": 9.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 6.28
@@ -2869,8 +2472,6 @@
       "name": "Norway",
       "region": "Europe",
       "economic_freedom": 78.3,
-      "gdp_per_capita": 86785.43,
-      "life_expectancy": 83.11,
       "infant_mortality": 1.9,
       "corruption_score": 84.0,
       "hdi": 0.97,
@@ -2882,7 +2483,6 @@
       "homicide_rate": 0.72,
       "hale": 71.16,
       "mental_health_index": 23.0,
-      "gender_pay_gap": 7.1,
       "education_index": null,
       "gini_index": 26.5,
       "democracy_score": 9.81
@@ -2891,8 +2491,6 @@
       "name": "Oman",
       "region": "Middle East / North Africa",
       "economic_freedom": 65.4,
-      "gdp_per_capita": 20285.23,
-      "life_expectancy": 80.03,
       "infant_mortality": 8.4,
       "corruption_score": 43.0,
       "hdi": 0.82,
@@ -2904,7 +2502,6 @@
       "homicide_rate": 0.14,
       "hale": 63.19,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 3.05
@@ -2913,8 +2510,6 @@
       "name": "Pakistan",
       "region": "Asia-Pacific",
       "economic_freedom": 49.1,
-      "gdp_per_capita": 1478.77,
-      "life_expectancy": 67.65,
       "infant_mortality": 50.1,
       "corruption_score": 29.0,
       "hdi": 0.54,
@@ -2926,7 +2521,6 @@
       "homicide_rate": 4.33,
       "hale": 56.89,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.84
@@ -2935,8 +2529,6 @@
       "name": "Panama",
       "region": "Americas",
       "economic_freedom": 65.5,
-      "gdp_per_capita": 19161.22,
-      "life_expectancy": 79.59,
       "infant_mortality": 10.6,
       "corruption_score": 35.0,
       "hdi": 0.82,
@@ -2948,7 +2540,6 @@
       "homicide_rate": 11.71,
       "hale": 66.74,
       "mental_health_index": 6.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 49.7,
       "democracy_score": 6.84
@@ -2957,8 +2548,6 @@
       "name": "Papua New Guinea",
       "region": "Asia-Pacific",
       "economic_freedom": 52.5,
-      "gdp_per_capita": 3006.71,
-      "life_expectancy": 66.13,
       "infant_mortality": 32.0,
       "corruption_score": 29.0,
       "hdi": 0.57,
@@ -2970,7 +2559,6 @@
       "homicide_rate": null,
       "hale": 57.48,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 5.97
@@ -2979,8 +2567,6 @@
       "name": "Paraguay",
       "region": "Americas",
       "economic_freedom": 65.2,
-      "gdp_per_capita": 6416.1,
-      "life_expectancy": 73.84,
       "infant_mortality": 15.1,
       "corruption_score": 28.0,
       "hdi": 0.73,
@@ -2992,7 +2578,6 @@
       "homicide_rate": 6.78,
       "hale": 60.88,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 44.2,
       "democracy_score": 5.92
@@ -3001,8 +2586,6 @@
       "name": "Peru",
       "region": "Americas",
       "economic_freedom": 65.9,
-      "gdp_per_capita": 8452.37,
-      "life_expectancy": 77.74,
       "infant_mortality": 13.5,
       "corruption_score": 33.0,
       "hdi": 0.76,
@@ -3014,7 +2597,6 @@
       "homicide_rate": 8.6,
       "hale": 62.99,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 40.1,
       "democracy_score": 5.69
@@ -3023,8 +2605,6 @@
       "name": "Philippines",
       "region": "Asia-Pacific",
       "economic_freedom": 60.6,
-      "gdp_per_capita": 3984.83,
-      "life_expectancy": 69.83,
       "infant_mortality": 22.1,
       "corruption_score": 34.0,
       "hdi": 0.71,
@@ -3036,7 +2616,6 @@
       "homicide_rate": 4.35,
       "hale": 58.77,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 39.3,
       "democracy_score": 6.63
@@ -3045,8 +2624,6 @@
       "name": "Poland",
       "region": "Europe",
       "economic_freedom": 67.1,
-      "gdp_per_capita": 25103.57,
-      "life_expectancy": 78.51,
       "infant_mortality": 3.7,
       "corruption_score": 54.0,
       "hdi": 0.88,
@@ -3058,7 +2635,6 @@
       "homicide_rate": 0.8,
       "hale": 65.52,
       "mental_health_index": null,
-      "gender_pay_gap": 11.1,
       "education_index": null,
       "gini_index": 28.5,
       "democracy_score": 7.4
@@ -3067,8 +2643,6 @@
       "name": "Portugal",
       "region": "Europe",
       "economic_freedom": 70.5,
-      "gdp_per_capita": 29292.24,
-      "life_expectancy": 82.28,
       "infant_mortality": 2.6,
       "corruption_score": 61.0,
       "hdi": 0.87,
@@ -3080,7 +2654,6 @@
       "homicide_rate": 0.72,
       "hale": 69.52,
       "mental_health_index": 6.0,
-      "gender_pay_gap": 18.9,
       "education_index": null,
       "gini_index": 33.9,
       "democracy_score": 8.08
@@ -3089,8 +2662,6 @@
       "name": "Qatar",
       "region": "Middle East / North Africa",
       "economic_freedom": 70.2,
-      "gdp_per_capita": 76688.69,
-      "life_expectancy": 82.37,
       "infant_mortality": 4.9,
       "corruption_score": 58.0,
       "hdi": 0.88,
@@ -3102,7 +2673,6 @@
       "homicide_rate": 0.07,
       "hale": 66.21,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 3.17
@@ -3111,8 +2681,6 @@
       "name": "Romania",
       "region": "Europe",
       "economic_freedom": 66.5,
-      "gdp_per_capita": 20080.21,
-      "life_expectancy": 76.61,
       "infant_mortality": 5.4,
       "corruption_score": 46.0,
       "hdi": 0.83,
@@ -3124,7 +2692,6 @@
       "homicide_rate": 1.11,
       "hale": 63.85,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 29.8,
       "democracy_score": 5.99
@@ -3133,8 +2700,6 @@
       "name": "Russia",
       "region": "Europe",
       "economic_freedom": 51.6,
-      "gdp_per_capita": 14889.02,
-      "life_expectancy": 73.25,
       "infant_mortality": 3.7,
       "corruption_score": 26.0,
       "hdi": 0.82,
@@ -3146,7 +2711,6 @@
       "homicide_rate": 6.77,
       "hale": 60.94,
       "mental_health_index": 13.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 33.0,
       "democracy_score": 2.03
@@ -3155,8 +2719,6 @@
       "name": "Rwanda",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 54.8,
-      "gdp_per_capita": 999.65,
-      "life_expectancy": 67.78,
       "infant_mortality": 30.5,
       "corruption_score": 53.0,
       "hdi": 0.55,
@@ -3168,7 +2730,6 @@
       "homicide_rate": 3.61,
       "hale": 58.71,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 39.4,
       "democracy_score": 3.34
@@ -3177,8 +2738,6 @@
       "name": "Saint Lucia",
       "region": "Americas",
       "economic_freedom": 67.0,
-      "gdp_per_capita": 14181.63,
-      "life_expectancy": 72.7,
       "infant_mortality": 14.3,
       "corruption_score": 55.0,
       "hdi": 0.72,
@@ -3190,7 +2749,6 @@
       "homicide_rate": 39.04,
       "hale": 61.76,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3199,8 +2757,6 @@
       "name": "Saint Vincent and the Grenadines",
       "region": "Americas",
       "economic_freedom": 60.1,
-      "gdp_per_capita": 11501.23,
-      "life_expectancy": 71.23,
       "infant_mortality": 9.9,
       "corruption_score": 60.0,
       "hdi": 0.77,
@@ -3212,7 +2768,6 @@
       "homicide_rate": 51.32,
       "hale": 62.88,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3221,8 +2776,6 @@
       "name": "Samoa",
       "region": "Asia-Pacific",
       "economic_freedom": 66.6,
-      "gdp_per_capita": 5392.88,
-      "life_expectancy": 71.7,
       "infant_mortality": 12.8,
       "corruption_score": null,
       "hdi": 0.7,
@@ -3234,7 +2787,6 @@
       "homicide_rate": 6.26,
       "hale": 61.57,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3243,8 +2795,6 @@
       "name": "Sao Tome and Principe",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 60.4,
-      "gdp_per_capita": 3490.57,
-      "life_expectancy": 69.72,
       "infant_mortality": 9.4,
       "corruption_score": 45.0,
       "hdi": 0.61,
@@ -3256,7 +2806,6 @@
       "homicide_rate": null,
       "hale": 62.44,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3265,8 +2814,6 @@
       "name": "Saudi Arabia",
       "region": "Middle East / North Africa",
       "economic_freedom": 64.4,
-      "gdp_per_capita": 35121.66,
-      "life_expectancy": 78.73,
       "infant_mortality": 4.9,
       "corruption_score": 52.0,
       "hdi": 0.88,
@@ -3278,7 +2825,6 @@
       "homicide_rate": 0.94,
       "hale": 65.64,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.08
@@ -3287,8 +2833,6 @@
       "name": "Senegal",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 56.4,
-      "gdp_per_capita": 1773.22,
-      "life_expectancy": 68.68,
       "infant_mortality": 30.2,
       "corruption_score": 43.0,
       "hdi": 0.52,
@@ -3300,7 +2844,6 @@
       "homicide_rate": null,
       "hale": 58.9,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 36.2,
       "democracy_score": 5.93
@@ -3309,8 +2852,6 @@
       "name": "Serbia",
       "region": "Europe",
       "economic_freedom": 64.4,
-      "gdp_per_capita": 13679.21,
-      "life_expectancy": 76.22,
       "infant_mortality": 4.5,
       "corruption_score": 36.0,
       "hdi": 0.81,
@@ -3322,7 +2863,6 @@
       "homicide_rate": 1.31,
       "hale": 63.87,
       "mental_health_index": 6.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 32.8,
       "democracy_score": 6.26
@@ -3331,8 +2871,6 @@
       "name": "Seychelles",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 66.4,
-      "gdp_per_capita": 17858.82,
-      "life_expectancy": 74.96,
       "infant_mortality": 13.1,
       "corruption_score": 71.0,
       "hdi": 0.8,
@@ -3344,7 +2882,6 @@
       "homicide_rate": 7.97,
       "hale": 64.72,
       "mental_health_index": 4.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3353,8 +2890,6 @@
       "name": "Sierra Leone",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 48.0,
-      "gdp_per_capita": 806.65,
-      "life_expectancy": 61.79,
       "infant_mortality": 56.2,
       "corruption_score": 35.0,
       "hdi": 0.46,
@@ -3366,7 +2901,6 @@
       "homicide_rate": 2.22,
       "hale": 53.13,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 4.32
@@ -3375,8 +2909,6 @@
       "name": "Singapore",
       "region": "Asia-Pacific",
       "economic_freedom": 84.1,
-      "gdp_per_capita": 90674.07,
-      "life_expectancy": 82.9,
       "infant_mortality": 1.7,
       "corruption_score": 83.0,
       "hdi": 0.95,
@@ -3388,7 +2920,6 @@
       "homicide_rate": 0.07,
       "hale": 73.65,
       "mental_health_index": 4.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 6.18
@@ -3397,8 +2928,6 @@
       "name": "Slovakia",
       "region": "Europe",
       "economic_freedom": 68.4,
-      "gdp_per_capita": 25992.67,
-      "life_expectancy": 78.02,
       "infant_mortality": 5.1,
       "corruption_score": 54.0,
       "hdi": 0.85,
@@ -3410,7 +2939,6 @@
       "homicide_rate": 1.12,
       "hale": 64.94,
       "mental_health_index": null,
-      "gender_pay_gap": 13.9,
       "education_index": null,
       "gini_index": 23.8,
       "democracy_score": 7.21
@@ -3419,8 +2947,6 @@
       "name": "Slovenia",
       "region": "Europe",
       "economic_freedom": 68.3,
-      "gdp_per_capita": 34301.03,
-      "life_expectancy": 81.98,
       "infant_mortality": 1.8,
       "corruption_score": 56.0,
       "hdi": 0.93,
@@ -3432,7 +2958,6 @@
       "homicide_rate": 0.57,
       "hale": 69.36,
       "mental_health_index": 12.0,
-      "gender_pay_gap": 5.0,
       "education_index": null,
       "gini_index": 24.7,
       "democracy_score": 7.82
@@ -3441,8 +2966,6 @@
       "name": "Solomon Islands",
       "region": "Asia-Pacific",
       "economic_freedom": 56.3,
-      "gdp_per_capita": 1933.56,
-      "life_expectancy": 70.53,
       "infant_mortality": 16.5,
       "corruption_score": 43.0,
       "hdi": 0.56,
@@ -3454,7 +2977,6 @@
       "homicide_rate": null,
       "hale": 57.37,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3463,8 +2985,6 @@
       "name": "South Africa",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 57.3,
-      "gdp_per_capita": 6267.19,
-      "life_expectancy": 66.14,
       "infant_mortality": 24.4,
       "corruption_score": 41.0,
       "hdi": 0.72,
@@ -3476,7 +2996,6 @@
       "homicide_rate": 43.72,
       "hale": 52.76,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 7.16
@@ -3485,8 +3004,6 @@
       "name": "Spain",
       "region": "Europe",
       "economic_freedom": 66.3,
-      "gdp_per_capita": 35326.77,
-      "life_expectancy": 83.88,
       "infant_mortality": 2.6,
       "corruption_score": 60.0,
       "hdi": 0.91,
@@ -3498,7 +3015,6 @@
       "homicide_rate": 0.69,
       "hale": 71.11,
       "mental_health_index": 9.0,
-      "gender_pay_gap": 11.5,
       "education_index": null,
       "gini_index": 33.4,
       "democracy_score": 8.13
@@ -3507,8 +3023,6 @@
       "name": "Sri Lanka",
       "region": "Asia-Pacific",
       "economic_freedom": 49.4,
-      "gdp_per_capita": 4515.57,
-      "life_expectancy": 77.48,
       "infant_mortality": 5.3,
       "corruption_score": 34.0,
       "hdi": 0.78,
@@ -3520,7 +3034,6 @@
       "homicide_rate": 3.31,
       "hale": 66.73,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 6.19
@@ -3529,8 +3042,6 @@
       "name": "Sudan",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 35.3,
-      "gdp_per_capita": 984.61,
-      "life_expectancy": 66.33,
       "infant_mortality": 39.2,
       "corruption_score": 20.0,
       "hdi": 0.52,
@@ -3542,7 +3053,6 @@
       "homicide_rate": null,
       "hale": 58.54,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 1.46
@@ -3551,8 +3061,6 @@
       "name": "Suriname",
       "region": "Americas",
       "economic_freedom": 50.9,
-      "gdp_per_capita": 6961.79,
-      "life_expectancy": 73.63,
       "infant_mortality": 15.2,
       "corruption_score": 40.0,
       "hdi": 0.69,
@@ -3564,7 +3072,6 @@
       "homicide_rate": 6.52,
       "hale": 60.3,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 39.2,
       "democracy_score": 6.79
@@ -3573,8 +3080,6 @@
       "name": "Sweden",
       "region": "Europe",
       "economic_freedom": 77.9,
-      "gdp_per_capita": 57117.49,
-      "life_expectancy": 83.31,
       "infant_mortality": 2.0,
       "corruption_score": 82.0,
       "hdi": 0.95,
@@ -3586,7 +3091,6 @@
       "homicide_rate": 1.15,
       "hale": 71.12,
       "mental_health_index": null,
-      "gender_pay_gap": 13.4,
       "education_index": null,
       "gini_index": 29.3,
       "democracy_score": 9.39
@@ -3595,8 +3099,6 @@
       "name": "Switzerland",
       "region": "Europe",
       "economic_freedom": 83.7,
-      "gdp_per_capita": 103998.19,
-      "life_expectancy": 84.06,
       "infant_mortality": 3.5,
       "corruption_score": 82.0,
       "hdi": 0.97,
@@ -3608,7 +3110,6 @@
       "homicide_rate": 0.6,
       "hale": 71.15,
       "mental_health_index": 47.0,
-      "gender_pay_gap": 16.9,
       "education_index": null,
       "gini_index": 33.8,
       "democracy_score": 9.32
@@ -3617,8 +3118,6 @@
       "name": "Taiwan",
       "region": "Asia-Pacific",
       "economic_freedom": 79.7,
-      "gdp_per_capita": null,
-      "life_expectancy": null,
       "infant_mortality": null,
       "corruption_score": 67.0,
       "hdi": null,
@@ -3630,7 +3129,6 @@
       "homicide_rate": null,
       "hale": null,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 8.78
@@ -3639,8 +3137,6 @@
       "name": "Tajikistan",
       "region": "Asia-Pacific",
       "economic_freedom": 51.5,
-      "gdp_per_capita": 1341.2,
-      "life_expectancy": 71.79,
       "infant_mortality": 22.9,
       "corruption_score": 20.0,
       "hdi": 0.68,
@@ -3652,7 +3148,6 @@
       "homicide_rate": 0.89,
       "hale": 63.09,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 36.1,
       "democracy_score": 1.83
@@ -3661,8 +3156,6 @@
       "name": "Tanzania",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 59.3,
-      "gdp_per_capita": 1186.72,
-      "life_expectancy": 67.0,
       "infant_mortality": 29.9,
       "corruption_score": 40.0,
       "hdi": null,
@@ -3674,7 +3167,6 @@
       "homicide_rate": 3.75,
       "hale": 58.07,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 5.2
@@ -3683,8 +3175,6 @@
       "name": "Thailand",
       "region": "Asia-Pacific",
       "economic_freedom": 60.6,
-      "gdp_per_capita": 7346.62,
-      "life_expectancy": 76.41,
       "infant_mortality": 8.0,
       "corruption_score": 35.0,
       "hdi": 0.8,
@@ -3696,7 +3186,6 @@
       "homicide_rate": null,
       "hale": 65.76,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 33.5,
       "democracy_score": 6.27
@@ -3705,8 +3194,6 @@
       "name": "Timor-Leste",
       "region": "Asia-Pacific",
       "economic_freedom": 47.9,
-      "gdp_per_capita": 1331.97,
-      "life_expectancy": 67.69,
       "infant_mortality": 35.9,
       "corruption_score": 43.0,
       "hdi": 0.57,
@@ -3718,7 +3205,6 @@
       "homicide_rate": null,
       "hale": null,
       "mental_health_index": null,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -3727,8 +3213,6 @@
       "name": "Togo",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 52.3,
-      "gdp_per_capita": 1119.38,
-      "life_expectancy": 62.74,
       "infant_mortality": 35.9,
       "corruption_score": 31.0,
       "hdi": 0.55,
@@ -3740,7 +3224,6 @@
       "homicide_rate": null,
       "hale": 55.85,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 37.9,
       "democracy_score": 2.99
@@ -3749,8 +3232,6 @@
       "name": "Tonga",
       "region": "Asia-Pacific",
       "economic_freedom": 58.5,
-      "gdp_per_capita": 5651.59,
-      "life_expectancy": 72.89,
       "infant_mortality": 8.0,
       "corruption_score": null,
       "hdi": 0.74,
@@ -3762,7 +3243,6 @@
       "homicide_rate": 0.95,
       "hale": 63.78,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 27.1,
       "democracy_score": null
@@ -3771,8 +3251,6 @@
       "name": "Trinidad and Tobago",
       "region": "Americas",
       "economic_freedom": 63.6,
-      "gdp_per_capita": 18733.41,
-      "life_expectancy": 73.49,
       "infant_mortality": 17.2,
       "corruption_score": 42.0,
       "hdi": 0.81,
@@ -3784,7 +3262,6 @@
       "homicide_rate": 40.44,
       "hale": 61.94,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 7.09
@@ -3793,8 +3270,6 @@
       "name": "Tunisia",
       "region": "Middle East / North Africa",
       "economic_freedom": 49.1,
-      "gdp_per_capita": 4181.14,
-      "life_expectancy": 76.51,
       "infant_mortality": 10.6,
       "corruption_score": 40.0,
       "hdi": 0.73,
@@ -3806,7 +3281,6 @@
       "homicide_rate": 4.69,
       "hale": 63.58,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 33.7,
       "democracy_score": 4.71
@@ -3815,8 +3289,6 @@
       "name": "Turkey",
       "region": "Europe",
       "economic_freedom": 56.1,
-      "gdp_per_capita": 15892.72,
-      "life_expectancy": 77.16,
       "infant_mortality": 9.1,
       "corruption_score": 34.0,
       "hdi": 0.85,
@@ -3828,7 +3300,6 @@
       "homicide_rate": 3.23,
       "hale": 65.21,
       "mental_health_index": 2.0,
-      "gender_pay_gap": 6.9,
       "education_index": null,
       "gini_index": 44.5,
       "democracy_score": 4.26
@@ -3837,8 +3308,6 @@
       "name": "Turkmenistan",
       "region": "Asia-Pacific",
       "economic_freedom": 47.1,
-      "gdp_per_capita": 6856.66,
-      "life_expectancy": 70.07,
       "infant_mortality": 31.2,
       "corruption_score": 18.0,
       "hdi": 0.74,
@@ -3850,7 +3319,6 @@
       "homicide_rate": null,
       "hale": 60.82,
       "mental_health_index": 2.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 1.66
@@ -3859,8 +3327,6 @@
       "name": "Uganda",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 51.3,
-      "gdp_per_capita": 1077.91,
-      "life_expectancy": 68.25,
       "infant_mortality": 27.6,
       "corruption_score": 26.0,
       "hdi": 0.55,
@@ -3872,7 +3338,6 @@
       "homicide_rate": 8.97,
       "hale": 57.22,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 4.49
@@ -3881,8 +3346,6 @@
       "name": "UAE",
       "region": "Middle East / North Africa",
       "economic_freedom": 71.6,
-      "gdp_per_capita": 50273.51,
-      "life_expectancy": 82.91,
       "infant_mortality": 4.0,
       "corruption_score": 68.0,
       "hdi": 0.94,
@@ -3894,7 +3357,6 @@
       "homicide_rate": 0.69,
       "hale": 67.27,
       "mental_health_index": 4.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 3.07
@@ -3903,8 +3365,6 @@
       "name": "United Kingdom",
       "region": "Europe",
       "economic_freedom": 69.3,
-      "gdp_per_capita": 53246.37,
-      "life_expectancy": 81.24,
       "infant_mortality": 4.0,
       "corruption_score": 71.0,
       "hdi": 0.94,
@@ -3916,7 +3376,6 @@
       "homicide_rate": 1.12,
       "hale": 68.64,
       "mental_health_index": 14.0,
-      "gender_pay_gap": 16.8,
       "education_index": null,
       "gini_index": 32.4,
       "democracy_score": 8.34
@@ -3925,8 +3384,6 @@
       "name": "United States",
       "region": "Americas",
       "economic_freedom": 70.2,
-      "gdp_per_capita": 84534.04,
-      "life_expectancy": 78.39,
       "infant_mortality": 5.5,
       "corruption_score": 69.0,
       "hdi": 0.93,
@@ -3938,7 +3395,6 @@
       "homicide_rate": 5.76,
       "hale": 63.91,
       "mental_health_index": null,
-      "gender_pay_gap": 18.1,
       "education_index": null,
       "gini_index": 41.8,
       "democracy_score": 7.85
@@ -3947,8 +3403,6 @@
       "name": "Uruguay",
       "region": "Americas",
       "economic_freedom": 70.2,
-      "gdp_per_capita": 23906.51,
-      "life_expectancy": 78.14,
       "infant_mortality": 5.5,
       "corruption_score": 73.0,
       "hdi": 0.83,
@@ -3960,7 +3414,6 @@
       "homicide_rate": 11.25,
       "hale": 64.99,
       "mental_health_index": 16.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 40.0,
       "democracy_score": 8.67
@@ -3969,8 +3422,6 @@
       "name": "Uzbekistan",
       "region": "Asia-Pacific",
       "economic_freedom": 58.0,
-      "gdp_per_capita": 3161.7,
-      "life_expectancy": 72.39,
       "infant_mortality": 12.7,
       "corruption_score": 33.0,
       "hdi": 0.73,
@@ -3982,7 +3433,6 @@
       "homicide_rate": 1.4,
       "hale": 63.36,
       "mental_health_index": 3.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 34.6,
       "democracy_score": 2.1
@@ -3991,8 +3441,6 @@
       "name": "Vanuatu",
       "region": "Asia-Pacific",
       "economic_freedom": 61.8,
-      "gdp_per_capita": 3410.77,
-      "life_expectancy": 71.48,
       "infant_mortality": 14.2,
       "corruption_score": 48.0,
       "hdi": 0.61,
@@ -4004,7 +3452,6 @@
       "homicide_rate": 0.33,
       "hale": 58.68,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": null
@@ -4013,8 +3460,6 @@
       "name": "Venezuela",
       "region": "Americas",
       "economic_freedom": 27.6,
-      "gdp_per_capita": 4217.59,
-      "life_expectancy": 72.51,
       "infant_mortality": 21.5,
       "corruption_score": 13.0,
       "hdi": 0.7,
@@ -4026,7 +3471,6 @@
       "homicide_rate": 12.65,
       "hale": 62.05,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.25
@@ -4035,8 +3479,6 @@
       "name": "Vietnam",
       "region": "Asia-Pacific",
       "economic_freedom": 65.2,
-      "gdp_per_capita": 4717.29,
-      "life_expectancy": 74.59,
       "infant_mortality": 14.0,
       "corruption_score": 41.0,
       "hdi": 0.73,
@@ -4048,7 +3490,6 @@
       "homicide_rate": null,
       "hale": 65.35,
       "mental_health_index": 1.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 36.1,
       "democracy_score": 2.62
@@ -4057,8 +3498,6 @@
       "name": "Zambia",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 50.9,
-      "gdp_per_capita": 1187.11,
-      "life_expectancy": 66.35,
       "infant_mortality": 30.9,
       "corruption_score": 37.0,
       "hdi": 0.57,
@@ -4070,7 +3509,6 @@
       "homicide_rate": null,
       "hale": 52.97,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": 51.5,
       "democracy_score": 5.73
@@ -4079,8 +3517,6 @@
       "name": "Zimbabwe",
       "region": "Sub-Saharan Africa",
       "economic_freedom": 35.1,
-      "gdp_per_capita": 2497.2,
-      "life_expectancy": 62.77,
       "infant_mortality": 40.6,
       "corruption_score": 24.0,
       "hdi": 0.55,
@@ -4092,1777 +3528,12 @@
       "homicide_rate": 6.76,
       "hale": 51.25,
       "mental_health_index": 0.0,
-      "gender_pay_gap": null,
       "education_index": null,
       "gini_index": null,
       "democracy_score": 2.98
     }
   ],
   "scatter_data": {
-    "GDP_Per_Capita": {
-      "points": [
-        {
-          "country": "Albania",
-          "x": 66.6,
-          "y": 11377.78
-        },
-        {
-          "country": "Algeria",
-          "x": 47.5,
-          "y": 5752.99
-        },
-        {
-          "country": "Angola",
-          "x": 55.0,
-          "y": 2665.87
-        },
-        {
-          "country": "Argentina",
-          "x": 54.2,
-          "y": 13969.78
-        },
-        {
-          "country": "Armenia",
-          "x": 65.4,
-          "y": 8556.21
-        },
-        {
-          "country": "Australia",
-          "x": 79.3,
-          "y": 64603.99
-        },
-        {
-          "country": "Austria",
-          "x": 69.7,
-          "y": 58268.88
-        },
-        {
-          "country": "Azerbaijan",
-          "x": 62.5,
-          "y": 7283.85
-        },
-        {
-          "country": "Bahamas",
-          "x": 63.2,
-          "y": 39455.45
-        },
-        {
-          "country": "Bahrain",
-          "x": 65.6,
-          "y": 29653.57
-        },
-        {
-          "country": "Bangladesh",
-          "x": 54.7,
-          "y": 2593.42
-        },
-        {
-          "country": "Barbados",
-          "x": 68.9,
-          "y": 26544.87
-        },
-        {
-          "country": "Belarus",
-          "x": 48.9,
-          "y": 8317.63
-        },
-        {
-          "country": "Belgium",
-          "x": 69.0,
-          "y": 56614.57
-        },
-        {
-          "country": "Belize",
-          "x": 64.2,
-          "y": 7681.24
-        },
-        {
-          "country": "Benin",
-          "x": 58.5,
-          "y": 1485.38
-        },
-        {
-          "country": "Bhutan",
-          "x": 57.5,
-          "y": 3831.33
-        },
-        {
-          "country": "Bolivia",
-          "x": 44.1,
-          "y": 4421.17
-        },
-        {
-          "country": "Bosnia and Herzegovina",
-          "x": 63.5,
-          "y": 9358.79
-        },
-        {
-          "country": "Botswana",
-          "x": 69.9,
-          "y": 7695.75
-        },
-        {
-          "country": "Brazil",
-          "x": 55.1,
-          "y": 10310.55
-        },
-        {
-          "country": "Brunei",
-          "x": 67.0,
-          "y": 33153.47
-        },
-        {
-          "country": "Bulgaria",
-          "x": 68.8,
-          "y": 17596.02
-        },
-        {
-          "country": "Burkina Faso",
-          "x": 51.0,
-          "y": 981.99
-        },
-        {
-          "country": "Burma",
-          "x": 43.7,
-          "y": 1359.05
-        },
-        {
-          "country": "Burundi",
-          "x": 39.7,
-          "y": 219.42
-        },
-        {
-          "country": "Cabo Verde",
-          "x": 68.7,
-          "y": 5192.48
-        },
-        {
-          "country": "Cambodia",
-          "x": 58.2,
-          "y": 2627.88
-        },
-        {
-          "country": "Cameroon",
-          "x": 52.1,
-          "y": 1830.01
-        },
-        {
-          "country": "Canada",
-          "x": 75.5,
-          "y": 54340.35
-        },
-        {
-          "country": "Central African Republic",
-          "x": 42.8,
-          "y": 516.16
-        },
-        {
-          "country": "Chad",
-          "x": 52.2,
-          "y": 961.56
-        },
-        {
-          "country": "Chile",
-          "x": 73.2,
-          "y": 16709.89
-        },
-        {
-          "country": "China",
-          "x": 49.0,
-          "y": 13303.15
-        },
-        {
-          "country": "Colombia",
-          "x": 59.8,
-          "y": 7919.21
-        },
-        {
-          "country": "Comoros",
-          "x": 51.4,
-          "y": 1662.76
-        },
-        {
-          "country": "DR Congo",
-          "x": 47.3,
-          "y": 649.38
-        },
-        {
-          "country": "Congo",
-          "x": 48.6,
-          "y": 2482.25
-        },
-        {
-          "country": "Costa Rica",
-          "x": 68.6,
-          "y": 18587.15
-        },
-        {
-          "country": "Ivory Coast",
-          "x": 57.8,
-          "y": 2727.89
-        },
-        {
-          "country": "Croatia",
-          "x": 68.7,
-          "y": 24050.44
-        },
-        {
-          "country": "Cuba",
-          "x": 25.4,
-          "y": 9605.28
-        },
-        {
-          "country": "Cyprus",
-          "x": 73.2,
-          "y": 38674.29
-        },
-        {
-          "country": "Czech Republic",
-          "x": 72.9,
-          "y": 31823.31
-        },
-        {
-          "country": "Denmark",
-          "x": 79.1,
-          "y": 71026.48
-        },
-        {
-          "country": "Djibouti",
-          "x": 55.7,
-          "y": 3552.72
-        },
-        {
-          "country": "Dominica",
-          "x": 55.3,
-          "y": 10405.28
-        },
-        {
-          "country": "Dominican Republic",
-          "x": 64.3,
-          "y": 10875.66
-        },
-        {
-          "country": "Ecuador",
-          "x": 55.8,
-          "y": 6874.71
-        },
-        {
-          "country": "Egypt",
-          "x": 50.9,
-          "y": 3338.47
-        },
-        {
-          "country": "El Salvador",
-          "x": 56.6,
-          "y": 5579.66
-        },
-        {
-          "country": "Equatorial Guinea",
-          "x": 47.7,
-          "y": 6745.4
-        },
-        {
-          "country": "Estonia",
-          "x": 78.9,
-          "y": 31428.35
-        },
-        {
-          "country": "Swaziland",
-          "x": 56.4,
-          "y": 3909.56
-        },
-        {
-          "country": "Ethiopia",
-          "x": 48.1,
-          "y": 1133.88
-        },
-        {
-          "country": "Fiji",
-          "x": 59.1,
-          "y": 6425.74
-        },
-        {
-          "country": "Finland",
-          "x": 77.0,
-          "y": 53149.77
-        },
-        {
-          "country": "France",
-          "x": 64.4,
-          "y": 46103.08
-        },
-        {
-          "country": "Gabon",
-          "x": 56.3,
-          "y": 8230.04
-        },
-        {
-          "country": "Gambia",
-          "x": 56.8,
-          "y": 871.34
-        },
-        {
-          "country": "Georgia",
-          "x": 69.0,
-          "y": 9241.49
-        },
-        {
-          "country": "Germany",
-          "x": 71.6,
-          "y": 56103.73
-        },
-        {
-          "country": "Ghana",
-          "x": 56.0,
-          "y": 2390.77
-        },
-        {
-          "country": "Greece",
-          "x": 60.6,
-          "y": 24626.15
-        },
-        {
-          "country": "Guatemala",
-          "x": 63.4,
-          "y": 6150.03
-        },
-        {
-          "country": "Guinea",
-          "x": 54.6,
-          "y": 1694.95
-        },
-        {
-          "country": "Guinea-Bissau",
-          "x": 43.6,
-          "y": 1007.74
-        },
-        {
-          "country": "Guyana",
-          "x": 58.2,
-          "y": 29675.24
-        },
-        {
-          "country": "Haiti",
-          "x": 46.1,
-          "y": 2142.62
-        },
-        {
-          "country": "Honduras",
-          "x": 59.6,
-          "y": 3426.43
-        },
-        {
-          "country": "Hungary",
-          "x": 61.4,
-          "y": 23292.33
-        },
-        {
-          "country": "Iceland",
-          "x": 72.8,
-          "y": 86040.53
-        },
-        {
-          "country": "India",
-          "x": 53.0,
-          "y": 2694.74
-        },
-        {
-          "country": "Indonesia",
-          "x": 65.2,
-          "y": 4925.43
-        },
-        {
-          "country": "Iran",
-          "x": 42.5,
-          "y": 5190.17
-        },
-        {
-          "country": "Ireland",
-          "x": 83.1,
-          "y": 112894.95
-        },
-        {
-          "country": "Israel",
-          "x": 69.9,
-          "y": 54176.68
-        },
-        {
-          "country": "Italy",
-          "x": 60.9,
-          "y": 40385.34
-        },
-        {
-          "country": "Jamaica",
-          "x": 68.7,
-          "y": 7753.8
-        },
-        {
-          "country": "Japan",
-          "x": 70.2,
-          "y": 32487.08
-        },
-        {
-          "country": "Jordan",
-          "x": 59.4,
-          "y": 4618.1
-        },
-        {
-          "country": "Kazakhstan",
-          "x": 63.8,
-          "y": 14154.63
-        },
-        {
-          "country": "Kenya",
-          "x": 54.8,
-          "y": 2132.43
-        },
-        {
-          "country": "Kiribati",
-          "x": 50.9,
-          "y": 2288.63
-        },
-        {
-          "country": "South Korea",
-          "x": 74.0,
-          "y": 36238.64
-        },
-        {
-          "country": "Kosovo",
-          "x": 61.7,
-          "y": 7023.07
-        },
-        {
-          "country": "Kuwait",
-          "x": 59.9,
-          "y": 32717.72
-        },
-        {
-          "country": "Kyrgyzstan",
-          "x": 55.6,
-          "y": 2420.19
-        },
-        {
-          "country": "Laos",
-          "x": 51.1,
-          "y": 2123.98
-        },
-        {
-          "country": "Latvia",
-          "x": 71.4,
-          "y": 23409.08
-        },
-        {
-          "country": "Lebanon",
-          "x": 44.1,
-          "y": 3477.72
-        },
-        {
-          "country": "Lesotho",
-          "x": 54.1,
-          "y": 971.91
-        },
-        {
-          "country": "Liberia",
-          "x": 48.5,
-          "y": 851.5
-        },
-        {
-          "country": "Lithuania",
-          "x": 74.6,
-          "y": 29384.02
-        },
-        {
-          "country": "Luxembourg",
-          "x": 79.5,
-          "y": 137781.68
-        },
-        {
-          "country": "Madagascar",
-          "x": 57.0,
-          "y": 544.99
-        },
-        {
-          "country": "Malawi",
-          "x": 50.9,
-          "y": 522.57
-        },
-        {
-          "country": "Malaysia",
-          "x": 67.1,
-          "y": 11874.43
-        },
-        {
-          "country": "Maldives",
-          "x": 48.3,
-          "y": 13379.35
-        },
-        {
-          "country": "Mali",
-          "x": 52.6,
-          "y": 1094.62
-        },
-        {
-          "country": "Malta",
-          "x": 66.8,
-          "y": 43898.58
-        },
-        {
-          "country": "Mauritania",
-          "x": 54.9,
-          "y": 2110.12
-        },
-        {
-          "country": "Mauritius",
-          "x": 75.0,
-          "y": 11990.78
-        },
-        {
-          "country": "Mexico",
-          "x": 61.3,
-          "y": 14185.78
-        },
-        {
-          "country": "Micronesia",
-          "x": 62.2,
-          "y": 4166.0
-        },
-        {
-          "country": "Moldova",
-          "x": 58.3,
-          "y": 7576.2
-        },
-        {
-          "country": "Mongolia",
-          "x": 62.6,
-          "y": 6750.63
-        },
-        {
-          "country": "Montenegro",
-          "x": 63.8,
-          "y": 13263.33
-        },
-        {
-          "country": "Morocco",
-          "x": 60.3,
-          "y": 4153.19
-        },
-        {
-          "country": "Mozambique",
-          "x": 50.7,
-          "y": 656.78
-        },
-        {
-          "country": "Namibia",
-          "x": 58.7,
-          "y": 4413.13
-        },
-        {
-          "country": "Nepal",
-          "x": 52.5,
-          "y": 1447.31
-        },
-        {
-          "country": "Netherlands",
-          "x": 78.2,
-          "y": 67520.42
-        },
-        {
-          "country": "New Zealand",
-          "x": 78.1,
-          "y": 49205.18
-        },
-        {
-          "country": "Nicaragua",
-          "x": 54.0,
-          "y": 2847.54
-        },
-        {
-          "country": "Niger",
-          "x": 51.5,
-          "y": 735.27
-        },
-        {
-          "country": "Nigeria",
-          "x": 53.4,
-          "y": 1084.16
-        },
-        {
-          "country": "Macedonia",
-          "x": 63.2,
-          "y": 9291.86
-        },
-        {
-          "country": "Norway",
-          "x": 78.3,
-          "y": 86785.43
-        },
-        {
-          "country": "Oman",
-          "x": 65.4,
-          "y": 20285.23
-        },
-        {
-          "country": "Pakistan",
-          "x": 49.1,
-          "y": 1478.77
-        },
-        {
-          "country": "Panama",
-          "x": 65.5,
-          "y": 19161.22
-        },
-        {
-          "country": "Papua New Guinea",
-          "x": 52.5,
-          "y": 3006.71
-        },
-        {
-          "country": "Paraguay",
-          "x": 65.2,
-          "y": 6416.1
-        },
-        {
-          "country": "Peru",
-          "x": 65.9,
-          "y": 8452.37
-        },
-        {
-          "country": "Philippines",
-          "x": 60.6,
-          "y": 3984.83
-        },
-        {
-          "country": "Poland",
-          "x": 67.1,
-          "y": 25103.57
-        },
-        {
-          "country": "Portugal",
-          "x": 70.5,
-          "y": 29292.24
-        },
-        {
-          "country": "Qatar",
-          "x": 70.2,
-          "y": 76688.69
-        },
-        {
-          "country": "Romania",
-          "x": 66.5,
-          "y": 20080.21
-        },
-        {
-          "country": "Russia",
-          "x": 51.6,
-          "y": 14889.02
-        },
-        {
-          "country": "Rwanda",
-          "x": 54.8,
-          "y": 999.65
-        },
-        {
-          "country": "Saint Lucia",
-          "x": 67.0,
-          "y": 14181.63
-        },
-        {
-          "country": "Saint Vincent and the Grenadines",
-          "x": 60.1,
-          "y": 11501.23
-        },
-        {
-          "country": "Samoa",
-          "x": 66.6,
-          "y": 5392.88
-        },
-        {
-          "country": "Sao Tome and Principe",
-          "x": 60.4,
-          "y": 3490.57
-        },
-        {
-          "country": "Saudi Arabia",
-          "x": 64.4,
-          "y": 35121.66
-        },
-        {
-          "country": "Senegal",
-          "x": 56.4,
-          "y": 1773.22
-        },
-        {
-          "country": "Serbia",
-          "x": 64.4,
-          "y": 13679.21
-        },
-        {
-          "country": "Seychelles",
-          "x": 66.4,
-          "y": 17858.82
-        },
-        {
-          "country": "Sierra Leone",
-          "x": 48.0,
-          "y": 806.65
-        },
-        {
-          "country": "Singapore",
-          "x": 84.1,
-          "y": 90674.07
-        },
-        {
-          "country": "Slovakia",
-          "x": 68.4,
-          "y": 25992.67
-        },
-        {
-          "country": "Slovenia",
-          "x": 68.3,
-          "y": 34301.03
-        },
-        {
-          "country": "Solomon Islands",
-          "x": 56.3,
-          "y": 1933.56
-        },
-        {
-          "country": "South Africa",
-          "x": 57.3,
-          "y": 6267.19
-        },
-        {
-          "country": "Spain",
-          "x": 66.3,
-          "y": 35326.77
-        },
-        {
-          "country": "Sri Lanka",
-          "x": 49.4,
-          "y": 4515.57
-        },
-        {
-          "country": "Sudan",
-          "x": 35.3,
-          "y": 984.61
-        },
-        {
-          "country": "Suriname",
-          "x": 50.9,
-          "y": 6961.79
-        },
-        {
-          "country": "Sweden",
-          "x": 77.9,
-          "y": 57117.49
-        },
-        {
-          "country": "Switzerland",
-          "x": 83.7,
-          "y": 103998.19
-        },
-        {
-          "country": "Tajikistan",
-          "x": 51.5,
-          "y": 1341.2
-        },
-        {
-          "country": "Tanzania",
-          "x": 59.3,
-          "y": 1186.72
-        },
-        {
-          "country": "Thailand",
-          "x": 60.6,
-          "y": 7346.62
-        },
-        {
-          "country": "Timor-Leste",
-          "x": 47.9,
-          "y": 1331.97
-        },
-        {
-          "country": "Togo",
-          "x": 52.3,
-          "y": 1119.38
-        },
-        {
-          "country": "Tonga",
-          "x": 58.5,
-          "y": 5651.59
-        },
-        {
-          "country": "Trinidad and Tobago",
-          "x": 63.6,
-          "y": 18733.41
-        },
-        {
-          "country": "Tunisia",
-          "x": 49.1,
-          "y": 4181.14
-        },
-        {
-          "country": "Turkey",
-          "x": 56.1,
-          "y": 15892.72
-        },
-        {
-          "country": "Turkmenistan",
-          "x": 47.1,
-          "y": 6856.66
-        },
-        {
-          "country": "Uganda",
-          "x": 51.3,
-          "y": 1077.91
-        },
-        {
-          "country": "UAE",
-          "x": 71.6,
-          "y": 50273.51
-        },
-        {
-          "country": "United Kingdom",
-          "x": 69.3,
-          "y": 53246.37
-        },
-        {
-          "country": "United States",
-          "x": 70.2,
-          "y": 84534.04
-        },
-        {
-          "country": "Uruguay",
-          "x": 70.2,
-          "y": 23906.51
-        },
-        {
-          "country": "Uzbekistan",
-          "x": 58.0,
-          "y": 3161.7
-        },
-        {
-          "country": "Vanuatu",
-          "x": 61.8,
-          "y": 3410.77
-        },
-        {
-          "country": "Venezuela",
-          "x": 27.6,
-          "y": 4217.59
-        },
-        {
-          "country": "Vietnam",
-          "x": 65.2,
-          "y": 4717.29
-        },
-        {
-          "country": "Zambia",
-          "x": 50.9,
-          "y": 1187.11
-        },
-        {
-          "country": "Zimbabwe",
-          "x": 35.1,
-          "y": 2497.2
-        }
-      ],
-      "trend_line": {
-        "slope": 1619.636545,
-        "intercept": -79338.4257,
-        "x_range": [
-          25.4,
-          84.1
-        ]
-      }
-    },
-    "Life_Expectancy": {
-      "points": [
-        {
-          "country": "Albania",
-          "x": 66.6,
-          "y": 79.6
-        },
-        {
-          "country": "Algeria",
-          "x": 47.5,
-          "y": 76.26
-        },
-        {
-          "country": "Angola",
-          "x": 55.0,
-          "y": 64.62
-        },
-        {
-          "country": "Argentina",
-          "x": 54.2,
-          "y": 77.39
-        },
-        {
-          "country": "Armenia",
-          "x": 65.4,
-          "y": 77.47
-        },
-        {
-          "country": "Australia",
-          "x": 79.3,
-          "y": 83.05
-        },
-        {
-          "country": "Austria",
-          "x": 69.7,
-          "y": 81.54
-        },
-        {
-          "country": "Azerbaijan",
-          "x": 62.5,
-          "y": 74.43
-        },
-        {
-          "country": "Bahamas",
-          "x": 63.2,
-          "y": 74.55
-        },
-        {
-          "country": "Bahrain",
-          "x": 65.6,
-          "y": 81.28
-        },
-        {
-          "country": "Bangladesh",
-          "x": 54.7,
-          "y": 74.67
-        },
-        {
-          "country": "Barbados",
-          "x": 68.9,
-          "y": 76.18
-        },
-        {
-          "country": "Belarus",
-          "x": 48.9,
-          "y": 74.18
-        },
-        {
-          "country": "Belgium",
-          "x": 69.0,
-          "y": 82.4
-        },
-        {
-          "country": "Belize",
-          "x": 64.2,
-          "y": 73.57
-        },
-        {
-          "country": "Benin",
-          "x": 58.5,
-          "y": 60.77
-        },
-        {
-          "country": "Bhutan",
-          "x": 57.5,
-          "y": 72.97
-        },
-        {
-          "country": "Bolivia",
-          "x": 44.1,
-          "y": 68.58
-        },
-        {
-          "country": "Bosnia and Herzegovina",
-          "x": 63.5,
-          "y": 77.85
-        },
-        {
-          "country": "Botswana",
-          "x": 69.9,
-          "y": 69.16
-        },
-        {
-          "country": "Brazil",
-          "x": 55.1,
-          "y": 75.85
-        },
-        {
-          "country": "Brunei",
-          "x": 67.0,
-          "y": 75.33
-        },
-        {
-          "country": "Bulgaria",
-          "x": 68.8,
-          "y": 75.71
-        },
-        {
-          "country": "Burkina Faso",
-          "x": 51.0,
-          "y": 61.09
-        },
-        {
-          "country": "Burma",
-          "x": 43.7,
-          "y": 66.89
-        },
-        {
-          "country": "Burundi",
-          "x": 39.7,
-          "y": 63.65
-        },
-        {
-          "country": "Cabo Verde",
-          "x": 68.7,
-          "y": 76.06
-        },
-        {
-          "country": "Cambodia",
-          "x": 58.2,
-          "y": 70.67
-        },
-        {
-          "country": "Cameroon",
-          "x": 52.1,
-          "y": 63.7
-        },
-        {
-          "country": "Canada",
-          "x": 75.5,
-          "y": 81.65
-        },
-        {
-          "country": "Central African Republic",
-          "x": 42.8,
-          "y": 57.41
-        },
-        {
-          "country": "Chad",
-          "x": 52.2,
-          "y": 55.07
-        },
-        {
-          "country": "Chile",
-          "x": 73.2,
-          "y": 81.17
-        },
-        {
-          "country": "China",
-          "x": 49.0,
-          "y": 77.95
-        },
-        {
-          "country": "Colombia",
-          "x": 59.8,
-          "y": 77.72
-        },
-        {
-          "country": "Comoros",
-          "x": 51.4,
-          "y": 66.78
-        },
-        {
-          "country": "DR Congo",
-          "x": 47.3,
-          "y": 61.9
-        },
-        {
-          "country": "Congo",
-          "x": 48.6,
-          "y": 65.77
-        },
-        {
-          "country": "Costa Rica",
-          "x": 68.6,
-          "y": 80.8
-        },
-        {
-          "country": "Ivory Coast",
-          "x": 57.8,
-          "y": 61.94
-        },
-        {
-          "country": "Croatia",
-          "x": 68.7,
-          "y": 78.47
-        },
-        {
-          "country": "Cuba",
-          "x": 25.4,
-          "y": 78.08
-        },
-        {
-          "country": "Cyprus",
-          "x": 73.2,
-          "y": 81.65
-        },
-        {
-          "country": "Czech Republic",
-          "x": 72.9,
-          "y": 79.88
-        },
-        {
-          "country": "Denmark",
-          "x": 79.1,
-          "y": 81.85
-        },
-        {
-          "country": "Djibouti",
-          "x": 55.7,
-          "y": 65.99
-        },
-        {
-          "country": "Dominica",
-          "x": 55.3,
-          "y": 71.13
-        },
-        {
-          "country": "Dominican Republic",
-          "x": 64.3,
-          "y": 73.72
-        },
-        {
-          "country": "Ecuador",
-          "x": 55.8,
-          "y": 77.39
-        },
-        {
-          "country": "Egypt",
-          "x": 50.9,
-          "y": 71.63
-        },
-        {
-          "country": "El Salvador",
-          "x": 56.6,
-          "y": 72.1
-        },
-        {
-          "country": "Equatorial Guinea",
-          "x": 47.7,
-          "y": 63.71
-        },
-        {
-          "country": "Eritrea",
-          "x": 38.6,
-          "y": 68.62
-        },
-        {
-          "country": "Estonia",
-          "x": 78.9,
-          "y": 78.49
-        },
-        {
-          "country": "Swaziland",
-          "x": 56.4,
-          "y": 64.12
-        },
-        {
-          "country": "Ethiopia",
-          "x": 48.1,
-          "y": 67.31
-        },
-        {
-          "country": "Fiji",
-          "x": 59.1,
-          "y": 67.32
-        },
-        {
-          "country": "Finland",
-          "x": 77.0,
-          "y": 81.69
-        },
-        {
-          "country": "France",
-          "x": 64.4,
-          "y": 82.93
-        },
-        {
-          "country": "Gabon",
-          "x": 56.3,
-          "y": 68.34
-        },
-        {
-          "country": "Gambia",
-          "x": 56.8,
-          "y": 65.86
-        },
-        {
-          "country": "Georgia",
-          "x": 69.0,
-          "y": 74.5
-        },
-        {
-          "country": "Germany",
-          "x": 71.6,
-          "y": 80.54
-        },
-        {
-          "country": "Ghana",
-          "x": 56.0,
-          "y": 65.5
-        },
-        {
-          "country": "Greece",
-          "x": 60.6,
-          "y": 81.54
-        },
-        {
-          "country": "Guatemala",
-          "x": 63.4,
-          "y": 72.6
-        },
-        {
-          "country": "Guinea",
-          "x": 54.6,
-          "y": 60.74
-        },
-        {
-          "country": "Guinea-Bissau",
-          "x": 43.6,
-          "y": 64.08
-        },
-        {
-          "country": "Guyana",
-          "x": 58.2,
-          "y": 70.18
-        },
-        {
-          "country": "Haiti",
-          "x": 46.1,
-          "y": 64.94
-        },
-        {
-          "country": "Honduras",
-          "x": 59.6,
-          "y": 72.88
-        },
-        {
-          "country": "Hungary",
-          "x": 61.4,
-          "y": 76.77
-        },
-        {
-          "country": "Iceland",
-          "x": 72.8,
-          "y": 82.61
-        },
-        {
-          "country": "India",
-          "x": 53.0,
-          "y": 72.0
-        },
-        {
-          "country": "Indonesia",
-          "x": 65.2,
-          "y": 71.15
-        },
-        {
-          "country": "Iran",
-          "x": 42.5,
-          "y": 77.65
-        },
-        {
-          "country": "Ireland",
-          "x": 83.1,
-          "y": 82.86
-        },
-        {
-          "country": "Israel",
-          "x": 69.9,
-          "y": 83.2
-        },
-        {
-          "country": "Italy",
-          "x": 60.9,
-          "y": 83.7
-        },
-        {
-          "country": "Jamaica",
-          "x": 68.7,
-          "y": 71.48
-        },
-        {
-          "country": "Japan",
-          "x": 70.2,
-          "y": 84.04
-        },
-        {
-          "country": "Jordan",
-          "x": 59.4,
-          "y": 77.81
-        },
-        {
-          "country": "Kazakhstan",
-          "x": 63.8,
-          "y": 74.4
-        },
-        {
-          "country": "Kenya",
-          "x": 54.8,
-          "y": 63.65
-        },
-        {
-          "country": "Kiribati",
-          "x": 50.9,
-          "y": 66.47
-        },
-        {
-          "country": "North Korea",
-          "x": 3.0,
-          "y": 73.64
-        },
-        {
-          "country": "South Korea",
-          "x": 74.0,
-          "y": 83.43
-        },
-        {
-          "country": "Kosovo",
-          "x": 61.7,
-          "y": 78.03
-        },
-        {
-          "country": "Kuwait",
-          "x": 59.9,
-          "y": 83.19
-        },
-        {
-          "country": "Kyrgyzstan",
-          "x": 55.6,
-          "y": 72.25
-        },
-        {
-          "country": "Laos",
-          "x": 51.1,
-          "y": 68.96
-        },
-        {
-          "country": "Latvia",
-          "x": 71.4,
-          "y": 75.68
-        },
-        {
-          "country": "Lebanon",
-          "x": 44.1,
-          "y": 77.82
-        },
-        {
-          "country": "Lesotho",
-          "x": 54.1,
-          "y": 57.38
-        },
-        {
-          "country": "Liberia",
-          "x": 48.5,
-          "y": 62.16
-        },
-        {
-          "country": "Lithuania",
-          "x": 74.6,
-          "y": 76.99
-        },
-        {
-          "country": "Luxembourg",
-          "x": 79.5,
-          "y": 83.36
-        },
-        {
-          "country": "Madagascar",
-          "x": 57.0,
-          "y": 63.63
-        },
-        {
-          "country": "Malawi",
-          "x": 50.9,
-          "y": 67.35
-        },
-        {
-          "country": "Malaysia",
-          "x": 67.1,
-          "y": 76.66
-        },
-        {
-          "country": "Maldives",
-          "x": 48.3,
-          "y": 81.04
-        },
-        {
-          "country": "Mali",
-          "x": 52.6,
-          "y": 60.44
-        },
-        {
-          "country": "Malta",
-          "x": 66.8,
-          "y": 83.51
-        },
-        {
-          "country": "Mauritania",
-          "x": 54.9,
-          "y": 68.48
-        },
-        {
-          "country": "Mauritius",
-          "x": 75.0,
-          "y": 73.41
-        },
-        {
-          "country": "Mexico",
-          "x": 61.3,
-          "y": 75.07
-        },
-        {
-          "country": "Micronesia",
-          "x": 62.2,
-          "y": 67.2
-        },
-        {
-          "country": "Moldova",
-          "x": 58.3,
-          "y": 71.2
-        },
-        {
-          "country": "Mongolia",
-          "x": 62.6,
-          "y": 72.12
-        },
-        {
-          "country": "Montenegro",
-          "x": 63.8,
-          "y": 77.59
-        },
-        {
-          "country": "Morocco",
-          "x": 60.3,
-          "y": 75.31
-        },
-        {
-          "country": "Mozambique",
-          "x": 50.7,
-          "y": 63.61
-        },
-        {
-          "country": "Namibia",
-          "x": 58.7,
-          "y": 67.39
-        },
-        {
-          "country": "Nepal",
-          "x": 52.5,
-          "y": 70.35
-        },
-        {
-          "country": "Netherlands",
-          "x": 78.2,
-          "y": 81.91
-        },
-        {
-          "country": "New Zealand",
-          "x": 78.1,
-          "y": 83.0
-        },
-        {
-          "country": "Nicaragua",
-          "x": 54.0,
-          "y": 74.95
-        },
-        {
-          "country": "Niger",
-          "x": 51.5,
-          "y": 61.18
-        },
-        {
-          "country": "Nigeria",
-          "x": 53.4,
-          "y": 54.46
-        },
-        {
-          "country": "Macedonia",
-          "x": 63.2,
-          "y": 75.32
-        },
-        {
-          "country": "Norway",
-          "x": 78.3,
-          "y": 83.11
-        },
-        {
-          "country": "Oman",
-          "x": 65.4,
-          "y": 80.03
-        },
-        {
-          "country": "Pakistan",
-          "x": 49.1,
-          "y": 67.65
-        },
-        {
-          "country": "Panama",
-          "x": 65.5,
-          "y": 79.59
-        },
-        {
-          "country": "Papua New Guinea",
-          "x": 52.5,
-          "y": 66.13
-        },
-        {
-          "country": "Paraguay",
-          "x": 65.2,
-          "y": 73.84
-        },
-        {
-          "country": "Peru",
-          "x": 65.9,
-          "y": 77.74
-        },
-        {
-          "country": "Philippines",
-          "x": 60.6,
-          "y": 69.83
-        },
-        {
-          "country": "Poland",
-          "x": 67.1,
-          "y": 78.51
-        },
-        {
-          "country": "Portugal",
-          "x": 70.5,
-          "y": 82.28
-        },
-        {
-          "country": "Qatar",
-          "x": 70.2,
-          "y": 82.37
-        },
-        {
-          "country": "Romania",
-          "x": 66.5,
-          "y": 76.61
-        },
-        {
-          "country": "Russia",
-          "x": 51.6,
-          "y": 73.25
-        },
-        {
-          "country": "Rwanda",
-          "x": 54.8,
-          "y": 67.78
-        },
-        {
-          "country": "Saint Lucia",
-          "x": 67.0,
-          "y": 72.7
-        },
-        {
-          "country": "Saint Vincent and the Grenadines",
-          "x": 60.1,
-          "y": 71.23
-        },
-        {
-          "country": "Samoa",
-          "x": 66.6,
-          "y": 71.7
-        },
-        {
-          "country": "Sao Tome and Principe",
-          "x": 60.4,
-          "y": 69.72
-        },
-        {
-          "country": "Saudi Arabia",
-          "x": 64.4,
-          "y": 78.73
-        },
-        {
-          "country": "Senegal",
-          "x": 56.4,
-          "y": 68.68
-        },
-        {
-          "country": "Serbia",
-          "x": 64.4,
-          "y": 76.22
-        },
-        {
-          "country": "Seychelles",
-          "x": 66.4,
-          "y": 74.96
-        },
-        {
-          "country": "Sierra Leone",
-          "x": 48.0,
-          "y": 61.79
-        },
-        {
-          "country": "Singapore",
-          "x": 84.1,
-          "y": 82.9
-        },
-        {
-          "country": "Slovakia",
-          "x": 68.4,
-          "y": 78.02
-        },
-        {
-          "country": "Slovenia",
-          "x": 68.3,
-          "y": 81.98
-        },
-        {
-          "country": "Solomon Islands",
-          "x": 56.3,
-          "y": 70.53
-        },
-        {
-          "country": "South Africa",
-          "x": 57.3,
-          "y": 66.14
-        },
-        {
-          "country": "Spain",
-          "x": 66.3,
-          "y": 83.88
-        },
-        {
-          "country": "Sri Lanka",
-          "x": 49.4,
-          "y": 77.48
-        },
-        {
-          "country": "Sudan",
-          "x": 35.3,
-          "y": 66.33
-        },
-        {
-          "country": "Suriname",
-          "x": 50.9,
-          "y": 73.63
-        },
-        {
-          "country": "Sweden",
-          "x": 77.9,
-          "y": 83.31
-        },
-        {
-          "country": "Switzerland",
-          "x": 83.7,
-          "y": 84.06
-        },
-        {
-          "country": "Tajikistan",
-          "x": 51.5,
-          "y": 71.79
-        },
-        {
-          "country": "Tanzania",
-          "x": 59.3,
-          "y": 67.0
-        },
-        {
-          "country": "Thailand",
-          "x": 60.6,
-          "y": 76.41
-        },
-        {
-          "country": "Timor-Leste",
-          "x": 47.9,
-          "y": 67.69
-        },
-        {
-          "country": "Togo",
-          "x": 52.3,
-          "y": 62.74
-        },
-        {
-          "country": "Tonga",
-          "x": 58.5,
-          "y": 72.89
-        },
-        {
-          "country": "Trinidad and Tobago",
-          "x": 63.6,
-          "y": 73.49
-        },
-        {
-          "country": "Tunisia",
-          "x": 49.1,
-          "y": 76.51
-        },
-        {
-          "country": "Turkey",
-          "x": 56.1,
-          "y": 77.16
-        },
-        {
-          "country": "Turkmenistan",
-          "x": 47.1,
-          "y": 70.07
-        },
-        {
-          "country": "Uganda",
-          "x": 51.3,
-          "y": 68.25
-        },
-        {
-          "country": "UAE",
-          "x": 71.6,
-          "y": 82.91
-        },
-        {
-          "country": "United Kingdom",
-          "x": 69.3,
-          "y": 81.24
-        },
-        {
-          "country": "United States",
-          "x": 70.2,
-          "y": 78.39
-        },
-        {
-          "country": "Uruguay",
-          "x": 70.2,
-          "y": 78.14
-        },
-        {
-          "country": "Uzbekistan",
-          "x": 58.0,
-          "y": 72.39
-        },
-        {
-          "country": "Vanuatu",
-          "x": 61.8,
-          "y": 71.48
-        },
-        {
-          "country": "Venezuela",
-          "x": 27.6,
-          "y": 72.51
-        },
-        {
-          "country": "Vietnam",
-          "x": 65.2,
-          "y": 74.59
-        },
-        {
-          "country": "Zambia",
-          "x": 50.9,
-          "y": 66.35
-        },
-        {
-          "country": "Zimbabwe",
-          "x": 35.1,
-          "y": 62.77
-        }
-      ],
-      "trend_line": {
-        "slope": 0.361456,
-        "intercept": 51.7643,
-        "x_range": [
-          3.0,
-          84.1
-        ]
-      }
-    },
     "Infant_Mortality": {
       "points": [
         {
@@ -13620,208 +11291,6 @@
         ]
       }
     },
-    "Gender_Pay_Gap": {
-      "points": [
-        {
-          "country": "Australia",
-          "x": 79.3,
-          "y": 14.3
-        },
-        {
-          "country": "Austria",
-          "x": 69.7,
-          "y": 17.0
-        },
-        {
-          "country": "Belgium",
-          "x": 69.0,
-          "y": 3.3
-        },
-        {
-          "country": "Canada",
-          "x": 75.5,
-          "y": 18.6
-        },
-        {
-          "country": "Chile",
-          "x": 73.2,
-          "y": 21.1
-        },
-        {
-          "country": "Colombia",
-          "x": 59.8,
-          "y": 11.1
-        },
-        {
-          "country": "Costa Rica",
-          "x": 68.6,
-          "y": 3.7
-        },
-        {
-          "country": "Czech Republic",
-          "x": 72.9,
-          "y": 16.3
-        },
-        {
-          "country": "Denmark",
-          "x": 79.1,
-          "y": 5.8
-        },
-        {
-          "country": "Estonia",
-          "x": 78.9,
-          "y": 28.3
-        },
-        {
-          "country": "Finland",
-          "x": 77.0,
-          "y": 18.1
-        },
-        {
-          "country": "France",
-          "x": 64.4,
-          "y": 9.9
-        },
-        {
-          "country": "Germany",
-          "x": 71.6,
-          "y": 17.1
-        },
-        {
-          "country": "Greece",
-          "x": 60.6,
-          "y": 6.2
-        },
-        {
-          "country": "Hungary",
-          "x": 61.4,
-          "y": 9.5
-        },
-        {
-          "country": "Iceland",
-          "x": 72.8,
-          "y": 9.9
-        },
-        {
-          "country": "Ireland",
-          "x": 83.1,
-          "y": 14.4
-        },
-        {
-          "country": "Israel",
-          "x": 69.9,
-          "y": 21.8
-        },
-        {
-          "country": "Italy",
-          "x": 60.9,
-          "y": 5.6
-        },
-        {
-          "country": "Japan",
-          "x": 70.2,
-          "y": 25.7
-        },
-        {
-          "country": "South Korea",
-          "x": 74.0,
-          "y": 36.7
-        },
-        {
-          "country": "Latvia",
-          "x": 71.4,
-          "y": 21.1
-        },
-        {
-          "country": "Lithuania",
-          "x": 74.6,
-          "y": 12.5
-        },
-        {
-          "country": "Luxembourg",
-          "x": 79.5,
-          "y": 3.4
-        },
-        {
-          "country": "Mexico",
-          "x": 61.3,
-          "y": 16.5
-        },
-        {
-          "country": "Netherlands",
-          "x": 78.2,
-          "y": 14.1
-        },
-        {
-          "country": "New Zealand",
-          "x": 78.1,
-          "y": 6.1
-        },
-        {
-          "country": "Norway",
-          "x": 78.3,
-          "y": 7.1
-        },
-        {
-          "country": "Poland",
-          "x": 67.1,
-          "y": 11.1
-        },
-        {
-          "country": "Portugal",
-          "x": 70.5,
-          "y": 18.9
-        },
-        {
-          "country": "Slovakia",
-          "x": 68.4,
-          "y": 13.9
-        },
-        {
-          "country": "Slovenia",
-          "x": 68.3,
-          "y": 5.0
-        },
-        {
-          "country": "Spain",
-          "x": 66.3,
-          "y": 11.5
-        },
-        {
-          "country": "Sweden",
-          "x": 77.9,
-          "y": 13.4
-        },
-        {
-          "country": "Switzerland",
-          "x": 83.7,
-          "y": 16.9
-        },
-        {
-          "country": "Turkey",
-          "x": 56.1,
-          "y": 6.9
-        },
-        {
-          "country": "United Kingdom",
-          "x": 69.3,
-          "y": 16.8
-        },
-        {
-          "country": "United States",
-          "x": 70.2,
-          "y": 18.1
-        }
-      ],
-      "trend_line": {
-        "slope": 0.249262,
-        "intercept": -3.8967,
-        "x_range": [
-          56.1,
-          83.7
-        ]
-      }
-    },
     "Education_Index": {
       "points": [
         {
@@ -14191,70 +11660,18 @@
     }
   },
   "summary": {
-    "positive_correlations": 13,
+    "positive_correlations": 11,
     "negative_correlations": 0,
-    "not_significant": 2,
-    "total_indices": 15,
+    "not_significant": 1,
+    "total_indices": 12,
     "verdict": "supports"
   },
   "comparison": {
-    "economic_freedom_clear_wins": 5,
+    "economic_freedom_clear_wins": 4,
     "equality_clear_wins": 2,
     "democracy_clear_wins": 1,
-    "ties": 7,
+    "ties": 5,
     "metrics": [
-      {
-        "metric": "GDP per Capita",
-        "metric_id": "GDP_Per_Capita",
-        "economic_freedom": {
-          "correlation": 0.7015,
-          "effective": 0.7015,
-          "p_value": 6.010629775931473e-27,
-          "significant": true,
-          "n": 173
-        },
-        "equality": {
-          "correlation": -0.3029,
-          "effective": 0.3029,
-          "p_value": 0.001683095036070498,
-          "significant": true,
-          "n": 105
-        },
-        "democracy": {
-          "correlation": 0.6104,
-          "effective": 0.6104,
-          "p_value": 4.275556754891882e-17,
-          "significant": true,
-          "n": 154
-        },
-        "winner": "economic_freedom"
-      },
-      {
-        "metric": "Life Expectancy",
-        "metric_id": "Life_Expectancy",
-        "economic_freedom": {
-          "correlation": 0.5915,
-          "effective": 0.5915,
-          "p_value": 6.815543080640962e-18,
-          "significant": true,
-          "n": 175
-        },
-        "equality": {
-          "correlation": -0.2663,
-          "effective": 0.2663,
-          "p_value": 0.006039935803252246,
-          "significant": true,
-          "n": 105
-        },
-        "democracy": {
-          "correlation": 0.5924,
-          "effective": 0.5924,
-          "p_value": 3.784311736228765e-16,
-          "significant": true,
-          "n": 156
-        },
-        "winner": "tie"
-      },
       {
         "metric": "Infant Mortality",
         "metric_id": "Infant_Mortality",
@@ -14542,38 +11959,12 @@
         "winner": "tie"
       },
       {
-        "metric": "Gender Pay Gap",
-        "metric_id": "Gender_Pay_Gap",
-        "economic_freedom": {
-          "correlation": 0.2315,
-          "effective": -0.2315,
-          "p_value": 0.16194433683141585,
-          "significant": false,
-          "n": 38
-        },
-        "equality": {
-          "correlation": 0.006,
-          "effective": 0.006,
-          "p_value": 0.9725918754868493,
-          "significant": false,
-          "n": 35
-        },
-        "democracy": {
-          "correlation": 0.0054,
-          "effective": -0.0054,
-          "p_value": 0.9742373979438649,
-          "significant": false,
-          "n": 38
-        },
-        "winner": "tie"
-      },
-      {
         "metric": "Education Index",
         "metric_id": "Education_Index",
         "economic_freedom": {
           "correlation": 0.61,
           "effective": 0.61,
-          "p_value": 1.6279461660052583e-08,
+          "p_value": 1.6279461660052817e-08,
           "significant": true,
           "n": 71
         },

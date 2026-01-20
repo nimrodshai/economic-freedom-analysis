@@ -51,7 +51,6 @@ def generate_web_data(output_dir="docs"):
     homicide = fetcher.fetch_unodc_homicide_rate()
     hale = fetcher.fetch_hale()
     mental_health = fetcher.fetch_mental_health_index()
-    gender_pay_gap = fetcher.fetch_gender_pay_gap()
     education = fetcher.fetch_education_index()
 
     # Merge datasets
@@ -72,7 +71,6 @@ def generate_web_data(output_dir="docs"):
         (homicide, 'Country'),
         (hale, 'Country'),
         (mental_health, 'Country'),
-        (gender_pay_gap, 'Country'),
         (education, 'Country')
     ]
 
@@ -114,7 +112,6 @@ def generate_web_data(output_dir="docs"):
                 {"name": "UNODC Homicide Statistics (via World Bank)", "year": 2022},
                 {"name": "WHO Healthy Life Expectancy (HALE)", "year": 2021},
                 {"name": "WHO Mental Health Atlas", "year": 2021},
-                {"name": "OECD Gender Wage Gap", "year": 2023},
                 {"name": "UNDP Education Index", "year": 2022}
             ]
         },
@@ -139,7 +136,6 @@ def generate_web_data(output_dir="docs"):
         'Homicide_Rate': {'display_name': 'Homicide Rate (UNODC)', 'unit': 'per 100k', 'higher_better': False},
         'HALE': {'display_name': 'Healthy Life Expectancy (WHO)', 'unit': 'years', 'higher_better': True},
         'Mental_Health_Index': {'display_name': 'Mental Health Access (WHO)', 'unit': 'per 100k', 'higher_better': True},
-        'Gender_Pay_Gap': {'display_name': 'Gender Pay Gap', 'unit': '%', 'higher_better': False},
         'Education_Index': {'display_name': 'Education Index (UNDP)', 'unit': '0-1', 'higher_better': True}
     }
 
@@ -242,7 +238,6 @@ def generate_web_data(output_dir="docs"):
         ('Homicide_Rate', 'Homicide Rate (UNODC)', False),
         ('HALE', 'Healthy Life Expectancy', True),
         ('Mental_Health_Index', 'Mental Health Access', True),
-        ('Gender_Pay_Gap', 'Gender Pay Gap', False),
         ('Education_Index', 'Education Index', True)
     ]
 

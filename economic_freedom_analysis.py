@@ -1627,7 +1627,6 @@ class CorrelationAnalyzer:
             ('Homicide_Rate', 'Homicide Rate (UNODC)', 'lower is better'),
             ('HALE', 'Healthy Life Expectancy (WHO)', 'higher is better'),
             ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better'),
-            ('Gender_Pay_Gap', 'Gender Pay Gap', 'lower is better'),
             ('Education_Index', 'Education Index (UNDP)', 'higher is better')
         ]
 
