@@ -2271,8 +2271,9 @@
 
                 bars.forEach(bar => {
                     const width = bar.value ? Math.round(bar.value * 100) : 0;
-                    const invertedMarker = bar.inverted ? ' *' : '';
-                    const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})${invertedMarker}` : 'N/A';
+                    // Show negative value when inverted to make opposite relationship clear
+                    const displayValue = bar.inverted ? -bar.value : bar.value;
+                    const valueText = bar.value !== null ? `${displayValue.toFixed(2)} (n=${bar.n})` : 'N/A';
                     html += `
                         <div class="comparison-bar-col" data-label="${bar.label}">
                             <div class="comparison-bar-wrapper">
@@ -2437,7 +2438,7 @@
             // Check if any metrics have inverted equality correlation
             const hasInverted = comparison.metrics.some(m => m.equality && m.equality.inverted);
             const invertedNote = hasInverted ?
-                '<div class="comparison-footnote" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">* Raw correlation has opposite sign (both inequalities move together, rather than a direct causal relationship)</div>' : '';
+                '<div class="comparison-footnote" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; padding: 8px; background: rgba(0,0,0,0.03); border-radius: 4px;"><strong>Note:</strong> Negative Equality values indicate that income inequality and the outcome move together (e.g., more income inequality = more gender inequality), rather than equality directly improving the outcome.</div>' : '';
 
             html += `
                     </div>
