@@ -1032,7 +1032,7 @@
         .crown {
             position: absolute;
             top: -40px;
-            left: calc(50% + 10px);
+            left: calc(50% + 4px);
             transform: translateX(-50%) rotate(12deg);
             font-size: 5rem;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
@@ -1047,7 +1047,7 @@
 
         .results-bar-breakdown {
             position: absolute;
-            top: 10px;
+            top: 17px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -1064,7 +1064,7 @@
         .results-bar-detail {
             font-size: 0.75rem;
             opacity: 0.9;
-            white-space: nowrap;
+            line-height: 1.4;
         }
 
         .comparison-verdict {
@@ -2564,7 +2564,7 @@
                                 <div class="results-bar-fill" style="height: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${freedomTotal}</div>
-                                    <div class="results-bar-detail">${efClearWins} wins, ${freedomTies} ties</div>
+                                    <div class="results-bar-detail">${efClearWins} wins<br>${freedomTies} ties</div>
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--success);">Freedom</span>
@@ -2575,7 +2575,7 @@
                                 <div class="results-bar-fill" style="height: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${democracyTotal}</div>
-                                    <div class="results-bar-detail">${demClearWins} wins, ${democracyTies} ties</div>
+                                    <div class="results-bar-detail">${demClearWins} wins<br>${democracyTies} ties</div>
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
@@ -2586,7 +2586,7 @@
                                 <div class="results-bar-fill" style="height: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${equalityTotal}</div>
-                                    <div class="results-bar-detail">${eqClearWins} wins, ${equalityTies} ties</div>
+                                    <div class="results-bar-detail">${eqClearWins} wins<br>${equalityTies} ties</div>
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--danger);">Equality</span>
