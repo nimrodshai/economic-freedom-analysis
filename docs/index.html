@@ -1031,10 +1031,10 @@
 
         .crown {
             position: absolute;
-            top: -12px;
-            left: 55%;
+            top: -22px;
+            left: calc(50% + 10px);
             transform: translateX(-50%) rotate(12deg);
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
             z-index: 10;
             animation: crown-bounce 0.5s ease;
@@ -1043,6 +1043,27 @@
         @keyframes crown-bounce {
             0%, 100% { transform: translateX(-50%) rotate(12deg) translateY(0); }
             50% { transform: translateX(-50%) rotate(12deg) translateY(-3px); }
+        }
+
+        .results-bar-breakdown {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3);
+        }
+
+        .results-bar-wins {
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .results-bar-ties {
+            font-size: 0.85rem;
+            opacity: 0.9;
         }
 
         .comparison-verdict {
@@ -2534,13 +2555,16 @@
                     </div>
                 </div>
                 <div class="comparison-results-chart">
-                    <div class="results-chart-title"><strong>Results</strong> (Wins + Ties out of ${totalMetrics} metrics)</div>
+                    <div class="results-chart-title"><strong>Results</strong> (out of ${totalMetrics} metrics)</div>
                     <div class="results-bars">
                         <div class="results-bar-col">
                             <div class="results-bar-container">
                                 ${winner === 'Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
-                                <span class="results-bar-value" style="color: var(--success);">${freedomTotal}</span>
+                                <div class="results-bar-breakdown">
+                                    <div class="results-bar-wins">${efClearWins} wins</div>
+                                    <div class="results-bar-ties">${freedomTies} ties</div>
+                                </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--success);">Freedom</span>
                         </div>
@@ -2548,7 +2572,10 @@
                             <div class="results-bar-container">
                                 ${winner === 'Democracy' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
-                                <span class="results-bar-value" style="color: #3b82f6;">${democracyTotal}</span>
+                                <div class="results-bar-breakdown">
+                                    <div class="results-bar-wins">${demClearWins} wins</div>
+                                    <div class="results-bar-ties">${democracyTies} ties</div>
+                                </div>
                             </div>
                             <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
                         </div>
@@ -2556,7 +2583,10 @@
                             <div class="results-bar-container">
                                 ${winner === 'Equality' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
-                                <span class="results-bar-value" style="color: var(--danger);">${equalityTotal}</span>
+                                <div class="results-bar-breakdown">
+                                    <div class="results-bar-wins">${eqClearWins} wins</div>
+                                    <div class="results-bar-ties">${equalityTies} ties</div>
+                                </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--danger);">Equality</span>
                         </div>
