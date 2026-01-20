@@ -975,64 +975,72 @@
 
         .results-chart-title {
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             font-size: 1rem;
             color: var(--text-muted);
         }
 
         .results-bars {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 40px;
+            height: 180px;
+            padding-bottom: 10px;
         }
 
-        .results-bar-row {
+        .results-bar-col {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
-        }
-
-        .results-bar-label {
-            width: 90px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: right;
+            gap: 8px;
         }
 
         .results-bar-container {
-            flex: 1;
-            height: 32px;
+            width: 60px;
+            height: 140px;
             background: #e2e8f0;
             border-radius: 6px;
             position: relative;
-            overflow: visible;
+            display: flex;
+            align-items: flex-end;
         }
 
         .results-bar-fill {
-            height: 100%;
+            width: 100%;
             border-radius: 6px;
-            transition: width 0.5s ease;
+            transition: height 0.5s ease;
         }
 
         .results-bar-value {
-            width: 30px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .results-bar-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
         }
 
         .crown {
             position: absolute;
-            top: -20px;
-            right: -5px;
-            font-size: 1.5rem;
-            transform: rotate(15deg);
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%) rotate(15deg);
+            font-size: 1.8rem;
             filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
             animation: crown-bounce 0.5s ease;
         }
 
         @keyframes crown-bounce {
-            0%, 100% { transform: rotate(15deg) translateY(0); }
-            50% { transform: rotate(15deg) translateY(-5px); }
+            0%, 100% { transform: translateX(-50%) rotate(15deg) translateY(0); }
+            50% { transform: translateX(-50%) rotate(15deg) translateY(-5px); }
         }
 
         .comparison-verdict {
@@ -2526,29 +2534,29 @@
                 <div class="comparison-results-chart">
                     <div class="results-chart-title"><strong>Results</strong> (Wins + Ties out of ${totalMetrics} metrics)</div>
                     <div class="results-bars">
-                        <div class="results-bar-row">
-                            <span class="results-bar-label" style="color: var(--success);">Freedom</span>
+                        <div class="results-bar-col">
                             <div class="results-bar-container">
-                                <div class="results-bar-fill" style="width: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
                                 ${winner === 'Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                <div class="results-bar-fill" style="height: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
+                                <span class="results-bar-value" style="color: var(--success);">${freedomTotal}</span>
                             </div>
-                            <span class="results-bar-value" style="color: var(--success);">${freedomTotal}</span>
+                            <span class="results-bar-label" style="color: var(--success);">Freedom</span>
                         </div>
-                        <div class="results-bar-row">
-                            <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
+                        <div class="results-bar-col">
                             <div class="results-bar-container">
-                                <div class="results-bar-fill" style="width: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
                                 ${winner === 'Democracy' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                <div class="results-bar-fill" style="height: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
+                                <span class="results-bar-value" style="color: #3b82f6;">${democracyTotal}</span>
                             </div>
-                            <span class="results-bar-value" style="color: #3b82f6;">${democracyTotal}</span>
+                            <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
                         </div>
-                        <div class="results-bar-row">
-                            <span class="results-bar-label" style="color: var(--danger);">Equality</span>
+                        <div class="results-bar-col">
                             <div class="results-bar-container">
-                                <div class="results-bar-fill" style="width: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
                                 ${winner === 'Equality' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                <div class="results-bar-fill" style="height: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
+                                <span class="results-bar-value" style="color: var(--danger);">${equalityTotal}</span>
                             </div>
-                            <span class="results-bar-value" style="color: var(--danger);">${equalityTotal}</span>
+                            <span class="results-bar-label" style="color: var(--danger);">Equality</span>
                         </div>
                     </div>
                 </div>
