@@ -1031,8 +1031,8 @@
 
         .crown {
             position: absolute;
-            top: -15px;
-            left: calc(50% + 5px);
+            top: -40px;
+            left: calc(50% + 10px);
             transform: translateX(-50%) rotate(12deg);
             font-size: 5rem;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
@@ -1055,15 +1055,16 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 8px rgba(0,0,0,0.3);
         }
 
-        .results-bar-wins {
+        .results-bar-total {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             line-height: 1.2;
         }
 
-        .results-bar-ties {
-            font-size: 0.85rem;
+        .results-bar-detail {
+            font-size: 0.75rem;
             opacity: 0.9;
+            white-space: nowrap;
         }
 
         .comparison-verdict {
@@ -2562,8 +2563,8 @@
                                 ${winner === 'Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
                                 <div class="results-bar-breakdown">
-                                    <div class="results-bar-wins">${efClearWins} wins</div>
-                                    <div class="results-bar-ties">${freedomTies} ties</div>
+                                    <div class="results-bar-total">${freedomTotal}</div>
+                                    <div class="results-bar-detail">${efClearWins} wins, ${freedomTies} ties</div>
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--success);">Freedom</span>
@@ -2573,8 +2574,8 @@
                                 ${winner === 'Democracy' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
                                 <div class="results-bar-breakdown">
-                                    <div class="results-bar-wins">${demClearWins} wins</div>
-                                    <div class="results-bar-ties">${democracyTies} ties</div>
+                                    <div class="results-bar-total">${democracyTotal}</div>
+                                    <div class="results-bar-detail">${demClearWins} wins, ${democracyTies} ties</div>
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
@@ -2584,8 +2585,8 @@
                                 ${winner === 'Equality' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
                                 <div class="results-bar-breakdown">
-                                    <div class="results-bar-wins">${eqClearWins} wins</div>
-                                    <div class="results-bar-ties">${equalityTies} ties</div>
+                                    <div class="results-bar-total">${equalityTotal}</div>
+                                    <div class="results-bar-detail">${eqClearWins} wins, ${equalityTies} ties</div>
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--danger);">Equality</span>
