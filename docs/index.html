@@ -965,6 +965,76 @@
             border-left: 4px solid var(--success);
         }
 
+        .comparison-results-chart {
+            margin-top: 24px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .results-chart-title {
+            text-align: center;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .results-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .results-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .results-bar-label {
+            width: 90px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+
+        .results-bar-container {
+            flex: 1;
+            height: 32px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .results-bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .results-bar-value {
+            width: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .crown {
+            position: absolute;
+            top: -20px;
+            right: -5px;
+            font-size: 1.5rem;
+            transform: rotate(15deg);
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+            animation: crown-bounce 0.5s ease;
+        }
+
+        @keyframes crown-bounce {
+            0%, 100% { transform: rotate(15deg) translateY(0); }
+            50% { transform: rotate(15deg) translateY(-5px); }
+        }
+
         .comparison-verdict {
             margin-top: 24px;
             padding: 24px;
@@ -2433,11 +2503,54 @@
                 conclusion += ' ' + subtleLoserAnalogies[Math.floor(Math.random() * subtleLoserAnalogies.length)];
             }
 
+            // Calculate total scores (wins + ties) for the chart
+            const totalMetrics = comparison.metrics.length;
+            const freedomTotal = efClearWins + freedomTies;
+            const democracyTotal = demClearWins + democracyTies;
+            const equalityTotal = eqClearWins + equalityTies;
+            const maxTotal = Math.max(freedomTotal, democracyTotal, equalityTotal, 1);
+
+            // Determine winner for crown
+            const scores = [
+                { name: 'Freedom', total: freedomTotal, color: 'var(--success)' },
+                { name: 'Democracy', total: democracyTotal, color: '#3b82f6' },
+                { name: 'Equality', total: equalityTotal, color: 'var(--danger)' }
+            ].sort((a, b) => b.total - a.total);
+
+            const winner = scores[0].name;
+            const isTie = scores[0].total === scores[1].total;
+
             html += `
                     </div>
                 </div>
-                <div class="comparison-conclusion">
-                    <strong>Results:</strong> ${resultsText}
+                <div class="comparison-results-chart">
+                    <div class="results-chart-title"><strong>Results</strong> (Wins + Ties out of ${totalMetrics} metrics)</div>
+                    <div class="results-bars">
+                        <div class="results-bar-row">
+                            <span class="results-bar-label" style="color: var(--success);">Freedom</span>
+                            <div class="results-bar-container">
+                                <div class="results-bar-fill" style="width: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
+                                ${winner === 'Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
+                            </div>
+                            <span class="results-bar-value" style="color: var(--success);">${freedomTotal}</span>
+                        </div>
+                        <div class="results-bar-row">
+                            <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
+                            <div class="results-bar-container">
+                                <div class="results-bar-fill" style="width: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
+                                ${winner === 'Democracy' && !isTie ? '<span class="crown">👑</span>' : ''}
+                            </div>
+                            <span class="results-bar-value" style="color: #3b82f6;">${democracyTotal}</span>
+                        </div>
+                        <div class="results-bar-row">
+                            <span class="results-bar-label" style="color: var(--danger);">Equality</span>
+                            <div class="results-bar-container">
+                                <div class="results-bar-fill" style="width: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
+                                ${winner === 'Equality' && !isTie ? '<span class="crown">👑</span>' : ''}
+                            </div>
+                            <span class="results-bar-value" style="color: var(--danger);">${equalityTotal}</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="comparison-verdict">
                     ${conclusion}
