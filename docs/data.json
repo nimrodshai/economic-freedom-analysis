@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-20T17:43:25.656540Z",
+    "generated_at": "2026-01-20T18:02:15.306763Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -14826,6 +14826,7 @@
       {
         "metric": "GDP per Capita",
         "metric_id": "GDP_Per_Capita",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.7015,
           "effective": 0.7015,
@@ -14838,7 +14839,8 @@
           "effective": 0.3029,
           "p_value": 0.001683095036070498,
           "significant": true,
-          "n": 105
+          "n": 105,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.6104,
@@ -14852,6 +14854,7 @@
       {
         "metric": "Life Expectancy",
         "metric_id": "Life_Expectancy",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.5915,
           "effective": 0.5915,
@@ -14864,7 +14867,8 @@
           "effective": 0.2663,
           "p_value": 0.006039935803252246,
           "significant": true,
-          "n": 105
+          "n": 105,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.5924,
@@ -14878,6 +14882,7 @@
       {
         "metric": "Infant Mortality",
         "metric_id": "Infant_Mortality",
+        "higher_better": false,
         "economic_freedom": {
           "correlation": -0.546,
           "effective": 0.546,
@@ -14890,7 +14895,8 @@
           "effective": 0.2791,
           "p_value": 0.003929791231475711,
           "significant": true,
-          "n": 105
+          "n": 105,
+          "inverted": true
         },
         "democracy": {
           "correlation": -0.5519,
@@ -14904,6 +14910,7 @@
       {
         "metric": "Anti-Corruption",
         "metric_id": "Corruption_Score",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.7819,
           "effective": 0.7819,
@@ -14916,7 +14923,8 @@
           "effective": 0.4037,
           "p_value": 2.13719426142785e-05,
           "significant": true,
-          "n": 104
+          "n": 104,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.7858,
@@ -14930,6 +14938,7 @@
       {
         "metric": "Human Development Index",
         "metric_id": "HDI",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.7164,
           "effective": 0.7164,
@@ -14942,7 +14951,8 @@
           "effective": 0.3185,
           "p_value": 0.001170367550336626,
           "significant": true,
-          "n": 101
+          "n": 101,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.6533,
@@ -14956,6 +14966,7 @@
       {
         "metric": "Happiness",
         "metric_id": "Happiness_Score",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.7068,
           "effective": 0.7068,
@@ -14968,7 +14979,8 @@
           "effective": 0.1549,
           "p_value": 0.1338869813019185,
           "significant": false,
-          "n": 95
+          "n": 95,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.5692,
@@ -14982,6 +14994,7 @@
       {
         "metric": "Social Mobility",
         "metric_id": "Social_Mobility_Score",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.7905,
           "effective": 0.7905,
@@ -14994,7 +15007,8 @@
           "effective": 0.4925,
           "p_value": 1.4888066827158797e-05,
           "significant": true,
-          "n": 70
+          "n": 70,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.7189,
@@ -15008,6 +15022,7 @@
       {
         "metric": "Purchasing Power",
         "metric_id": "Purchasing_Power_Index",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.6648,
           "effective": 0.6648,
@@ -15020,7 +15035,8 @@
           "effective": 0.3748,
           "p_value": 0.0003479365105881608,
           "significant": true,
-          "n": 87
+          "n": 87,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.4674,
@@ -15034,6 +15050,7 @@
       {
         "metric": "Pollution",
         "metric_id": "Pollution_Index",
+        "higher_better": false,
         "economic_freedom": {
           "correlation": -0.6706,
           "effective": 0.6706,
@@ -15046,7 +15063,8 @@
           "effective": 0.2901,
           "p_value": 0.009989169771877675,
           "significant": true,
-          "n": 78
+          "n": 78,
+          "inverted": true
         },
         "democracy": {
           "correlation": -0.6764,
@@ -15060,6 +15078,7 @@
       {
         "metric": "Crime (Numbeo)",
         "metric_id": "Crime_Index",
+        "higher_better": false,
         "economic_freedom": {
           "correlation": -0.4379,
           "effective": 0.4379,
@@ -15072,7 +15091,8 @@
           "effective": 0.5367,
           "p_value": 9.984757298056404e-08,
           "significant": true,
-          "n": 86
+          "n": 86,
+          "inverted": true
         },
         "democracy": {
           "correlation": -0.1635,
@@ -15086,6 +15106,7 @@
       {
         "metric": "Homicide Rate (UNODC)",
         "metric_id": "Homicide_Rate",
+        "higher_better": false,
         "economic_freedom": {
           "correlation": -0.1425,
           "effective": 0.1425,
@@ -15098,7 +15119,8 @@
           "effective": 0.5893,
           "p_value": 1.914598413900148e-09,
           "significant": true,
-          "n": 87
+          "n": 87,
+          "inverted": true
         },
         "democracy": {
           "correlation": -0.0565,
@@ -15112,6 +15134,7 @@
       {
         "metric": "Healthy Life Expectancy",
         "metric_id": "HALE",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.5816,
           "effective": 0.5816,
@@ -15124,7 +15147,8 @@
           "effective": 0.3721,
           "p_value": 0.00010043632357905226,
           "significant": true,
-          "n": 104
+          "n": 104,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.5728,
@@ -15138,6 +15162,7 @@
       {
         "metric": "Mental Health Access",
         "metric_id": "Mental_Health_Index",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.5381,
           "effective": 0.5381,
@@ -15150,7 +15175,8 @@
           "effective": 0.3123,
           "p_value": 0.0053824712727089784,
           "significant": true,
-          "n": 78
+          "n": 78,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.5757,
@@ -15164,6 +15190,7 @@
       {
         "metric": "Education Index",
         "metric_id": "Education_Index",
+        "higher_better": true,
         "economic_freedom": {
           "correlation": 0.61,
           "effective": 0.61,
@@ -15176,7 +15203,8 @@
           "effective": 0.2853,
           "p_value": 0.044605489884804686,
           "significant": true,
-          "n": 50
+          "n": 50,
+          "inverted": true
         },
         "democracy": {
           "correlation": 0.6943,
@@ -15190,6 +15218,7 @@
       {
         "metric": "Gender Inequality",
         "metric_id": "Gender_Inequality_Index",
+        "higher_better": false,
         "economic_freedom": {
           "correlation": -0.7041,
           "effective": 0.7041,
@@ -15202,7 +15231,8 @@
           "effective": 0.4293,
           "p_value": 6.738084178824895e-06,
           "significant": true,
-          "n": 102
+          "n": 102,
+          "inverted": true
         },
         "democracy": {
           "correlation": -0.6333,

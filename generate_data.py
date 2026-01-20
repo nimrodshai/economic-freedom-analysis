@@ -312,6 +312,7 @@ def generate_web_data(output_dir="docs"):
             comparison_data.append({
                 "metric": display_name,
                 "metric_id": col,
+                "higher_better": higher_better,
                 "economic_freedom": {
                     "correlation": round(ef_corr, 4) if ef_corr is not None else None,
                     "effective": round(ef_effective, 4) if ef_effective is not None else None,
@@ -324,7 +325,9 @@ def generate_web_data(output_dir="docs"):
                     "effective": round(gini_effective, 4) if gini_effective is not None else None,
                     "p_value": gini_p if gini_p is not None else None,
                     "significant": gini_p < 0.05 if gini_p is not None else False,
-                    "n": len(gini_valid) if gini_corr is not None else 0
+                    "n": len(gini_valid) if gini_corr is not None else 0,
+                    "inverted": (gini_corr is not None and ef_corr is not None and
+                                (gini_corr > 0) != (ef_corr > 0))
                 },
                 "democracy": {
                     "correlation": round(democracy_corr, 4) if democracy_corr is not None else None,

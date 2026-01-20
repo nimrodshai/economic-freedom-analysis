@@ -2253,12 +2253,13 @@
                 const efN = m.economic_freedom.n || 0;
                 const eqN = m.equality.n || 0;
                 const demN = m.democracy ? m.democracy.n : 0;
+                const eqInverted = m.equality.inverted || false;
 
                 // Create array of bars and sort by correlation (largest to smallest)
                 const bars = [
-                    { label: 'Freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green' },
-                    { label: 'Equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red' },
-                    { label: 'Democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue' }
+                    { label: 'Freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', inverted: false },
+                    { label: 'Equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', inverted: eqInverted },
+                    { label: 'Democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', inverted: false }
                 ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 html += `
@@ -2270,7 +2271,8 @@
 
                 bars.forEach(bar => {
                     const width = bar.value ? Math.round(bar.value * 100) : 0;
-                    const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})` : 'N/A';
+                    const invertedMarker = bar.inverted ? ' *' : '';
+                    const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})${invertedMarker}` : 'N/A';
                     html += `
                         <div class="comparison-bar-col" data-label="${bar.label}">
                             <div class="comparison-bar-wrapper">
@@ -2432,12 +2434,18 @@
                 conclusion += ' ' + subtleLoserAnalogies[Math.floor(Math.random() * subtleLoserAnalogies.length)];
             }
 
+            // Check if any metrics have inverted equality correlation
+            const hasInverted = comparison.metrics.some(m => m.equality && m.equality.inverted);
+            const invertedNote = hasInverted ?
+                '<div class="comparison-footnote" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px;">* Raw correlation has opposite sign (both inequalities move together, rather than a direct causal relationship)</div>' : '';
+
             html += `
                     </div>
                 </div>
                 <div class="comparison-conclusion">
                     <strong>Results:</strong> ${resultsText}
                 </div>
+                ${invertedNote}
                 <div class="comparison-verdict">
                     ${conclusion}
                 </div>
