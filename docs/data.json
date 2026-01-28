@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-20T18:02:15.306763Z",
+    "generated_at": "2026-01-28T13:16:24.926425Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -53,6 +53,10 @@
       },
       {
         "name": "UNDP Gender Inequality Index",
+        "year": 2022
+      },
+      {
+        "name": "World Bank Poverty Rate",
         "year": 2022
       }
     ]
@@ -202,6 +206,17 @@
       "unit": "per 100k"
     },
     {
+      "id": "Poverty_Rate",
+      "name": "Poverty Rate (World Bank)",
+      "correlation": -0.5375,
+      "effective_correlation": 0.5375,
+      "p_value": 1.1150143197173556e-12,
+      "significant": true,
+      "n": 151,
+      "higher_better": false,
+      "unit": "%"
+    },
+    {
       "id": "Crime_Index",
       "name": "Crime (Numbeo)",
       "correlation": -0.4379,
@@ -244,6 +259,7 @@
       "mental_health_index": 2.0,
       "education_index": 0.86,
       "gender_inequality_index": 0.11,
+      "poverty_rate": 0.3,
       "gini_index": 29.4,
       "democracy_score": 6.2
     },
@@ -266,6 +282,7 @@
       "mental_health_index": 2.0,
       "education_index": 0.79,
       "gender_inequality_index": 0.44,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 3.55
     },
@@ -288,6 +305,7 @@
       "mental_health_index": null,
       "education_index": 0.54,
       "gender_inequality_index": 0.52,
+      "poverty_rate": 39.3,
       "gini_index": null,
       "democracy_score": 4.05
     },
@@ -310,6 +328,7 @@
       "mental_health_index": 15.0,
       "education_index": 0.86,
       "gender_inequality_index": 0.26,
+      "poverty_rate": 1.0,
       "gini_index": 42.4,
       "democracy_score": 6.51
     },
@@ -332,6 +351,7 @@
       "mental_health_index": 2.0,
       "education_index": 0.75,
       "gender_inequality_index": 0.18,
+      "poverty_rate": 1.9,
       "gini_index": 27.2,
       "democracy_score": 5.35
     },
@@ -354,6 +374,7 @@
       "mental_health_index": 13.0,
       "education_index": 0.91,
       "gender_inequality_index": 0.06,
+      "poverty_rate": 1.0,
       "gini_index": 33.8,
       "democracy_score": 8.85
     },
@@ -376,6 +397,7 @@
       "mental_health_index": 15.0,
       "education_index": 0.9,
       "gender_inequality_index": 0.03,
+      "poverty_rate": 0.5,
       "gini_index": 31.2,
       "democracy_score": 8.28
     },
@@ -398,6 +420,7 @@
       "mental_health_index": 3.0,
       "education_index": 0.83,
       "gender_inequality_index": 0.32,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.8
     },
@@ -420,6 +443,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.33,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -442,6 +466,7 @@
       "mental_health_index": 4.0,
       "education_index": 0.86,
       "gender_inequality_index": 0.17,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.45
     },
@@ -464,6 +489,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.68,
       "gender_inequality_index": 0.49,
+      "poverty_rate": 5.9,
       "gini_index": 30.9,
       "democracy_score": 4.44
     },
@@ -486,6 +512,7 @@
       "mental_health_index": 7.0,
       "education_index": null,
       "gender_inequality_index": 0.3,
+      "poverty_rate": 1.7,
       "gini_index": null,
       "democracy_score": null
     },
@@ -508,6 +535,7 @@
       "mental_health_index": 11.0,
       "education_index": 0.92,
       "gender_inequality_index": 0.08,
+      "poverty_rate": 0.0,
       "gini_index": 24.4,
       "democracy_score": 1.99
     },
@@ -530,6 +558,7 @@
       "mental_health_index": null,
       "education_index": 0.9,
       "gender_inequality_index": 0.03,
+      "poverty_rate": 0.1,
       "gini_index": 26.8,
       "democracy_score": 7.64
     },
@@ -552,6 +581,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.43,
+      "poverty_rate": 1.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -574,6 +604,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.61,
       "gender_inequality_index": 0.57,
+      "poverty_rate": 27.2,
       "gini_index": 34.4,
       "democracy_score": 4.44
     },
@@ -596,6 +627,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.68,
       "gender_inequality_index": 0.28,
+      "poverty_rate": 0.0,
       "gini_index": 28.5,
       "democracy_score": 5.65
     },
@@ -618,6 +650,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.42,
+      "poverty_rate": 2.8,
       "gini_index": 42.1,
       "democracy_score": 4.26
     },
@@ -640,6 +673,7 @@
       "mental_health_index": 9.0,
       "education_index": 0.78,
       "gender_inequality_index": 0.16,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 5.06
     },
@@ -662,6 +696,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.54,
       "gender_inequality_index": 0.49,
+      "poverty_rate": 21.4,
       "gini_index": null,
       "democracy_score": 7.63
     },
@@ -684,6 +719,7 @@
       "mental_health_index": 4.0,
       "education_index": 0.79,
       "gender_inequality_index": 0.39,
+      "poverty_rate": 3.8,
       "gini_index": 51.6,
       "democracy_score": 6.49
     },
@@ -706,6 +742,7 @@
       "mental_health_index": null,
       "education_index": 0.88,
       "gender_inequality_index": 0.26,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -728,6 +765,7 @@
       "mental_health_index": 10.0,
       "education_index": 0.82,
       "gender_inequality_index": 0.21,
+      "poverty_rate": 1.0,
       "gini_index": 39.5,
       "democracy_score": 6.34
     },
@@ -750,6 +788,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.47,
       "gender_inequality_index": 0.56,
+      "poverty_rate": 42.1,
       "gini_index": 37.4,
       "democracy_score": 2.55
     },
@@ -772,6 +811,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 10.3,
       "gini_index": null,
       "democracy_score": 0.96
     },
@@ -794,6 +834,7 @@
       "mental_health_index": null,
       "education_index": 0.51,
       "gender_inequality_index": 0.5,
+      "poverty_rate": 74.2,
       "gini_index": 37.5,
       "democracy_score": 2.13
     },
@@ -816,6 +857,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 14.6,
       "gini_index": null,
       "democracy_score": null
     },
@@ -838,6 +880,7 @@
       "mental_health_index": null,
       "education_index": 0.63,
       "gender_inequality_index": 0.51,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.94
     },
@@ -860,6 +903,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.58,
       "gender_inequality_index": 0.56,
+      "poverty_rate": 26.7,
       "gini_index": 42.2,
       "democracy_score": 2.56
     },
@@ -882,6 +926,7 @@
       "mental_health_index": 14.0,
       "education_index": 0.91,
       "gender_inequality_index": 0.05,
+      "poverty_rate": 0.2,
       "gini_index": 31.1,
       "democracy_score": 8.69
     },
@@ -904,6 +949,7 @@
       "mental_health_index": null,
       "education_index": 0.3,
       "gender_inequality_index": null,
+      "poverty_rate": 71.6,
       "gini_index": 43.0,
       "democracy_score": 1.18
     },
@@ -926,6 +972,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.35,
       "gender_inequality_index": 0.67,
+      "poverty_rate": 39.5,
       "gini_index": 37.4,
       "democracy_score": 1.89
     },
@@ -948,6 +995,7 @@
       "mental_health_index": 9.0,
       "education_index": 0.87,
       "gender_inequality_index": 0.1,
+      "poverty_rate": 0.5,
       "gini_index": 43.0,
       "democracy_score": 7.83
     },
@@ -970,6 +1018,7 @@
       "mental_health_index": 3.0,
       "education_index": 0.88,
       "gender_inequality_index": 0.13,
+      "poverty_rate": 0.0,
       "gini_index": 36.0,
       "democracy_score": 2.11
     },
@@ -992,6 +1041,7 @@
       "mental_health_index": 3.0,
       "education_index": 0.86,
       "gender_inequality_index": 0.39,
+      "poverty_rate": 7.7,
       "gini_index": 53.9,
       "democracy_score": 6.35
     },
@@ -1014,6 +1064,7 @@
       "mental_health_index": null,
       "education_index": 0.54,
       "gender_inequality_index": 0.5,
+      "poverty_rate": 31.4,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -1036,6 +1087,7 @@
       "mental_health_index": null,
       "education_index": 0.61,
       "gender_inequality_index": 0.6,
+      "poverty_rate": 85.3,
       "gini_index": 44.7,
       "democracy_score": 1.92
     },
@@ -1058,6 +1110,7 @@
       "mental_health_index": null,
       "education_index": 0.59,
       "gender_inequality_index": 0.56,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.79
     },
@@ -1080,6 +1133,7 @@
       "mental_health_index": 3.0,
       "education_index": 0.87,
       "gender_inequality_index": 0.22,
+      "poverty_rate": 1.3,
       "gini_index": 45.8,
       "democracy_score": 8.29
     },
@@ -1102,6 +1156,7 @@
       "mental_health_index": null,
       "education_index": 0.54,
       "gender_inequality_index": 0.59,
+      "poverty_rate": 20.9,
       "gini_index": 35.3,
       "democracy_score": 4.22
     },
@@ -1124,6 +1179,7 @@
       "mental_health_index": 13.0,
       "education_index": 0.89,
       "gender_inequality_index": 0.07,
+      "poverty_rate": 0.3,
       "gini_index": 30.1,
       "democracy_score": 6.5
     },
@@ -1146,6 +1202,7 @@
       "mental_health_index": 9.0,
       "education_index": null,
       "gender_inequality_index": 0.3,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.58
     },
@@ -1168,6 +1225,7 @@
       "mental_health_index": 3.0,
       "education_index": 0.91,
       "gender_inequality_index": 0.25,
+      "poverty_rate": 0.0,
       "gini_index": 31.8,
       "democracy_score": 7.38
     },
@@ -1190,6 +1248,7 @@
       "mental_health_index": 16.0,
       "education_index": 0.9,
       "gender_inequality_index": 0.09,
+      "poverty_rate": 0.0,
       "gini_index": 25.7,
       "democracy_score": 8.08
     },
@@ -1212,6 +1271,7 @@
       "mental_health_index": null,
       "education_index": 0.89,
       "gender_inequality_index": 0.0,
+      "poverty_rate": 0.4,
       "gini_index": 29.9,
       "democracy_score": 9.28
     },
@@ -1234,6 +1294,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 25.4,
       "gini_index": null,
       "democracy_score": 2.7
     },
@@ -1256,6 +1317,7 @@
       "mental_health_index": null,
       "education_index": 0.83,
       "gender_inequality_index": null,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1278,6 +1340,7 @@
       "mental_health_index": 3.0,
       "education_index": 0.79,
       "gender_inequality_index": 0.42,
+      "poverty_rate": 0.8,
       "gini_index": 39.0,
       "democracy_score": 6.62
     },
@@ -1300,6 +1363,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.86,
       "gender_inequality_index": 0.36,
+      "poverty_rate": 7.3,
       "gini_index": 45.2,
       "democracy_score": 5.24
     },
@@ -1322,6 +1386,7 @@
       "mental_health_index": null,
       "education_index": 0.76,
       "gender_inequality_index": 0.4,
+      "poverty_rate": 1.4,
       "gini_index": 28.5,
       "democracy_score": 2.79
     },
@@ -1344,6 +1409,7 @@
       "mental_health_index": null,
       "education_index": 0.73,
       "gender_inequality_index": 0.36,
+      "poverty_rate": 4.6,
       "gini_index": 39.8,
       "democracy_score": 4.61
     },
@@ -1366,6 +1432,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 8.8,
       "gini_index": 38.5,
       "democracy_score": 1.92
     },
@@ -1388,6 +1455,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 1.97
     },
@@ -1410,6 +1478,7 @@
       "mental_health_index": 16.0,
       "education_index": 0.9,
       "gender_inequality_index": 0.06,
+      "poverty_rate": 0.3,
       "gini_index": 30.7,
       "democracy_score": 8.13
     },
@@ -1432,6 +1501,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.43,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 44.5,
       "gini_index": null,
       "democracy_score": 2.6
     },
@@ -1454,6 +1524,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.52,
       "gender_inequality_index": 0.5,
+      "poverty_rate": 38.6,
       "gini_index": 31.1,
       "democracy_score": 3.24
     },
@@ -1476,6 +1547,7 @@
       "mental_health_index": 1.0,
       "education_index": 0.76,
       "gender_inequality_index": 0.35,
+      "poverty_rate": 4.7,
       "gini_index": null,
       "democracy_score": 5.39
     },
@@ -1498,6 +1570,7 @@
       "mental_health_index": 20.0,
       "education_index": 0.92,
       "gender_inequality_index": 0.02,
+      "poverty_rate": 0.2,
       "gini_index": 27.4,
       "democracy_score": 9.3
     },
@@ -1520,6 +1593,7 @@
       "mental_health_index": 24.0,
       "education_index": 0.92,
       "gender_inequality_index": 0.03,
+      "poverty_rate": 0.1,
       "gini_index": 31.8,
       "democracy_score": 7.99
     },
@@ -1542,6 +1616,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.55,
       "gender_inequality_index": 0.51,
+      "poverty_rate": 3.8,
       "gini_index": null,
       "democracy_score": 2.18
     },
@@ -1564,6 +1639,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.63,
       "gender_inequality_index": 0.58,
+      "poverty_rate": 22.0,
       "gini_index": 38.8,
       "democracy_score": 4.47
     },
@@ -1586,6 +1662,7 @@
       "mental_health_index": null,
       "education_index": 0.86,
       "gender_inequality_index": 0.26,
+      "poverty_rate": 4.2,
       "gini_index": 33.9,
       "democracy_score": 4.7
     },
@@ -1608,6 +1685,7 @@
       "mental_health_index": 14.0,
       "education_index": 0.89,
       "gender_inequality_index": 0.06,
+      "poverty_rate": 0.2,
       "gini_index": 32.4,
       "democracy_score": 8.73
     },
@@ -1630,6 +1708,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.81,
       "gender_inequality_index": 0.51,
+      "poverty_rate": 39.0,
       "gini_index": null,
       "democracy_score": 6.24
     },
@@ -1652,6 +1731,7 @@
       "mental_health_index": null,
       "education_index": 0.89,
       "gender_inequality_index": 0.1,
+      "poverty_rate": 0.6,
       "gini_index": 33.4,
       "democracy_score": 8.07
     },
@@ -1674,6 +1754,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.65,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 9.7,
       "gini_index": 45.2,
       "democracy_score": 4.55
     },
@@ -1696,6 +1777,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.47,
       "gender_inequality_index": 0.61,
+      "poverty_rate": 11.7,
       "gini_index": null,
       "democracy_score": 2.04
     },
@@ -1718,6 +1800,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.63,
+      "poverty_rate": 39.9,
       "gini_index": 33.4,
       "democracy_score": 2.03
     },
@@ -1740,6 +1823,7 @@
       "mental_health_index": 2.0,
       "education_index": 0.81,
       "gender_inequality_index": 0.43,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 6.11
     },
@@ -1762,6 +1846,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.76,
       "gender_inequality_index": 0.62,
+      "poverty_rate": 40.4,
       "gini_index": null,
       "democracy_score": 2.74
     },
@@ -1784,6 +1869,7 @@
       "mental_health_index": null,
       "education_index": 0.64,
       "gender_inequality_index": 0.44,
+      "poverty_rate": 15.7,
       "gini_index": 45.7,
       "democracy_score": 4.98
     },
@@ -1806,6 +1892,7 @@
       "mental_health_index": 12.0,
       "education_index": 0.86,
       "gender_inequality_index": 0.21,
+      "poverty_rate": 0.9,
       "gini_index": null,
       "democracy_score": 6.51
     },
@@ -1828,6 +1915,7 @@
       "mental_health_index": null,
       "education_index": 0.9,
       "gender_inequality_index": 0.02,
+      "poverty_rate": 0.1,
       "gini_index": null,
       "democracy_score": 9.38
     },
@@ -1850,6 +1938,7 @@
       "mental_health_index": null,
       "education_index": 0.74,
       "gender_inequality_index": 0.4,
+      "poverty_rate": 5.3,
       "gini_index": 25.5,
       "democracy_score": 7.29
     },
@@ -1872,6 +1961,7 @@
       "mental_health_index": 0.0,
       "education_index": 0.83,
       "gender_inequality_index": 0.42,
+      "poverty_rate": 5.4,
       "gini_index": 34.9,
       "democracy_score": 6.44
     },
@@ -1894,6 +1984,7 @@
       "mental_health_index": 2.0,
       "education_index": 0.79,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 2.5,
       "gini_index": 35.9,
       "democracy_score": 1.96
     },
@@ -1916,6 +2007,7 @@
       "mental_health_index": 8.0,
       "education_index": 0.93,
       "gender_inequality_index": 0.05,
+      "poverty_rate": 0.1,
       "gini_index": 29.0,
       "democracy_score": 9.19
     },
@@ -1938,6 +2030,7 @@
       "mental_health_index": null,
       "education_index": 0.92,
       "gender_inequality_index": 0.08,
+      "poverty_rate": 0.7,
       "gini_index": 37.9,
       "democracy_score": 7.8
     },
@@ -1960,6 +2053,7 @@
       "mental_health_index": 6.0,
       "education_index": 0.88,
       "gender_inequality_index": 0.04,
+      "poverty_rate": 0.9,
       "gini_index": 34.3,
       "democracy_score": 7.58
     },
@@ -1982,6 +2076,7 @@
       "mental_health_index": 1.0,
       "education_index": 0.76,
       "gender_inequality_index": 0.36,
+      "poverty_rate": 1.4,
       "gini_index": 39.9,
       "democracy_score": 6.74
     },
@@ -2004,6 +2099,7 @@
       "mental_health_index": null,
       "education_index": 0.91,
       "gender_inequality_index": 0.06,
+      "poverty_rate": 1.2,
       "gini_index": 32.3,
       "democracy_score": 8.48
     },
@@ -2026,6 +2122,7 @@
       "mental_health_index": 1.0,
       "education_index": 0.74,
       "gender_inequality_index": 0.43,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 3.28
     },
@@ -2048,6 +2145,7 @@
       "mental_health_index": 4.0,
       "education_index": null,
       "gender_inequality_index": 0.18,
+      "poverty_rate": 0.0,
       "gini_index": 29.2,
       "democracy_score": 3.08
     },
@@ -2070,6 +2168,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.53,
+      "poverty_rate": 46.9,
       "gini_index": 37.7,
       "democracy_score": 5.05
     },
@@ -2092,6 +2191,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 6.1,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2114,6 +2214,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 1.08
     },
@@ -2136,6 +2237,7 @@
       "mental_health_index": 8.0,
       "education_index": null,
       "gender_inequality_index": 0.04,
+      "poverty_rate": 0.2,
       "gini_index": 32.9,
       "democracy_score": 7.75
     },
@@ -2158,6 +2260,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 10.0,
       "gini_index": 38.3,
       "democracy_score": null
     },
@@ -2180,6 +2283,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.19,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.78
     },
@@ -2202,6 +2306,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.34,
+      "poverty_rate": 2.7,
       "gini_index": 27.2,
       "democracy_score": 3.52
     },
@@ -2224,6 +2329,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.47,
+      "poverty_rate": 15.7,
       "gini_index": null,
       "democracy_score": 1.71
     },
@@ -2246,6 +2352,7 @@
       "mental_health_index": 13.0,
       "education_index": null,
       "gender_inequality_index": 0.12,
+      "poverty_rate": 0.4,
       "gini_index": 34.0,
       "democracy_score": 7.66
     },
@@ -2268,6 +2375,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.36,
+      "poverty_rate": 5.9,
       "gini_index": 35.3,
       "democracy_score": 3.56
     },
@@ -2290,6 +2398,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.53,
+      "poverty_rate": 41.9,
       "gini_index": null,
       "democracy_score": 6.06
     },
@@ -2312,6 +2421,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.65,
+      "poverty_rate": 33.6,
       "gini_index": null,
       "democracy_score": 5.57
     },
@@ -2334,6 +2444,7 @@
       "mental_health_index": 20.0,
       "education_index": null,
       "gender_inequality_index": 0.07,
+      "poverty_rate": 1.1,
       "gini_index": 36.0,
       "democracy_score": 7.59
     },
@@ -2356,6 +2467,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.04,
+      "poverty_rate": 0.1,
       "gini_index": 33.6,
       "democracy_score": 8.88
     },
@@ -2378,6 +2490,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.58,
+      "poverty_rate": 69.2,
       "gini_index": 36.8,
       "democracy_score": 5.33
     },
@@ -2400,6 +2513,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.58,
+      "poverty_rate": 75.4,
       "gini_index": null,
       "democracy_score": 5.85
     },
@@ -2422,6 +2536,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.17,
+      "poverty_rate": 0.0,
       "gini_index": 40.7,
       "democracy_score": 7.11
     },
@@ -2444,6 +2559,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.31,
+      "poverty_rate": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2466,6 +2582,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.61,
+      "poverty_rate": 36.1,
       "gini_index": 35.7,
       "democracy_score": 2.4
     },
@@ -2488,6 +2605,7 @@
       "mental_health_index": 7.0,
       "education_index": null,
       "gender_inequality_index": 0.11,
+      "poverty_rate": 0.1,
       "gini_index": 34.6,
       "democracy_score": 7.93
     },
@@ -2510,6 +2628,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.6,
+      "poverty_rate": 10.2,
       "gini_index": null,
       "democracy_score": 3.96
     },
@@ -2532,6 +2651,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.35,
+      "poverty_rate": 0.5,
       "gini_index": null,
       "democracy_score": 8.23
     },
@@ -2554,6 +2674,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.36,
+      "poverty_rate": 2.3,
       "gini_index": 43.5,
       "democracy_score": 5.32
     },
@@ -2576,6 +2697,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 26.1,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2598,6 +2720,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.15,
+      "poverty_rate": 0.1,
       "gini_index": 26.8,
       "democracy_score": 6.04
     },
@@ -2620,6 +2743,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.28,
+      "poverty_rate": 0.4,
       "gini_index": 31.4,
       "democracy_score": 6.53
     },
@@ -2642,6 +2766,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.12,
+      "poverty_rate": 2.5,
       "gini_index": 34.3,
       "democracy_score": 6.73
     },
@@ -2664,6 +2789,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.44,
+      "poverty_rate": 3.7,
       "gini_index": null,
       "democracy_score": 4.97
     },
@@ -2686,6 +2812,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 81.4,
       "gini_index": 49.6,
       "democracy_score": 3.38
     },
@@ -2708,6 +2835,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.45,
+      "poverty_rate": 22.9,
       "gini_index": null,
       "democracy_score": 6.48
     },
@@ -2730,6 +2858,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.49,
+      "poverty_rate": 2.4,
       "gini_index": 30.0,
       "democracy_score": 4.6
     },
@@ -2752,6 +2881,7 @@
       "mental_health_index": 17.0,
       "education_index": null,
       "gender_inequality_index": 0.01,
+      "poverty_rate": 0.1,
       "gini_index": 25.7,
       "democracy_score": 9.0
     },
@@ -2774,6 +2904,7 @@
       "mental_health_index": 9.0,
       "education_index": null,
       "gender_inequality_index": 0.08,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 9.61
     },
@@ -2796,6 +2927,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.41,
+      "poverty_rate": 6.6,
       "gini_index": null,
       "democracy_score": 2.09
     },
@@ -2818,6 +2950,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.59,
+      "poverty_rate": 60.5,
       "gini_index": 32.9,
       "democracy_score": 2.26
     },
@@ -2840,6 +2973,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.68,
+      "poverty_rate": 41.8,
       "gini_index": 33.9,
       "democracy_score": 4.16
     },
@@ -2862,6 +2996,7 @@
       "mental_health_index": 9.0,
       "education_index": null,
       "gender_inequality_index": 0.11,
+      "poverty_rate": 3.9,
       "gini_index": null,
       "democracy_score": 6.28
     },
@@ -2884,6 +3019,7 @@
       "mental_health_index": 23.0,
       "education_index": null,
       "gender_inequality_index": 0.0,
+      "poverty_rate": 0.2,
       "gini_index": 26.5,
       "democracy_score": 9.81
     },
@@ -2906,6 +3042,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.22,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 3.05
     },
@@ -2928,6 +3065,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.54,
+      "poverty_rate": 16.5,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -2950,6 +3088,7 @@
       "mental_health_index": 6.0,
       "education_index": null,
       "gender_inequality_index": 0.37,
+      "poverty_rate": 3.1,
       "gini_index": 49.7,
       "democracy_score": 6.84
     },
@@ -2972,6 +3111,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.58,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 5.97
     },
@@ -2994,6 +3134,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.41,
+      "poverty_rate": 2.1,
       "gini_index": 44.2,
       "democracy_score": 5.92
     },
@@ -3016,6 +3157,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.34,
+      "poverty_rate": 5.1,
       "gini_index": 40.1,
       "democracy_score": 5.69
     },
@@ -3038,6 +3180,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.35,
+      "poverty_rate": 5.3,
       "gini_index": 39.3,
       "democracy_score": 6.63
     },
@@ -3060,6 +3203,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.08,
+      "poverty_rate": 0.2,
       "gini_index": 28.5,
       "democracy_score": 7.4
     },
@@ -3082,6 +3226,7 @@
       "mental_health_index": 6.0,
       "education_index": null,
       "gender_inequality_index": 0.08,
+      "poverty_rate": 0.4,
       "gini_index": 33.9,
       "democracy_score": 8.08
     },
@@ -3104,6 +3249,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.2,
+      "poverty_rate": 0.0,
       "gini_index": null,
       "democracy_score": 3.17
     },
@@ -3126,6 +3272,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.23,
+      "poverty_rate": 0.7,
       "gini_index": 29.8,
       "democracy_score": 5.99
     },
@@ -3148,6 +3295,7 @@
       "mental_health_index": 13.0,
       "education_index": null,
       "gender_inequality_index": 0.17,
+      "poverty_rate": 0.1,
       "gini_index": 33.0,
       "democracy_score": 2.03
     },
@@ -3170,6 +3318,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.39,
+      "poverty_rate": 38.6,
       "gini_index": 39.4,
       "democracy_score": 3.34
     },
@@ -3192,6 +3341,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.33,
+      "poverty_rate": 0.1,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3214,6 +3364,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3236,6 +3387,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.42,
+      "poverty_rate": 4.5,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3258,6 +3410,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.49,
+      "poverty_rate": 13.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3280,6 +3433,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.23,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.08
     },
@@ -3302,6 +3456,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.49,
+      "poverty_rate": 17.9,
       "gini_index": 36.2,
       "democracy_score": 5.93
     },
@@ -3324,6 +3479,7 @@
       "mental_health_index": 6.0,
       "education_index": null,
       "gender_inequality_index": 0.12,
+      "poverty_rate": 2.0,
       "gini_index": 32.8,
       "democracy_score": 6.26
     },
@@ -3346,6 +3502,7 @@
       "mental_health_index": 4.0,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 0.7,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3368,6 +3525,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.57,
+      "poverty_rate": 41.5,
       "gini_index": null,
       "democracy_score": 4.32
     },
@@ -3390,6 +3548,7 @@
       "mental_health_index": 4.0,
       "education_index": null,
       "gender_inequality_index": 0.03,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 6.18
     },
@@ -3412,6 +3571,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.18,
+      "poverty_rate": 0.5,
       "gini_index": 23.8,
       "democracy_score": 7.21
     },
@@ -3434,6 +3594,7 @@
       "mental_health_index": 12.0,
       "education_index": null,
       "gender_inequality_index": 0.04,
+      "poverty_rate": 0.0,
       "gini_index": 24.7,
       "democracy_score": 7.82
     },
@@ -3456,6 +3617,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.48,
+      "poverty_rate": 40.3,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3478,6 +3640,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.39,
+      "poverty_rate": 31.2,
       "gini_index": null,
       "democracy_score": 7.16
     },
@@ -3500,6 +3663,7 @@
       "mental_health_index": 9.0,
       "education_index": null,
       "gender_inequality_index": 0.04,
+      "poverty_rate": 0.8,
       "gini_index": 33.4,
       "democracy_score": 8.13
     },
@@ -3522,6 +3686,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.37,
+      "poverty_rate": 2.7,
       "gini_index": null,
       "democracy_score": 6.19
     },
@@ -3544,6 +3709,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.59,
+      "poverty_rate": 10.1,
       "gini_index": null,
       "democracy_score": 1.46
     },
@@ -3566,6 +3732,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.39,
+      "poverty_rate": 2.2,
       "gini_index": 39.2,
       "democracy_score": 6.79
     },
@@ -3588,6 +3755,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.01,
+      "poverty_rate": 0.8,
       "gini_index": 29.3,
       "democracy_score": 9.39
     },
@@ -3610,6 +3778,7 @@
       "mental_health_index": 47.0,
       "education_index": null,
       "gender_inequality_index": 0.01,
+      "poverty_rate": 0.2,
       "gini_index": 33.8,
       "democracy_score": 9.32
     },
@@ -3632,6 +3801,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 8.78
     },
@@ -3654,6 +3824,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.26,
+      "poverty_rate": 6.1,
       "gini_index": 36.1,
       "democracy_score": 1.83
     },
@@ -3676,6 +3847,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.5,
+      "poverty_rate": 51.3,
       "gini_index": null,
       "democracy_score": 5.2
     },
@@ -3698,6 +3870,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.29,
+      "poverty_rate": 0.0,
       "gini_index": 33.5,
       "democracy_score": 6.27
     },
@@ -3720,6 +3893,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": 43.9,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3742,6 +3916,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.56,
+      "poverty_rate": 34.4,
       "gini_index": 37.9,
       "democracy_score": 2.99
     },
@@ -3764,6 +3939,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.44,
+      "poverty_rate": 0.4,
       "gini_index": 27.1,
       "democracy_score": null
     },
@@ -3786,6 +3962,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.26,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 7.09
     },
@@ -3808,6 +3985,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.24,
+      "poverty_rate": 0.7,
       "gini_index": 33.7,
       "democracy_score": 4.71
     },
@@ -3830,6 +4008,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": 0.23,
+      "poverty_rate": 0.5,
       "gini_index": 44.5,
       "democracy_score": 4.26
     },
@@ -3852,6 +4031,7 @@
       "mental_health_index": 2.0,
       "education_index": null,
       "gender_inequality_index": null,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 1.66
     },
@@ -3874,6 +4054,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.52,
+      "poverty_rate": 59.8,
       "gini_index": null,
       "democracy_score": 4.49
     },
@@ -3896,6 +4077,7 @@
       "mental_health_index": 4.0,
       "education_index": null,
       "gender_inequality_index": 0.04,
+      "poverty_rate": 0.0,
       "gini_index": null,
       "democracy_score": 3.07
     },
@@ -3918,6 +4100,7 @@
       "mental_health_index": 14.0,
       "education_index": null,
       "gender_inequality_index": 0.08,
+      "poverty_rate": 0.5,
       "gini_index": 32.4,
       "democracy_score": 8.34
     },
@@ -3940,6 +4123,7 @@
       "mental_health_index": null,
       "education_index": null,
       "gender_inequality_index": 0.17,
+      "poverty_rate": 1.2,
       "gini_index": 41.8,
       "democracy_score": 7.85
     },
@@ -3962,6 +4146,7 @@
       "mental_health_index": 16.0,
       "education_index": null,
       "gender_inequality_index": 0.22,
+      "poverty_rate": 0.2,
       "gini_index": 40.0,
       "democracy_score": 8.67
     },
@@ -3984,6 +4169,7 @@
       "mental_health_index": 3.0,
       "education_index": null,
       "gender_inequality_index": 0.29,
+      "poverty_rate": 2.7,
       "gini_index": 34.6,
       "democracy_score": 2.1
     },
@@ -4006,6 +4192,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.56,
+      "poverty_rate": 19.5,
       "gini_index": null,
       "democracy_score": null
     },
@@ -4028,6 +4215,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.51,
+      "poverty_rate": null,
       "gini_index": null,
       "democracy_score": 2.25
     },
@@ -4050,6 +4238,7 @@
       "mental_health_index": 1.0,
       "education_index": null,
       "gender_inequality_index": 0.3,
+      "poverty_rate": 1.6,
       "gini_index": 36.1,
       "democracy_score": 2.62
     },
@@ -4072,6 +4261,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.52,
+      "poverty_rate": 71.7,
       "gini_index": 51.5,
       "democracy_score": 5.73
     },
@@ -4094,6 +4284,7 @@
       "mental_health_index": 0.0,
       "education_index": null,
       "gender_inequality_index": 0.52,
+      "poverty_rate": 49.2,
       "gini_index": null,
       "democracy_score": 2.98
     }
@@ -14808,17 +14999,784 @@
           84.1
         ]
       }
+    },
+    "Poverty_Rate": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 0.3
+        },
+        {
+          "country": "Angola",
+          "x": 55.0,
+          "y": 39.3
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 1.0
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 1.9
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 1.0
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 0.5
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 5.9
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 1.7
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 0.0
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 0.1
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 1.0
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 27.2
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 0.0
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 2.8
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 21.4
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 3.8
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 1.0
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 42.1
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 10.3
+        },
+        {
+          "country": "Burundi",
+          "x": 39.7,
+          "y": 74.2
+        },
+        {
+          "country": "Cabo Verde",
+          "x": 68.7,
+          "y": 14.6
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 26.7
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 0.2
+        },
+        {
+          "country": "Central African Republic",
+          "x": 42.8,
+          "y": 71.6
+        },
+        {
+          "country": "Chad",
+          "x": 52.2,
+          "y": 39.5
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 0.5
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 0.0
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 7.7
+        },
+        {
+          "country": "Comoros",
+          "x": 51.4,
+          "y": 31.4
+        },
+        {
+          "country": "DR Congo",
+          "x": 47.3,
+          "y": 85.3
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 1.3
+        },
+        {
+          "country": "Ivory Coast",
+          "x": 57.8,
+          "y": 20.9
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 0.3
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 0.0
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 0.0
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 0.4
+        },
+        {
+          "country": "Djibouti",
+          "x": 55.7,
+          "y": 25.4
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 0.8
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 7.3
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 1.4
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 4.6
+        },
+        {
+          "country": "Equatorial Guinea",
+          "x": 47.7,
+          "y": 8.8
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 0.3
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 44.5
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 38.6
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 4.7
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 0.2
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 0.1
+        },
+        {
+          "country": "Gabon",
+          "x": 56.3,
+          "y": 3.8
+        },
+        {
+          "country": "Gambia",
+          "x": 56.8,
+          "y": 22.0
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 4.2
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 0.2
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 39.0
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 0.6
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 9.7
+        },
+        {
+          "country": "Guinea",
+          "x": 54.6,
+          "y": 11.7
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 39.9
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 40.4
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 15.7
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 0.9
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 0.1
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 5.3
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 5.4
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 2.5
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 0.1
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 0.7
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 0.9
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 1.4
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 1.2
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 0.0
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 46.9
+        },
+        {
+          "country": "Kiribati",
+          "x": 50.9,
+          "y": 6.1
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 0.2
+        },
+        {
+          "country": "Kosovo",
+          "x": 61.7,
+          "y": 10.0
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 2.7
+        },
+        {
+          "country": "Laos",
+          "x": 51.1,
+          "y": 15.7
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 0.4
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 5.9
+        },
+        {
+          "country": "Lesotho",
+          "x": 54.1,
+          "y": 41.9
+        },
+        {
+          "country": "Liberia",
+          "x": 48.5,
+          "y": 33.6
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 1.1
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 0.1
+        },
+        {
+          "country": "Madagascar",
+          "x": 57.0,
+          "y": 69.2
+        },
+        {
+          "country": "Malawi",
+          "x": 50.9,
+          "y": 75.4
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 0.0
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 0.0
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 36.1
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 0.1
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 10.2
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 0.5
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 2.3
+        },
+        {
+          "country": "Micronesia",
+          "x": 62.2,
+          "y": 26.1
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 0.1
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 0.4
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 2.5
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 3.7
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 81.4
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 22.9
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 2.4
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 0.1
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 6.6
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 60.5
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 41.8
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 3.9
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 0.2
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 16.5
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 3.1
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 2.1
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 5.1
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 5.3
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 0.2
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 0.4
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 0.0
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 0.7
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 0.1
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 38.6
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 0.1
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 4.5
+        },
+        {
+          "country": "Sao Tome and Principe",
+          "x": 60.4,
+          "y": 13.0
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 17.9
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 2.0
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 0.7
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 41.5
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 0.5
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 0.0
+        },
+        {
+          "country": "Solomon Islands",
+          "x": 56.3,
+          "y": 40.3
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 31.2
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 0.8
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 2.7
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 10.1
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 2.2
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 0.8
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 0.2
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 6.1
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 51.3
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 0.0
+        },
+        {
+          "country": "Timor-Leste",
+          "x": 47.9,
+          "y": 43.9
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 34.4
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 0.4
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 0.7
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 0.5
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 59.8
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 0.0
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 0.5
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 1.2
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 0.2
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 2.7
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 19.5
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 1.6
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 71.7
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 49.2
+        }
+      ],
+      "trend_line": {
+        "slope": -1.09553,
+        "intercept": 79.8364,
+        "x_range": [
+          35.1,
+          83.7
+        ]
+      }
     }
   },
   "summary": {
-    "positive_correlations": 14,
+    "positive_correlations": 15,
     "negative_correlations": 0,
     "not_significant": 1,
-    "total_indices": 15,
+    "total_indices": 16,
     "verdict": "supports"
   },
   "comparison": {
-    "economic_freedom_clear_wins": 6,
+    "economic_freedom_clear_wins": 7,
     "equality_clear_wins": 2,
     "democracy_clear_wins": 1,
     "ties": 6,
@@ -15240,6 +16198,34 @@
           "p_value": 2.6625411295724435e-18,
           "significant": true,
           "n": 151
+        },
+        "winner": "economic_freedom"
+      },
+      {
+        "metric": "Poverty Rate",
+        "metric_id": "Poverty_Rate",
+        "higher_better": false,
+        "economic_freedom": {
+          "correlation": -0.5375,
+          "effective": 0.5375,
+          "p_value": 1.1150143197173556e-12,
+          "significant": true,
+          "n": 151
+        },
+        "equality": {
+          "correlation": 0.3495,
+          "effective": 0.3495,
+          "p_value": 0.0002574576359036908,
+          "significant": true,
+          "n": 105,
+          "inverted": true
+        },
+        "democracy": {
+          "correlation": -0.4451,
+          "effective": 0.4451,
+          "p_value": 5.663977161884931e-08,
+          "significant": true,
+          "n": 136
         },
         "winner": "economic_freedom"
       }

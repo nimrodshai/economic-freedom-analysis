@@ -1682,6 +1682,78 @@ class DataFetcher:
 
         raise Exception("Could not fetch Gender Inequality Index data")
 
+    def fetch_poverty_index(self):
+        """
+        Fetch World Bank Poverty headcount ratio data.
+        Indicator: SI.POV.DDAY - Poverty headcount ratio at $2.15 a day (2017 PPP)
+        Measured as: Percentage of population living below $2.15/day
+        Lower values = less poverty (better).
+        Source: World Bank Development Indicators
+        """
+        print("Fetching Poverty Index (World Bank)...")
+
+        try:
+            from datetime import datetime
+            current_year = datetime.now().year
+            all_data = {}
+
+            # Poverty data can lag several years, so check back further
+            for year in range(current_year, current_year - 15, -1):
+                url = f"https://api.worldbank.org/v2/country/all/indicator/SI.POV.DDAY?format=json&date={year}&per_page=300"
+                response = self.session.get(url, timeout=30)
+
+                if response.status_code == 200:
+                    data = response.json()
+                    if len(data) > 1 and data[1]:
+                        for item in data[1]:
+                            if item['value'] is not None:
+                                country = self._normalize_country_name(item['country']['value'])
+                                if country not in all_data:
+                                    all_data[country] = {
+                                        'value': item['value'],
+                                        'year': year
+                                    }
+
+            if all_data:
+                # Filter out regional aggregates
+                exclude_aggregates = {
+                    'Africa Eastern and Southern', 'Africa Western and Central', 'Arab World',
+                    'Caribbean small states', 'Central Europe and the Baltics', 'Early-demographic dividend',
+                    'East Asia & Pacific', 'East Asia & Pacific (IDA & IBRD countries)',
+                    'East Asia & Pacific (excluding high income)', 'Euro area', 'Europe & Central Asia',
+                    'Europe & Central Asia (IDA & IBRD countries)', 'Europe & Central Asia (excluding high income)',
+                    'European Union', 'Fragile and conflict affected situations', 'Heavily indebted poor countries (HIPC)',
+                    'High income', 'IBRD only', 'IDA & IBRD total', 'IDA blend', 'IDA only', 'IDA total',
+                    'Late-demographic dividend', 'Latin America & Caribbean',
+                    'Latin America & Caribbean (excluding high income)', 'Latin America & the Caribbean (IDA & IBRD countries)',
+                    'Least developed countries: UN classification', 'Low & middle income', 'Low income',
+                    'Lower middle income', 'Middle East & North Africa', 'Middle East & North Africa (IDA & IBRD countries)',
+                    'Middle East & North Africa (excluding high income)', 'Middle income', 'North America',
+                    'Not classified', 'OECD members', 'Other small states', 'Pacific island small states',
+                    'Post-demographic dividend', 'Pre-demographic dividend', 'Small states', 'South Asia',
+                    'South Asia (IDA & IBRD)', 'Sub-Saharan Africa', 'Sub-Saharan Africa (IDA & IBRD countries)',
+                    'Sub-Saharan Africa (excluding high income)', 'Upper middle income', 'World'
+                }
+
+                result = pd.DataFrame({
+                    'Country': [k for k in all_data.keys() if k not in exclude_aggregates],
+                    'Poverty_Rate': [v['value'] for k, v in all_data.items() if k not in exclude_aggregates]
+                })
+                result.to_csv(f"{self.cache_dir}/poverty_rate.csv", index=False)
+                print(f"  Successfully fetched {len(result)} countries from World Bank")
+                return result
+
+        except Exception as e:
+            print(f"  Error fetching Poverty data: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/poverty_rate.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Poverty data...")
+            return pd.read_csv(cache_file)
+
+        return pd.DataFrame()
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1710,7 +1782,8 @@ class CorrelationAnalyzer:
             ('HALE', 'Healthy Life Expectancy (WHO)', 'higher is better'),
             ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better'),
             ('Education_Index', 'Education Index (UNDP)', 'higher is better'),
-            ('Gender_Inequality_Index', 'Gender Inequality (UNDP)', 'lower is better')
+            ('Gender_Inequality_Index', 'Gender Inequality (UNDP)', 'lower is better'),
+            ('Poverty_Rate', 'Poverty Rate (World Bank)', 'lower is better')
         ]
 
         for col, display_name, interpretation in indices:

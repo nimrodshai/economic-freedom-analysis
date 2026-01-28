@@ -1236,10 +1236,16 @@
             to { opacity: 1; transform: scale(1); }
         }
         .modal-header {
-            padding: 24px 24px 0;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            z-index: 1;
+            border-radius: 16px 16px 0 0;
         }
         .modal-header h3 {
             margin: 0;
@@ -1247,16 +1253,18 @@
             color: var(--text);
         }
         .modal-close {
-            background: none;
+            background: white;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-muted);
-            padding: 0;
+            padding: 4px 8px;
             line-height: 1;
+            border-radius: 4px;
         }
         .modal-close:hover {
             color: var(--text);
+            background: #f1f5f9;
         }
         .modal-body {
             padding: 20px 24px 24px;
@@ -2191,7 +2199,8 @@
                 'HALE': 'hale',
                 'Mental_Health_Index': 'mental_health_index',
                 'Education_Index': 'education_index',
-                'Gender_Inequality_Index': 'gender_inequality_index'
+                'Gender_Inequality_Index': 'gender_inequality_index',
+                'Poverty_Rate': 'poverty_rate'
             };
             const yKey = yKeyMap[selectedId];
 
@@ -2250,7 +2259,8 @@
                 'HALE': 'hale',
                 'Mental_Health_Index': 'mental_health_index',
                 'Education_Index': 'education_index',
-                'Gender_Inequality_Index': 'gender_inequality_index'
+                'Gender_Inequality_Index': 'gender_inequality_index',
+                'Poverty_Rate': 'poverty_rate'
             };
             const yKey = yKeyMap[selectedId];
 
