@@ -1908,7 +1908,7 @@
                 'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'education_index': `https://ourworldindata.org/grapher/education-index-from-the-human-development-index?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'gender_inequality_index': `https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
-                'poverty_rate': `https://data.worldbank.org/indicator/SI.POV.DDAY?locations=${iso}`
+                'poverty_rate': `https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`
             };
             return urls[field] || '#';
         }
