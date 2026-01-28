@@ -1706,8 +1706,11 @@
                                     <th onclick="sortTable('pollution_index')">Pollution <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('crime_index')">Crime <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('homicide_rate')">Homicide <span class="sort-icon">↕</span></th>
-                                    <th onclick="sortTable('hale')">HALE <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('hale')">Healthy Life <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('mental_health_index')">Mental Health <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('education_index')">Education <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('gender_inequality_index')">Gender Ineq. <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('poverty_rate')">Poverty <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
@@ -1776,6 +1779,9 @@
                     <td>${formatLinkedValue(c.name, 'homicide_rate', c.homicide_rate, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'hale', c.hale, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'mental_health_index', c.mental_health_index, 2)}</td>
+                    <td>${formatLinkedValue(c.name, 'education_index', c.education_index, 3)}</td>
+                    <td>${formatLinkedValue(c.name, 'gender_inequality_index', c.gender_inequality_index, 3)}</td>
+                    <td>${formatLinkedValue(c.name, 'poverty_rate', c.poverty_rate, 1)}</td>
                 </tr>
             `).join('');
 
@@ -1934,7 +1940,7 @@
             const headers = ['Country', 'Region', 'Economic Freedom', 'Gini Index', 'Democracy',
                            'GDP per Capita', 'Life Expectancy', 'Infant Mortality', 'Anti-Corruption',
                            'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Crime', 'Homicide Rate',
-                           'HALE', 'Mental Health Access'];
+                           'Healthy Life Expectancy', 'Mental Health Access', 'Education Index', 'Gender Inequality', 'Poverty Rate'];
 
             const rows = allData.map(c => [
                 c.name,
@@ -1954,7 +1960,10 @@
                 c.crime_index ?? '',
                 c.homicide_rate ?? '',
                 c.hale ?? '',
-                c.mental_health_index ?? ''
+                c.mental_health_index ?? '',
+                c.education_index ?? '',
+                c.gender_inequality_index ?? '',
+                c.poverty_rate ?? ''
             ]);
 
             const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
