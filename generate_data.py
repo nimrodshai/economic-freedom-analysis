@@ -175,7 +175,8 @@ def generate_web_data(output_dir="docs"):
         for col in indices_config.keys():
             if col in row:
                 val = row[col]
-                country_data[col.lower()] = round(val, 2) if not (isinstance(val, float) and np.isnan(val)) else None
+                # Use full precision (6 decimals) to avoid rounding errors
+                country_data[col.lower()] = round(val, 6) if not (isinstance(val, float) and np.isnan(val)) else None
 
         # Add Gini Index separately (for display, not correlation)
         if 'Gini_Index' in row:
@@ -198,8 +199,8 @@ def generate_web_data(output_dir="docs"):
             for _, row in valid_data.iterrows():
                 scatter_points.append({
                     "country": row['Country'],
-                    "x": round(row['Economic_Freedom_Score'], 2),
-                    "y": round(row[col], 2) if col != 'HDI' else round(row[col], 3)
+                    "x": round(row['Economic_Freedom_Score'], 6),
+                    "y": round(row[col], 6)
                 })
 
             # Calculate trend line
