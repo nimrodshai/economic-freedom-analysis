@@ -1901,13 +1901,13 @@
                 'purchasing_power_index': `https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2025`,
                 'pollution_index': `https://www.numbeo.com/pollution/rankings_by_country.jsp?title=2025`,
                 'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`,
-                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}`,
+                'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'crime_index': `https://www.numbeo.com/crime/rankings_by_country.jsp?title=2025`,
                 'homicide_rate': `https://data.worldbank.org/indicator/VC.IHR.PSRC.P5?locations=${iso}`,
                 'hale': `https://data.who.int/indicators/i/C64284D`,
-                'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}`,
-                'education_index': `https://ourworldindata.org/grapher/education-index-from-the-human-development-index?tab=table&time=latest&country=~${iso3}`,
-                'gender_inequality_index': `https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report?tab=table&time=latest&country=~${iso3}`,
+                'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'education_index': `https://ourworldindata.org/grapher/education-index-from-the-human-development-index?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'gender_inequality_index': `https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'poverty_rate': `https://data.worldbank.org/indicator/SI.POV.DDAY?locations=${iso}`
             };
             return urls[field] || '#';
