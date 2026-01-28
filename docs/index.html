@@ -1905,7 +1905,10 @@
                 'crime_index': `https://www.numbeo.com/crime/rankings_by_country.jsp?title=2025`,
                 'homicide_rate': `https://data.worldbank.org/indicator/VC.IHR.PSRC.P5?locations=${iso}`,
                 'hale': `https://data.who.int/indicators/i/C64284D`,
-                'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}`
+                'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}`,
+                'education_index': `https://ourworldindata.org/grapher/education-index-from-the-human-development-index?tab=table&time=latest&country=~${iso3}`,
+                'gender_inequality_index': `https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report?tab=table&time=latest&country=~${iso3}`,
+                'poverty_rate': `https://data.worldbank.org/indicator/SI.POV.DDAY?locations=${iso}`
             };
             return urls[field] || '#';
         }
