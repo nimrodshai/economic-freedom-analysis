@@ -1191,6 +1191,109 @@
             .correlations-table td:nth-child(4) { font-size: 0.65rem; }
             .correlations-table td:nth-child(5) { font-size: 0.65rem; }
         }
+
+        /* Modal styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.2s ease;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-header {
+            padding: 24px 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 0;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--text);
+        }
+        .modal-body {
+            padding: 20px 24px 24px;
+        }
+        .predictor-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .predictor-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .predictor-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .predictor-title.freedom { color: var(--success); }
+        .predictor-title.equality { color: var(--danger); }
+        .predictor-title.democracy { color: #3b82f6; }
+        .predictor-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .predictor-source {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .predictor-source a {
+            color: var(--primary);
+        }
+        .info-link {
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 2px;
+        }
+        .info-link:hover {
+            text-decoration-style: solid;
+        }
     </style>
 </head>
 <body>
@@ -1440,7 +1543,7 @@
                         What does it take for people to live good lives? We all want the same things — to be healthy, to provide for our families, to feel safe, and to have opportunities to grow. But which conditions actually help societies achieve these goals?
                     </p>
                     <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
-                        We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy against real quality-of-life outcomes, we can see what the evidence actually shows.
+                        We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against real quality-of-life outcomes, we can see what the evidence actually shows.
                     </p>
                 </div>
 
@@ -2678,6 +2781,16 @@
             }
         }
 
+        // Modal functions
+        function openPredictorModal() {
+            document.getElementById('predictorModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closePredictorModal() {
+            document.getElementById('predictorModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         // Load data on page load
         loadData();
         handleHash();
@@ -2685,5 +2798,44 @@
         window.addEventListener('hashchange', handleHash);
         window.addEventListener('resize', initNavIndicator);
     </script>
+
+    <!-- Predictor Explanation Modal -->
+    <div id="predictorModal" class="modal-overlay" onclick="if(event.target === this) closePredictorModal()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>What do these terms mean?</h3>
+                <button class="modal-close" onclick="closePredictorModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="predictor-item">
+                    <div class="predictor-title freedom">Economic Freedom</div>
+                    <p class="predictor-desc">
+                        Measures how free people are to work, produce, consume, and invest as they choose. It includes factors like property rights, free trade, low taxes, limited regulation, and sound money. Countries with high economic freedom have fewer government restrictions on business and personal economic decisions.
+                    </p>
+                    <p class="predictor-source">
+                        Source: <a href="https://www.heritage.org/index/" target="_blank" rel="noopener">Heritage Foundation Index of Economic Freedom</a> (2024)
+                    </p>
+                </div>
+                <div class="predictor-item">
+                    <div class="predictor-title equality">Equality</div>
+                    <p class="predictor-desc">
+                        Measured using the Gini Index (inverted), which captures income inequality. A Gini of 0 means perfect equality (everyone earns the same), while 100 means maximum inequality (one person has everything). We invert it so higher scores = more equality, making it comparable to the other predictors.
+                    </p>
+                    <p class="predictor-source">
+                        Source: <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank" rel="noopener">World Bank Gini Index</a> (latest available per country)
+                    </p>
+                </div>
+                <div class="predictor-item">
+                    <div class="predictor-title democracy">Democracy</div>
+                    <p class="predictor-desc">
+                        Measures the quality of democratic governance including electoral processes, civil liberties, government functioning, political participation, and political culture. Countries are scored from 0-10, with higher scores indicating stronger democratic institutions and practices.
+                    </p>
+                    <p class="predictor-source">
+                        Source: <a href="https://www.eiu.com/n/campaigns/democracy-index-2023/" target="_blank" rel="noopener">Economist Intelligence Unit Democracy Index</a> (2023)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
