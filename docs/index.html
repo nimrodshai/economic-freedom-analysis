@@ -1590,7 +1590,7 @@
                             <label for="indexSelect">Y-Axis: </label>
                             <select id="indexSelect" onchange="updateChart()">
                                 ${data.correlations.map(c =>
-                                    `<option value="${c.id}">${c.name}</option>`
+                                    `<option value="${c.id}">${c.name}${c.higher_better === false ? ' (inverted)' : ''}</option>`
                                 ).join('')}
                             </select>
                         </div>
@@ -2500,10 +2500,11 @@
                     { label: 'Democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation }
                 ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
+                const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
                 html += `
                     <div class="comparison-row">
                         <div class="comparison-metric">
-                            <strong>${m.metric}</strong>
+                            <strong>${m.metric}</strong>${invertedLabel}
                         </div>
                 `;
 
