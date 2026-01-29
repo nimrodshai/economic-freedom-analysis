@@ -887,6 +887,94 @@
             .comparison-grid { grid-template-columns: 1fr; }
         }
 
+        /* 3D Card Flip Container */
+        .card-flip-container {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-flip {
+            position: relative;
+            width: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card-flip-container.flipped .card-flip {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .card-front {
+            position: relative;
+        }
+
+        .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(180deg);
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+
+        .card-back-header {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-back-close {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+
+        .card-back-close:hover {
+            color: var(--text);
+        }
+
+        .card-back-chart {
+            flex: 1;
+            min-height: 200px;
+        }
+
+        .card-back-legend {
+            display: flex;
+            gap: 12px;
+            font-size: 0.7rem;
+            margin-top: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-back-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-back-legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
         .comparison-row {
             display: flex;
             flex-direction: column;
@@ -2501,11 +2589,16 @@
                 ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
+                const metricId = m.metric_id;
+
                 html += `
-                    <div class="comparison-row">
-                        <div class="comparison-metric">
-                            <strong>${m.metric}</strong>${invertedLabel}
-                        </div>
+                    <div class="card-flip-container" data-metric-id="${metricId}" onclick="flipCard(this, event)">
+                        <div class="card-flip">
+                            <div class="card-front comparison-row">
+                                <div class="comparison-metric">
+                                    <strong>${m.metric}</strong>${invertedLabel}
+                                    <span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 8px;">tap to explore</span>
+                                </div>
                 `;
 
                 bars.forEach(bar => {
@@ -2524,6 +2617,29 @@
                 });
 
                 html += `
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-header">
+                                    <span>${m.metric}</span>
+                                    <span class="card-back-close" onclick="flipCard(this.closest('.card-flip-container'), event)">✕</span>
+                                </div>
+                                <canvas class="card-back-chart" id="chart-${metricId}"></canvas>
+                                <div class="card-back-legend">
+                                    <div class="card-back-legend-item">
+                                        <div class="card-back-legend-dot" style="background: var(--success);"></div>
+                                        <span>Freedom</span>
+                                    </div>
+                                    <div class="card-back-legend-item">
+                                        <div class="card-back-legend-dot" style="background: var(--danger);"></div>
+                                        <span>Equality</span>
+                                    </div>
+                                    <div class="card-back-legend-item">
+                                        <div class="card-back-legend-dot" style="background: #3b82f6;"></div>
+                                        <span>Democracy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 `;
             });
@@ -2736,6 +2852,208 @@
             `;
 
             container.innerHTML = html;
+        }
+
+        // Store chart instances for cleanup
+        const cardCharts = {};
+
+        function flipCard(container, event) {
+            event.stopPropagation();
+            const isFlipped = container.classList.toggle('flipped');
+
+            if (isFlipped) {
+                const metricId = container.dataset.metricId;
+                // Small delay to let the flip animation start
+                setTimeout(() => renderCardScatterPlot(metricId), 100);
+            }
+        }
+
+        function renderCardScatterPlot(metricId) {
+            const canvas = document.getElementById(`chart-${metricId}`);
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const data = window.analysisData;
+            const countries = data.countries;
+
+            // Destroy existing chart if any
+            if (cardCharts[metricId]) {
+                cardCharts[metricId].destroy();
+            }
+
+            // Map metric IDs to country data keys
+            const metricKeyMap = {
+                'GDP_Per_Capita': 'gdp_per_capita',
+                'Life_Expectancy': 'life_expectancy',
+                'Infant_Mortality': 'infant_mortality',
+                'Corruption_Score': 'corruption_score',
+                'HDI': 'hdi',
+                'Happiness_Score': 'happiness_score',
+                'Social_Mobility_Score': 'social_mobility_score',
+                'Purchasing_Power_Index': 'purchasing_power_index',
+                'Pollution_Index': 'pollution_index',
+                'Crime_Index': 'crime_index',
+                'Homicide_Rate': 'homicide_rate',
+                'HALE': 'hale',
+                'Mental_Health_Index': 'mental_health_index',
+                'Education_Index': 'education_index',
+                'Gender_Inequality_Index': 'gender_inequality_index',
+                'Poverty_Rate': 'poverty_rate'
+            };
+
+            const yKey = metricKeyMap[metricId];
+            if (!yKey) return;
+
+            // Prepare datasets for each predictor
+            const freedomData = [];
+            const equalityData = [];
+            const democracyData = [];
+
+            countries.forEach(c => {
+                const yVal = c[yKey];
+                if (yVal === null || yVal === undefined) return;
+
+                // Economic Freedom vs Y
+                if (c.economic_freedom !== null && c.economic_freedom !== undefined) {
+                    freedomData.push({ x: c.economic_freedom, y: yVal, country: c.name });
+                }
+
+                // Equality (100 - Gini) vs Y - invert Gini so higher = more equal
+                if (c.gini_index !== null && c.gini_index !== undefined) {
+                    equalityData.push({ x: 100 - c.gini_index, y: yVal, country: c.name });
+                }
+
+                // Democracy vs Y
+                if (c.democracy_score !== null && c.democracy_score !== undefined) {
+                    democracyData.push({ x: c.democracy_score * 10, y: yVal, country: c.name }); // Scale to 0-100
+                }
+            });
+
+            // Calculate regression lines
+            function calcRegression(points) {
+                if (points.length < 2) return null;
+                const n = points.length;
+                let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+                points.forEach(p => {
+                    sumX += p.x;
+                    sumY += p.y;
+                    sumXY += p.x * p.y;
+                    sumX2 += p.x * p.x;
+                });
+                const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+                const intercept = (sumY - slope * sumX) / n;
+                const xMin = Math.min(...points.map(p => p.x));
+                const xMax = Math.max(...points.map(p => p.x));
+                return [
+                    { x: xMin, y: slope * xMin + intercept },
+                    { x: xMax, y: slope * xMax + intercept }
+                ];
+            }
+
+            const freedomLine = calcRegression(freedomData);
+            const equalityLine = calcRegression(equalityData);
+            const democracyLine = calcRegression(democracyData);
+
+            const datasets = [
+                {
+                    label: 'Freedom',
+                    data: freedomData,
+                    backgroundColor: 'rgba(34, 197, 94, 0.5)',
+                    borderColor: 'rgba(34, 197, 94, 0.5)',
+                    pointRadius: 3,
+                    pointHoverRadius: 5
+                },
+                {
+                    label: 'Equality',
+                    data: equalityData,
+                    backgroundColor: 'rgba(239, 68, 68, 0.5)',
+                    borderColor: 'rgba(239, 68, 68, 0.5)',
+                    pointRadius: 3,
+                    pointHoverRadius: 5
+                },
+                {
+                    label: 'Democracy',
+                    data: democracyData,
+                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                    borderColor: 'rgba(59, 130, 246, 0.5)',
+                    pointRadius: 3,
+                    pointHoverRadius: 5
+                }
+            ];
+
+            // Add regression lines
+            if (freedomLine) {
+                datasets.push({
+                    label: 'Freedom trend',
+                    data: freedomLine,
+                    type: 'line',
+                    borderColor: 'rgba(34, 197, 94, 1)',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0
+                });
+            }
+            if (equalityLine) {
+                datasets.push({
+                    label: 'Equality trend',
+                    data: equalityLine,
+                    type: 'line',
+                    borderColor: 'rgba(239, 68, 68, 1)',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0
+                });
+            }
+            if (democracyLine) {
+                datasets.push({
+                    label: 'Democracy trend',
+                    data: democracyLine,
+                    type: 'line',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    fill: false,
+                    tension: 0
+                });
+            }
+
+            cardCharts[metricId] = new Chart(ctx, {
+                type: 'scatter',
+                data: { datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: { duration: 300 },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    if (point.country) {
+                                        return `${point.country}: (${point.x.toFixed(1)}, ${point.y.toFixed(2)})`;
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Predictor Score (0-100)', font: { size: 10 } },
+                            min: 0,
+                            max: 100,
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        y: {
+                            title: { display: true, text: metricId.replace(/_/g, ' '), font: { size: 10 } },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        }
+                    }
+                }
+            });
         }
 
         // Contact form - send to Telegram
