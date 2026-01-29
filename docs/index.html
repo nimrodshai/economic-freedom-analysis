@@ -1135,8 +1135,7 @@
 
         /* Floating "skip to verdict" button - mobile only */
         .skip-to-verdict {
-            position: fixed;
-            top: calc(100svh - 70px);
+            position: absolute;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: #1e293b;
@@ -1151,19 +1150,18 @@
             border: none;
             opacity: 0;
             visibility: hidden;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        opacity 0.3s ease,
+            transition: opacity 0.3s ease,
                         visibility 0.3s ease,
                         box-shadow 0.2s ease;
         }
 
         .skip-to-verdict:active {
-            transform: translateX(-50%) translateY(0) scale(0.95);
+            transform: translateX(-50%) scale(0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .skip-to-verdict.visible {
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%);
             opacity: 1;
             visibility: visible;
         }
@@ -3065,6 +3063,16 @@
 
             skipButtonInitialized = true;
 
+            // Position button using visualViewport (doesn't jump with Safari bar)
+            function positionButton() {
+                if (window.visualViewport) {
+                    const vv = window.visualViewport;
+                    btn.style.top = (vv.pageTop + vv.height - 70) + 'px';
+                } else {
+                    btn.style.top = (window.pageYOffset + window.innerHeight - 70) + 'px';
+                }
+            }
+
             function checkVisibility() {
                 // Once results have been seen, never show again
                 if (resultsSeenOnce) {
@@ -3093,6 +3101,7 @@
                 const isInComparisonArea = gridRect.top < viewportHeight * 0.3;
 
                 if (isInComparisonArea) {
+                    positionButton();
                     btn.classList.add('visible');
                 } else {
                     btn.classList.remove('visible');
@@ -3101,6 +3110,10 @@
 
             window.addEventListener('scroll', checkVisibility, { passive: true });
             window.addEventListener('resize', checkVisibility);
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('scroll', positionButton);
+                window.visualViewport.addEventListener('resize', positionButton);
+            }
 
             function scrollToResults(e) {
                 e.preventDefault();
