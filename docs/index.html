@@ -929,14 +929,6 @@
             box-sizing: border-box;
         }
 
-        .card-back-header {
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
-            text-align: center;
-            color: var(--text-muted);
-        }
-
         .card-back-chart {
             flex: 1;
             min-height: 180px;
@@ -2585,7 +2577,6 @@
                             <div class="card-front comparison-row">
                                 <div class="comparison-metric">
                                     <strong>${m.metric}</strong>${invertedLabel}
-                                    <span style="font-size: 0.7rem; color: var(--text-muted); margin-left: 8px;">tap to explore</span>
                                 </div>
                 `;
 
@@ -2607,7 +2598,6 @@
                 html += `
                             </div>
                             <div class="card-back">
-                                <div class="card-back-header">${m.metric}</div>
                                 <canvas class="card-back-chart" id="chart-${metricId}"></canvas>
                                 <div class="card-back-legend">
                                     <div class="card-back-legend-item">
@@ -2946,7 +2936,8 @@
                     backgroundColor: 'rgba(34, 197, 94, 0.3)',
                     borderColor: 'rgba(34, 197, 94, 0.3)',
                     pointRadius: 2,
-                    pointHoverRadius: 4
+                    pointHoverRadius: 2,
+                    order: 2
                 },
                 {
                     label: 'Equality',
@@ -2954,7 +2945,8 @@
                     backgroundColor: 'rgba(239, 68, 68, 0.3)',
                     borderColor: 'rgba(239, 68, 68, 0.3)',
                     pointRadius: 2,
-                    pointHoverRadius: 4
+                    pointHoverRadius: 2,
+                    order: 2
                 },
                 {
                     label: 'Democracy',
@@ -2962,7 +2954,8 @@
                     backgroundColor: 'rgba(59, 130, 246, 0.3)',
                     borderColor: 'rgba(59, 130, 246, 0.3)',
                     pointRadius: 2,
-                    pointHoverRadius: 4
+                    pointHoverRadius: 2,
+                    order: 2
                 }
             ];
 
@@ -3016,17 +3009,7 @@
                     animation: { duration: 300 },
                     plugins: {
                         legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const point = context.raw;
-                                    if (point.country) {
-                                        return `${point.country}: (${point.x.toFixed(1)}, ${point.y.toFixed(2)})`;
-                                    }
-                                    return '';
-                                }
-                            }
-                        }
+                        tooltip: { enabled: false }
                     },
                     scales: {
                         x: {
