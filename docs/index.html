@@ -1085,7 +1085,7 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--success);
+            background: #1e293b;
             color: white;
             padding: 12px 20px;
             border-radius: 25px;
@@ -2886,6 +2886,7 @@
 
         // Skip to verdict button (mobile only)
         let skipButtonInitialized = false;
+        let resultsSeenOnce = false;
         function initSkipToVerdict() {
             if (skipButtonInitialized) return;
 
@@ -2897,6 +2898,12 @@
             skipButtonInitialized = true;
 
             function checkVisibility() {
+                // Once results have been seen, never show again
+                if (resultsSeenOnce) {
+                    btn.classList.remove('visible');
+                    return;
+                }
+
                 // Only show on mobile (< 768px)
                 if (window.innerWidth > 768) {
                     btn.classList.remove('visible');
@@ -2907,10 +2914,15 @@
                 const resultsRect = results.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
 
-                // Show button when:
-                // - Top of grid is above viewport (user scrolled into it)
-                // - Results chart is below viewport (hasn't reached it yet)
-                const isInComparisonArea = gridRect.top < viewportHeight * 0.3 && resultsRect.top > viewportHeight * 0.8;
+                // Check if user has seen the results
+                if (resultsRect.top < viewportHeight * 0.7) {
+                    resultsSeenOnce = true;
+                    btn.classList.remove('visible');
+                    return;
+                }
+
+                // Show button when in comparison area but haven't seen results yet
+                const isInComparisonArea = gridRect.top < viewportHeight * 0.3;
 
                 if (isInComparisonArea) {
                     btn.classList.add('visible');
@@ -2925,6 +2937,8 @@
             function scrollToResults(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                resultsSeenOnce = true;
+                btn.classList.remove('visible');
                 const targetY = results.getBoundingClientRect().top + window.pageYOffset - 20;
                 window.scrollTo({ top: targetY, behavior: 'smooth' });
             }
