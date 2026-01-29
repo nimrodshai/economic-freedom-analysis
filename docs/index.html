@@ -934,22 +934,13 @@
         }
 
         .card-back-insight {
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.8rem;
+            line-height: 1.8;
             color: var(--text);
-        }
-
-        .card-back-insight strong {
-            color: var(--success);
         }
 
         .card-back-insight .metric-value {
             font-weight: 700;
-            color: var(--primary);
-        }
-
-        .card-back-insight .predictor {
-            font-weight: 600;
         }
 
         .comparison-row {
@@ -2538,77 +2529,87 @@
         // Generate plain-English insight for metric card back
         function generateInsight(metricId, metricData, countries) {
             const metricKeyMap = {
-                'GDP_Per_Capita': { key: 'gdp_per_capita', unit: '$', format: 'currency', verb: 'earn' },
-                'Life_Expectancy': { key: 'life_expectancy', unit: ' years', format: 'decimal', verb: 'live' },
-                'Infant_Mortality': { key: 'infant_mortality', unit: ' per 1,000', format: 'decimal', verb: 'have', invert: true },
-                'Corruption_Score': { key: 'corruption_score', unit: ' points', format: 'decimal', verb: 'score' },
-                'HDI': { key: 'hdi', unit: '', format: 'decimal3', verb: 'score' },
-                'Happiness_Score': { key: 'happiness_score', unit: ' points', format: 'decimal', verb: 'score' },
-                'Social_Mobility_Score': { key: 'social_mobility_score', unit: ' points', format: 'decimal', verb: 'score' },
-                'Purchasing_Power_Index': { key: 'purchasing_power_index', unit: ' points', format: 'decimal', verb: 'have' },
-                'Pollution_Index': { key: 'pollution_index', unit: ' points', format: 'decimal', verb: 'have', invert: true },
-                'Crime_Index': { key: 'crime_index', unit: ' points', format: 'decimal', verb: 'have', invert: true },
-                'Homicide_Rate': { key: 'homicide_rate', unit: ' per 100k', format: 'decimal', verb: 'have', invert: true },
-                'HALE': { key: 'hale', unit: ' healthy years', format: 'decimal', verb: 'live' },
-                'Mental_Health_Index': { key: 'mental_health_index', unit: '%', format: 'decimal', verb: 'have', invert: true },
-                'Education_Index': { key: 'education_index', unit: '', format: 'decimal3', verb: 'score' },
-                'Gender_Inequality_Index': { key: 'gender_inequality_index', unit: '', format: 'decimal3', verb: 'score', invert: true },
-                'Poverty_Rate': { key: 'poverty_rate', unit: '%', format: 'decimal', verb: 'have', invert: true }
+                'GDP_Per_Capita': { key: 'gdp_per_capita', unit: '$', format: 'currency' },
+                'Life_Expectancy': { key: 'life_expectancy', unit: ' years', format: 'decimal' },
+                'Infant_Mortality': { key: 'infant_mortality', unit: ' per 1,000', format: 'decimal', invert: true },
+                'Corruption_Score': { key: 'corruption_score', unit: ' points', format: 'decimal' },
+                'HDI': { key: 'hdi', unit: '', format: 'decimal3' },
+                'Happiness_Score': { key: 'happiness_score', unit: ' points', format: 'decimal' },
+                'Social_Mobility_Score': { key: 'social_mobility_score', unit: ' points', format: 'decimal' },
+                'Purchasing_Power_Index': { key: 'purchasing_power_index', unit: ' points', format: 'decimal' },
+                'Pollution_Index': { key: 'pollution_index', unit: ' points', format: 'decimal', invert: true },
+                'Crime_Index': { key: 'crime_index', unit: ' points', format: 'decimal', invert: true },
+                'Homicide_Rate': { key: 'homicide_rate', unit: ' per 100k', format: 'decimal', invert: true },
+                'HALE': { key: 'hale', unit: ' healthy years', format: 'decimal' },
+                'Mental_Health_Index': { key: 'mental_health_index', unit: '%', format: 'decimal', invert: true },
+                'Education_Index': { key: 'education_index', unit: '', format: 'decimal3' },
+                'Gender_Inequality_Index': { key: 'gender_inequality_index', unit: '', format: 'decimal3', invert: true },
+                'Poverty_Rate': { key: 'poverty_rate', unit: '%', format: 'decimal', invert: true }
             };
 
             const config = metricKeyMap[metricId];
             if (!config) return 'No data available.';
 
-            // Calculate regression slope for economic freedom
-            const points = [];
-            countries.forEach(c => {
-                const yVal = c[config.key];
-                const xVal = c.economic_freedom;
-                if (yVal !== null && yVal !== undefined && xVal !== null && xVal !== undefined) {
+            // Get correlations and sort to find winner/loser
+            const predictors = [
+                { name: 'Freedom', corr: metricData.economic_freedom?.effective, xKey: 'economic_freedom', scale: 1, color: 'var(--success)' },
+                { name: 'Equality', corr: metricData.equality?.effective, xKey: 'gini_index', scale: -1, color: 'var(--danger)' }, // Invert Gini
+                { name: 'Democracy', corr: metricData.democracy?.effective, xKey: 'democracy_score', scale: 10, color: '#3b82f6' }
+            ].filter(p => p.corr !== null && p.corr !== undefined)
+             .sort((a, b) => b.corr - a.corr);
+
+            if (predictors.length < 2) return 'Insufficient data for comparison.';
+
+            const winner = predictors[0];
+            const loser = predictors[predictors.length - 1];
+            const isTie = Math.abs(winner.corr - loser.corr) < 0.05;
+
+            // Calculate slope for a predictor
+            function calcSlope(predictor) {
+                const points = [];
+                countries.forEach(c => {
+                    const yVal = c[config.key];
+                    let xVal = c[predictor.xKey];
+                    if (yVal === null || yVal === undefined || xVal === null || xVal === undefined) return;
+                    // Transform X value
+                    if (predictor.xKey === 'gini_index') xVal = 100 - xVal; // Invert to equality
+                    else if (predictor.xKey === 'democracy_score') xVal = xVal * 10; // Scale to 0-100
                     points.push({ x: xVal, y: yVal });
-                }
-            });
-
-            if (points.length < 10) return 'Insufficient data for analysis.';
-
-            // Calculate slope
-            const n = points.length;
-            let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
-            points.forEach(p => {
-                sumX += p.x;
-                sumY += p.y;
-                sumXY += p.x * p.y;
-                sumX2 += p.x * p.x;
-            });
-            const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
-
-            // Calculate change for 10-point increase in freedom
-            const change = slope * 10;
-            const absChange = Math.abs(change);
-
-            // Format the value
-            let formattedChange;
-            if (config.format === 'currency') {
-                formattedChange = '$' + absChange.toLocaleString('en-US', { maximumFractionDigits: 0 });
-            } else if (config.format === 'decimal3') {
-                formattedChange = absChange.toFixed(3);
-            } else {
-                formattedChange = absChange.toFixed(1);
+                });
+                if (points.length < 10) return null;
+                const n = points.length;
+                let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+                points.forEach(p => { sumX += p.x; sumY += p.y; sumXY += p.x * p.y; sumX2 += p.x * p.x; });
+                return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
             }
 
-            // Determine direction
-            const isPositive = change > 0;
-            const metricHigherIsBetter = !config.invert;
-            const isBeneficial = (isPositive && metricHigherIsBetter) || (!isPositive && !metricHigherIsBetter);
+            // Format change value
+            function formatChange(slope) {
+                const change = Math.abs(slope * 10);
+                if (config.format === 'currency') return '$' + change.toLocaleString('en-US', { maximumFractionDigits: 0 });
+                if (config.format === 'decimal3') return change.toFixed(3);
+                return change.toFixed(1);
+            }
 
-            // Build the sentence
-            const direction = isPositive ? 'higher' : 'lower';
-            const metricName = metricData.metric.toLowerCase();
+            // Build insight for a predictor
+            function buildInsight(predictor, isWinner) {
+                const slope = calcSlope(predictor);
+                if (slope === null) return null;
+                const change = formatChange(slope);
+                const direction = slope > 0 ? 'higher' : 'lower';
+                const icon = isWinner ? '👑' : '📉';
+                return `<span style="color: ${predictor.color};">${icon} <strong>${predictor.name}</strong></span>: +10 pts → <span class="metric-value">${change}${config.unit}</span> ${direction}`;
+            }
 
-            if (isBeneficial) {
-                return `Countries with <strong>10 points higher</strong> economic freedom have, on average, <span class="metric-value">${formattedChange}${config.unit}</span> ${direction} ${metricName}.`;
+            if (isTie) {
+                // Show top 2 as tied winners
+                const insight1 = buildInsight(predictors[0], true);
+                const insight2 = buildInsight(predictors[1], true);
+                return `${insight1}<br>${insight2}`;
             } else {
-                return `Countries with <strong>10 points higher</strong> economic freedom have, on average, <span class="metric-value">${formattedChange}${config.unit}</span> ${direction} ${metricName}.`;
+                const winnerInsight = buildInsight(winner, true);
+                const loserInsight = buildInsight(loser, false);
+                return `${winnerInsight}<br>${loserInsight}`;
             }
         }
 
