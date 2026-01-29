@@ -2636,19 +2636,22 @@
                 }
             };
 
+            const exp = explanations[metric.metric_id] || {
+                outcome: 'better outcomes',
+                tieOutcome: 'better outcomes'
+            };
+
             if (isTie) {
+                const winnerClass1 = winner.toLowerCase();
+                const loserClass = loser.toLowerCase();
+                // For ties, both top predictors are essentially "winners"
                 const tieTemplates = [
-                    `Too close to call! Both predictors show similar results here.`,
-                    `It's a tie. No clear winner on this metric.`,
-                    `A draw — the correlations are nearly identical.`
+                    `It's a tie! Both <span class="winner-name ${winnerClass1}">${winner}</span> and <span class="winner-name ${loserClass}">${loser}</span> are equally linked to ${exp.outcome}.`,
+                    `Too close to call. <span class="winner-name ${winnerClass1}">${winner}</span> and <span class="winner-name ${loserClass}">${loser}</span> both correlate with ${exp.outcome}.`,
+                    `A draw. Countries with more <span class="winner-name ${winnerClass1}">${winner}</span> or <span class="winner-name ${loserClass}">${loser}</span> tend to have ${exp.outcome}.`
                 ];
                 return tieTemplates[metric.metric.length % tieTemplates.length];
             }
-
-            const exp = explanations[metric.metric_id] || {
-                outcome: 'better outcomes',
-                detail: 'Countries with more ${winner} perform better on this metric.'
-            };
 
             const detail = exp.detail.replace(/\$\{winner\}/g, winner.toLowerCase());
 
