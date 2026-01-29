@@ -1135,7 +1135,8 @@
 
         /* Floating "skip to verdict" button - mobile only */
         .skip-to-verdict {
-            position: absolute;
+            position: fixed;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: #1e293b;
@@ -3066,16 +3067,6 @@
 
             skipButtonInitialized = true;
 
-            // Position button using visualViewport (doesn't jump with Safari bar)
-            function positionButton() {
-                if (window.visualViewport) {
-                    const vv = window.visualViewport;
-                    btn.style.top = (vv.pageTop + vv.height - 70) + 'px';
-                } else {
-                    btn.style.top = (window.pageYOffset + window.innerHeight - 70) + 'px';
-                }
-            }
-
             function checkVisibility() {
                 // Once results have been seen, never show again
                 if (resultsSeenOnce) {
@@ -3104,7 +3095,6 @@
                 const isInComparisonArea = gridRect.top < viewportHeight * 0.3;
 
                 if (isInComparisonArea) {
-                    positionButton();
                     btn.classList.add('visible');
                 } else {
                     btn.classList.remove('visible');
@@ -3113,10 +3103,6 @@
 
             window.addEventListener('scroll', checkVisibility, { passive: true });
             window.addEventListener('resize', checkVisibility);
-            if (window.visualViewport) {
-                window.visualViewport.addEventListener('scroll', positionButton);
-                window.visualViewport.addEventListener('resize', positionButton);
-            }
 
             function scrollToResults(e) {
                 e.preventDefault();
