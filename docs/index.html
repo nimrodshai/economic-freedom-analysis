@@ -887,62 +887,6 @@
             .comparison-grid { grid-template-columns: 1fr; }
         }
 
-        /* 3D Card Flip Container */
-        .card-flip-container {
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
-        .card-flip {
-            position: relative;
-            width: 100%;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
-        .card-flip-container.flipped .card-flip {
-            transform: rotateY(180deg);
-        }
-
-        .card-front, .card-back {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            border-radius: 10px;
-        }
-
-        .card-front {
-            position: relative;
-        }
-
-        .card-back {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform: rotateY(180deg);
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            box-sizing: border-box;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .card-back-insight {
-            font-size: 0.8rem;
-            line-height: 1.8;
-            color: var(--text);
-        }
-
-        .card-back-insight .metric-value {
-            font-weight: 700;
-        }
-
         .comparison-row {
             display: flex;
             flex-direction: column;
@@ -2526,93 +2470,6 @@
             }
         }
 
-        // Generate plain-English insight for metric card back
-        function generateInsight(metricId, metricData, countries) {
-            const metricKeyMap = {
-                'GDP_Per_Capita': { key: 'gdp_per_capita', unit: '$', format: 'currency' },
-                'Life_Expectancy': { key: 'life_expectancy', unit: ' years', format: 'decimal' },
-                'Infant_Mortality': { key: 'infant_mortality', unit: ' per 1,000', format: 'decimal', invert: true },
-                'Corruption_Score': { key: 'corruption_score', unit: ' points', format: 'decimal' },
-                'HDI': { key: 'hdi', unit: '', format: 'decimal3' },
-                'Happiness_Score': { key: 'happiness_score', unit: ' points', format: 'decimal' },
-                'Social_Mobility_Score': { key: 'social_mobility_score', unit: ' points', format: 'decimal' },
-                'Purchasing_Power_Index': { key: 'purchasing_power_index', unit: ' points', format: 'decimal' },
-                'Pollution_Index': { key: 'pollution_index', unit: ' points', format: 'decimal', invert: true },
-                'Crime_Index': { key: 'crime_index', unit: ' points', format: 'decimal', invert: true },
-                'Homicide_Rate': { key: 'homicide_rate', unit: ' per 100k', format: 'decimal', invert: true },
-                'HALE': { key: 'hale', unit: ' healthy years', format: 'decimal' },
-                'Mental_Health_Index': { key: 'mental_health_index', unit: '%', format: 'decimal', invert: true },
-                'Education_Index': { key: 'education_index', unit: '', format: 'decimal3' },
-                'Gender_Inequality_Index': { key: 'gender_inequality_index', unit: '', format: 'decimal3', invert: true },
-                'Poverty_Rate': { key: 'poverty_rate', unit: '%', format: 'decimal', invert: true }
-            };
-
-            const config = metricKeyMap[metricId];
-            if (!config) return 'No data available.';
-
-            // Get correlations and sort to find winner/loser
-            const predictors = [
-                { name: 'Freedom', corr: metricData.economic_freedom?.effective, xKey: 'economic_freedom', scale: 1, color: 'var(--success)' },
-                { name: 'Equality', corr: metricData.equality?.effective, xKey: 'gini_index', scale: -1, color: 'var(--danger)' }, // Invert Gini
-                { name: 'Democracy', corr: metricData.democracy?.effective, xKey: 'democracy_score', scale: 10, color: '#3b82f6' }
-            ].filter(p => p.corr !== null && p.corr !== undefined)
-             .sort((a, b) => b.corr - a.corr);
-
-            if (predictors.length < 2) return 'Insufficient data for comparison.';
-
-            const winner = predictors[0];
-            const loser = predictors[predictors.length - 1];
-            const isTie = Math.abs(winner.corr - loser.corr) < 0.05;
-
-            // Calculate slope for a predictor
-            function calcSlope(predictor) {
-                const points = [];
-                countries.forEach(c => {
-                    const yVal = c[config.key];
-                    let xVal = c[predictor.xKey];
-                    if (yVal === null || yVal === undefined || xVal === null || xVal === undefined) return;
-                    // Transform X value
-                    if (predictor.xKey === 'gini_index') xVal = 100 - xVal; // Invert to equality
-                    else if (predictor.xKey === 'democracy_score') xVal = xVal * 10; // Scale to 0-100
-                    points.push({ x: xVal, y: yVal });
-                });
-                if (points.length < 10) return null;
-                const n = points.length;
-                let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
-                points.forEach(p => { sumX += p.x; sumY += p.y; sumXY += p.x * p.y; sumX2 += p.x * p.x; });
-                return (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
-            }
-
-            // Format change value
-            function formatChange(slope) {
-                const change = Math.abs(slope * 10);
-                if (config.format === 'currency') return '$' + change.toLocaleString('en-US', { maximumFractionDigits: 0 });
-                if (config.format === 'decimal3') return change.toFixed(3);
-                return change.toFixed(1);
-            }
-
-            // Build insight for a predictor
-            function buildInsight(predictor, isWinner) {
-                const slope = calcSlope(predictor);
-                if (slope === null) return null;
-                const change = formatChange(slope);
-                const direction = slope > 0 ? 'higher' : 'lower';
-                const icon = isWinner ? '👑' : '📉';
-                return `<span style="color: ${predictor.color};">${icon} <strong>${predictor.name}</strong></span>: +10 pts → <span class="metric-value">${change}${config.unit}</span> ${direction}`;
-            }
-
-            if (isTie) {
-                // Show top 2 as tied winners
-                const insight1 = buildInsight(predictors[0], true);
-                const insight2 = buildInsight(predictors[1], true);
-                return `${insight1}<br>${insight2}`;
-            } else {
-                const winnerInsight = buildInsight(winner, true);
-                const loserInsight = buildInsight(loser, false);
-                return `${winnerInsight}<br>${loserInsight}`;
-            }
-        }
-
         function renderComparison() {
             const data = window.analysisData;
             const comparison = data.comparison;
@@ -2644,15 +2501,12 @@
                 ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
-                const metricId = m.metric_id;
 
                 html += `
-                    <div class="card-flip-container" data-metric-id="${metricId}" onclick="flipCard(this, event)">
-                        <div class="card-flip">
-                            <div class="card-front comparison-row">
-                                <div class="comparison-metric">
-                                    <strong>${m.metric}</strong>${invertedLabel}
-                                </div>
+                    <div class="comparison-row">
+                        <div class="comparison-metric">
+                            <strong>${m.metric}</strong>${invertedLabel}
+                        </div>
                 `;
 
                 bars.forEach(bar => {
@@ -2670,15 +2524,7 @@
                     `;
                 });
 
-                // Generate insight statement for the card back
-                const insight = generateInsight(metricId, m, data.countries);
-
                 html += `
-                            </div>
-                            <div class="card-back">
-                                <div class="card-back-insight">${insight}</div>
-                            </div>
-                        </div>
                     </div>
                 `;
             });
@@ -2891,11 +2737,6 @@
             `;
 
             container.innerHTML = html;
-        }
-
-        function flipCard(container, event) {
-            event.stopPropagation();
-            container.classList.toggle('flipped');
         }
 
         // Contact form - send to Telegram
