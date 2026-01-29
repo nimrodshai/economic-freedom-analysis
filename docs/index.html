@@ -2700,11 +2700,12 @@
 
                 const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
 
-                // Determine winner and loser for conclusion
+                // Determine winner and second place for conclusion
                 const winner = bars[0].label;
-                const loser = bars[bars.length - 1].label;
                 const isTie = m.winner === 'tie';
-                const conclusion = generateConclusion(m, winner, loser, isTie);
+                // For ties, show the two top predictors; otherwise show winner vs last place
+                const secondPredictor = isTie ? bars[1].label : bars[bars.length - 1].label;
+                const conclusion = generateConclusion(m, winner, secondPredictor, isTie);
 
                 html += `
                     <div class="card-flip-container" onclick="flipCard(this, event)">
