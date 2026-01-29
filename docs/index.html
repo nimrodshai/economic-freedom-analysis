@@ -1078,6 +1078,47 @@
             line-height: 1.6;
         }
 
+        /* Floating "skip to verdict" button - mobile only */
+        .skip-to-verdict {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .skip-to-verdict:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .skip-to-verdict.visible {
+            display: block;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
         /* Responsive text visibility */
         .desktop-only { display: inline; }
         .mobile-only { display: none; }
@@ -2731,7 +2772,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="comparison-verdict">
+                <div class="comparison-verdict" id="comparisonVerdict">
                     ${conclusion}
                 </div>
             `;
@@ -2837,7 +2878,55 @@
         initNavIndicator();
         window.addEventListener('hashchange', handleHash);
         window.addEventListener('resize', initNavIndicator);
+
+        // Skip to verdict button (mobile only)
+        function initSkipToVerdict() {
+            const btn = document.getElementById('skipToVerdict');
+            if (!btn) return;
+
+            function checkVisibility() {
+                // Only show on mobile (< 768px)
+                if (window.innerWidth > 768) {
+                    btn.classList.remove('visible');
+                    return;
+                }
+
+                const grid = document.querySelector('.comparison-grid');
+                const verdict = document.getElementById('comparisonVerdict');
+                if (!grid || !verdict) return;
+
+                const gridRect = grid.getBoundingClientRect();
+                const verdictRect = verdict.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+
+                // Show button when:
+                // - Top of grid is above viewport (user scrolled into it)
+                // - Verdict is below viewport (hasn't reached results yet)
+                const isInComparisonArea = gridRect.top < viewportHeight * 0.3 && verdictRect.top > viewportHeight * 0.7;
+
+                if (isInComparisonArea) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }
+
+            window.addEventListener('scroll', checkVisibility, { passive: true });
+            window.addEventListener('resize', checkVisibility);
+
+            btn.addEventListener('click', () => {
+                const verdict = document.getElementById('comparisonVerdict');
+                if (verdict) {
+                    verdict.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+
+        initSkipToVerdict();
     </script>
+
+    <!-- Skip to verdict floating button -->
+    <button id="skipToVerdict" class="skip-to-verdict">Who wins? ↓</button>
 
     <!-- Predictor Explanation Modal -->
     <div id="predictorModal" class="modal-overlay" onclick="if(event.target === this) closePredictorModal()">
