@@ -931,27 +931,15 @@
 
         .card-back-header {
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-back-close {
-            font-size: 1.2rem;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+            text-align: center;
             color: var(--text-muted);
-            cursor: pointer;
-            padding: 2px 6px;
-        }
-
-        .card-back-close:hover {
-            color: var(--text);
         }
 
         .card-back-chart {
             flex: 1;
-            min-height: 200px;
+            min-height: 180px;
         }
 
         .card-back-legend {
@@ -2619,10 +2607,7 @@
                 html += `
                             </div>
                             <div class="card-back">
-                                <div class="card-back-header">
-                                    <span>${m.metric}</span>
-                                    <span class="card-back-close" onclick="flipCard(this.closest('.card-flip-container'), event)">✕</span>
-                                </div>
+                                <div class="card-back-header">${m.metric}</div>
                                 <canvas class="card-back-chart" id="chart-${metricId}"></canvas>
                                 <div class="card-back-legend">
                                     <div class="card-back-legend-item">
@@ -2958,40 +2943,41 @@
                 {
                     label: 'Freedom',
                     data: freedomData,
-                    backgroundColor: 'rgba(34, 197, 94, 0.5)',
-                    borderColor: 'rgba(34, 197, 94, 0.5)',
-                    pointRadius: 3,
-                    pointHoverRadius: 5
+                    backgroundColor: 'rgba(34, 197, 94, 0.3)',
+                    borderColor: 'rgba(34, 197, 94, 0.3)',
+                    pointRadius: 2,
+                    pointHoverRadius: 4
                 },
                 {
                     label: 'Equality',
                     data: equalityData,
-                    backgroundColor: 'rgba(239, 68, 68, 0.5)',
-                    borderColor: 'rgba(239, 68, 68, 0.5)',
-                    pointRadius: 3,
-                    pointHoverRadius: 5
+                    backgroundColor: 'rgba(239, 68, 68, 0.3)',
+                    borderColor: 'rgba(239, 68, 68, 0.3)',
+                    pointRadius: 2,
+                    pointHoverRadius: 4
                 },
                 {
                     label: 'Democracy',
                     data: democracyData,
-                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
-                    borderColor: 'rgba(59, 130, 246, 0.5)',
-                    pointRadius: 3,
-                    pointHoverRadius: 5
+                    backgroundColor: 'rgba(59, 130, 246, 0.3)',
+                    borderColor: 'rgba(59, 130, 246, 0.3)',
+                    pointRadius: 2,
+                    pointHoverRadius: 4
                 }
             ];
 
-            // Add regression lines
+            // Add regression lines (thicker, more visible)
             if (freedomLine) {
                 datasets.push({
                     label: 'Freedom trend',
                     data: freedomLine,
                     type: 'line',
                     borderColor: 'rgba(34, 197, 94, 1)',
-                    borderWidth: 2,
+                    borderWidth: 3,
                     pointRadius: 0,
                     fill: false,
-                    tension: 0
+                    tension: 0,
+                    order: 0
                 });
             }
             if (equalityLine) {
@@ -3000,10 +2986,11 @@
                     data: equalityLine,
                     type: 'line',
                     borderColor: 'rgba(239, 68, 68, 1)',
-                    borderWidth: 2,
+                    borderWidth: 3,
                     pointRadius: 0,
                     fill: false,
-                    tension: 0
+                    tension: 0,
+                    order: 0
                 });
             }
             if (democracyLine) {
@@ -3012,10 +2999,11 @@
                     data: democracyLine,
                     type: 'line',
                     borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 2,
+                    borderWidth: 3,
                     pointRadius: 0,
                     fill: false,
-                    tension: 0
+                    tension: 0,
+                    order: 0
                 });
             }
 
@@ -3042,14 +3030,14 @@
                     },
                     scales: {
                         x: {
-                            title: { display: true, text: 'Predictor Score (0-100)', font: { size: 10 } },
                             min: 0,
                             max: 100,
-                            grid: { color: 'rgba(0,0,0,0.05)' }
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { font: { size: 9 }, maxTicksLimit: 5 }
                         },
                         y: {
-                            title: { display: true, text: metricId.replace(/_/g, ' '), font: { size: 10 } },
-                            grid: { color: 'rgba(0,0,0,0.05)' }
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { font: { size: 9 }, maxTicksLimit: 5 }
                         }
                     }
                 }
