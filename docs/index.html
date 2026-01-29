@@ -2734,7 +2734,7 @@
             html += `
                     </div>
                 </div>
-                <div class="comparison-results-chart">
+                <div class="comparison-results-chart" id="comparisonResults">
                     <div class="results-chart-title"><strong>Results</strong> (out of ${totalMetrics} metrics)</div>
                     <div class="results-bars">
                         <div class="results-bar-col">
@@ -2891,8 +2891,8 @@
 
             const btn = document.getElementById('skipToVerdict');
             const grid = document.querySelector('.comparison-grid');
-            const verdict = document.getElementById('comparisonVerdict');
-            if (!btn || !grid || !verdict) return;
+            const results = document.getElementById('comparisonResults');
+            if (!btn || !grid || !results) return;
 
             skipButtonInitialized = true;
 
@@ -2904,13 +2904,13 @@
                 }
 
                 const gridRect = grid.getBoundingClientRect();
-                const verdictRect = verdict.getBoundingClientRect();
+                const resultsRect = results.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
 
                 // Show button when:
                 // - Top of grid is above viewport (user scrolled into it)
-                // - Verdict is below viewport (hasn't reached results yet)
-                const isInComparisonArea = gridRect.top < viewportHeight * 0.3 && verdictRect.top > viewportHeight * 0.7;
+                // - Results chart is below viewport (hasn't reached it yet)
+                const isInComparisonArea = gridRect.top < viewportHeight * 0.3 && resultsRect.top > viewportHeight * 0.8;
 
                 if (isInComparisonArea) {
                     btn.classList.add('visible');
@@ -2922,9 +2922,15 @@
             window.addEventListener('scroll', checkVisibility, { passive: true });
             window.addEventListener('resize', checkVisibility);
 
-            btn.addEventListener('click', () => {
-                verdict.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
+            function scrollToResults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const targetY = results.getBoundingClientRect().top + window.pageYOffset - 20;
+                window.scrollTo({ top: targetY, behavior: 'smooth' });
+            }
+
+            btn.addEventListener('click', scrollToResults);
+            btn.addEventListener('touchend', scrollToResults);
         }
     </script>
 
