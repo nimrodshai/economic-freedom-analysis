@@ -2565,36 +2565,105 @@
             container.classList.toggle('flipped');
         }
 
-        // Generate varied conclusion text for card back
+        // Generate clear, explanatory conclusion text for card back
         function generateConclusion(metric, winner, loser, isTie) {
-            const metricName = metric.metric.toLowerCase();
             const winnerClass = winner.toLowerCase();
+            const higherIsBetter = metric.higher_better !== false;
 
-            // Varied sentence templates
-            const templates = [
-                () => `<span class="winner-name ${winnerClass}">${winner}</span> wins here. More ${winner.toLowerCase()} correlates with better ${metricName}.`,
-                () => `This one goes to <span class="winner-name ${winnerClass}">${winner}</span>. Countries with higher ${winner.toLowerCase()} tend to have better ${metricName}.`,
-                () => `<span class="winner-name ${winnerClass}">${winner}</span> takes this round. The data shows a stronger link to ${metricName}.`,
-                () => `Score one for <span class="winner-name ${winnerClass}">${winner}</span>. It's the best predictor of ${metricName}.`,
-                () => `<span class="winner-name ${winnerClass}">${winner}</span> leads on ${metricName}. The correlation is stronger than the alternatives.`,
-                () => `When it comes to ${metricName}, <span class="winner-name ${winnerClass}">${winner}</span> is the better predictor.`,
-                () => `<span class="winner-name ${winnerClass}">${winner}</span> shows the strongest relationship with ${metricName}.`,
-                () => `The winner? <span class="winner-name ${winnerClass}">${winner}</span>. It predicts ${metricName} better than ${loser.toLowerCase()}.`
-            ];
-
-            const tieTemplates = [
-                () => `It's a tie! Both predictors show similar correlations with ${metricName}.`,
-                () => `Too close to call. The predictors perform similarly on ${metricName}.`,
-                () => `A draw on this one. No clear winner for ${metricName}.`
-            ];
+            // Custom explanations for each metric
+            const explanations = {
+                'GDP_Per_Capita': {
+                    outcome: 'richer citizens',
+                    detail: 'Countries with more ${winner} tend to have higher GDP per person.'
+                },
+                'Life_Expectancy': {
+                    outcome: 'longer lives',
+                    detail: 'People in countries with more ${winner} tend to live longer.'
+                },
+                'Infant_Mortality': {
+                    outcome: 'fewer infant deaths',
+                    detail: 'Countries with more ${winner} have lower rates of infant mortality.'
+                },
+                'Corruption_Score': {
+                    outcome: 'less corruption',
+                    detail: 'More ${winner} is linked to cleaner, less corrupt governments.'
+                },
+                'HDI': {
+                    outcome: 'higher human development',
+                    detail: 'Countries with more ${winner} score better on health, education, and living standards.'
+                },
+                'Happiness_Score': {
+                    outcome: 'happier citizens',
+                    detail: 'People report being happier in countries with more ${winner}.'
+                },
+                'Social_Mobility_Score': {
+                    outcome: 'better social mobility',
+                    detail: 'It\'s easier to climb the economic ladder in countries with more ${winner}.'
+                },
+                'Purchasing_Power_Index': {
+                    outcome: 'stronger purchasing power',
+                    detail: 'Your money goes further in countries with more ${winner}.'
+                },
+                'Pollution_Index': {
+                    outcome: 'cleaner air',
+                    detail: 'Countries with more ${winner} tend to have less pollution.'
+                },
+                'Crime_Index': {
+                    outcome: 'lower crime',
+                    detail: 'Countries with more ${winner} tend to be safer places to live.'
+                },
+                'Homicide_Rate': {
+                    outcome: 'fewer murders',
+                    detail: 'Homicide rates are lower in countries with more ${winner}.'
+                },
+                'HALE': {
+                    outcome: 'more healthy years',
+                    detail: 'People live more years in good health in countries with more ${winner}.'
+                },
+                'Mental_Health_Index': {
+                    outcome: 'better mental health',
+                    detail: 'Mental health outcomes are better in countries with more ${winner}.'
+                },
+                'Education_Index': {
+                    outcome: 'better education',
+                    detail: 'Education quality and access are higher with more ${winner}.'
+                },
+                'Gender_Inequality_Index': {
+                    outcome: 'more gender equality',
+                    detail: 'Women have more equal opportunities in countries with more ${winner}.'
+                },
+                'Poverty_Rate': {
+                    outcome: 'less poverty',
+                    detail: 'Fewer people live in extreme poverty in countries with more ${winner}.'
+                }
+            };
 
             if (isTie) {
-                return tieTemplates[Math.floor(Math.random() * tieTemplates.length)]();
+                const tieTemplates = [
+                    `Too close to call! Both predictors show similar results here.`,
+                    `It's a tie. No clear winner on this metric.`,
+                    `A draw — the correlations are nearly identical.`
+                ];
+                return tieTemplates[metric.metric.length % tieTemplates.length];
             }
 
-            // Use metric index as seed for consistent but varied selection
-            const index = metric.metric.length % templates.length;
-            return templates[index]();
+            const exp = explanations[metric.metric_id] || {
+                outcome: 'better outcomes',
+                detail: 'Countries with more ${winner} perform better on this metric.'
+            };
+
+            const detail = exp.detail.replace(/\$\{winner\}/g, winner.toLowerCase());
+
+            // Varied openers
+            const openers = [
+                `<span class="winner-name ${winnerClass}">${winner}</span> wins.`,
+                `Point for <span class="winner-name ${winnerClass}">${winner}</span>.`,
+                `<span class="winner-name ${winnerClass}">${winner}</span> takes this one.`,
+                `This goes to <span class="winner-name ${winnerClass}">${winner}</span>.`
+            ];
+
+            const opener = openers[metric.metric.length % openers.length];
+            return `${opener} ${detail}`;
         }
 
         function renderComparison() {
