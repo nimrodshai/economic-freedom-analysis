@@ -1136,7 +1136,7 @@
         /* Floating "skip to verdict" button - mobile only */
         .skip-to-verdict {
             position: fixed;
-            bottom: 20px;
+            bottom: calc(80px + env(safe-area-inset-bottom, 0px));
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: #1e293b;
