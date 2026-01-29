@@ -887,6 +887,61 @@
             .comparison-grid { grid-template-columns: 1fr; }
         }
 
+        /* 3D Card Flip */
+        .card-flip-container {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-flip {
+            position: relative;
+            width: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card-flip-container.flipped .card-flip {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .card-back-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .card-back-text .winner-name {
+            font-weight: 700;
+        }
+
+        .card-back-text .winner-name.freedom { color: var(--success); }
+        .card-back-text .winner-name.equality { color: var(--danger); }
+        .card-back-text .winner-name.democracy { color: #3b82f6; }
+
         .comparison-row {
             display: flex;
             flex-direction: column;
@@ -2505,6 +2560,43 @@
             }
         }
 
+        function flipCard(container, event) {
+            event.stopPropagation();
+            container.classList.toggle('flipped');
+        }
+
+        // Generate varied conclusion text for card back
+        function generateConclusion(metric, winner, loser, isTie) {
+            const metricName = metric.metric.toLowerCase();
+            const winnerClass = winner.toLowerCase();
+
+            // Varied sentence templates
+            const templates = [
+                () => `<span class="winner-name ${winnerClass}">${winner}</span> wins here. More ${winner.toLowerCase()} correlates with better ${metricName}.`,
+                () => `This one goes to <span class="winner-name ${winnerClass}">${winner}</span>. Countries with higher ${winner.toLowerCase()} tend to have better ${metricName}.`,
+                () => `<span class="winner-name ${winnerClass}">${winner}</span> takes this round. The data shows a stronger link to ${metricName}.`,
+                () => `Score one for <span class="winner-name ${winnerClass}">${winner}</span>. It's the best predictor of ${metricName}.`,
+                () => `<span class="winner-name ${winnerClass}">${winner}</span> leads on ${metricName}. The correlation is stronger than the alternatives.`,
+                () => `When it comes to ${metricName}, <span class="winner-name ${winnerClass}">${winner}</span> is the better predictor.`,
+                () => `<span class="winner-name ${winnerClass}">${winner}</span> shows the strongest relationship with ${metricName}.`,
+                () => `The winner? <span class="winner-name ${winnerClass}">${winner}</span>. It predicts ${metricName} better than ${loser.toLowerCase()}.`
+            ];
+
+            const tieTemplates = [
+                () => `It's a tie! Both predictors show similar correlations with ${metricName}.`,
+                () => `Too close to call. The predictors perform similarly on ${metricName}.`,
+                () => `A draw on this one. No clear winner for ${metricName}.`
+            ];
+
+            if (isTie) {
+                return tieTemplates[Math.floor(Math.random() * tieTemplates.length)]();
+            }
+
+            // Use metric index as seed for consistent but varied selection
+            const index = metric.metric.length % templates.length;
+            return templates[index]();
+        }
+
         function renderComparison() {
             const data = window.analysisData;
             const comparison = data.comparison;
@@ -2537,11 +2629,19 @@
 
                 const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
 
+                // Determine winner and loser for conclusion
+                const winner = bars[0].label;
+                const loser = bars[bars.length - 1].label;
+                const isTie = m.winner === 'tie';
+                const conclusion = generateConclusion(m, winner, loser, isTie);
+
                 html += `
-                    <div class="comparison-row">
-                        <div class="comparison-metric">
-                            <strong>${m.metric}</strong>${invertedLabel}
-                        </div>
+                    <div class="card-flip-container" onclick="flipCard(this, event)">
+                        <div class="card-flip">
+                            <div class="card-front comparison-row">
+                                <div class="comparison-metric">
+                                    <strong>${m.metric}</strong>${invertedLabel}
+                                </div>
                 `;
 
                 bars.forEach(bar => {
@@ -2560,6 +2660,11 @@
                 });
 
                 html += `
+                            </div>
+                            <div class="card-back">
+                                <div class="card-back-text">${conclusion}</div>
+                            </div>
+                        </div>
                     </div>
                 `;
             });
