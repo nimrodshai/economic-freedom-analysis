@@ -2778,6 +2778,11 @@
             `;
 
             container.innerHTML = html;
+
+            // Initialize skip button now that elements exist
+            if (typeof initSkipToVerdict === 'function') {
+                initSkipToVerdict();
+            }
         }
 
         // Contact form - send to Telegram
@@ -2880,9 +2885,16 @@
         window.addEventListener('resize', initNavIndicator);
 
         // Skip to verdict button (mobile only)
+        let skipButtonInitialized = false;
         function initSkipToVerdict() {
+            if (skipButtonInitialized) return;
+
             const btn = document.getElementById('skipToVerdict');
-            if (!btn) return;
+            const grid = document.querySelector('.comparison-grid');
+            const verdict = document.getElementById('comparisonVerdict');
+            if (!btn || !grid || !verdict) return;
+
+            skipButtonInitialized = true;
 
             function checkVisibility() {
                 // Only show on mobile (< 768px)
@@ -2890,10 +2902,6 @@
                     btn.classList.remove('visible');
                     return;
                 }
-
-                const grid = document.querySelector('.comparison-grid');
-                const verdict = document.getElementById('comparisonVerdict');
-                if (!grid || !verdict) return;
 
                 const gridRect = grid.getBoundingClientRect();
                 const verdictRect = verdict.getBoundingClientRect();
@@ -2915,14 +2923,9 @@
             window.addEventListener('resize', checkVisibility);
 
             btn.addEventListener('click', () => {
-                const verdict = document.getElementById('comparisonVerdict');
-                if (verdict) {
-                    verdict.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                verdict.scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
         }
-
-        initSkipToVerdict();
     </script>
 
     <!-- Skip to verdict floating button -->
