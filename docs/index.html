@@ -925,22 +925,25 @@
             border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
-            padding: 12px;
+            padding: 8px;
             box-sizing: border-box;
+            overflow: hidden;
         }
 
         .card-back-chart {
             flex: 1;
-            min-height: 180px;
+            min-height: 0;
+            max-height: calc(100% - 30px);
         }
 
         .card-back-legend {
             display: flex;
-            gap: 12px;
-            font-size: 0.7rem;
-            margin-top: 8px;
-            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.65rem;
+            margin-top: 4px;
+            flex-wrap: nowrap;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .card-back-legend-item {
