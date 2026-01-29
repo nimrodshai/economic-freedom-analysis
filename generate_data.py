@@ -6,10 +6,93 @@ Exports analysis results to JSON for the web frontend.
 
 import json
 import os
+import requests
 from datetime import datetime
 from economic_freedom_analysis import DataFetcher, CorrelationAnalyzer
 from scipy import stats
 import numpy as np
+
+# Telegram notification settings
+TELEGRAM_BOT_TOKEN = '8338347162:AAFpBkN-tR0ZFiK4stYf4riflq7bcUEgd2M'
+TELEGRAM_CHAT_ID = '484630945'
+
+
+def send_telegram_notification(message):
+    """Send a notification to Telegram bot."""
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+        payload = {
+            'chat_id': TELEGRAM_CHAT_ID,
+            'text': message,
+            'parse_mode': 'HTML'
+        }
+        response = requests.post(url, json=payload, timeout=10)
+        return response.status_code == 200
+    except Exception as e:
+        print(f"  Failed to send Telegram notification: {e}")
+        return False
+
+
+# Track fetch failures for summary
+fetch_failures = []
+
+
+def safe_fetch(fetch_func, name, cache_file=None):
+    """
+    Safely execute a fetch function with fallback to cached data.
+    Tracks failures for summary notification.
+    """
+    global fetch_failures
+    try:
+        return fetch_func()
+    except Exception as e:
+        error_msg = str(e)
+        print(f"  ⚠️  {name} fetch failed: {error_msg}")
+
+        # Try to use cached data
+        if cache_file and os.path.exists(cache_file):
+            import pandas as pd
+            print(f"  Using cached {name} data...")
+            fetch_failures.append({
+                'source': name,
+                'error': error_msg,
+                'status': 'cached'
+            })
+            return pd.read_csv(cache_file)
+        else:
+            # No cache available - critical failure
+            fetch_failures.append({
+                'source': name,
+                'error': error_msg,
+                'status': 'failed'
+            })
+            return None
+
+
+def send_failure_summary():
+    """Send a summary of all fetch failures via Telegram."""
+    global fetch_failures
+    if not fetch_failures:
+        return  # No failures, no notification needed
+
+    cached_count = sum(1 for f in fetch_failures if f['status'] == 'cached')
+    failed_count = sum(1 for f in fetch_failures if f['status'] == 'failed')
+
+    emoji = "🚨" if failed_count > 0 else "⚠️"
+    status = "CRITICAL" if failed_count > 0 else "Warning"
+
+    msg = f"{emoji} <b>Data Generation {status}</b>\n\n"
+    msg += f"<b>Time:</b> {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}\n"
+    msg += f"<b>Using cached:</b> {cached_count}\n"
+    msg += f"<b>Failed (no cache):</b> {failed_count}\n\n"
+
+    msg += "<b>Details:</b>\n"
+    for f in fetch_failures:
+        status_icon = "📦" if f['status'] == 'cached' else "❌"
+        msg += f"{status_icon} {f['source']}: {f['error'][:50]}...\n" if len(f['error']) > 50 else f"{status_icon} {f['source']}: {f['error']}\n"
+
+    send_telegram_notification(msg)
+    fetch_failures = []  # Reset for next run
 
 
 class NumpyEncoder(json.JSONEncoder):
@@ -34,26 +117,99 @@ def generate_web_data(output_dir="docs"):
     print("Generating data for web frontend")
     print("=" * 60)
 
-    # Fetch all data
+    # Fetch all data with safe fallback to cache
     fetcher = DataFetcher()
+    cache_dir = "data_cache"
 
+    # Economic Freedom is required - no fallback
     economic_freedom = fetcher.fetch_heritage_economic_freedom()
-    world_bank = fetcher.fetch_world_bank_data()
-    corruption = fetcher.fetch_corruption_index()
-    hdi = fetcher.fetch_human_development_index()
-    happiness = fetcher.fetch_happiness_index()
-    democracy = fetcher.fetch_democracy_index()
-    social_mobility = fetcher.fetch_social_mobility_index()
-    gini = fetcher.fetch_gini_index()
-    purchasing_power = fetcher.fetch_purchasing_power_index()
-    pollution = fetcher.fetch_pollution_index()
-    crime = fetcher.fetch_crime_index()
-    homicide = fetcher.fetch_unodc_homicide_rate()
-    hale = fetcher.fetch_hale()
-    mental_health = fetcher.fetch_mental_health_index()
-    education = fetcher.fetch_education_index()
-    gender_inequality = fetcher.fetch_gender_inequality_index()
-    poverty = fetcher.fetch_poverty_index()
+
+    # Other indices with safe fallback
+    world_bank = safe_fetch(
+        fetcher.fetch_world_bank_data,
+        "World Bank",
+        f"{cache_dir}/world_bank_data.csv"
+    )
+    corruption = safe_fetch(
+        fetcher.fetch_corruption_index,
+        "Corruption Index",
+        f"{cache_dir}/corruption_index.csv"
+    )
+    hdi = safe_fetch(
+        fetcher.fetch_human_development_index,
+        "Human Development Index",
+        f"{cache_dir}/hdi.csv"
+    )
+    happiness = safe_fetch(
+        fetcher.fetch_happiness_index,
+        "Happiness Index",
+        f"{cache_dir}/happiness.csv"
+    )
+    democracy = safe_fetch(
+        fetcher.fetch_democracy_index,
+        "Democracy Index",
+        f"{cache_dir}/democracy_index.csv"
+    )
+    social_mobility = safe_fetch(
+        fetcher.fetch_social_mobility_index,
+        "Social Mobility Index",
+        f"{cache_dir}/social_mobility_index.csv"
+    )
+    gini = safe_fetch(
+        fetcher.fetch_gini_index,
+        "Gini Index",
+        f"{cache_dir}/gini_index.csv"
+    )
+    purchasing_power = safe_fetch(
+        fetcher.fetch_purchasing_power_index,
+        "Purchasing Power Index",
+        f"{cache_dir}/purchasing_power_index.csv"
+    )
+    pollution = safe_fetch(
+        fetcher.fetch_pollution_index,
+        "Pollution Index",
+        f"{cache_dir}/pollution_index.csv"
+    )
+    crime = safe_fetch(
+        fetcher.fetch_crime_index,
+        "Crime Index",
+        f"{cache_dir}/crime_index.csv"
+    )
+    homicide = safe_fetch(
+        fetcher.fetch_unodc_homicide_rate,
+        "UNODC Homicide Rate",
+        f"{cache_dir}/unodc_homicide_rate.csv"
+    )
+    hale = safe_fetch(
+        fetcher.fetch_hale,
+        "Healthy Life Expectancy (HALE)",
+        f"{cache_dir}/hale.csv"
+    )
+    mental_health = safe_fetch(
+        fetcher.fetch_mental_health_index,
+        "Mental Health Index",
+        f"{cache_dir}/mental_health_index.csv"
+    )
+    education = safe_fetch(
+        fetcher.fetch_education_index,
+        "Education Index",
+        f"{cache_dir}/education_index.csv"
+    )
+    gender_inequality = safe_fetch(
+        fetcher.fetch_gender_inequality_index,
+        "Gender Inequality Index",
+        f"{cache_dir}/gender_inequality_index.csv"
+    )
+    poverty = safe_fetch(
+        fetcher.fetch_poverty_index,
+        "Poverty Index",
+        f"{cache_dir}/poverty_rate.csv"
+    )
+    infant_mortality = safe_fetch(
+        fetcher.fetch_infant_mortality,
+        "Infant Mortality",
+        f"{cache_dir}/infant_mortality.csv"
+    )
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -75,7 +231,8 @@ def generate_web_data(output_dir="docs"):
         (mental_health, 'Country'),
         (education, 'Country'),
         (gender_inequality, 'Country'),
-        (poverty, 'Country')
+        (poverty, 'Country'),
+        (infant_mortality, 'Country')
     ]
 
     for df, key in datasets:
@@ -360,6 +517,9 @@ def generate_web_data(output_dir="docs"):
 
     print(f"\nData exported to: {output_file}")
     print(f"Summary: {sig_positive} positive, {sig_negative} negative, {not_significant} not significant")
+
+    # Send Telegram notification if any fetches failed
+    send_failure_summary()
 
     return output_data
 

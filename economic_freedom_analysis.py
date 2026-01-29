@@ -1176,6 +1176,54 @@ class DataFetcher:
 
         raise Exception("Could not fetch UNODC Homicide Rate data")
 
+    def fetch_infant_mortality(self):
+        """
+        Fetch Infant Mortality Rate data from Our World in Data.
+        Source: https://ourworldindata.org/infant-mortality
+        Measured as: Deaths per 1,000 live births
+        Lower values = better health outcomes.
+        """
+        print("Fetching Infant Mortality Rate (OWID)...")
+
+        try:
+            url = "https://ourworldindata.org/grapher/infant-mortality.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Get most recent year for each country
+                if 'Year' in df.columns:
+                    df = df.sort_values('Year', ascending=False).drop_duplicates('Entity')
+
+                # Find the infant mortality column
+                imr_col = None
+                for col in df.columns:
+                    col_lower = col.lower()
+                    if 'infant' in col_lower and ('mortality' in col_lower or 'death' in col_lower):
+                        imr_col = col
+                        break
+
+                if imr_col:
+                    result = pd.DataFrame({
+                        'Country': df['Entity'].apply(self._normalize_country_name),
+                        'Infant_Mortality': pd.to_numeric(df[imr_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Infant_Mortality'])
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/infant_mortality.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Our World in Data")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/infant_mortality.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Infant Mortality data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Infant Mortality data")
+
     def fetch_hale(self):
         """
         Fetch Healthy Life Expectancy (HALE) data from WHO.

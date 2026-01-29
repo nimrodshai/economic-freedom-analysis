@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-28T20:00:34.310234Z",
+    "generated_at": "2026-01-29T06:24:41.127507Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -184,6 +184,17 @@
       "unit": "years"
     },
     {
+      "id": "Infant_Mortality",
+      "name": "Infant Mortality (per 1000)",
+      "correlation": -0.546,
+      "effective_correlation": 0.546,
+      "p_value": 5.510525833166964e-15,
+      "significant": true,
+      "n": 175,
+      "higher_better": false,
+      "unit": "per 1000"
+    },
+    {
       "id": "Mental_Health_Index",
       "name": "Mental Health Access (WHO)",
       "correlation": 0.5381,
@@ -235,6 +246,7 @@
       "economic_freedom": 66.6,
       "gdp_per_capita": 11377.775743,
       "life_expectancy": 79.602,
+      "infant_mortality": 8.3,
       "corruption_score": 37.0,
       "hdi": 0.789,
       "happiness_score": 5.411,
@@ -257,6 +269,7 @@
       "economic_freedom": 47.5,
       "gdp_per_capita": 5752.990767,
       "life_expectancy": 76.261,
+      "infant_mortality": 19.7,
       "corruption_score": 36.0,
       "hdi": 0.745,
       "happiness_score": 5.571,
@@ -279,6 +292,7 @@
       "economic_freedom": 55.0,
       "gdp_per_capita": 2665.874448,
       "life_expectancy": 64.617,
+      "infant_mortality": 38.3,
       "corruption_score": 33.0,
       "hdi": 0.591,
       "happiness_score": null,
@@ -301,6 +315,7 @@
       "economic_freedom": 54.2,
       "gdp_per_capita": 13969.78366,
       "life_expectancy": 77.395,
+      "infant_mortality": 8.2,
       "corruption_score": 37.0,
       "hdi": 0.849,
       "happiness_score": 6.397,
@@ -323,6 +338,7 @@
       "economic_freedom": 65.4,
       "gdp_per_capita": 8556.21407,
       "life_expectancy": 77.465854,
+      "infant_mortality": 8.9,
       "corruption_score": 47.0,
       "hdi": 0.786,
       "happiness_score": 5.494,
@@ -345,6 +361,7 @@
       "economic_freedom": 79.3,
       "gdp_per_capita": 64603.985631,
       "life_expectancy": 83.05122,
+      "infant_mortality": 3.1,
       "corruption_score": 75.0,
       "hdi": 0.946,
       "happiness_score": 6.974,
@@ -367,6 +384,7 @@
       "economic_freedom": 69.7,
       "gdp_per_capita": 58268.878765,
       "life_expectancy": 81.541463,
+      "infant_mortality": 2.6,
       "corruption_score": 71.0,
       "hdi": 0.926,
       "happiness_score": 6.81,
@@ -389,6 +407,7 @@
       "economic_freedom": 62.5,
       "gdp_per_capita": 7283.849908,
       "life_expectancy": 74.429,
+      "infant_mortality": 13.3,
       "corruption_score": 23.0,
       "hdi": 0.76,
       "happiness_score": 4.875,
@@ -411,6 +430,7 @@
       "economic_freedom": 63.2,
       "gdp_per_capita": 39455.446655,
       "life_expectancy": 74.552,
+      "infant_mortality": 11.4,
       "corruption_score": 64.0,
       "hdi": 0.82,
       "happiness_score": null,
@@ -433,6 +453,7 @@
       "economic_freedom": 65.6,
       "gdp_per_capita": 29653.568273,
       "life_expectancy": 81.284,
+      "infant_mortality": 7.2,
       "corruption_score": 42.0,
       "hdi": 0.888,
       "happiness_score": 6.03,
@@ -455,6 +476,7 @@
       "economic_freedom": 54.7,
       "gdp_per_capita": 2593.416117,
       "life_expectancy": 74.672,
+      "infant_mortality": 24.4,
       "corruption_score": 24.0,
       "hdi": 0.67,
       "happiness_score": 3.851,
@@ -477,6 +499,7 @@
       "economic_freedom": 68.9,
       "gdp_per_capita": 26544.870728,
       "life_expectancy": 76.178,
+      "infant_mortality": 9.3,
       "corruption_score": 69.0,
       "hdi": 0.809,
       "happiness_score": null,
@@ -499,6 +522,7 @@
       "economic_freedom": 48.9,
       "gdp_per_capita": 8317.633999,
       "life_expectancy": 74.18378,
+      "infant_mortality": 1.9,
       "corruption_score": 37.0,
       "hdi": 0.801,
       "happiness_score": null,
@@ -521,6 +545,7 @@
       "economic_freedom": 69.0,
       "gdp_per_capita": 56614.56795,
       "life_expectancy": 82.397561,
+      "infant_mortality": 3.0,
       "corruption_score": 73.0,
       "hdi": 0.942,
       "happiness_score": 6.91,
@@ -543,6 +568,7 @@
       "economic_freedom": 64.2,
       "gdp_per_capita": 7681.244006,
       "life_expectancy": 73.566,
+      "infant_mortality": 10.8,
       "corruption_score": null,
       "hdi": 0.7,
       "happiness_score": 6.711,
@@ -565,6 +591,7 @@
       "economic_freedom": 58.5,
       "gdp_per_capita": 1485.380189,
       "life_expectancy": 60.774,
+      "infant_mortality": 46.4,
       "corruption_score": 43.0,
       "hdi": 0.504,
       "happiness_score": 4.357,
@@ -587,6 +614,7 @@
       "economic_freedom": 57.5,
       "gdp_per_capita": 3831.325355,
       "life_expectancy": 72.975,
+      "infant_mortality": 18.5,
       "corruption_score": 68.0,
       "hdi": 0.681,
       "happiness_score": null,
@@ -609,6 +637,7 @@
       "economic_freedom": 44.1,
       "gdp_per_capita": 4421.166099,
       "life_expectancy": 68.581,
+      "infant_mortality": 20.0,
       "corruption_score": 29.0,
       "hdi": null,
       "happiness_score": 5.868,
@@ -631,6 +660,7 @@
       "economic_freedom": 63.5,
       "gdp_per_capita": 9358.78769,
       "life_expectancy": 77.85,
+      "infant_mortality": 5.3,
       "corruption_score": 35.0,
       "hdi": 0.779,
       "happiness_score": 6.136,
@@ -653,6 +683,7 @@
       "economic_freedom": 69.9,
       "gdp_per_capita": 7695.753194,
       "life_expectancy": 69.163,
+      "infant_mortality": 38.2,
       "corruption_score": 59.0,
       "hdi": 0.708,
       "happiness_score": 3.438,
@@ -675,6 +706,7 @@
       "economic_freedom": 55.1,
       "gdp_per_capita": 10310.548878,
       "life_expectancy": 75.848,
+      "infant_mortality": 12.5,
       "corruption_score": 36.0,
       "hdi": 0.76,
       "happiness_score": 6.494,
@@ -697,6 +729,7 @@
       "economic_freedom": 67.0,
       "gdp_per_capita": 33153.473891,
       "life_expectancy": 75.327,
+      "infant_mortality": 8.2,
       "corruption_score": null,
       "hdi": 0.823,
       "happiness_score": null,
@@ -719,6 +752,7 @@
       "economic_freedom": 68.8,
       "gdp_per_capita": 17596.017366,
       "life_expectancy": 75.707317,
+      "infant_mortality": 5.0,
       "corruption_score": 45.0,
       "hdi": 0.799,
       "happiness_score": 5.554,
@@ -741,6 +775,7 @@
       "economic_freedom": 51.0,
       "gdp_per_capita": 981.99265,
       "life_expectancy": 61.092,
+      "infant_mortality": 44.8,
       "corruption_score": 41.0,
       "hdi": 0.438,
       "happiness_score": 4.383,
@@ -763,6 +798,7 @@
       "economic_freedom": 43.7,
       "gdp_per_capita": 1359.050016,
       "life_expectancy": 66.889,
+      "infant_mortality": 34.1,
       "corruption_score": 20.0,
       "hdi": 0.608,
       "happiness_score": 4.321,
@@ -785,6 +821,7 @@
       "economic_freedom": 39.7,
       "gdp_per_capita": 219.424831,
       "life_expectancy": 63.651,
+      "infant_mortality": 31.5,
       "corruption_score": 20.0,
       "hdi": 0.42,
       "happiness_score": null,
@@ -807,6 +844,7 @@
       "economic_freedom": 68.7,
       "gdp_per_capita": 5192.481573,
       "life_expectancy": 76.059,
+      "infant_mortality": 11.0,
       "corruption_score": 64.0,
       "hdi": 0.661,
       "happiness_score": null,
@@ -829,6 +867,7 @@
       "economic_freedom": 58.2,
       "gdp_per_capita": 2627.879698,
       "life_expectancy": 70.668,
+      "infant_mortality": 20.3,
       "corruption_score": 22.0,
       "hdi": 0.6,
       "happiness_score": 4.341,
@@ -851,6 +890,7 @@
       "economic_freedom": 52.1,
       "gdp_per_capita": 1830.008337,
       "life_expectancy": 63.7,
+      "infant_mortality": 41.2,
       "corruption_score": 27.0,
       "hdi": 0.587,
       "happiness_score": 4.887,
@@ -873,6 +913,7 @@
       "economic_freedom": 75.5,
       "gdp_per_capita": 54340.347722,
       "life_expectancy": 81.646585,
+      "infant_mortality": 4.4,
       "corruption_score": 76.0,
       "hdi": 0.935,
       "happiness_score": 6.803,
@@ -895,6 +936,7 @@
       "economic_freedom": 42.8,
       "gdp_per_capita": 516.161,
       "life_expectancy": 57.408,
+      "infant_mortality": 60.4,
       "corruption_score": 24.0,
       "hdi": 0.387,
       "happiness_score": null,
@@ -917,6 +959,7 @@
       "economic_freedom": 52.2,
       "gdp_per_capita": 961.559756,
       "life_expectancy": 55.069,
+      "infant_mortality": 58.7,
       "corruption_score": 20.0,
       "hdi": 0.394,
       "happiness_score": 4.384,
@@ -939,6 +982,7 @@
       "economic_freedom": 73.2,
       "gdp_per_capita": 16709.889397,
       "life_expectancy": 81.167,
+      "infant_mortality": 6.2,
       "corruption_score": 66.0,
       "hdi": 0.86,
       "happiness_score": 6.361,
@@ -961,6 +1005,7 @@
       "economic_freedom": 49.0,
       "gdp_per_capita": 13303.148154,
       "life_expectancy": 77.953,
+      "infant_mortality": 4.5,
       "corruption_score": 42.0,
       "hdi": 0.788,
       "happiness_score": 5.921,
@@ -983,6 +1028,7 @@
       "economic_freedom": 59.8,
       "gdp_per_capita": 7919.208868,
       "life_expectancy": 77.725,
+      "infant_mortality": 10.9,
       "corruption_score": 40.0,
       "hdi": 0.758,
       "happiness_score": 6.004,
@@ -1005,6 +1051,7 @@
       "economic_freedom": 51.4,
       "gdp_per_capita": 1662.756633,
       "life_expectancy": 66.777,
+      "infant_mortality": 35.7,
       "corruption_score": 20.0,
       "hdi": 0.586,
       "happiness_score": 3.754,
@@ -1027,6 +1074,7 @@
       "economic_freedom": 47.3,
       "gdp_per_capita": 649.383339,
       "life_expectancy": 61.895,
+      "infant_mortality": 44.5,
       "corruption_score": 20.0,
       "hdi": null,
       "happiness_score": 3.469,
@@ -1049,6 +1097,7 @@
       "economic_freedom": 48.6,
       "gdp_per_capita": 2482.248995,
       "life_expectancy": 65.772,
+      "infant_mortality": 27.6,
       "corruption_score": 22.0,
       "hdi": 0.593,
       "happiness_score": 5.03,
@@ -1071,6 +1120,7 @@
       "economic_freedom": 68.6,
       "gdp_per_capita": 18587.15322,
       "life_expectancy": 80.799,
+      "infant_mortality": 9.2,
       "corruption_score": 55.0,
       "hdi": 0.806,
       "happiness_score": 7.274,
@@ -1093,6 +1143,7 @@
       "economic_freedom": 57.8,
       "gdp_per_capita": 2727.893522,
       "life_expectancy": 61.944,
+      "infant_mortality": 46.6,
       "corruption_score": 40.0,
       "hdi": 0.534,
       "happiness_score": 5.102,
@@ -1115,6 +1166,7 @@
       "economic_freedom": 68.7,
       "gdp_per_capita": 24050.439793,
       "life_expectancy": 78.473171,
+      "infant_mortality": 3.9,
       "corruption_score": 50.0,
       "hdi": 0.878,
       "happiness_score": 5.87,
@@ -1137,6 +1189,7 @@
       "economic_freedom": 25.4,
       "gdp_per_capita": 9605.279146,
       "life_expectancy": 78.085,
+      "infant_mortality": 6.6,
       "corruption_score": 42.0,
       "hdi": 0.764,
       "happiness_score": null,
@@ -1159,6 +1212,7 @@
       "economic_freedom": 73.2,
       "gdp_per_capita": 38674.292969,
       "life_expectancy": 81.648,
+      "infant_mortality": 2.9,
       "corruption_score": 53.0,
       "hdi": 0.907,
       "happiness_score": 5.942,
@@ -1181,6 +1235,7 @@
       "economic_freedom": 72.9,
       "gdp_per_capita": 31823.307829,
       "life_expectancy": 79.878049,
+      "infant_mortality": 2.1,
       "corruption_score": 57.0,
       "hdi": 0.895,
       "happiness_score": 6.775,
@@ -1203,6 +1258,7 @@
       "economic_freedom": 79.1,
       "gdp_per_capita": 71026.483227,
       "life_expectancy": 81.853659,
+      "infant_mortality": 3.0,
       "corruption_score": 90.0,
       "hdi": 0.952,
       "happiness_score": 7.521,
@@ -1225,6 +1281,7 @@
       "economic_freedom": 55.7,
       "gdp_per_capita": 3552.723351,
       "life_expectancy": 65.987,
+      "infant_mortality": 44.4,
       "corruption_score": 30.0,
       "hdi": 0.515,
       "happiness_score": null,
@@ -1247,6 +1304,7 @@
       "economic_freedom": 55.3,
       "gdp_per_capita": 10405.278778,
       "life_expectancy": 71.132,
+      "infant_mortality": 33.1,
       "corruption_score": 56.0,
       "hdi": 0.74,
       "happiness_score": null,
@@ -1269,6 +1327,7 @@
       "economic_freedom": 64.3,
       "gdp_per_capita": 10875.661844,
       "life_expectancy": 73.72,
+      "infant_mortality": 28.4,
       "corruption_score": 35.0,
       "hdi": 0.766,
       "happiness_score": 5.846,
@@ -1291,6 +1350,7 @@
       "economic_freedom": 55.8,
       "gdp_per_capita": 6874.70574,
       "life_expectancy": 77.392,
+      "infant_mortality": 11.1,
       "corruption_score": 34.0,
       "hdi": 0.765,
       "happiness_score": 5.965,
@@ -1313,6 +1373,7 @@
       "economic_freedom": 50.9,
       "gdp_per_capita": 3338.473714,
       "life_expectancy": 71.633,
+      "infant_mortality": 16.1,
       "corruption_score": 35.0,
       "hdi": 0.728,
       "happiness_score": 3.817,
@@ -1335,6 +1396,7 @@
       "economic_freedom": 56.6,
       "gdp_per_capita": 5579.659692,
       "life_expectancy": 72.099,
+      "infant_mortality": 9.2,
       "corruption_score": 31.0,
       "hdi": 0.674,
       "happiness_score": 6.492,
@@ -1357,6 +1419,7 @@
       "economic_freedom": 47.7,
       "gdp_per_capita": 6745.400132,
       "life_expectancy": 63.707,
+      "infant_mortality": 49.1,
       "corruption_score": 17.0,
       "hdi": 0.65,
       "happiness_score": null,
@@ -1379,6 +1442,7 @@
       "economic_freedom": 38.6,
       "gdp_per_capita": null,
       "life_expectancy": 68.624,
+      "infant_mortality": 25.5,
       "corruption_score": 21.0,
       "hdi": 0.493,
       "happiness_score": null,
@@ -1401,6 +1465,7 @@
       "economic_freedom": 78.9,
       "gdp_per_capita": 31428.354782,
       "life_expectancy": 78.490244,
+      "infant_mortality": 1.6,
       "corruption_score": 76.0,
       "hdi": 0.899,
       "happiness_score": 6.417,
@@ -1423,6 +1488,7 @@
       "economic_freedom": 56.4,
       "gdp_per_capita": 3909.558924,
       "life_expectancy": 64.123,
+      "infant_mortality": 43.5,
       "corruption_score": 30.0,
       "hdi": null,
       "happiness_score": 3.774,
@@ -1445,6 +1511,7 @@
       "economic_freedom": 48.1,
       "gdp_per_capita": 1133.882797,
       "life_expectancy": 67.315,
+      "infant_mortality": 35.7,
       "corruption_score": 37.0,
       "hdi": 0.492,
       "happiness_score": 3.898,
@@ -1467,6 +1534,7 @@
       "economic_freedom": 59.1,
       "gdp_per_capita": 6425.741517,
       "life_expectancy": 67.316,
+      "infant_mortality": 23.8,
       "corruption_score": 52.0,
       "hdi": 0.729,
       "happiness_score": null,
@@ -1489,6 +1557,7 @@
       "economic_freedom": 77.0,
       "gdp_per_capita": 53149.767193,
       "life_expectancy": 81.685366,
+      "infant_mortality": 1.8,
       "corruption_score": 87.0,
       "hdi": 0.942,
       "happiness_score": 7.736,
@@ -1511,6 +1580,7 @@
       "economic_freedom": 64.4,
       "gdp_per_capita": 46103.084086,
       "life_expectancy": 82.929268,
+      "infant_mortality": 3.4,
       "corruption_score": 71.0,
       "hdi": 0.91,
       "happiness_score": 6.593,
@@ -1533,6 +1603,7 @@
       "economic_freedom": 56.3,
       "gdp_per_capita": 8230.043115,
       "life_expectancy": 68.337,
+      "infant_mortality": 26.5,
       "corruption_score": 28.0,
       "hdi": 0.693,
       "happiness_score": 5.12,
@@ -1555,6 +1626,7 @@
       "economic_freedom": 56.8,
       "gdp_per_capita": 871.340292,
       "life_expectancy": 65.86,
+      "infant_mortality": 33.8,
       "corruption_score": 37.0,
       "hdi": 0.495,
       "happiness_score": 4.423,
@@ -1577,6 +1649,7 @@
       "economic_freedom": 69.0,
       "gdp_per_capita": 9241.491223,
       "life_expectancy": 74.496,
+      "infant_mortality": 8.0,
       "corruption_score": 53.0,
       "hdi": 0.814,
       "happiness_score": 5.4,
@@ -1599,6 +1672,7 @@
       "economic_freedom": 71.6,
       "gdp_per_capita": 56103.732318,
       "life_expectancy": 80.541463,
+      "infant_mortality": 3.1,
       "corruption_score": 78.0,
       "hdi": 0.95,
       "happiness_score": 6.753,
@@ -1621,6 +1695,7 @@
       "economic_freedom": 56.0,
       "gdp_per_capita": 2390.772377,
       "life_expectancy": 65.498,
+      "infant_mortality": 28.2,
       "corruption_score": 43.0,
       "hdi": 0.602,
       "happiness_score": 4.34,
@@ -1643,6 +1718,7 @@
       "economic_freedom": 60.6,
       "gdp_per_capita": 24626.148186,
       "life_expectancy": 81.536585,
+      "infant_mortality": 3.2,
       "corruption_score": 49.0,
       "hdi": 0.893,
       "happiness_score": 5.776,
@@ -1665,6 +1741,7 @@
       "economic_freedom": 63.4,
       "gdp_per_capita": 6150.025714,
       "life_expectancy": 72.602,
+      "infant_mortality": 17.9,
       "corruption_score": 23.0,
       "hdi": 0.629,
       "happiness_score": 6.362,
@@ -1687,6 +1764,7 @@
       "economic_freedom": 54.6,
       "gdp_per_capita": 1694.953759,
       "life_expectancy": 60.74,
+      "infant_mortality": 61.5,
       "corruption_score": 26.0,
       "hdi": 0.471,
       "happiness_score": 4.929,
@@ -1709,6 +1787,7 @@
       "economic_freedom": 43.6,
       "gdp_per_capita": 1007.741517,
       "life_expectancy": 64.085,
+      "infant_mortality": 43.1,
       "corruption_score": 22.0,
       "hdi": 0.483,
       "happiness_score": null,
@@ -1731,6 +1810,7 @@
       "economic_freedom": 58.2,
       "gdp_per_capita": 29675.244387,
       "life_expectancy": 70.18,
+      "infant_mortality": 23.8,
       "corruption_score": 40.0,
       "hdi": 0.742,
       "happiness_score": null,
@@ -1753,6 +1833,7 @@
       "economic_freedom": 46.1,
       "gdp_per_capita": 2142.623305,
       "life_expectancy": 64.936,
+      "infant_mortality": 40.3,
       "corruption_score": 17.0,
       "hdi": 0.552,
       "happiness_score": null,
@@ -1775,6 +1856,7 @@
       "economic_freedom": 59.6,
       "gdp_per_capita": 3426.434833,
       "life_expectancy": 72.884,
+      "infant_mortality": 13.3,
       "corruption_score": 23.0,
       "hdi": 0.624,
       "happiness_score": 5.964,
@@ -1797,6 +1879,7 @@
       "economic_freedom": 61.4,
       "gdp_per_capita": 23292.326388,
       "life_expectancy": 76.770732,
+      "infant_mortality": 3.2,
       "corruption_score": 42.0,
       "hdi": 0.851,
       "happiness_score": 5.915,
@@ -1819,6 +1902,7 @@
       "economic_freedom": 72.8,
       "gdp_per_capita": 86040.530985,
       "life_expectancy": 82.607317,
+      "infant_mortality": 1.9,
       "corruption_score": 72.0,
       "hdi": 0.959,
       "happiness_score": 7.515,
@@ -1841,6 +1925,7 @@
       "economic_freedom": 53.0,
       "gdp_per_capita": 2694.737809,
       "life_expectancy": 72.003,
+      "infant_mortality": 24.5,
       "corruption_score": 39.0,
       "hdi": 0.644,
       "happiness_score": 4.389,
@@ -1863,6 +1948,7 @@
       "economic_freedom": 65.2,
       "gdp_per_capita": 4925.430488,
       "life_expectancy": 71.146,
+      "infant_mortality": 17.0,
       "corruption_score": 34.0,
       "hdi": 0.713,
       "happiness_score": 5.617,
@@ -1885,6 +1971,7 @@
       "economic_freedom": 42.5,
       "gdp_per_capita": 5190.16959,
       "life_expectancy": 77.654,
+      "infant_mortality": 10.7,
       "corruption_score": 24.0,
       "hdi": 0.78,
       "happiness_score": 5.093,
@@ -1907,6 +1994,7 @@
       "economic_freedom": 83.1,
       "gdp_per_capita": 112894.953241,
       "life_expectancy": 82.860976,
+      "infant_mortality": 3.4,
       "corruption_score": 77.0,
       "hdi": 0.95,
       "happiness_score": 6.889,
@@ -1929,6 +2017,7 @@
       "economic_freedom": 69.9,
       "gdp_per_capita": 54176.684438,
       "life_expectancy": 83.195122,
+      "infant_mortality": 2.7,
       "corruption_score": 62.0,
       "hdi": 0.915,
       "happiness_score": 7.234,
@@ -1951,6 +2040,7 @@
       "economic_freedom": 60.9,
       "gdp_per_capita": 40385.341396,
       "life_expectancy": 83.7,
+      "infant_mortality": 2.3,
       "corruption_score": 56.0,
       "hdi": 0.906,
       "happiness_score": 6.415,
@@ -1973,6 +2063,7 @@
       "economic_freedom": 68.7,
       "gdp_per_capita": 7753.800696,
       "life_expectancy": 71.479,
+      "infant_mortality": 18.3,
       "corruption_score": 44.0,
       "hdi": 0.706,
       "happiness_score": 5.87,
@@ -1995,6 +2086,7 @@
       "economic_freedom": 70.2,
       "gdp_per_capita": 32487.077805,
       "life_expectancy": 84.04122,
+      "infant_mortality": 1.8,
       "corruption_score": 73.0,
       "hdi": 0.92,
       "happiness_score": 6.147,
@@ -2017,6 +2109,7 @@
       "economic_freedom": 59.4,
       "gdp_per_capita": 4618.095925,
       "life_expectancy": 77.814,
+      "infant_mortality": 12.2,
       "corruption_score": 46.0,
       "hdi": 0.736,
       "happiness_score": 4.31,
@@ -2039,6 +2132,7 @@
       "economic_freedom": 63.8,
       "gdp_per_capita": 14154.632496,
       "life_expectancy": 74.402,
+      "infant_mortality": 7.6,
       "corruption_score": 39.0,
       "hdi": 0.802,
       "happiness_score": 6.378,
@@ -2061,6 +2155,7 @@
       "economic_freedom": 54.8,
       "gdp_per_capita": 2132.434521,
       "life_expectancy": 63.646,
+      "infant_mortality": 34.7,
       "corruption_score": 31.0,
       "hdi": 0.601,
       "happiness_score": 4.51,
@@ -2083,6 +2178,7 @@
       "economic_freedom": 50.9,
       "gdp_per_capita": 2288.634714,
       "life_expectancy": 66.473,
+      "infant_mortality": 39.7,
       "corruption_score": null,
       "hdi": 0.628,
       "happiness_score": null,
@@ -2105,6 +2201,7 @@
       "economic_freedom": 3.0,
       "gdp_per_capita": null,
       "life_expectancy": 73.642,
+      "infant_mortality": 14.5,
       "corruption_score": 17.0,
       "hdi": null,
       "happiness_score": null,
@@ -2127,6 +2224,7 @@
       "economic_freedom": 74.0,
       "gdp_per_capita": 36238.639908,
       "life_expectancy": 83.429268,
+      "infant_mortality": 2.3,
       "corruption_score": 63.0,
       "hdi": 0.929,
       "happiness_score": 6.038,
@@ -2149,6 +2247,7 @@
       "economic_freedom": 61.7,
       "gdp_per_capita": 7023.065985,
       "life_expectancy": 78.033,
+      "infant_mortality": 8.3,
       "corruption_score": 41.0,
       "hdi": null,
       "happiness_score": 6.659,
@@ -2171,6 +2270,7 @@
       "economic_freedom": 59.9,
       "gdp_per_capita": 32717.718663,
       "life_expectancy": 83.187805,
+      "infant_mortality": 7.6,
       "corruption_score": 46.0,
       "hdi": 0.847,
       "happiness_score": 6.629,
@@ -2193,6 +2293,7 @@
       "economic_freedom": 55.6,
       "gdp_per_capita": 2420.185423,
       "life_expectancy": 72.24878,
+      "infant_mortality": 14.9,
       "corruption_score": 26.0,
       "hdi": 0.701,
       "happiness_score": 5.858,
@@ -2215,6 +2316,7 @@
       "economic_freedom": 51.1,
       "gdp_per_capita": 2123.979094,
       "life_expectancy": 68.964,
+      "infant_mortality": 35.2,
       "corruption_score": 28.0,
       "hdi": 0.62,
       "happiness_score": 5.301,
@@ -2237,6 +2339,7 @@
       "economic_freedom": 71.4,
       "gdp_per_capita": 23409.084515,
       "life_expectancy": 75.678049,
+      "infant_mortality": 2.5,
       "corruption_score": 60.0,
       "hdi": 0.879,
       "happiness_score": 6.207,
@@ -2259,6 +2362,7 @@
       "economic_freedom": 44.1,
       "gdp_per_capita": 3477.724898,
       "life_expectancy": 77.817,
+      "infant_mortality": 16.0,
       "corruption_score": 24.0,
       "hdi": 0.723,
       "happiness_score": 3.188,
@@ -2281,6 +2385,7 @@
       "economic_freedom": 54.1,
       "gdp_per_capita": 971.907718,
       "life_expectancy": 57.375,
+      "infant_mortality": 55.4,
       "corruption_score": 39.0,
       "hdi": 0.521,
       "happiness_score": 3.757,
@@ -2303,6 +2408,7 @@
       "economic_freedom": 48.5,
       "gdp_per_capita": 851.497724,
       "life_expectancy": 62.163,
+      "infant_mortality": 52.6,
       "corruption_score": 25.0,
       "hdi": 0.487,
       "happiness_score": 4.277,
@@ -2325,6 +2431,7 @@
       "economic_freedom": 74.6,
       "gdp_per_capita": 29384.01896,
       "life_expectancy": 76.987805,
+      "infant_mortality": 2.8,
       "corruption_score": 61.0,
       "hdi": 0.879,
       "happiness_score": 6.829,
@@ -2347,6 +2454,7 @@
       "economic_freedom": 79.5,
       "gdp_per_capita": 137781.681659,
       "life_expectancy": 83.358537,
+      "infant_mortality": 2.0,
       "corruption_score": 78.0,
       "hdi": 0.927,
       "happiness_score": 7.122,
@@ -2369,6 +2477,7 @@
       "economic_freedom": 57.0,
       "gdp_per_capita": 544.987501,
       "life_expectancy": 63.632,
+      "infant_mortality": 44.2,
       "corruption_score": 25.0,
       "hdi": 0.487,
       "happiness_score": 4.157,
@@ -2391,6 +2500,7 @@
       "economic_freedom": 50.9,
       "gdp_per_capita": 522.570394,
       "life_expectancy": 67.353,
+      "infant_mortality": 29.4,
       "corruption_score": 34.0,
       "hdi": 0.508,
       "happiness_score": 3.26,
@@ -2413,6 +2523,7 @@
       "economic_freedom": 67.1,
       "gdp_per_capita": 11874.427368,
       "life_expectancy": 76.657,
+      "infant_mortality": 6.8,
       "corruption_score": 50.0,
       "hdi": 0.807,
       "happiness_score": 5.955,
@@ -2435,6 +2546,7 @@
       "economic_freedom": 48.3,
       "gdp_per_capita": 13379.351358,
       "life_expectancy": 81.041,
+      "infant_mortality": 5.0,
       "corruption_score": 39.0,
       "hdi": 0.762,
       "happiness_score": null,
@@ -2457,6 +2569,7 @@
       "economic_freedom": 52.6,
       "gdp_per_capita": 1094.619493,
       "life_expectancy": 60.439,
+      "infant_mortality": 57.6,
       "corruption_score": 28.0,
       "hdi": 0.41,
       "happiness_score": 4.345,
@@ -2479,6 +2592,7 @@
       "economic_freedom": 66.8,
       "gdp_per_capita": 43898.578181,
       "life_expectancy": 83.507317,
+      "infant_mortality": 4.8,
       "corruption_score": 51.0,
       "hdi": 0.915,
       "happiness_score": 6.316,
@@ -2501,6 +2615,7 @@
       "economic_freedom": 54.9,
       "gdp_per_capita": 2110.120369,
       "life_expectancy": 68.484,
+      "infant_mortality": 31.0,
       "corruption_score": 30.0,
       "hdi": 0.54,
       "happiness_score": 4.542,
@@ -2523,6 +2638,7 @@
       "economic_freedom": 75.0,
       "gdp_per_capita": 11990.779894,
       "life_expectancy": 73.412195,
+      "infant_mortality": 13.5,
       "corruption_score": 51.0,
       "hdi": 0.796,
       "happiness_score": 5.832,
@@ -2545,6 +2661,7 @@
       "economic_freedom": 61.3,
       "gdp_per_capita": 14185.781225,
       "life_expectancy": 75.069,
+      "infant_mortality": 10.8,
       "corruption_score": 31.0,
       "hdi": 0.781,
       "happiness_score": 6.979,
@@ -2567,6 +2684,7 @@
       "economic_freedom": 62.2,
       "gdp_per_capita": 4166.004767,
       "life_expectancy": 67.198,
+      "infant_mortality": 20.8,
       "corruption_score": null,
       "hdi": null,
       "happiness_score": null,
@@ -2589,6 +2707,7 @@
       "economic_freedom": 58.3,
       "gdp_per_capita": 7576.195894,
       "life_expectancy": 71.198,
+      "infant_mortality": 13.5,
       "corruption_score": 42.0,
       "hdi": null,
       "happiness_score": null,
@@ -2611,6 +2730,7 @@
       "economic_freedom": 62.6,
       "gdp_per_capita": 6750.630116,
       "life_expectancy": 72.122439,
+      "infant_mortality": 11.4,
       "corruption_score": 33.0,
       "hdi": 0.741,
       "happiness_score": 5.833,
@@ -2633,6 +2753,7 @@
       "economic_freedom": 63.8,
       "gdp_per_capita": 13263.328128,
       "life_expectancy": 77.587805,
+      "infant_mortality": 2.1,
       "corruption_score": 46.0,
       "hdi": 0.844,
       "happiness_score": 5.877,
@@ -2655,6 +2776,7 @@
       "economic_freedom": 60.3,
       "gdp_per_capita": 4153.194336,
       "life_expectancy": 75.313,
+      "infant_mortality": 15.5,
       "corruption_score": 38.0,
       "hdi": 0.698,
       "happiness_score": 4.622,
@@ -2677,6 +2799,7 @@
       "economic_freedom": 50.7,
       "gdp_per_capita": 656.776825,
       "life_expectancy": 63.611,
+      "infant_mortality": 45.4,
       "corruption_score": 25.0,
       "hdi": 0.461,
       "happiness_score": 5.19,
@@ -2699,6 +2822,7 @@
       "economic_freedom": 58.7,
       "gdp_per_capita": 4413.127522,
       "life_expectancy": 67.385,
+      "infant_mortality": 38.4,
       "corruption_score": 49.0,
       "hdi": 0.61,
       "happiness_score": 4.911,
@@ -2721,6 +2845,7 @@
       "economic_freedom": 52.5,
       "gdp_per_capita": 1447.310045,
       "life_expectancy": 70.354,
+      "infant_mortality": 23.3,
       "corruption_score": 35.0,
       "hdi": 0.601,
       "happiness_score": 5.311,
@@ -2743,6 +2868,7 @@
       "economic_freedom": 78.2,
       "gdp_per_capita": 67520.421896,
       "life_expectancy": 81.914634,
+      "infant_mortality": 3.5,
       "corruption_score": 79.0,
       "hdi": 0.946,
       "happiness_score": 7.306,
@@ -2765,6 +2891,7 @@
       "economic_freedom": 78.1,
       "gdp_per_capita": 49205.179215,
       "life_expectancy": 83.004878,
+      "infant_mortality": 4.0,
       "corruption_score": 85.0,
       "hdi": 0.939,
       "happiness_score": 6.952,
@@ -2787,6 +2914,7 @@
       "economic_freedom": 54.0,
       "gdp_per_capita": 2847.539663,
       "life_expectancy": 74.947,
+      "infant_mortality": 10.3,
       "corruption_score": 17.0,
       "hdi": 0.669,
       "happiness_score": 6.33,
@@ -2809,6 +2937,7 @@
       "economic_freedom": 51.5,
       "gdp_per_capita": 735.270256,
       "life_expectancy": 61.183,
+      "infant_mortality": 67.4,
       "corruption_score": 32.0,
       "hdi": 0.394,
       "happiness_score": 4.725,
@@ -2831,6 +2960,7 @@
       "economic_freedom": 53.4,
       "gdp_per_capita": 1084.160418,
       "life_expectancy": 54.462,
+      "infant_mortality": 60.1,
       "corruption_score": 25.0,
       "hdi": 0.548,
       "happiness_score": 4.885,
@@ -2853,6 +2983,7 @@
       "economic_freedom": 63.2,
       "gdp_per_capita": 9291.856617,
       "life_expectancy": 75.316098,
+      "infant_mortality": 2.8,
       "corruption_score": 42.0,
       "hdi": 0.765,
       "happiness_score": 5.503,
@@ -2875,6 +3006,7 @@
       "economic_freedom": 78.3,
       "gdp_per_capita": 86785.433449,
       "life_expectancy": 83.112195,
+      "infant_mortality": 1.9,
       "corruption_score": 84.0,
       "hdi": 0.966,
       "happiness_score": 7.262,
@@ -2897,6 +3029,7 @@
       "economic_freedom": 65.4,
       "gdp_per_capita": 20285.22729,
       "life_expectancy": 80.031,
+      "infant_mortality": 8.4,
       "corruption_score": 43.0,
       "hdi": 0.819,
       "happiness_score": 6.197,
@@ -2919,6 +3052,7 @@
       "economic_freedom": 49.1,
       "gdp_per_capita": 1478.77278,
       "life_expectancy": 67.649,
+      "infant_mortality": 50.1,
       "corruption_score": 29.0,
       "hdi": 0.54,
       "happiness_score": 4.768,
@@ -2941,6 +3075,7 @@
       "economic_freedom": 65.5,
       "gdp_per_capita": 19161.21885,
       "life_expectancy": 79.594,
+      "infant_mortality": 10.6,
       "corruption_score": 35.0,
       "hdi": 0.82,
       "happiness_score": 6.407,
@@ -2963,6 +3098,7 @@
       "economic_freedom": 52.5,
       "gdp_per_capita": 3006.705645,
       "life_expectancy": 66.134,
+      "infant_mortality": 32.0,
       "corruption_score": 29.0,
       "hdi": 0.568,
       "happiness_score": null,
@@ -2985,6 +3121,7 @@
       "economic_freedom": 65.2,
       "gdp_per_capita": 6416.09709,
       "life_expectancy": 73.844,
+      "infant_mortality": 15.1,
       "corruption_score": 28.0,
       "hdi": 0.731,
       "happiness_score": 6.172,
@@ -3007,6 +3144,7 @@
       "economic_freedom": 65.9,
       "gdp_per_capita": 8452.371671,
       "life_expectancy": 77.74,
+      "infant_mortality": 13.5,
       "corruption_score": 33.0,
       "hdi": 0.762,
       "happiness_score": 5.947,
@@ -3029,6 +3167,7 @@
       "economic_freedom": 60.6,
       "gdp_per_capita": 3984.831539,
       "life_expectancy": 69.833,
+      "infant_mortality": 22.1,
       "corruption_score": 34.0,
       "hdi": 0.71,
       "happiness_score": 6.107,
@@ -3051,6 +3190,7 @@
       "economic_freedom": 67.1,
       "gdp_per_capita": 25103.565661,
       "life_expectancy": 78.507317,
+      "infant_mortality": 3.7,
       "corruption_score": 54.0,
       "hdi": 0.881,
       "happiness_score": 6.673,
@@ -3073,6 +3213,7 @@
       "economic_freedom": 70.5,
       "gdp_per_capita": 29292.242105,
       "life_expectancy": 82.280488,
+      "infant_mortality": 2.6,
       "corruption_score": 61.0,
       "hdi": 0.874,
       "happiness_score": 6.013,
@@ -3095,6 +3236,7 @@
       "economic_freedom": 70.2,
       "gdp_per_capita": 76688.694174,
       "life_expectancy": 82.368,
+      "infant_mortality": 4.9,
       "corruption_score": 58.0,
       "hdi": 0.875,
       "happiness_score": null,
@@ -3117,6 +3259,7 @@
       "economic_freedom": 66.5,
       "gdp_per_capita": 20080.209622,
       "life_expectancy": 76.607317,
+      "infant_mortality": 5.4,
       "corruption_score": 46.0,
       "hdi": 0.827,
       "happiness_score": 6.563,
@@ -3139,6 +3282,7 @@
       "economic_freedom": 51.6,
       "gdp_per_capita": 14889.018555,
       "life_expectancy": 73.254634,
+      "infant_mortality": 3.7,
       "corruption_score": 26.0,
       "hdi": 0.821,
       "happiness_score": 5.945,
@@ -3161,6 +3305,7 @@
       "economic_freedom": 54.8,
       "gdp_per_capita": 999.654562,
       "life_expectancy": 67.785,
+      "infant_mortality": 30.5,
       "corruption_score": 53.0,
       "hdi": 0.548,
       "happiness_score": null,
@@ -3183,6 +3328,7 @@
       "economic_freedom": 67.0,
       "gdp_per_capita": 14181.630335,
       "life_expectancy": 72.697,
+      "infant_mortality": 14.3,
       "corruption_score": 55.0,
       "hdi": 0.725,
       "happiness_score": null,
@@ -3205,6 +3351,7 @@
       "economic_freedom": 60.1,
       "gdp_per_capita": 11501.226519,
       "life_expectancy": 71.23,
+      "infant_mortality": 9.9,
       "corruption_score": 60.0,
       "hdi": 0.772,
       "happiness_score": null,
@@ -3227,6 +3374,7 @@
       "economic_freedom": 66.6,
       "gdp_per_capita": 5392.877619,
       "life_expectancy": 71.698,
+      "infant_mortality": 12.8,
       "corruption_score": null,
       "hdi": 0.702,
       "happiness_score": null,
@@ -3249,6 +3397,7 @@
       "economic_freedom": 60.4,
       "gdp_per_capita": 3490.568835,
       "life_expectancy": 69.718,
+      "infant_mortality": 9.4,
       "corruption_score": 45.0,
       "hdi": 0.613,
       "happiness_score": null,
@@ -3271,6 +3420,7 @@
       "economic_freedom": 64.4,
       "gdp_per_capita": 35121.662869,
       "life_expectancy": 78.732,
+      "infant_mortality": 4.9,
       "corruption_score": 52.0,
       "hdi": 0.875,
       "happiness_score": 6.6,
@@ -3293,6 +3443,7 @@
       "economic_freedom": 56.4,
       "gdp_per_capita": 1773.218299,
       "life_expectancy": 68.683,
+      "infant_mortality": 30.2,
       "corruption_score": 43.0,
       "hdi": 0.517,
       "happiness_score": 4.856,
@@ -3315,6 +3466,7 @@
       "economic_freedom": 64.4,
       "gdp_per_capita": 13679.206598,
       "life_expectancy": 76.220976,
+      "infant_mortality": 4.5,
       "corruption_score": 36.0,
       "hdi": 0.805,
       "happiness_score": 6.606,
@@ -3337,6 +3489,7 @@
       "economic_freedom": 66.4,
       "gdp_per_capita": 17858.822638,
       "life_expectancy": 74.958537,
+      "infant_mortality": 13.1,
       "corruption_score": 71.0,
       "hdi": 0.802,
       "happiness_score": null,
@@ -3359,6 +3512,7 @@
       "economic_freedom": 48.0,
       "gdp_per_capita": 806.65465,
       "life_expectancy": 61.786,
+      "infant_mortality": 56.2,
       "corruption_score": 35.0,
       "hdi": 0.458,
       "happiness_score": 2.998,
@@ -3381,6 +3535,7 @@
       "economic_freedom": 84.1,
       "gdp_per_capita": 90674.066633,
       "life_expectancy": 82.895122,
+      "infant_mortality": 1.7,
       "corruption_score": 83.0,
       "hdi": 0.949,
       "happiness_score": 6.565,
@@ -3403,6 +3558,7 @@
       "economic_freedom": 68.4,
       "gdp_per_capita": 25992.67485,
       "life_expectancy": 78.017073,
+      "infant_mortality": 5.1,
       "corruption_score": 54.0,
       "hdi": 0.855,
       "happiness_score": 6.221,
@@ -3425,6 +3581,7 @@
       "economic_freedom": 68.3,
       "gdp_per_capita": 34301.031869,
       "life_expectancy": 81.978049,
+      "infant_mortality": 1.8,
       "corruption_score": 56.0,
       "hdi": 0.926,
       "happiness_score": 6.792,
@@ -3447,6 +3604,7 @@
       "economic_freedom": 56.3,
       "gdp_per_capita": 1933.555384,
       "life_expectancy": 70.528,
+      "infant_mortality": 16.5,
       "corruption_score": 43.0,
       "hdi": 0.562,
       "happiness_score": null,
@@ -3469,6 +3627,7 @@
       "economic_freedom": 57.3,
       "gdp_per_capita": 6267.186814,
       "life_expectancy": 66.139,
+      "infant_mortality": 24.4,
       "corruption_score": 41.0,
       "hdi": 0.717,
       "happiness_score": 5.213,
@@ -3491,6 +3650,7 @@
       "economic_freedom": 66.3,
       "gdp_per_capita": 35326.768307,
       "life_expectancy": 83.882927,
+      "infant_mortality": 2.6,
       "corruption_score": 60.0,
       "hdi": 0.911,
       "happiness_score": 6.466,
@@ -3513,6 +3673,7 @@
       "economic_freedom": 49.4,
       "gdp_per_capita": 4515.567873,
       "life_expectancy": 77.483,
+      "infant_mortality": 5.3,
       "corruption_score": 34.0,
       "hdi": 0.78,
       "happiness_score": 3.891,
@@ -3535,6 +3696,7 @@
       "economic_freedom": 35.3,
       "gdp_per_capita": 984.607666,
       "life_expectancy": 66.331,
+      "infant_mortality": 39.2,
       "corruption_score": 20.0,
       "hdi": 0.516,
       "happiness_score": null,
@@ -3557,6 +3719,7 @@
       "economic_freedom": 50.9,
       "gdp_per_capita": 6961.78956,
       "life_expectancy": 73.631,
+      "infant_mortality": 15.2,
       "corruption_score": 40.0,
       "hdi": 0.69,
       "happiness_score": null,
@@ -3579,6 +3742,7 @@
       "economic_freedom": 77.9,
       "gdp_per_capita": 57117.487744,
       "life_expectancy": 83.309756,
+      "infant_mortality": 2.0,
       "corruption_score": 82.0,
       "hdi": 0.952,
       "happiness_score": 7.345,
@@ -3601,6 +3765,7 @@
       "economic_freedom": 83.7,
       "gdp_per_capita": 103998.186686,
       "life_expectancy": 84.056098,
+      "infant_mortality": 3.5,
       "corruption_score": 82.0,
       "hdi": 0.967,
       "happiness_score": 6.935,
@@ -3623,6 +3788,7 @@
       "economic_freedom": 79.7,
       "gdp_per_capita": null,
       "life_expectancy": null,
+      "infant_mortality": null,
       "corruption_score": 67.0,
       "hdi": null,
       "happiness_score": 6.669,
@@ -3645,6 +3811,7 @@
       "economic_freedom": 51.5,
       "gdp_per_capita": 1341.20229,
       "life_expectancy": 71.79,
+      "infant_mortality": 22.9,
       "corruption_score": 20.0,
       "hdi": 0.679,
       "happiness_score": 5.411,
@@ -3667,6 +3834,7 @@
       "economic_freedom": 59.3,
       "gdp_per_capita": 1186.716919,
       "life_expectancy": 66.995,
+      "infant_mortality": 29.9,
       "corruption_score": 40.0,
       "hdi": null,
       "happiness_score": 3.8,
@@ -3689,6 +3857,7 @@
       "economic_freedom": 60.6,
       "gdp_per_capita": 7346.620221,
       "life_expectancy": 76.412,
+      "infant_mortality": 8.0,
       "corruption_score": 35.0,
       "hdi": 0.803,
       "happiness_score": 6.222,
@@ -3711,6 +3880,7 @@
       "economic_freedom": 47.9,
       "gdp_per_capita": 1331.970513,
       "life_expectancy": 67.689,
+      "infant_mortality": 35.9,
       "corruption_score": 43.0,
       "hdi": 0.566,
       "happiness_score": null,
@@ -3733,6 +3903,7 @@
       "economic_freedom": 52.3,
       "gdp_per_capita": 1119.381605,
       "life_expectancy": 62.739,
+      "infant_mortality": 35.9,
       "corruption_score": 31.0,
       "hdi": 0.547,
       "happiness_score": 4.315,
@@ -3755,6 +3926,7 @@
       "economic_freedom": 58.5,
       "gdp_per_capita": 5651.593731,
       "life_expectancy": 72.895,
+      "infant_mortality": 8.0,
       "corruption_score": null,
       "hdi": 0.739,
       "happiness_score": null,
@@ -3777,6 +3949,7 @@
       "economic_freedom": 63.6,
       "gdp_per_capita": 18733.411041,
       "life_expectancy": 73.49,
+      "infant_mortality": 17.2,
       "corruption_score": 42.0,
       "hdi": 0.814,
       "happiness_score": 5.905,
@@ -3799,6 +3972,7 @@
       "economic_freedom": 49.1,
       "gdp_per_capita": 4181.137893,
       "life_expectancy": 76.508,
+      "infant_mortality": 10.6,
       "corruption_score": 40.0,
       "hdi": 0.732,
       "happiness_score": 4.552,
@@ -3821,6 +3995,7 @@
       "economic_freedom": 56.1,
       "gdp_per_capita": 15892.715729,
       "life_expectancy": 77.156,
+      "infant_mortality": 9.1,
       "corruption_score": 34.0,
       "hdi": 0.855,
       "happiness_score": 5.262,
@@ -3843,6 +4018,7 @@
       "economic_freedom": 47.1,
       "gdp_per_capita": 6856.658027,
       "life_expectancy": 70.073,
+      "infant_mortality": 31.2,
       "corruption_score": 18.0,
       "hdi": 0.744,
       "happiness_score": null,
@@ -3865,6 +4041,7 @@
       "economic_freedom": 51.3,
       "gdp_per_capita": 1077.912785,
       "life_expectancy": 68.252,
+      "infant_mortality": 27.6,
       "corruption_score": 26.0,
       "hdi": 0.55,
       "happiness_score": 4.461,
@@ -3887,6 +4064,7 @@
       "economic_freedom": 71.6,
       "gdp_per_capita": 50273.506047,
       "life_expectancy": 82.909,
+      "infant_mortality": 4.0,
       "corruption_score": 68.0,
       "hdi": 0.937,
       "happiness_score": 6.759,
@@ -3909,6 +4087,7 @@
       "economic_freedom": 69.3,
       "gdp_per_capita": 53246.367615,
       "life_expectancy": 81.238098,
+      "infant_mortality": 4.0,
       "corruption_score": 71.0,
       "hdi": 0.94,
       "happiness_score": 6.728,
@@ -3931,6 +4110,7 @@
       "economic_freedom": 70.2,
       "gdp_per_capita": 84534.040784,
       "life_expectancy": 78.385366,
+      "infant_mortality": 5.5,
       "corruption_score": 69.0,
       "hdi": 0.927,
       "happiness_score": 6.724,
@@ -3953,6 +4133,7 @@
       "economic_freedom": 70.2,
       "gdp_per_capita": 23906.513303,
       "life_expectancy": 78.138,
+      "infant_mortality": 5.5,
       "corruption_score": 73.0,
       "hdi": 0.83,
       "happiness_score": 6.661,
@@ -3975,6 +4156,7 @@
       "economic_freedom": 58.0,
       "gdp_per_capita": 3161.700106,
       "life_expectancy": 72.388,
+      "infant_mortality": 12.7,
       "corruption_score": 33.0,
       "hdi": 0.727,
       "happiness_score": 6.193,
@@ -3997,6 +4179,7 @@
       "economic_freedom": 61.8,
       "gdp_per_capita": 3410.770232,
       "life_expectancy": 71.477,
+      "infant_mortality": 14.2,
       "corruption_score": 48.0,
       "hdi": 0.614,
       "happiness_score": null,
@@ -4019,6 +4202,7 @@
       "economic_freedom": 27.6,
       "gdp_per_capita": 4217.591026,
       "life_expectancy": 72.514,
+      "infant_mortality": 21.5,
       "corruption_score": 13.0,
       "hdi": 0.699,
       "happiness_score": 5.683,
@@ -4041,6 +4225,7 @@
       "economic_freedom": 65.2,
       "gdp_per_capita": 4717.290287,
       "life_expectancy": 74.588,
+      "infant_mortality": 14.0,
       "corruption_score": 41.0,
       "hdi": 0.726,
       "happiness_score": 6.352,
@@ -4063,6 +4248,7 @@
       "economic_freedom": 50.9,
       "gdp_per_capita": 1187.109434,
       "life_expectancy": 66.349,
+      "infant_mortality": 30.9,
       "corruption_score": 37.0,
       "hdi": 0.569,
       "happiness_score": 3.912,
@@ -4085,6 +4271,7 @@
       "economic_freedom": 35.1,
       "gdp_per_capita": 2497.203322,
       "life_expectancy": 62.775,
+      "infant_mortality": 40.6,
       "corruption_score": 24.0,
       "hdi": 0.55,
       "happiness_score": 3.396,
@@ -5861,6 +6048,893 @@
       "trend_line": {
         "slope": 0.361456,
         "intercept": 51.7643,
+        "x_range": [
+          3.0,
+          84.1
+        ]
+      }
+    },
+    "Infant_Mortality": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 8.3
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 19.7
+        },
+        {
+          "country": "Angola",
+          "x": 55.0,
+          "y": 38.3
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 8.2
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 8.9
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 3.1
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 2.6
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 13.3
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 11.4
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 7.2
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 24.4
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 9.3
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 1.9
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 3.0
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 10.8
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 46.4
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 18.5
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 20.0
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 5.3
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 38.2
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 12.5
+        },
+        {
+          "country": "Brunei",
+          "x": 67.0,
+          "y": 8.2
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 5.0
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 44.8
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 34.1
+        },
+        {
+          "country": "Burundi",
+          "x": 39.7,
+          "y": 31.5
+        },
+        {
+          "country": "Cabo Verde",
+          "x": 68.7,
+          "y": 11.0
+        },
+        {
+          "country": "Cambodia",
+          "x": 58.2,
+          "y": 20.3
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 41.2
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 4.4
+        },
+        {
+          "country": "Central African Republic",
+          "x": 42.8,
+          "y": 60.4
+        },
+        {
+          "country": "Chad",
+          "x": 52.2,
+          "y": 58.7
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 6.2
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 4.5
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 10.9
+        },
+        {
+          "country": "Comoros",
+          "x": 51.4,
+          "y": 35.7
+        },
+        {
+          "country": "DR Congo",
+          "x": 47.3,
+          "y": 44.5
+        },
+        {
+          "country": "Congo",
+          "x": 48.6,
+          "y": 27.6
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 9.2
+        },
+        {
+          "country": "Ivory Coast",
+          "x": 57.8,
+          "y": 46.6
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 3.9
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 6.6
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 2.9
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 2.1
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 3.0
+        },
+        {
+          "country": "Djibouti",
+          "x": 55.7,
+          "y": 44.4
+        },
+        {
+          "country": "Dominica",
+          "x": 55.3,
+          "y": 33.1
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 28.4
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 11.1
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 16.1
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 9.2
+        },
+        {
+          "country": "Equatorial Guinea",
+          "x": 47.7,
+          "y": 49.1
+        },
+        {
+          "country": "Eritrea",
+          "x": 38.6,
+          "y": 25.5
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 1.6
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 43.5
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 35.7
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 23.8
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 1.8
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 3.4
+        },
+        {
+          "country": "Gabon",
+          "x": 56.3,
+          "y": 26.5
+        },
+        {
+          "country": "Gambia",
+          "x": 56.8,
+          "y": 33.8
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 8.0
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 3.1
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 28.2
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 3.2
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 17.9
+        },
+        {
+          "country": "Guinea",
+          "x": 54.6,
+          "y": 61.5
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 43.1
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 23.8
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 40.3
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 13.3
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 3.2
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 1.9
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 24.5
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 17.0
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 10.7
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 3.4
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 2.7
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 2.3
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 18.3
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 1.8
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 12.2
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 7.6
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 34.7
+        },
+        {
+          "country": "Kiribati",
+          "x": 50.9,
+          "y": 39.7
+        },
+        {
+          "country": "North Korea",
+          "x": 3.0,
+          "y": 14.5
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 2.3
+        },
+        {
+          "country": "Kosovo",
+          "x": 61.7,
+          "y": 8.3
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 7.6
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 14.9
+        },
+        {
+          "country": "Laos",
+          "x": 51.1,
+          "y": 35.2
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 2.5
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 16.0
+        },
+        {
+          "country": "Lesotho",
+          "x": 54.1,
+          "y": 55.4
+        },
+        {
+          "country": "Liberia",
+          "x": 48.5,
+          "y": 52.6
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 2.8
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 2.0
+        },
+        {
+          "country": "Madagascar",
+          "x": 57.0,
+          "y": 44.2
+        },
+        {
+          "country": "Malawi",
+          "x": 50.9,
+          "y": 29.4
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 6.8
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 5.0
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 57.6
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 4.8
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 31.0
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 13.5
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 10.8
+        },
+        {
+          "country": "Micronesia",
+          "x": 62.2,
+          "y": 20.8
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 13.5
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 11.4
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 2.1
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 15.5
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 45.4
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 38.4
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 23.3
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 3.5
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 4.0
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 10.3
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 67.4
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 60.1
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 2.8
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 1.9
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 8.4
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 50.1
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 10.6
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 32.0
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 15.1
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 13.5
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 22.1
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 3.7
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 2.6
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 4.9
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 5.4
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 3.7
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 30.5
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 14.3
+        },
+        {
+          "country": "Saint Vincent and the Grenadines",
+          "x": 60.1,
+          "y": 9.9
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 12.8
+        },
+        {
+          "country": "Sao Tome and Principe",
+          "x": 60.4,
+          "y": 9.4
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 4.9
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 30.2
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 4.5
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 13.1
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 56.2
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 1.7
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 5.1
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 1.8
+        },
+        {
+          "country": "Solomon Islands",
+          "x": 56.3,
+          "y": 16.5
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 24.4
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 2.6
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 5.3
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 39.2
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 15.2
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 2.0
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 3.5
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 22.9
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 29.9
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 8.0
+        },
+        {
+          "country": "Timor-Leste",
+          "x": 47.9,
+          "y": 35.9
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 35.9
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 8.0
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 17.2
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 10.6
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 9.1
+        },
+        {
+          "country": "Turkmenistan",
+          "x": 47.1,
+          "y": 31.2
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 27.6
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 4.0
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 4.0
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 5.5
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 5.5
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 12.7
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 14.2
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 21.5
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 14.0
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 30.9
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 40.6
+        }
+      ],
+      "trend_line": {
+        "slope": -0.779499,
+        "intercept": 65.0071,
         "x_range": [
           3.0,
           84.1
@@ -14695,17 +15769,17 @@
     }
   },
   "summary": {
-    "positive_correlations": 14,
+    "positive_correlations": 15,
     "negative_correlations": 0,
     "not_significant": 1,
-    "total_indices": 15,
+    "total_indices": 16,
     "verdict": "supports"
   },
   "comparison": {
     "economic_freedom_clear_wins": 7,
     "equality_clear_wins": 2,
     "democracy_clear_wins": 1,
-    "ties": 5,
+    "ties": 6,
     "metrics": [
       {
         "metric": "GDP per Capita",
@@ -14758,6 +15832,34 @@
           "correlation": 0.5924,
           "effective": 0.5924,
           "p_value": 3.784311736228765e-16,
+          "significant": true,
+          "n": 156
+        },
+        "winner": "tie"
+      },
+      {
+        "metric": "Infant Mortality",
+        "metric_id": "Infant_Mortality",
+        "higher_better": false,
+        "economic_freedom": {
+          "correlation": -0.546,
+          "effective": 0.546,
+          "p_value": 5.510525833166964e-15,
+          "significant": true,
+          "n": 175
+        },
+        "equality": {
+          "correlation": 0.2791,
+          "effective": 0.2791,
+          "p_value": 0.003929791231475711,
+          "significant": true,
+          "n": 105,
+          "inverted": true
+        },
+        "democracy": {
+          "correlation": -0.5519,
+          "effective": 0.5519,
+          "p_value": 8.207757350636352e-14,
           "significant": true,
           "n": 156
         },
