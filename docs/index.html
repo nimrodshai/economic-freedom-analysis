@@ -2598,6 +2598,10 @@
                     `;
                 });
 
+                const efCorrVal = m.economic_freedom?.effective?.toFixed(2) || '?';
+                const eqCorrVal = m.equality?.effective?.toFixed(2) || '?';
+                const demCorrVal = m.democracy?.effective?.toFixed(2) || '?';
+
                 html += `
                             </div>
                             <div class="card-back">
@@ -2605,15 +2609,15 @@
                                 <div class="card-back-legend">
                                     <div class="card-back-legend-item">
                                         <div class="card-back-legend-dot" style="background: var(--success);"></div>
-                                        <span>Freedom</span>
+                                        <span>Freedom <b>${efCorrVal}</b></span>
                                     </div>
                                     <div class="card-back-legend-item">
                                         <div class="card-back-legend-dot" style="background: var(--danger);"></div>
-                                        <span>Equality</span>
+                                        <span>Equality <b>${eqCorrVal}</b></span>
                                     </div>
                                     <div class="card-back-legend-item">
                                         <div class="card-back-legend-dot" style="background: #3b82f6;"></div>
-                                        <span>Democracy</span>
+                                        <span>Democracy <b>${demCorrVal}</b></span>
                                     </div>
                                 </div>
                             </div>
@@ -2882,30 +2886,48 @@
             const yKey = metricKeyMap[metricId];
             if (!yKey) return;
 
-            // Prepare datasets for each predictor
-            const freedomData = [];
-            const equalityData = [];
-            const democracyData = [];
+            // Get correlation values from comparison data
+            const compMetric = data.comparison?.metrics?.find(m => m.metric_id === metricId);
+            const freedomCorr = compMetric?.economic_freedom?.effective?.toFixed(2) || '?';
+            const equalityCorr = compMetric?.equality?.effective?.toFixed(2) || '?';
+            const democracyCorr = compMetric?.democracy?.effective?.toFixed(2) || '?';
+
+            // Collect raw data first
+            const freedomRaw = [];
+            const equalityRaw = [];
+            const democracyRaw = [];
 
             countries.forEach(c => {
                 const yVal = c[yKey];
                 if (yVal === null || yVal === undefined) return;
 
-                // Economic Freedom vs Y
                 if (c.economic_freedom !== null && c.economic_freedom !== undefined) {
-                    freedomData.push({ x: c.economic_freedom, y: yVal, country: c.name });
+                    freedomRaw.push({ x: c.economic_freedom, y: yVal });
                 }
-
-                // Equality (100 - Gini) vs Y - invert Gini so higher = more equal
                 if (c.gini_index !== null && c.gini_index !== undefined) {
-                    equalityData.push({ x: 100 - c.gini_index, y: yVal, country: c.name });
+                    equalityRaw.push({ x: 100 - c.gini_index, y: yVal }); // Invert Gini
                 }
-
-                // Democracy vs Y
                 if (c.democracy_score !== null && c.democracy_score !== undefined) {
-                    democracyData.push({ x: c.democracy_score * 10, y: yVal, country: c.name }); // Scale to 0-100
+                    democracyRaw.push({ x: c.democracy_score * 10, y: yVal });
                 }
             });
+
+            // Normalize X values to 0-100 for each predictor
+            function normalizeData(points) {
+                if (points.length === 0) return [];
+                const xVals = points.map(p => p.x);
+                const xMin = Math.min(...xVals);
+                const xMax = Math.max(...xVals);
+                const range = xMax - xMin || 1;
+                return points.map(p => ({
+                    x: ((p.x - xMin) / range) * 100,
+                    y: p.y
+                }));
+            }
+
+            const freedomData = normalizeData(freedomRaw);
+            const equalityData = normalizeData(equalityRaw);
+            const democracyData = normalizeData(democracyRaw);
 
             // Calculate regression lines
             function calcRegression(points) {
@@ -2920,11 +2942,10 @@
                 });
                 const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
                 const intercept = (sumY - slope * sumX) / n;
-                const xMin = Math.min(...points.map(p => p.x));
-                const xMax = Math.max(...points.map(p => p.x));
+                // Use full 0-100 range since data is normalized
                 return [
-                    { x: xMin, y: slope * xMin + intercept },
-                    { x: xMax, y: slope * xMax + intercept }
+                    { x: 0, y: intercept },
+                    { x: 100, y: slope * 100 + intercept }
                 ];
             }
 
