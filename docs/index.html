@@ -887,6 +887,19 @@
             .comparison-grid { grid-template-columns: 1fr; }
         }
 
+        .category-header {
+            grid-column: 1 / -1;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            padding: 20px 0 8px;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 4px;
+        }
+        .category-header:first-child {
+            padding-top: 0;
+        }
+
         /* 3D Card Flip */
         .card-flip-container {
             perspective: 1000px;
@@ -1200,13 +1213,106 @@
         /* Responsive text visibility */
         .desktop-only { display: inline; }
         .mobile-only { display: none; }
+        div.mobile-only { display: none; }
+        div.desktop-only { display: block; }
+
+        /* Mobile intro hero styles */
+        .intro-hero {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .intro-hero .big-question {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .intro-hero .methodology {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .intro-hero .country-stat {
+            display: inline-block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .intro-hero .country-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
 
         @media (max-width: 768px) {
             header { padding: 30px 15px; }
             header h1 { font-size: 1.6rem; }
             header p { font-size: 0.95rem; }
             .desktop-only { display: none; }
+            div.desktop-only { display: none; }
             .mobile-only { display: inline; }
+            div.mobile-only { display: flex; }
+
+            /* Mobile intro redesign */
+            .intro-hero {
+                margin-bottom: 32px;
+                padding: 0 5px;
+            }
+            .intro-hero .big-question {
+                font-size: 1.4rem;
+                font-weight: 600;
+                line-height: 1.4;
+                margin-bottom: 24px;
+                color: var(--text);
+            }
+            .intro-hero .methodology {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            .intro-hero .country-stat {
+                font-size: 3.5rem;
+                margin-bottom: 8px;
+            }
+            .intro-hero .stat-row {
+                display: flex;
+                justify-content: center;
+                gap: 32px;
+                margin: 28px 0;
+                padding: 20px 0;
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+            }
+            .intro-hero .stat-item {
+                text-align: center;
+            }
+            .intro-hero .stat-num {
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--primary);
+                display: block;
+            }
+            .intro-hero .stat-label {
+                font-size: 0.75rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            /* Better section headers on mobile */
+            .section h2 {
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+            .section > p {
+                font-size: 0.9rem;
+            }
             .container { padding: 15px; }
             .charts-grid { grid-template-columns: 1fr; }
             .chart-selector { flex-direction: column; align-items: stretch; }
@@ -1676,26 +1782,45 @@
 
             content.innerHTML = `
                 <!-- Quick Intro -->
-                <div style="text-align: center; margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    <p style="color: var(--text); font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
-                        What does it take for people to live good lives? We all want the same things — to be healthy, to provide for our families, to feel safe, and to have opportunities to grow. But which conditions actually help societies achieve these goals?
+                <div class="intro-hero">
+                    <p class="big-question">
+                        <span class="desktop-only">What does it take for people to live good lives? We all want the same things — to be healthy, to provide for our families, to feel safe, and to have opportunities to grow. But which conditions actually help societies achieve these goals?</span>
+                        <span class="mobile-only">Which conditions help societies thrive?</span>
                     </p>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
-                        We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against real quality-of-life outcomes, we can see what the evidence actually shows.
+
+                    <!-- Mobile: Show stats prominently -->
+                    <div class="stat-row mobile-only">
+                        <div class="stat-item">
+                            <span class="stat-num">${data.metadata.num_countries}</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">${data.correlations.length}</span>
+                            <span class="stat-label">Metrics</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">3</span>
+                            <span class="stat-label">Theories</span>
+                        </div>
+                    </div>
+
+                    <p class="methodology">
+                        <span class="desktop-only">We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against <span class="info-link" onclick="openOutcomesModal()">quality-of-life outcomes</span>, we can see what the evidence actually shows.</span>
+                        <span class="mobile-only">We compared <span class="info-link" onclick="openPredictorModal()">policy theories</span> against indices that measure <span class="info-link" onclick="openOutcomesModal()">quality of life</span>.</span>
                     </p>
                 </div>
 
                 <!-- Comparison Section - What matters most? -->
                 <div class="section">
-                    <h2>Three Theories, ${data.correlations.length} Metrics, One Winner</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">Three popular ideas about what makes societies flourish. Let's see which one correlates best with actual outcomes. Longer bars = stronger link to better lives.</p>
+                    <h2><span class="desktop-only">Three Theories, ${data.correlations.length} Metrics, One Winner</span><span class="mobile-only">The Results</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;"><span class="desktop-only">Three popular ideas about what makes societies flourish. Let's see which one correlates best with actual outcomes. Longer bars = stronger link to better lives.</span><span class="mobile-only">Longer bars = stronger link to better lives.</span></p>
                     <div id="comparisonSection"></div>
                 </div>
 
                 <!-- Interactive Charts -->
                 <div class="section">
                     <h2>Explore the Data</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">See for yourself. Each dot is a country — watch how they cluster.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;"><span class="desktop-only">See for yourself. Each dot is a country — watch how they cluster.</span><span class="mobile-only">Each dot is a country.</span></p>
                     <div class="chart-selector">
                         <div class="selector-row">
                             <label for="xAxisSelect">X-Axis: </label>
@@ -1736,7 +1861,7 @@
                 <!-- Data Sources -->
                 <div class="section">
                     <h2>Data Sources</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;">All from reputable international organizations. Click to verify.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;"><span class="desktop-only">All from reputable international organizations. Click to verify.</span><span class="mobile-only">Click to verify sources.</span></p>
                     <div class="data-sources">
                         ${renderDataSources()}
                     </div>
@@ -2595,8 +2720,7 @@
         }
 
         // Generate clear, explanatory conclusion text for card back
-        function generateConclusion(metric, winner, loser, isTie) {
-            const winnerClass = winner.toLowerCase();
+        function generateConclusion(metric, winner, winnerClass, loser, loserClass, isTie) {
             const higherIsBetter = metric.higher_better !== false;
 
             // Custom explanations for each metric
@@ -2673,13 +2797,11 @@
             };
 
             if (isTie) {
-                const winnerClass1 = winner.toLowerCase();
-                const loserClass = loser.toLowerCase();
                 // For ties, both top predictors are essentially "winners"
                 const tieTemplates = [
-                    `It's a tie! Both <span class="winner-name ${winnerClass1}">${winner}</span> and <span class="winner-name ${loserClass}">${loser}</span> are equally linked to ${exp.outcome}.`,
-                    `Too close to call. <span class="winner-name ${winnerClass1}">${winner}</span> and <span class="winner-name ${loserClass}">${loser}</span> both correlate with ${exp.outcome}.`,
-                    `A draw. Countries with more <span class="winner-name ${winnerClass1}">${winner}</span> or <span class="winner-name ${loserClass}">${loser}</span> tend to have ${exp.outcome}.`
+                    `It's a tie! Both <span class="winner-name ${winnerClass}">${winner}</span> and <span class="winner-name ${loserClass}">${loser}</span> are equally linked to ${exp.outcome}.`,
+                    `Too close to call. <span class="winner-name ${winnerClass}">${winner}</span> and <span class="winner-name ${loserClass}">${loser}</span> both correlate with ${exp.outcome}.`,
+                    `A draw. Countries with more <span class="winner-name ${winnerClass}">${winner}</span> or <span class="winner-name ${loserClass}">${loser}</span> tend to have ${exp.outcome}.`
                 ];
                 return tieTemplates[metric.metric.length % tieTemplates.length];
             }
@@ -2706,13 +2828,33 @@
 
             const container = document.getElementById('comparisonSection');
 
+            // Define metric categories
+            const categories = {
+                'Health & Longevity': ['Life_Expectancy', 'HALE', 'Infant_Mortality', 'Mental_Health_Index'],
+                'Wealth & Opportunity': ['GDP_Per_Capita', 'Purchasing_Power_Index', 'Social_Mobility_Score', 'Poverty_Rate'],
+                'Safety & Environment': ['Crime_Index', 'Homicide_Rate', 'Pollution_Index', 'Corruption_Score'],
+                'Development & Well-being': ['HDI', 'Happiness_Score', 'Education_Index', 'Gender_Inequality_Index']
+            };
+
+            // Group metrics by category
+            const groupedMetrics = {};
+            for (const [category, metricIds] of Object.entries(categories)) {
+                groupedMetrics[category] = comparison.metrics.filter(m => metricIds.includes(m.metric_id));
+            }
+
             // Summary cards
             let html = `
                 <div class="comparison-container">
                     <div class="comparison-grid">
             `;
 
-            comparison.metrics.forEach(m => {
+            // Render metrics grouped by category
+            for (const [category, metrics] of Object.entries(groupedMetrics)) {
+                if (metrics.length === 0) continue;
+
+                html += `<div class="category-header">${category}</div>`;
+
+                metrics.forEach(m => {
                 const efCorr = m.economic_freedom.effective;
                 const eqCorr = m.equality.effective;
                 const demCorr = m.democracy ? m.democracy.effective : null;
@@ -2723,19 +2865,22 @@
 
                 // Create array of bars and sort by correlation (largest to smallest)
                 const bars = [
-                    { label: 'Freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
-                    { label: 'Equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
-                    { label: 'Democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation }
+                    { label: 'Economic Freedom', cssClass: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
+                    { label: 'Equality', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
+                    { label: 'Democracy', cssClass: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation }
                 ].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
 
                 // Determine winner and second place for conclusion
                 const winner = bars[0].label;
+                const winnerCss = bars[0].cssClass;
                 const isTie = m.winner === 'tie';
                 // For ties, show the two top predictors; otherwise show winner vs last place
-                const secondPredictor = isTie ? bars[1].label : bars[bars.length - 1].label;
-                const conclusion = generateConclusion(m, winner, secondPredictor, isTie);
+                const secondIdx = isTie ? 1 : bars.length - 1;
+                const secondPredictor = bars[secondIdx].label;
+                const secondCss = bars[secondIdx].cssClass;
+                const conclusion = generateConclusion(m, winner, winnerCss, secondPredictor, secondCss, isTie);
 
                 html += `
                     <div class="card-flip-container" onclick="flipCard(this, event)">
@@ -2751,7 +2896,7 @@
                     const width = bar.value ? Math.round(bar.value * 100) : 0;
                     const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})` : 'N/A';
                     html += `
-                        <div class="comparison-bar-col" data-label="${bar.label}">
+                        <div class="comparison-bar-col" data-label="${bar.cssClass === 'freedom' ? 'Freedom' : bar.label}">
                             <div class="comparison-bar-wrapper">
                                 <div class="comparison-bar-track">
                                     <div class="${bar.fillClass}" style="width: ${width}%;"></div>
@@ -2770,7 +2915,8 @@
                         </div>
                     </div>
                 `;
-            });
+                });
+            }
 
             const efClearWins = comparison.economic_freedom_clear_wins || 0;
             const demClearWins = comparison.democracy_clear_wins || 0;
@@ -2822,7 +2968,7 @@
             });
 
             const points = [
-                { name: 'Freedom', pts: efClearWins * 3 + freedomTies },
+                { name: 'Economic Freedom', pts: efClearWins * 3 + freedomTies },
                 { name: 'Democracy', pts: demClearWins * 3 + democracyTies },
                 { name: 'Equality', pts: eqClearWins * 3 + equalityTies }
             ].sort((a, b) => b.pts - a.pts);
@@ -2925,7 +3071,7 @@
 
             // Determine winner for crown
             const scores = [
-                { name: 'Freedom', total: freedomTotal, color: 'var(--success)' },
+                { name: 'Economic Freedom', total: freedomTotal, color: 'var(--success)' },
                 { name: 'Democracy', total: democracyTotal, color: '#3b82f6' },
                 { name: 'Equality', total: equalityTotal, color: 'var(--danger)' }
             ].sort((a, b) => b.total - a.total);
@@ -2941,14 +3087,14 @@
                     <div class="results-bars">
                         <div class="results-bar-col">
                             <div class="results-bar-container">
-                                ${winner === 'Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                ${winner === 'Economic Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${freedomTotal}</div>
                                     <div class="results-bar-detail">${efClearWins} wins<br>${freedomTies} ties</div>
                                 </div>
                             </div>
-                            <span class="results-bar-label" style="color: var(--success);">Freedom</span>
+                            <span class="results-bar-label" style="color: var(--success);">Economic Freedom</span>
                         </div>
                         <div class="results-bar-col">
                             <div class="results-bar-container">
@@ -3078,6 +3224,18 @@
             document.body.style.top = '';
             window.scrollTo(0, scrollPosition);
         }
+        function openOutcomesModal() {
+            scrollPosition = window.pageYOffset;
+            document.body.classList.add('modal-open');
+            document.body.style.top = `-${scrollPosition}px`;
+            document.getElementById('outcomesModal').classList.add('active');
+        }
+        function closeOutcomesModal() {
+            document.getElementById('outcomesModal').classList.remove('active');
+            document.body.classList.remove('modal-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+        }
 
         // Load data on page load
         loadData();
@@ -3186,6 +3344,59 @@
                     </p>
                     <p class="predictor-source">
                         Source: <a href="https://www.eiu.com/n/campaigns/democracy-index-2023/" target="_blank" rel="noopener">Economist Intelligence Unit Democracy Index</a> (2023)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outcomes Explanation Modal -->
+    <div id="outcomesModal" class="modal-overlay" onclick="if(event.target === this) closeOutcomesModal()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Quality of Life Outcomes</h3>
+                <button class="modal-close" onclick="closeOutcomesModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: var(--text-muted); margin-bottom: 20px;">We measure quality of life using 16 metrics from trusted international sources. These cover health, wealth, safety, opportunity, and well-being:</p>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--text);">Health & Longevity</div>
+                    <p class="predictor-desc">
+                        <strong>Life Expectancy</strong> — How long people live on average<br>
+                        <strong>Healthy Life Expectancy</strong> — Years lived in good health<br>
+                        <strong>Infant Mortality</strong> — Deaths per 1,000 live births<br>
+                        <strong>Mental Health Access</strong> — Psychiatrists per 100,000 people
+                    </p>
+                </div>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--text);">Wealth & Opportunity</div>
+                    <p class="predictor-desc">
+                        <strong>GDP per Capita</strong> — Average economic output per person<br>
+                        <strong>Purchasing Power</strong> — What your salary can actually buy<br>
+                        <strong>Social Mobility</strong> — Ability to climb the economic ladder<br>
+                        <strong>Poverty Rate</strong> — Share living on less than $2.15/day
+                    </p>
+                </div>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--text);">Safety & Environment</div>
+                    <p class="predictor-desc">
+                        <strong>Crime Index</strong> — Overall safety from crime<br>
+                        <strong>Homicide Rate</strong> — Murders per 100,000 people<br>
+                        <strong>Pollution Index</strong> — Air and environmental quality<br>
+                        <strong>Anti-Corruption Score</strong> — Freedom from government corruption
+                    </p>
+                </div>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--text);">Development & Well-being</div>
+                    <p class="predictor-desc">
+                        <strong>Human Development Index</strong> — Combined health, education, income<br>
+                        <strong>Happiness Score</strong> — Self-reported life satisfaction<br>
+                        <strong>Education Index</strong> — Years and quality of schooling<br>
+                        <strong>Gender Equality</strong> — Equal opportunities for women
                     </p>
                 </div>
             </div>
