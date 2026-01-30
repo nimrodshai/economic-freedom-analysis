@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <title>Is Freedom Better? | Do Freer Countries Have Better Quality of Life?</title>
 
     <!-- SEO Meta Tags -->
@@ -106,7 +106,8 @@
         body {
             font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-weight: 300;
-            background: var(--bg);
+            background: linear-gradient(180deg, #0f172a 0%, #1e3a5f 120px, #2563eb 320px, #f1f5f9 480px);
+            min-height: 100vh;
             color: var(--text);
             line-height: 1.6;
         }
@@ -118,14 +119,17 @@
         header {
             text-align: center;
             padding: 40px 20px 15px;
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            background: transparent;
             color: white;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0;
             line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
         nav {
@@ -246,6 +250,35 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--border);
+        }
+
+        /* Section title styling */
+        .page-break {
+            text-align: center;
+            margin: 40px 0 30px;
+            padding: 0;
+        }
+
+        .page-break h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0 0 8px 0;
+            padding: 0;
+            border: none;
+        }
+
+        .page-break p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .page-break h2 {
+                font-size: 2.2rem;
+            }
         }
 
         /* Correlations table */
@@ -1265,8 +1298,7 @@
 
         @media (max-width: 768px) {
             header { padding: 30px 15px; }
-            header h1 { font-size: 1.6rem; }
-            header p { font-size: 0.95rem; }
+            header h1 { font-size: 2rem; }
             .desktop-only { display: none; }
             div.desktop-only { display: none; }
             .mobile-only { display: inline; }
@@ -1560,7 +1592,6 @@
 <body>
     <header>
         <h1>Is Freedom Better?</h1>
-        <p style="font-size: 1.1rem; opacity: 0.9; margin-top: 10px;">Do countries with freer markets have better quality of life?</p>
         <nav>
             <a onclick="navigateTo(0)" class="active" data-panel="0">Dashboard</a>
             <a onclick="navigateTo(1)" data-panel="1">Raw Data</a>
@@ -1828,9 +1859,11 @@
                 </div>
 
                 <!-- Comparison Section - What matters most? -->
-                <div class="section">
+                <div class="page-break">
                     <h2><span class="desktop-only">Three Theories, ${data.correlations.length} Metrics, One Winner</span><span class="mobile-only">The Results</span></h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;"><span class="desktop-only">Three popular ideas about what makes societies flourish. Let's see which one correlates best with actual outcomes. Longer bars = stronger link to better lives.</span><span class="mobile-only">Longer bars = stronger link to better lives.</span></p>
+                    <p><span class="desktop-only">Three popular ideas about what makes societies flourish. Let's see which one correlates best with actual outcomes.</span><span class="mobile-only">Longer bars = stronger link to better lives.</span></p>
+                </div>
+                <div class="section-content">
                     <div id="comparisonSection"></div>
                 </div>
 
