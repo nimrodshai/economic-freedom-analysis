@@ -904,6 +904,7 @@
         .card-flip-container {
             perspective: 1000px;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .card-flip {
@@ -1262,7 +1263,10 @@
             /* Mobile intro redesign */
             .intro-hero {
                 margin-bottom: 32px;
-                padding: 0 5px;
+                padding: 20px 15px;
+                background: linear-gradient(180deg, #f0f7ff 0%, transparent 100%);
+                border-radius: 16px;
+                margin-top: -10px;
             }
             .intro-hero .big-question {
                 font-size: 1.4rem;
@@ -1791,22 +1795,22 @@
                     <!-- Mobile: Show stats prominently -->
                     <div class="stat-row mobile-only">
                         <div class="stat-item">
-                            <span class="stat-num">${data.metadata.num_countries}</span>
+                            <span class="stat-num count-up" data-target="${data.metadata.num_countries}">0</span>
                             <span class="stat-label">Countries</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-num">${data.correlations.length}</span>
+                            <span class="stat-num count-up" data-target="${data.correlations.length}">0</span>
                             <span class="stat-label">Metrics</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-num">3</span>
+                            <span class="stat-num count-up" data-target="3">0</span>
                             <span class="stat-label">Theories</span>
                         </div>
                     </div>
 
                     <p class="methodology">
                         <span class="desktop-only">We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against <span class="info-link" onclick="openOutcomesModal()">quality-of-life outcomes</span>, we can see what the evidence actually shows.</span>
-                        <span class="mobile-only">We compared <span class="info-link" onclick="openPredictorModal()">policy theories</span> against indices that measure <span class="info-link" onclick="openOutcomesModal()">quality of life</span>.</span>
+                        <span class="mobile-only">We compared <span class="info-link" onclick="openPredictorModal()">policy theories</span> against indices that measure <span class="info-link" onclick="openOutcomesModal()">quality of life</span> to see which best predicts flourishing societies.</span>
                     </p>
                 </div>
 
@@ -1881,6 +1885,37 @@
             // Initialize charts
             initScatterChart();
             renderComparison();
+
+            // Animate count-up numbers
+            animateCountUp();
+        }
+
+        function animateCountUp() {
+            const counters = document.querySelectorAll('.count-up');
+            const duration = 1000; // 1 second
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out cubic
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(start + (target - start) * easeOut);
+                    counter.textContent = current;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = target;
+                    }
+                }
+
+                requestAnimationFrame(update);
+            });
         }
 
         function renderDataPanel(data) {
@@ -2848,11 +2883,20 @@
                     <div class="comparison-grid">
             `;
 
+            // Category icons
+            const categoryIcons = {
+                'Health & Longevity': '❤️',
+                'Wealth & Opportunity': '💰',
+                'Safety & Environment': '🛡️',
+                'Development & Well-being': '⭐'
+            };
+
             // Render metrics grouped by category
             for (const [category, metrics] of Object.entries(groupedMetrics)) {
                 if (metrics.length === 0) continue;
 
-                html += `<div class="category-header">${category}</div>`;
+                const icon = categoryIcons[category] || '';
+                html += `<div class="category-header">${icon} ${category}</div>`;
 
                 metrics.forEach(m => {
                 const efCorr = m.economic_freedom.effective;
