@@ -733,12 +733,18 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             position: sticky;
-            top: 0;
+            top: 41px;
             z-index: 10;
             cursor: pointer;
             user-select: none;
             white-space: nowrap;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .data-table .header-groups th {
+            top: 0;
+            z-index: 11;
+            cursor: default;
         }
 
         .data-table th:hover {
@@ -814,6 +820,34 @@
         .data-table th:nth-child(1),
         .data-table th:nth-child(2) {
             z-index: 15;
+        }
+
+        /* Make header-groups first cell sticky for horizontal scroll */
+        .data-table .header-groups th:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 16;
+            min-width: 200px;
+        }
+
+        /* Region cell in header-groups - sticky for vertical scroll, not horizontal */
+        .data-table .header-groups th:nth-child(2) {
+            position: sticky;
+            left: auto;
+        }
+
+        /* Method Indices and Quality of Life headers stick at Country edge when scrolling horizontally */
+        .data-table .header-groups th:nth-child(3),
+        .data-table .header-groups th:nth-child(4) {
+            position: sticky;
+            left: 200px;
+            z-index: 16;
+            box-shadow: -10px 0 0 #eef0fd;
+        }
+
+        /* Quality of Life needs its own shadow color */
+        .data-table .header-groups th:nth-child(4) {
+            box-shadow: -10px 0 0 #ecf5ef;
         }
 
         /* About Panel Styles */
@@ -2153,9 +2187,10 @@
                         <table class="data-table" id="dataTable">
                             <thead>
                                 <tr class="header-groups">
-                                    <th colspan="3"></th>
-                                    <th colspan="3" style="background: rgba(99, 102, 241, 0.1); border-bottom: 2px solid var(--primary);">Method Indices</th>
-                                    <th colspan="11" style="background: rgba(22, 163, 74, 0.1); border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
+                                    <th colspan="2" style="background: #f1f5f9;"></th>
+                                    <th style="background: #f1f5f9;"></th>
+                                    <th colspan="3" style="background: #eef0fd; border-bottom: 2px solid var(--primary);">Method Indices</th>
+                                    <th colspan="11" style="background: #ecf5ef; border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
                                 </tr>
                                 <tr>
                                     <th style="width: 50px;">#</th>
