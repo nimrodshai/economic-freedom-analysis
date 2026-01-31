@@ -203,7 +203,7 @@
             background: var(--card-bg);
             border-radius: 12px;
             padding: 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
         }
 
@@ -233,7 +233,7 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 80px;
         }
 
         .verdict-card .verdict {
@@ -243,6 +243,7 @@
         }
 
         .section {
+            margin-top: 60px;
             margin-bottom: 40px;
         }
 
@@ -276,9 +277,47 @@
             font-size: 1rem;
         }
 
+        .results-stat-row {
+            display: flex !important;
+            flex-direction: row;
+            justify-content: center;
+            gap: 40px;
+            margin: 24px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .results-stat-item {
+            text-align: center;
+        }
+
+        .results-stat-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .results-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         @media (min-width: 768px) {
             .page-break h2 {
                 font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .results-stat-row {
+                gap: 24px;
+            }
+            .results-stat-num {
+                font-size: 1.8rem;
             }
         }
 
@@ -287,7 +326,9 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            background: var(--card-bg);
         }
 
         .correlations-table {
@@ -387,7 +428,7 @@
             background: var(--card-bg);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
         }
 
@@ -460,7 +501,7 @@
             background: var(--card-bg);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
             transition: border-color 0.2s, box-shadow 0.2s;
         }
@@ -641,8 +682,9 @@
         .stat-card {
             background: var(--card-bg);
             padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
         }
 
         .stat-card .label {
@@ -660,7 +702,8 @@
         .table-container {
             background: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
             overflow: hidden;
         }
 
@@ -778,7 +821,7 @@
             background: var(--card-bg);
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
             margin-bottom: 20px;
         }
@@ -907,7 +950,7 @@
             background: var(--card-bg);
             border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid var(--border);
         }
 
@@ -1109,9 +1152,10 @@
         .comparison-results-chart {
             margin-top: 24px;
             padding: 24px 20px 20px;
-            background: #f8fafc;
+            background: var(--card-bg);
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .results-chart-title {
@@ -1273,14 +1317,22 @@
         }
         .intro-hero .big-question {
             color: var(--text);
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+        .intro-hero .intro-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-top: 24px;
         }
         .intro-hero .methodology {
             color: var(--text-muted);
             font-size: 1rem;
             line-height: 1.6;
+            margin-top: 16px;
             margin-bottom: 20px;
         }
         .intro-hero .country-stat {
@@ -1297,11 +1349,53 @@
             margin-top: 4px;
         }
 
+        /* Stat row in intro - desktop */
+        .intro-hero .stat-row.desktop-only {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 0 0 24px 0;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .intro-hero .stat-row .stat-item {
+            text-align: center;
+        }
+        .intro-hero .stat-row .stat-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        .intro-hero .stat-row .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Scroll number animation */
+        .scroll-num-container {
+            height: 1.2em;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .scroll-num-inner {
+            display: flex;
+            flex-direction: column;
+        }
+        .scroll-num-inner span {
+            height: 1.2em;
+            line-height: 1.2em;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             header { padding: 30px 15px; }
             header h1 { font-size: 2rem; }
-            .desktop-only { display: none; }
-            div.desktop-only { display: none; }
+            .desktop-only { display: none !important; }
+            div.desktop-only { display: none !important; }
             .mobile-only { display: inline; }
             div.mobile-only { display: flex; }
 
@@ -1318,7 +1412,7 @@
                 font-size: 1.4rem;
                 font-weight: 600;
                 line-height: 1.4;
-                margin-bottom: 24px;
+                margin-bottom: 8px;
                 color: var(--text);
             }
             .intro-hero .methodology {
@@ -1333,8 +1427,8 @@
                 display: flex;
                 justify-content: center;
                 gap: 32px;
-                margin: 28px 0;
-                padding: 20px 0;
+                margin: 8px 0;
+                padding: 16px 0;
                 border-top: 1px solid var(--border);
                 border-bottom: 1px solid var(--border);
             }
@@ -1832,12 +1926,33 @@
             content.innerHTML = `
                 <!-- Quick Intro -->
                 <div class="intro-hero">
+                    <!-- Title -->
                     <p class="big-question">
-                        <span class="desktop-only">What does it take for people to live good lives? We all want the same things — to be healthy, to provide for our families, to feel safe, and to have opportunities to grow. But which conditions actually help societies achieve these goals?</span>
-                        <span class="mobile-only">Which conditions help societies thrive?</span>
+                        Which conditions help societies thrive?
                     </p>
 
-                    <!-- Mobile: Show stats prominently -->
+                    <!-- Stats row - desktop only at top -->
+                    <div class="stat-row desktop-only">
+                        <div class="stat-item">
+                            <span class="stat-num count-up" data-target="${data.metadata.num_countries}">0</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num count-up" data-target="${data.correlations.length}">0</span>
+                            <span class="stat-label">Metrics</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num count-up" data-target="3">0</span>
+                            <span class="stat-label">Theories</span>
+                        </div>
+                    </div>
+
+                    <!-- Description - desktop only -->
+                    <p class="intro-description desktop-only">
+                        What does it take for people to live good lives? We all want the same things — to be healthy, to provide for our families, to feel safe, and to have opportunities to grow. But which conditions actually help societies achieve these goals?
+                    </p>
+
+                    <!-- Stats row - mobile only after question -->
                     <div class="stat-row mobile-only">
                         <div class="stat-item">
                             <span class="stat-num count-up" data-target="${data.metadata.num_countries}">0</span>
@@ -1861,8 +1976,8 @@
 
                 <!-- Comparison Section - What matters most? -->
                 <div class="page-break">
-                    <h2><span class="desktop-only">Three Theories, ${data.correlations.length} Metrics, One Winner</span><span class="mobile-only">The Results</span></h2>
-                    <p><span class="desktop-only">Three popular ideas about what makes societies flourish. Let's see which one correlates best with actual outcomes.</span><span class="mobile-only">Longer bars = stronger link to better lives.</span></p>
+                    <h2>The Results</h2>
+                    <p>Longer bars = stronger link to better lives.</p>
                 </div>
                 <div class="section-content">
                     <div id="comparisonSection"></div>
@@ -1939,29 +2054,53 @@
 
         function animateCountUp() {
             const counters = document.querySelectorAll('.count-up');
-            const duration = 1000; // 1 second
 
             counters.forEach(counter => {
                 const target = parseInt(counter.dataset.target);
-                const start = 0;
-                const startTime = performance.now();
+                const digits = target.toString().split('');
+                const numDigits = digits.length;
 
-                function update(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    // Ease out cubic
-                    const easeOut = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(start + (target - start) * easeOut);
-                    counter.textContent = current;
+                counter.textContent = '';
+                counter.style.display = 'inline-flex';
 
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.textContent = target;
+                digits.forEach((digit, index) => {
+                    const digitValue = parseInt(digit);
+                    const positionFromRight = numDigits - 1 - index;
+
+                    // Create scroll container for this digit
+                    const container = document.createElement('span');
+                    container.className = 'scroll-num-container';
+
+                    const inner = document.createElement('span');
+                    inner.className = 'scroll-num-inner';
+
+                    // Add target digit first, then 9 down to 0 (reversed order)
+                    const finalSpan = document.createElement('span');
+                    finalSpan.textContent = digitValue;
+                    inner.appendChild(finalSpan);
+
+                    for (let i = 9; i >= 0; i--) {
+                        const span = document.createElement('span');
+                        span.textContent = i;
+                        inner.appendChild(span);
                     }
-                }
 
-                requestAnimationFrame(update);
+                    // Start from bottom (showing 0)
+                    inner.style.transform = 'translateY(-12em)';
+
+                    container.appendChild(inner);
+                    counter.appendChild(container);
+
+                    // Stagger: hundreds finish first (shortest delay), ones last (longest delay)
+                    const delay = 100 + (index * 150);
+                    const duration = 0.6 + (index * 0.2);
+
+                    setTimeout(() => {
+                        inner.style.transition = `transform ${duration}s cubic-bezier(0.25, 0.1, 0.25, 1)`;
+                        // Scroll up to show target digit at position 0
+                        inner.style.transform = 'translateY(0)';
+                    }, delay);
+                });
             });
         }
 
