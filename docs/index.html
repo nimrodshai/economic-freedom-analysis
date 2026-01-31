@@ -1393,7 +1393,7 @@
 
         @media (max-width: 768px) {
             header { padding: 30px 15px; }
-            header h1 { font-size: 2rem; }
+            header h1 { font-size: 2.5rem; }
             .desktop-only { display: none !important; }
             div.desktop-only { display: none !important; }
             .mobile-only { display: inline; }
@@ -1548,7 +1548,7 @@
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 1.4rem; }
+            header h1 { font-size: 1.8rem; }
             nav { gap: 16px; margin-top: 20px; }
             nav a { font-size: 0.85rem; padding: 6px 0; }
             .summary-cards { grid-template-columns: 1fr; }
@@ -1984,9 +1984,11 @@
                 </div>
 
                 <!-- Interactive Charts -->
-                <div class="section">
+                <div class="page-break">
                     <h2>Explore the Data</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;"><span class="desktop-only">See for yourself. Each dot is a country — watch how they cluster.</span><span class="mobile-only">Each dot is a country.</span></p>
+                    <p>Each dot is a country — watch how they cluster.</p>
+                </div>
+                <div class="section-content">
                     <div class="chart-selector">
                         <div class="selector-row">
                             <label for="xAxisSelect">X-Axis: </label>
@@ -2025,9 +2027,11 @@
                 </div>
 
                 <!-- Data Sources -->
-                <div class="section">
+                <div class="page-break">
                     <h2>Data Sources</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 20px;"><span class="desktop-only">All from reputable international organizations. Click to verify.</span><span class="mobile-only">Click to verify sources.</span></p>
+                    <p>All from reputable international organizations.<br>Click to verify.</p>
+                </div>
+                <div class="section-content">
                     <div class="data-sources">
                         ${renderDataSources()}
                     </div>
