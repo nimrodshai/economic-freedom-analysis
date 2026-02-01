@@ -1305,9 +1305,9 @@
         /* Floating "skip to verdict" button - mobile only */
         .skip-to-verdict {
             position: fixed;
-            top: 100px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%) translateY(100px);
+            transform: translate(-50%, 100px);
             background: #1e293b;
             color: white;
             padding: 12px 20px;
@@ -1326,12 +1326,12 @@
         }
 
         .skip-to-verdict:active {
-            transform: translateX(-50%) scale(0.95);
+            transform: translate(-50%, -50%) scale(0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .skip-to-verdict.visible {
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             opacity: 1;
             visibility: visible;
         }
