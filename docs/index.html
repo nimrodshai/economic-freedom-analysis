@@ -3531,8 +3531,9 @@
 
             skipButtonInitialized = true;
 
-            // Set fixed position based on screen height to prevent movement when browser UI changes
-            const bottomPosition = window.screen.height - 50;
+            // Set fixed position based on initial viewport height (captured once, won't change)
+            const initialViewportHeight = window.innerHeight;
+            const bottomPosition = initialViewportHeight - 50;
             btn.style.top = bottomPosition + 'px';
 
             function checkVisibility() {
