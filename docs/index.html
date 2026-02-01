@@ -3531,6 +3531,10 @@
 
             skipButtonInitialized = true;
 
+            // Set fixed position based on screen height to prevent movement when browser UI changes
+            const screenMidpoint = window.screen.height / 2;
+            btn.style.top = screenMidpoint + 'px';
+
             function checkVisibility() {
                 // Once results have been seen, never show again
                 if (resultsSeenOnce) {
