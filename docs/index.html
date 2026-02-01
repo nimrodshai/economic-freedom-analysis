@@ -1870,6 +1870,9 @@
 
         // Navigation
         function navigateTo(panelIndex) {
+            // Scroll to top when changing pages
+            window.scrollTo(0, 0);
+
             currentPanel = panelIndex;
             const container = document.getElementById('panelsContainer');
             container.style.transform = `translateX(-${panelIndex * 25}%)`;
