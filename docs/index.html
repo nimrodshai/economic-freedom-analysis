@@ -1302,40 +1302,6 @@
             line-height: 1.6;
         }
 
-        /* Floating "skip to verdict" button - mobile only */
-        .skip-to-verdict {
-            position: fixed;
-            top: 50svh;
-            left: 50%;
-            transform: translate(-50%, 100px);
-            background: #1e293b;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            cursor: pointer;
-            border: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease,
-                        visibility 0.3s ease,
-                        box-shadow 0.2s ease;
-        }
-
-        .skip-to-verdict:active {
-            transform: translate(-50%, -100%) scale(0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .skip-to-verdict.visible {
-            transform: translate(-50%, -100%);
-            opacity: 1;
-            visibility: visible;
-        }
-
         /* Responsive text visibility */
         .desktop-only { display: inline; }
         .mobile-only { display: none; }
@@ -3400,11 +3366,6 @@
             `;
 
             container.innerHTML = html;
-
-            // Initialize skip button now that elements exist
-            if (typeof initSkipToVerdict === 'function') {
-                initSkipToVerdict();
-            }
         }
 
         // Contact form - send to Telegram
@@ -3517,78 +3478,7 @@
         initNavIndicator();
         window.addEventListener('hashchange', handleHash);
         window.addEventListener('resize', initNavIndicator);
-
-        // Skip to verdict button (mobile only)
-        let skipButtonInitialized = false;
-        let resultsSeenOnce = false;
-        function initSkipToVerdict() {
-            if (skipButtonInitialized) return;
-
-            const btn = document.getElementById('skipToVerdict');
-            const grid = document.querySelector('.comparison-grid');
-            const results = document.getElementById('comparisonResults');
-            if (!btn || !grid || !results) return;
-
-            skipButtonInitialized = true;
-
-            // Set fixed position based on initial viewport height (captured once, won't change)
-            const initialViewportHeight = window.innerHeight;
-            const bottomPosition = initialViewportHeight - 50;
-            btn.style.top = bottomPosition + 'px';
-
-            function checkVisibility() {
-                // Once results have been seen, never show again
-                if (resultsSeenOnce) {
-                    btn.classList.remove('visible');
-                    return;
-                }
-
-                // Only show on mobile (< 768px)
-                if (window.innerWidth > 768) {
-                    btn.classList.remove('visible');
-                    return;
-                }
-
-                const gridRect = grid.getBoundingClientRect();
-                const resultsRect = results.getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
-
-                // Check if user has seen the results
-                if (resultsRect.top < viewportHeight * 0.7) {
-                    resultsSeenOnce = true;
-                    btn.classList.remove('visible');
-                    return;
-                }
-
-                // Show button when in comparison area but haven't seen results yet
-                const isInComparisonArea = gridRect.top < viewportHeight * 0.3;
-
-                if (isInComparisonArea) {
-                    btn.classList.add('visible');
-                } else {
-                    btn.classList.remove('visible');
-                }
-            }
-
-            window.addEventListener('scroll', checkVisibility, { passive: true });
-            window.addEventListener('resize', checkVisibility);
-
-            function scrollToResults(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                resultsSeenOnce = true;
-                btn.classList.remove('visible');
-                const targetY = results.getBoundingClientRect().top + window.pageYOffset - 20;
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-            }
-
-            btn.addEventListener('click', scrollToResults);
-            btn.addEventListener('touchend', scrollToResults);
-        }
     </script>
-
-    <!-- Skip to verdict floating button -->
-    <button id="skipToVerdict" class="skip-to-verdict">Who wins? ↓</button>
 
     <!-- Predictor Explanation Modal -->
     <div id="predictorModal" class="modal-overlay" onclick="if(event.target === this) closePredictorModal()">
