@@ -1929,6 +1929,8 @@
                 allData = data.countries;
                 renderDashboard(data);
                 renderDataPanel(data);
+                // Update panel height after content is rendered
+                updatePanelHeight();
                 // Detect user country after charts are initialized
                 detectUserCountry();
             } catch (error) {
@@ -3499,8 +3501,6 @@
         loadData();
         handleHash();
         initNavIndicator();
-        // Set initial panel height after content loads
-        setTimeout(updatePanelHeight, 100);
         window.addEventListener('hashchange', handleHash);
         window.addEventListener('resize', () => {
             initNavIndicator();
