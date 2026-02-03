@@ -1541,13 +1541,75 @@ class DataFetcher:
     def fetch_education_index(self):
         """
         Fetch Education Index data - composite measure of education achievement.
-        Source: UNDP Human Development Report / Our World in Data
-        Higher values = better (more years of schooling, higher enrollment).
+        Source: Global Data Lab (Subnational HDI) - combines mean years of schooling
+        and expected years of schooling, each weighted 50%.
+        Higher values = better education outcomes.
         Scale: 0-1 (normalized index)
         """
         print("Fetching Education Index...")
 
-        # Try Our World in Data (UNDP Education Index)
+        # Try Global Data Lab (primary source - most complete data) via HTML scraping
+        try:
+            from bs4 import BeautifulSoup
+            url = "https://globaldatalab.org/shdi/table/edindex/?levels=1&interpolation=0&extrapolation=0&nearest_real=0"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                table = soup.find('table', class_='areadata-table')
+
+                if table:
+                    # Get years from header to find most recent year column
+                    header = table.find('thead')
+                    years = []
+                    if header:
+                        for th in header.find_all('th', class_='year'):
+                            year_text = th.get('title') or th.get_text(strip=True)
+                            if year_text and year_text.isdigit():
+                                years.append(int(year_text))
+
+                    # Find index of most recent year (last column with data)
+                    most_recent_idx = len(years) - 1 if years else -1
+
+                    # Parse table rows
+                    countries = []
+                    values = []
+                    tbody = table.find('tbody')
+                    if tbody:
+                        for row in tbody.find_all('tr'):
+                            # Get country name from first cell
+                            region_cell = row.find('td', class_='region')
+                            if region_cell:
+                                country_text = region_cell.get_text(strip=True)
+                                # Extract country name (remove region in parentheses)
+                                if '(' in country_text:
+                                    country_name = country_text.split('(')[0].strip()
+                                else:
+                                    country_name = country_text
+
+                                # Get value cells
+                                value_cells = row.find_all('td', class_='proper')
+                                if value_cells and most_recent_idx >= 0 and most_recent_idx < len(value_cells):
+                                    value_text = value_cells[most_recent_idx].get_text(strip=True)
+                                    try:
+                                        value = float(value_text)
+                                        countries.append(self._normalize_country_name(country_name))
+                                        values.append(value)
+                                    except ValueError:
+                                        pass
+
+                    if len(countries) > 50:
+                        result = pd.DataFrame({
+                            'Country': countries,
+                            'Education_Index': values
+                        })
+                        result = result.dropna(subset=['Country', 'Education_Index'])
+                        result.to_csv(f"{self.cache_dir}/education_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Global Data Lab (HTML scrape)")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from Global Data Lab: {e}")
+
+        # Fallback: Try Our World in Data (UNDP Education Index)
         try:
             url = "https://ourworldindata.org/grapher/education-index-undp.csv"
             response = self.session.get(url, timeout=30)
@@ -1578,67 +1640,6 @@ class DataFetcher:
                         return result
         except Exception as e:
             print(f"  Could not fetch from OWID: {e}")
-
-        # Try UNDP HDR API directly
-        try:
-            url = "https://hdr.undp.org/sites/default/files/2023-24_HDR/HDR23-24_Statistical_Annex_Table_1.csv"
-            response = self.session.get(url, timeout=30)
-            if response.status_code == 200:
-                df = pd.read_csv(StringIO(response.text), encoding='utf-8-sig')
-
-                # Find country and education index columns
-                country_col = None
-                edu_col = None
-                for col in df.columns:
-                    col_lower = str(col).lower()
-                    if 'country' in col_lower or 'nation' in col_lower:
-                        country_col = col
-                    elif 'education' in col_lower and 'index' in col_lower:
-                        edu_col = col
-
-                if country_col and edu_col:
-                    result = pd.DataFrame({
-                        'Country': df[country_col].apply(self._normalize_country_name),
-                        'Education_Index': pd.to_numeric(df[edu_col], errors='coerce')
-                    })
-                    result = result.dropna(subset=['Country', 'Education_Index'])
-                    if len(result) > 50:
-                        result.to_csv(f"{self.cache_dir}/education_index.csv", index=False)
-                        print(f"  Successfully fetched {len(result)} countries from UNDP HDR")
-                        return result
-        except Exception as e:
-            print(f"  Could not fetch from UNDP: {e}")
-
-        # Try World Bank - Mean years of schooling
-        try:
-            url = "https://api.worldbank.org/v2/country/all/indicator/HD.HCI.EYRS?format=json&per_page=300&date=2018:2024"
-            response = self.session.get(url, timeout=30)
-            if response.status_code == 200:
-                data = response.json()
-                if len(data) > 1 and data[1]:
-                    year_data = {}
-                    for item in data[1]:
-                        if item.get('value') is not None:
-                            country = item.get('country', {}).get('value', '')
-                            value = item.get('value')
-                            year = int(item.get('date', 0))
-                            if country and value is not None:
-                                if country not in year_data or year > year_data[country]['year']:
-                                    year_data[country] = {'value': value, 'year': year}
-
-                    if len(year_data) > 30:
-                        countries = [self._normalize_country_name(c) for c in year_data.keys()]
-                        # Normalize to 0-1 scale (assuming max ~15 years of schooling)
-                        values = [min(info['value'] / 15, 1.0) for info in year_data.values()]
-                        result = pd.DataFrame({
-                            'Country': countries,
-                            'Education_Index': values
-                        })
-                        result.to_csv(f"{self.cache_dir}/education_index.csv", index=False)
-                        print(f"  Successfully fetched {len(result)} countries from World Bank")
-                        return result
-        except Exception as e:
-            print(f"  Could not fetch from World Bank: {e}")
 
         # Fallback to cached data
         cache_file = f"{self.cache_dir}/education_index.csv"
@@ -1729,6 +1730,50 @@ class DataFetcher:
             return pd.read_csv(cache_file)
 
         raise Exception("Could not fetch Gender Inequality Index data")
+
+    def fetch_basic_welfare_index(self):
+        """
+        Fetch Basic Welfare Index from IDEA's Global State of Democracy Indices.
+        Measures access to fundamental resources and social services:
+        nutrition, social security, healthcare, and education.
+        Scale: 0-1 (higher = better welfare provision)
+        Source: International IDEA GSoD Indices
+        """
+        print("Fetching Basic Welfare Index (IDEA GSoD)...")
+
+        try:
+            url = "https://www.idea.int/sites/default/files/2025-06/gsod_indices_v9.csv"
+            response = self.session.get(url, timeout=30)
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Get most recent year for each country
+                if 'year' in df.columns:
+                    most_recent_year = df['year'].max()
+                    df = df[df['year'] == most_recent_year]
+
+                # Extract country name and basic welfare estimate
+                if 'country_name' in df.columns and 'basic_welf_est' in df.columns:
+                    result = pd.DataFrame({
+                        'Country': df['country_name'].apply(self._normalize_country_name),
+                        'Basic_Welfare_Index': pd.to_numeric(df['basic_welf_est'], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'Basic_Welfare_Index'])
+
+                    if len(result) > 50:
+                        result.to_csv(f"{self.cache_dir}/basic_welfare_index.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from IDEA GSoD (year {most_recent_year})")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from IDEA: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/basic_welfare_index.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Basic Welfare Index data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Basic Welfare Index data")
 
     def fetch_poverty_index(self):
         """

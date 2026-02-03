@@ -176,10 +176,12 @@
         .panels-wrapper {
             overflow: hidden;
             position: relative;
+            transition: height 0.3s ease;
         }
 
         .panels-container {
             display: flex;
+            align-items: flex-start;
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             width: 400%;
         }
@@ -1173,6 +1175,12 @@
             border-radius: 4px;
         }
 
+        .comparison-bar-fill-purple {
+            height: 100%;
+            background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+            border-radius: 4px;
+        }
+
         .comparison-value {
             font-family: monospace;
             font-weight: 600;
@@ -1867,6 +1875,15 @@
             }
         }
 
+        // Update wrapper height to match current panel
+        function updatePanelHeight() {
+            const panels = document.querySelectorAll('.panel');
+            const wrapper = document.querySelector('.panels-wrapper');
+            if (panels[currentPanel] && wrapper) {
+                wrapper.style.height = panels[currentPanel].offsetHeight + 'px';
+            }
+        }
+
         // Navigation
         function navigateTo(panelIndex) {
             // Scroll to top when changing pages
@@ -1875,6 +1892,9 @@
             currentPanel = panelIndex;
             const container = document.getElementById('panelsContainer');
             container.style.transform = `translateX(-${panelIndex * 25}%)`;
+
+            // Update wrapper height for current panel
+            updatePanelHeight();
 
             // Update nav active state and move indicator
             const indicator = document.querySelector('.nav-indicator');
@@ -2384,7 +2404,7 @@
                 'homicide_rate': `https://data.worldbank.org/indicator/VC.IHR.PSRC.P5?locations=${iso}`,
                 'hale': `https://data.who.int/indicators/i/C64284D`,
                 'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
-                'education_index': `https://ourworldindata.org/grapher/education-index-from-the-human-development-index?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'education_index': `https://globaldatalab.org/shdi/table/edindex/${iso3}/?levels=1`,
                 'gender_inequality_index': `https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'poverty_rate': `https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`
             };
@@ -3237,26 +3257,26 @@
                     `${third.name} is the Wile E. Coyote of economic theories.`,
                     `${third.name} is the Charlie Brown of economic theories.`,
                     `${third.name} is the Tom (chasing Jerry) of economic theories.`,
-                    `${third.name} is the Blockbuster to Freedom's Netflix.`,
+                    `${third.name} is the Blockbuster to ${first.name}'s Netflix.`,
                     `${third.name} is the Nokia of economic theories.`,
                     `${third.name} pulled a Titanic.`,
                     `${third.name} is the Myspace of economic theories.`,
                     `${third.name} is the Internet Explorer of economic theories.`,
                     `${third.name} is the Kodak of economic theories.`,
                     `${third.name} is the Blackberry of economic theories.`,
-                    `${third.name} is the Yahoo to Freedom's Google.`,
-                    `${third.name} is the Sears to Freedom's Amazon.`,
+                    `${third.name} is the Yahoo to ${first.name}'s Google.`,
+                    `${third.name} is the Sears to ${first.name}'s Amazon.`,
                     `${third.name} is the Goliath of economic theories.`,
                     `${third.name} is the Hindenburg of economic theories.`,
-                    `${third.name} is the Monstars to Freedom's Michael Jordan.`,
-                    `${third.name} is the Empire to Freedom's Rebellion.`,
+                    `${third.name} is the Monstars to ${first.name}'s Michael Jordan.`,
+                    `${third.name} is the Empire to ${first.name}'s Rebellion.`,
                     `${third.name} is the Voldemort of economic theories.`,
-                    `${third.name} is the Hare to Freedom's Tortoise.`,
+                    `${third.name} is the Hare to ${first.name}'s Tortoise.`,
                     `${third.name} is the Napoleon at Waterloo of economics.`,
                     `${third.name} is the Dodo bird of economic theories.`,
                     `${third.name} is the Clippy of economic theories.`,
                     `${third.name} is the Betamax of economic theories.`,
-                    `${third.name} is the Zune to Freedom's iPod.`,
+                    `${third.name} is the Zune to ${first.name}'s iPod.`,
                     `${third.name} got Pluto'd (demoted).`,
                     `${third.name} went full Homer Simpson.`,
                     `${third.name} went full Ned Stark.`,
@@ -3479,8 +3499,13 @@
         loadData();
         handleHash();
         initNavIndicator();
+        // Set initial panel height after content loads
+        setTimeout(updatePanelHeight, 100);
         window.addEventListener('hashchange', handleHash);
-        window.addEventListener('resize', initNavIndicator);
+        window.addEventListener('resize', () => {
+            initNavIndicator();
+            updatePanelHeight();
+        });
     </script>
 
     <!-- Predictor Explanation Modal -->

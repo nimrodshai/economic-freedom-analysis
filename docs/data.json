@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-01-29T06:24:41.127507Z",
+    "generated_at": "2026-02-01T16:12:07.161288Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -48,7 +48,7 @@
         "year": 2021
       },
       {
-        "name": "UNDP Education Index",
+        "name": "Global Data Lab Education Index",
         "year": 2022
       },
       {
@@ -153,11 +153,11 @@
     {
       "id": "Education_Index",
       "name": "Education Index (UNDP)",
-      "correlation": 0.61,
-      "effective_correlation": 0.61,
-      "p_value": 1.6279461660052583e-08,
+      "correlation": 0.6459,
+      "effective_correlation": 0.6459,
+      "p_value": 2.400896025466289e-16,
       "significant": true,
-      "n": 71,
+      "n": 127,
       "higher_better": true,
       "unit": "0-1"
     },
@@ -257,7 +257,7 @@
       "homicide_rate": 1.387083,
       "hale": 66.68796,
       "mental_health_index": 2.0,
-      "education_index": 0.859292,
+      "education_index": 0.74,
       "gender_inequality_index": 0.107,
       "poverty_rate": 0.3,
       "gini_index": 29.4,
@@ -280,7 +280,7 @@
       "homicide_rate": 1.161072,
       "hale": 65.54819,
       "mental_health_index": 2.0,
-      "education_index": 0.789869,
+      "education_index": 0.663,
       "gender_inequality_index": 0.443,
       "poverty_rate": null,
       "gini_index": null,
@@ -303,7 +303,7 @@
       "homicide_rate": null,
       "hale": 53.76187,
       "mental_health_index": null,
-      "education_index": 0.541338,
+      "education_index": null,
       "gender_inequality_index": 0.515,
       "poverty_rate": 39.3,
       "gini_index": null,
@@ -326,7 +326,7 @@
       "homicide_rate": 4.492911,
       "hale": 64.79436,
       "mental_health_index": 15.0,
-      "education_index": 0.858635,
+      "education_index": null,
       "gender_inequality_index": 0.264,
       "poverty_rate": 1.0,
       "gini_index": 42.4,
@@ -349,7 +349,7 @@
       "homicide_rate": 2.208336,
       "hale": 64.01331,
       "mental_health_index": 2.0,
-      "education_index": 0.751991,
+      "education_index": 0.778,
       "gender_inequality_index": 0.18,
       "poverty_rate": 1.9,
       "gini_index": 27.2,
@@ -372,7 +372,7 @@
       "homicide_rate": 0.854406,
       "hale": 70.60636,
       "mental_health_index": 13.0,
-      "education_index": 0.906763,
+      "education_index": 0.924,
       "gender_inequality_index": 0.056,
       "poverty_rate": 1.0,
       "gini_index": 33.8,
@@ -395,7 +395,7 @@
       "homicide_rate": 0.876191,
       "hale": 69.78945,
       "mental_health_index": 15.0,
-      "education_index": 0.895173,
+      "education_index": 0.865,
       "gender_inequality_index": 0.033,
       "poverty_rate": 0.5,
       "gini_index": 31.2,
@@ -418,7 +418,7 @@
       "homicide_rate": 2.161228,
       "hale": 64.04244,
       "mental_health_index": 3.0,
-      "education_index": 0.829586,
+      "education_index": null,
       "gender_inequality_index": 0.315,
       "poverty_rate": null,
       "gini_index": null,
@@ -464,7 +464,7 @@
       "homicide_rate": 0.195636,
       "hale": 64.23784,
       "mental_health_index": 4.0,
-      "education_index": 0.856645,
+      "education_index": 0.821,
       "gender_inequality_index": 0.165,
       "poverty_rate": null,
       "gini_index": null,
@@ -487,7 +487,7 @@
       "homicide_rate": 2.342177,
       "hale": 63.05119,
       "mental_health_index": 0.0,
-      "education_index": 0.67757,
+      "education_index": 0.578,
       "gender_inequality_index": 0.487,
       "poverty_rate": 5.9,
       "gini_index": 30.9,
@@ -510,7 +510,7 @@
       "homicide_rate": 7.437946,
       "hale": 66.66857,
       "mental_health_index": 7.0,
-      "education_index": null,
+      "education_index": 0.789,
       "gender_inequality_index": 0.297,
       "poverty_rate": 1.7,
       "gini_index": null,
@@ -533,7 +533,7 @@
       "homicide_rate": 2.384632,
       "hale": 63.70762,
       "mental_health_index": 11.0,
-      "education_index": 0.920518,
+      "education_index": null,
       "gender_inequality_index": 0.08,
       "poverty_rate": 0.0,
       "gini_index": 24.4,
@@ -556,7 +556,7 @@
       "homicide_rate": 1.080302,
       "hale": 69.79468,
       "mental_health_index": null,
-      "education_index": 0.901632,
+      "education_index": 0.918,
       "gender_inequality_index": 0.031,
       "poverty_rate": 0.1,
       "gini_index": 26.8,
@@ -579,7 +579,7 @@
       "homicide_rate": 28.058292,
       "hale": 63.82472,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.64,
       "gender_inequality_index": 0.428,
       "poverty_rate": 1.0,
       "gini_index": null,
@@ -602,7 +602,7 @@
       "homicide_rate": 1.127497,
       "hale": 55.71581,
       "mental_health_index": 0.0,
-      "education_index": 0.614969,
+      "education_index": 0.391,
       "gender_inequality_index": 0.573,
       "poverty_rate": 27.2,
       "gini_index": 34.4,
@@ -625,7 +625,7 @@
       "homicide_rate": 2.467513,
       "hale": 64.80463,
       "mental_health_index": 0.0,
-      "education_index": 0.681638,
+      "education_index": null,
       "gender_inequality_index": 0.278,
       "poverty_rate": 0.0,
       "gini_index": 28.5,
@@ -648,7 +648,7 @@
       "homicide_rate": 4.418433,
       "hale": 57.4254,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.745,
       "gender_inequality_index": 0.419,
       "poverty_rate": 2.8,
       "gini_index": 42.1,
@@ -671,7 +671,7 @@
       "homicide_rate": 1.224462,
       "hale": 64.98582,
       "mental_health_index": 9.0,
-      "education_index": 0.781187,
+      "education_index": null,
       "gender_inequality_index": 0.157,
       "poverty_rate": null,
       "gini_index": null,
@@ -694,7 +694,7 @@
       "homicide_rate": 11.368177,
       "hale": 53.10367,
       "mental_health_index": 0.0,
-      "education_index": 0.541231,
+      "education_index": 0.665,
       "gender_inequality_index": 0.49,
       "poverty_rate": 21.4,
       "gini_index": null,
@@ -717,7 +717,7 @@
       "homicide_rate": 19.275296,
       "hale": 61.82654,
       "mental_health_index": 4.0,
-      "education_index": 0.793803,
+      "education_index": 0.709,
       "gender_inequality_index": 0.39,
       "poverty_rate": 3.8,
       "gini_index": 51.6,
@@ -740,7 +740,7 @@
       "homicide_rate": null,
       "hale": 67.10358,
       "mental_health_index": null,
-      "education_index": 0.877961,
+      "education_index": 0.688,
       "gender_inequality_index": 0.257,
       "poverty_rate": null,
       "gini_index": null,
@@ -763,7 +763,7 @@
       "homicide_rate": 1.088907,
       "hale": 62.38891,
       "mental_health_index": 10.0,
-      "education_index": 0.820623,
+      "education_index": 0.766,
       "gender_inequality_index": 0.208,
       "poverty_rate": 1.0,
       "gini_index": 39.5,
@@ -786,7 +786,7 @@
       "homicide_rate": 1.250441,
       "hale": 54.56242,
       "mental_health_index": 0.0,
-      "education_index": 0.467919,
+      "education_index": null,
       "gender_inequality_index": 0.555,
       "poverty_rate": 42.1,
       "gini_index": 37.4,
@@ -809,7 +809,7 @@
       "homicide_rate": 2.575101,
       "hale": 59.75065,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.552,
       "gender_inequality_index": 0.478,
       "poverty_rate": 10.3,
       "gini_index": null,
@@ -832,7 +832,7 @@
       "homicide_rate": null,
       "hale": 55.84414,
       "mental_health_index": null,
-      "education_index": 0.509038,
+      "education_index": 0.387,
       "gender_inequality_index": 0.501,
       "poverty_rate": 74.2,
       "gini_index": 37.5,
@@ -878,7 +878,7 @@
       "homicide_rate": null,
       "hale": 60.63072,
       "mental_health_index": null,
-      "education_index": 0.631052,
+      "education_index": 0.494,
       "gender_inequality_index": 0.506,
       "poverty_rate": null,
       "gini_index": null,
@@ -901,7 +901,7 @@
       "homicide_rate": 6.760089,
       "hale": 54.00703,
       "mental_health_index": 0.0,
-      "education_index": 0.581432,
+      "education_index": 0.59,
       "gender_inequality_index": 0.558,
       "poverty_rate": 26.7,
       "gini_index": 42.2,
@@ -924,7 +924,7 @@
       "homicide_rate": 1.979689,
       "hale": 69.7836,
       "mental_health_index": 14.0,
-      "education_index": 0.914801,
+      "education_index": 0.906,
       "gender_inequality_index": 0.052,
       "poverty_rate": 0.2,
       "gini_index": 31.1,
@@ -947,7 +947,7 @@
       "homicide_rate": null,
       "hale": 45.43289,
       "mental_health_index": null,
-      "education_index": 0.304667,
+      "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 71.6,
       "gini_index": 43.0,
@@ -970,7 +970,7 @@
       "homicide_rate": null,
       "hale": 51.51506,
       "mental_health_index": 0.0,
-      "education_index": 0.354039,
+      "education_index": null,
       "gender_inequality_index": 0.67,
       "poverty_rate": 39.5,
       "gini_index": 37.4,
@@ -993,7 +993,7 @@
       "homicide_rate": 6.348291,
       "hale": 67.6523,
       "mental_health_index": 9.0,
-      "education_index": 0.866786,
+      "education_index": null,
       "gender_inequality_index": 0.102,
       "poverty_rate": 0.5,
       "gini_index": 43.0,
@@ -1016,7 +1016,7 @@
       "homicide_rate": 0.501856,
       "hale": 68.58452,
       "mental_health_index": 3.0,
-      "education_index": 0.875853,
+      "education_index": 0.693,
       "gender_inequality_index": 0.132,
       "poverty_rate": 0.0,
       "gini_index": 36.0,
@@ -1039,7 +1039,7 @@
       "homicide_rate": 24.913442,
       "hale": 65.02156,
       "mental_health_index": 3.0,
-      "education_index": 0.857358,
+      "education_index": 0.696,
       "gender_inequality_index": 0.393,
       "poverty_rate": 7.7,
       "gini_index": 53.9,
@@ -1062,7 +1062,7 @@
       "homicide_rate": null,
       "hale": 59.01939,
       "mental_health_index": null,
-      "education_index": 0.544902,
+      "education_index": null,
       "gender_inequality_index": 0.501,
       "poverty_rate": 31.4,
       "gini_index": null,
@@ -1085,7 +1085,7 @@
       "homicide_rate": null,
       "hale": 53.20516,
       "mental_health_index": null,
-      "education_index": 0.60879,
+      "education_index": null,
       "gender_inequality_index": 0.604,
       "poverty_rate": 85.3,
       "gini_index": 44.7,
@@ -1108,7 +1108,7 @@
       "homicide_rate": null,
       "hale": 54.83574,
       "mental_health_index": null,
-      "education_index": 0.594185,
+      "education_index": null,
       "gender_inequality_index": 0.565,
       "poverty_rate": null,
       "gini_index": null,
@@ -1131,7 +1131,7 @@
       "homicide_rate": 17.74548,
       "hale": 67.63482,
       "mental_health_index": 3.0,
-      "education_index": 0.874382,
+      "education_index": 0.74,
       "gender_inequality_index": 0.217,
       "poverty_rate": 1.3,
       "gini_index": 45.8,
@@ -1154,7 +1154,7 @@
       "homicide_rate": null,
       "hale": 55.40625,
       "mental_health_index": null,
-      "education_index": 0.537156,
+      "education_index": 0.422,
       "gender_inequality_index": 0.589,
       "poverty_rate": 20.9,
       "gini_index": 35.3,
@@ -1177,7 +1177,7 @@
       "homicide_rate": 0.667347,
       "hale": 66.80262,
       "mental_health_index": 13.0,
-      "education_index": 0.892686,
+      "education_index": 0.844,
       "gender_inequality_index": 0.074,
       "poverty_rate": 0.3,
       "gini_index": 30.1,
@@ -1200,7 +1200,7 @@
       "homicide_rate": 4.463151,
       "hale": 64.61947,
       "mental_health_index": 9.0,
-      "education_index": null,
+      "education_index": 0.754,
       "gender_inequality_index": 0.296,
       "poverty_rate": null,
       "gini_index": null,
@@ -1223,7 +1223,7 @@
       "homicide_rate": 0.817859,
       "hale": 70.74237,
       "mental_health_index": 3.0,
-      "education_index": 0.90584,
+      "education_index": 0.866,
       "gender_inequality_index": 0.252,
       "poverty_rate": 0.0,
       "gini_index": 31.8,
@@ -1246,7 +1246,7 @@
       "homicide_rate": 0.767828,
       "hale": 66.65716,
       "mental_health_index": 16.0,
-      "education_index": 0.904274,
+      "education_index": 0.885,
       "gender_inequality_index": 0.088,
       "poverty_rate": 0.0,
       "gini_index": 25.7,
@@ -1269,7 +1269,7 @@
       "homicide_rate": 0.840599,
       "hale": 70.05689,
       "mental_health_index": null,
-      "education_index": 0.892974,
+      "education_index": 0.932,
       "gender_inequality_index": 0.003,
       "poverty_rate": 0.4,
       "gini_index": 29.9,
@@ -1315,7 +1315,7 @@
       "homicide_rate": 27.063396,
       "hale": null,
       "mental_health_index": null,
-      "education_index": 0.826441,
+      "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
       "gini_index": null,
@@ -1338,7 +1338,7 @@
       "homicide_rate": 10.916698,
       "hale": 63.56255,
       "mental_health_index": 3.0,
-      "education_index": 0.791597,
+      "education_index": 0.682,
       "gender_inequality_index": 0.417,
       "poverty_rate": 0.8,
       "gini_index": 39.0,
@@ -1361,7 +1361,7 @@
       "homicide_rate": 45.722815,
       "hale": 64.34154,
       "mental_health_index": 0.0,
-      "education_index": 0.862442,
+      "education_index": 0.712,
       "gender_inequality_index": 0.358,
       "poverty_rate": 7.3,
       "gini_index": 45.2,
@@ -1384,7 +1384,7 @@
       "homicide_rate": 1.311525,
       "hale": 60.36317,
       "mental_health_index": null,
-      "education_index": 0.764233,
+      "education_index": 0.687,
       "gender_inequality_index": 0.398,
       "poverty_rate": 1.4,
       "gini_index": 28.5,
@@ -1407,7 +1407,7 @@
       "homicide_rate": 7.897688,
       "hale": 62.1961,
       "mental_health_index": null,
-      "education_index": 0.729993,
+      "education_index": 0.569,
       "gender_inequality_index": 0.362,
       "poverty_rate": 4.6,
       "gini_index": 39.8,
@@ -1476,7 +1476,7 @@
       "homicide_rate": 1.53599,
       "hale": 66.74033,
       "mental_health_index": 16.0,
-      "education_index": 0.898931,
+      "education_index": 0.894,
       "gender_inequality_index": 0.061,
       "poverty_rate": 0.3,
       "gini_index": 30.7,
@@ -1499,7 +1499,7 @@
       "homicide_rate": 12.514571,
       "hale": 47.4674,
       "mental_health_index": 0.0,
-      "education_index": 0.428248,
+      "education_index": 0.606,
       "gender_inequality_index": 0.484,
       "poverty_rate": 44.5,
       "gini_index": null,
@@ -1522,7 +1522,7 @@
       "homicide_rate": null,
       "hale": 58.82731,
       "mental_health_index": 0.0,
-      "education_index": 0.520429,
+      "education_index": null,
       "gender_inequality_index": 0.497,
       "poverty_rate": 38.6,
       "gini_index": 31.1,
@@ -1545,7 +1545,7 @@
       "homicide_rate": 2.055953,
       "hale": 57.69056,
       "mental_health_index": 1.0,
-      "education_index": 0.755553,
+      "education_index": 0.73,
       "gender_inequality_index": 0.35,
       "poverty_rate": 4.7,
       "gini_index": null,
@@ -1568,7 +1568,7 @@
       "homicide_rate": 0.981935,
       "hale": 69.92942,
       "mental_health_index": 20.0,
-      "education_index": 0.916447,
+      "education_index": 0.931,
       "gender_inequality_index": 0.021,
       "poverty_rate": 0.2,
       "gini_index": 27.4,
@@ -1591,7 +1591,7 @@
       "homicide_rate": 1.335063,
       "hale": 70.08346,
       "mental_health_index": 24.0,
-      "education_index": 0.920177,
+      "education_index": 0.834,
       "gender_inequality_index": 0.034,
       "poverty_rate": 0.1,
       "gini_index": 31.8,
@@ -1614,7 +1614,7 @@
       "homicide_rate": null,
       "hale": 56.25887,
       "mental_health_index": 0.0,
-      "education_index": 0.550369,
+      "education_index": 0.664,
       "gender_inequality_index": 0.505,
       "poverty_rate": 3.8,
       "gini_index": null,
@@ -1637,7 +1637,7 @@
       "homicide_rate": null,
       "hale": 55.84254,
       "mental_health_index": 0.0,
-      "education_index": 0.634673,
+      "education_index": 0.4,
       "gender_inequality_index": 0.578,
       "poverty_rate": 22.0,
       "gini_index": 38.8,
@@ -1660,7 +1660,7 @@
       "homicide_rate": 2.028065,
       "hale": 62.47585,
       "mental_health_index": null,
-      "education_index": 0.862378,
+      "education_index": null,
       "gender_inequality_index": 0.257,
       "poverty_rate": 4.2,
       "gini_index": 33.9,
@@ -1683,7 +1683,7 @@
       "homicide_rate": 0.910723,
       "hale": 68.93389,
       "mental_health_index": 14.0,
-      "education_index": 0.888708,
+      "education_index": 0.957,
       "gender_inequality_index": 0.057,
       "poverty_rate": 0.2,
       "gini_index": 32.4,
@@ -1706,7 +1706,7 @@
       "homicide_rate": 1.831118,
       "hale": 57.88252,
       "mental_health_index": 0.0,
-      "education_index": 0.808005,
+      "education_index": 0.536,
       "gender_inequality_index": 0.514,
       "poverty_rate": 39.0,
       "gini_index": null,
@@ -1729,7 +1729,7 @@
       "homicide_rate": 0.839605,
       "hale": 68.55282,
       "mental_health_index": null,
-      "education_index": 0.885926,
+      "education_index": 0.88,
       "gender_inequality_index": 0.103,
       "poverty_rate": 0.6,
       "gini_index": 33.4,
@@ -1752,7 +1752,7 @@
       "homicide_rate": 23.365727,
       "hale": 59.25328,
       "mental_health_index": 0.0,
-      "education_index": 0.647499,
+      "education_index": 0.488,
       "gender_inequality_index": 0.48,
       "poverty_rate": 9.7,
       "gini_index": 45.2,
@@ -1775,7 +1775,7 @@
       "homicide_rate": null,
       "hale": 53.42626,
       "mental_health_index": 0.0,
-      "education_index": 0.466241,
+      "education_index": 0.362,
       "gender_inequality_index": 0.609,
       "poverty_rate": 11.7,
       "gini_index": null,
@@ -1821,7 +1821,7 @@
       "homicide_rate": 19.120158,
       "hale": 56.82071,
       "mental_health_index": 2.0,
-      "education_index": 0.813596,
+      "education_index": 0.649,
       "gender_inequality_index": 0.427,
       "poverty_rate": null,
       "gini_index": null,
@@ -1844,7 +1844,7 @@
       "homicide_rate": 41.151809,
       "hale": 53.9362,
       "mental_health_index": 0.0,
-      "education_index": 0.758533,
+      "education_index": 0.496,
       "gender_inequality_index": 0.618,
       "poverty_rate": 40.4,
       "gini_index": null,
@@ -1867,7 +1867,7 @@
       "homicide_rate": 31.442432,
       "hale": 60.04648,
       "mental_health_index": null,
-      "education_index": 0.639336,
+      "education_index": 0.52,
       "gender_inequality_index": 0.437,
       "poverty_rate": 15.7,
       "gini_index": 45.7,
@@ -1890,7 +1890,7 @@
       "homicide_rate": 0.722658,
       "hale": 64.83879,
       "mental_health_index": 12.0,
-      "education_index": 0.86377,
+      "education_index": 0.827,
       "gender_inequality_index": 0.213,
       "poverty_rate": 0.9,
       "gini_index": null,
@@ -1913,7 +1913,7 @@
       "homicide_rate": 1.290131,
       "hale": 71.37049,
       "mental_health_index": null,
-      "education_index": 0.897351,
+      "education_index": 0.959,
       "gender_inequality_index": 0.024,
       "poverty_rate": 0.1,
       "gini_index": null,
@@ -1936,7 +1936,7 @@
       "homicide_rate": 2.815304,
       "hale": 58.14675,
       "mental_health_index": null,
-      "education_index": 0.741664,
+      "education_index": 0.569,
       "gender_inequality_index": 0.403,
       "poverty_rate": 5.3,
       "gini_index": 25.5,
@@ -1959,7 +1959,7 @@
       "homicide_rate": 0.303769,
       "hale": 60.66925,
       "mental_health_index": 0.0,
-      "education_index": 0.825891,
+      "education_index": 0.673,
       "gender_inequality_index": 0.423,
       "poverty_rate": 5.4,
       "gini_index": 34.9,
@@ -1982,7 +1982,7 @@
       "homicide_rate": null,
       "hale": 63.97516,
       "mental_health_index": 2.0,
-      "education_index": 0.78997,
+      "education_index": 0.75,
       "gender_inequality_index": 0.482,
       "poverty_rate": 2.5,
       "gini_index": 35.9,
@@ -2005,7 +2005,7 @@
       "homicide_rate": 0.65427,
       "hale": 70.00318,
       "mental_health_index": 8.0,
-      "education_index": 0.926703,
+      "education_index": 0.889,
       "gender_inequality_index": 0.054,
       "poverty_rate": 0.1,
       "gini_index": 29.0,
@@ -2028,7 +2028,7 @@
       "homicide_rate": 1.625811,
       "hale": 70.75753,
       "mental_health_index": null,
-      "education_index": 0.91753,
+      "education_index": 0.866,
       "gender_inequality_index": 0.08,
       "poverty_rate": 0.7,
       "gini_index": 37.9,
@@ -2051,7 +2051,7 @@
       "homicide_rate": 0.568072,
       "hale": 70.56466,
       "mental_health_index": 6.0,
-      "education_index": 0.883379,
+      "education_index": 0.821,
       "gender_inequality_index": 0.043,
       "poverty_rate": 0.9,
       "gini_index": 34.3,
@@ -2074,7 +2074,7 @@
       "homicide_rate": 49.440345,
       "hale": 61.72002,
       "mental_health_index": 1.0,
-      "education_index": 0.759643,
+      "education_index": 0.654,
       "gender_inequality_index": 0.358,
       "poverty_rate": 1.4,
       "gini_index": 39.9,
@@ -2097,7 +2097,7 @@
       "homicide_rate": 0.229153,
       "hale": 73.39518,
       "mental_health_index": null,
-      "education_index": 0.909323,
+      "education_index": 0.852,
       "gender_inequality_index": 0.059,
       "poverty_rate": 1.2,
       "gini_index": 32.3,
@@ -2120,7 +2120,7 @@
       "homicide_rate": 0.98783,
       "hale": 65.06664,
       "mental_health_index": 1.0,
-      "education_index": 0.742921,
+      "education_index": 0.699,
       "gender_inequality_index": 0.433,
       "poverty_rate": null,
       "gini_index": null,
@@ -2143,7 +2143,7 @@
       "homicide_rate": 2.550586,
       "hale": 61.55452,
       "mental_health_index": 4.0,
-      "education_index": null,
+      "education_index": 0.826,
       "gender_inequality_index": 0.182,
       "poverty_rate": 0.0,
       "gini_index": 29.2,
@@ -2166,7 +2166,7 @@
       "homicide_rate": 4.871668,
       "hale": 58.21708,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.572,
       "gender_inequality_index": 0.526,
       "poverty_rate": 46.9,
       "gini_index": 37.7,
@@ -2235,7 +2235,7 @@
       "homicide_rate": 0.477306,
       "hale": 72.45059,
       "mental_health_index": 8.0,
-      "education_index": null,
+      "education_index": 0.879,
       "gender_inequality_index": 0.038,
       "poverty_rate": 0.2,
       "gini_index": 32.9,
@@ -2281,7 +2281,7 @@
       "homicide_rate": 0.249992,
       "hale": 67.78423,
       "mental_health_index": 2.0,
-      "education_index": null,
+      "education_index": 0.684,
       "gender_inequality_index": 0.188,
       "poverty_rate": null,
       "gini_index": null,
@@ -2304,7 +2304,7 @@
       "homicide_rate": 1.747343,
       "hale": 63.42427,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.76,
       "gender_inequality_index": 0.34,
       "poverty_rate": 2.7,
       "gini_index": 27.2,
@@ -2350,7 +2350,7 @@
       "homicide_rate": 2.496818,
       "hale": 63.76267,
       "mental_health_index": 13.0,
-      "education_index": null,
+      "education_index": 0.904,
       "gender_inequality_index": 0.117,
       "poverty_rate": 0.4,
       "gini_index": 34.0,
@@ -2396,7 +2396,7 @@
       "homicide_rate": null,
       "hale": 44.63433,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.559,
       "gender_inequality_index": 0.534,
       "poverty_rate": 41.9,
       "gini_index": null,
@@ -2442,7 +2442,7 @@
       "homicide_rate": 2.6278,
       "hale": 64.22813,
       "mental_health_index": 20.0,
-      "education_index": null,
+      "education_index": 0.905,
       "gender_inequality_index": 0.07,
       "poverty_rate": 1.1,
       "gini_index": 36.0,
@@ -2465,7 +2465,7 @@
       "homicide_rate": 1.530661,
       "hale": 71.23441,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.826,
       "gender_inequality_index": 0.044,
       "poverty_rate": 0.1,
       "gini_index": 33.6,
@@ -2511,7 +2511,7 @@
       "homicide_rate": null,
       "hale": 54.66817,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.494,
       "gender_inequality_index": 0.581,
       "poverty_rate": 75.4,
       "gini_index": null,
@@ -2534,7 +2534,7 @@
       "homicide_rate": 0.734492,
       "hale": 63.94692,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.718,
       "gender_inequality_index": 0.172,
       "poverty_rate": 0.0,
       "gini_index": 40.7,
@@ -2580,7 +2580,7 @@
       "homicide_rate": null,
       "hale": 53.55715,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.25,
       "gender_inequality_index": 0.612,
       "poverty_rate": 36.1,
       "gini_index": 35.7,
@@ -2626,7 +2626,7 @@
       "homicide_rate": 0.999972,
       "hale": 60.39312,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.382,
       "gender_inequality_index": 0.603,
       "poverty_rate": 10.2,
       "gini_index": null,
@@ -2649,7 +2649,7 @@
       "homicide_rate": 2.272497,
       "hale": 63.6317,
       "mental_health_index": 3.0,
-      "education_index": null,
+      "education_index": 0.739,
       "gender_inequality_index": 0.352,
       "poverty_rate": 0.5,
       "gini_index": null,
@@ -2672,7 +2672,7 @@
       "homicide_rate": 24.858995,
       "hale": 61.43518,
       "mental_health_index": 2.0,
-      "education_index": null,
+      "education_index": 0.71,
       "gender_inequality_index": 0.358,
       "poverty_rate": 2.3,
       "gini_index": 43.5,
@@ -2718,7 +2718,7 @@
       "homicide_rate": 2.543144,
       "hale": 61.21178,
       "mental_health_index": 3.0,
-      "education_index": null,
+      "education_index": 0.809,
       "gender_inequality_index": 0.146,
       "poverty_rate": 0.1,
       "gini_index": 26.8,
@@ -2741,7 +2741,7 @@
       "homicide_rate": 5.915035,
       "hale": 61.31316,
       "mental_health_index": 3.0,
-      "education_index": null,
+      "education_index": 0.717,
       "gender_inequality_index": 0.284,
       "poverty_rate": 0.4,
       "gini_index": 31.4,
@@ -2787,7 +2787,7 @@
       "homicide_rate": 1.705005,
       "hale": 62.33965,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.607,
       "gender_inequality_index": 0.438,
       "poverty_rate": 3.7,
       "gini_index": null,
@@ -2810,7 +2810,7 @@
       "homicide_rate": null,
       "hale": 49.71591,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.427,
       "gender_inequality_index": 0.479,
       "poverty_rate": 81.4,
       "gini_index": 49.6,
@@ -2833,7 +2833,7 @@
       "homicide_rate": 11.207781,
       "hale": 52.82296,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.568,
       "gender_inequality_index": 0.448,
       "poverty_rate": 22.9,
       "gini_index": null,
@@ -2856,7 +2856,7 @@
       "homicide_rate": 2.130041,
       "hale": 60.20389,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.501,
       "gender_inequality_index": 0.487,
       "poverty_rate": 2.4,
       "gini_index": 30.0,
@@ -2879,7 +2879,7 @@
       "homicide_rate": 0.690893,
       "hale": 69.9687,
       "mental_health_index": 17.0,
-      "education_index": null,
+      "education_index": 0.919,
       "gender_inequality_index": 0.013,
       "poverty_rate": 0.1,
       "gini_index": 25.7,
@@ -2902,7 +2902,7 @@
       "homicide_rate": 1.461494,
       "hale": 69.98322,
       "mental_health_index": 9.0,
-      "education_index": null,
+      "education_index": 0.931,
       "gender_inequality_index": 0.082,
       "poverty_rate": null,
       "gini_index": null,
@@ -2925,7 +2925,7 @@
       "homicide_rate": 11.34732,
       "hale": 64.61449,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.592,
       "gender_inequality_index": 0.408,
       "poverty_rate": 6.6,
       "gini_index": null,
@@ -2948,7 +2948,7 @@
       "homicide_rate": null,
       "hale": 52.60992,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.244,
       "gender_inequality_index": 0.591,
       "poverty_rate": 60.5,
       "gini_index": 32.9,
@@ -3017,7 +3017,7 @@
       "homicide_rate": 0.724747,
       "hale": 71.15531,
       "mental_health_index": 23.0,
-      "education_index": null,
+      "education_index": 0.935,
       "gender_inequality_index": 0.004,
       "poverty_rate": 0.2,
       "gini_index": 26.5,
@@ -3063,7 +3063,7 @@
       "homicide_rate": 4.334871,
       "hale": 56.89015,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.367,
       "gender_inequality_index": 0.536,
       "poverty_rate": 16.5,
       "gini_index": null,
@@ -3086,7 +3086,7 @@
       "homicide_rate": 11.707293,
       "hale": 66.73553,
       "mental_health_index": 6.0,
-      "education_index": null,
+      "education_index": 0.723,
       "gender_inequality_index": 0.374,
       "poverty_rate": 3.1,
       "gini_index": 49.7,
@@ -3109,7 +3109,7 @@
       "homicide_rate": null,
       "hale": 57.48176,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.474,
       "gender_inequality_index": 0.584,
       "poverty_rate": null,
       "gini_index": null,
@@ -3132,7 +3132,7 @@
       "homicide_rate": 6.779516,
       "hale": 60.87814,
       "mental_health_index": 2.0,
-      "education_index": null,
+      "education_index": 0.682,
       "gender_inequality_index": 0.412,
       "poverty_rate": 2.1,
       "gini_index": 44.2,
@@ -3155,7 +3155,7 @@
       "homicide_rate": 8.604808,
       "hale": 62.98693,
       "mental_health_index": 3.0,
-      "education_index": null,
+      "education_index": 0.745,
       "gender_inequality_index": 0.34,
       "poverty_rate": 5.1,
       "gini_index": 40.1,
@@ -3178,7 +3178,7 @@
       "homicide_rate": 4.347591,
       "hale": 58.7678,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.654,
       "gender_inequality_index": 0.351,
       "poverty_rate": 5.3,
       "gini_index": 39.3,
@@ -3201,7 +3201,7 @@
       "homicide_rate": 0.802315,
       "hale": 65.52082,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.881,
       "gender_inequality_index": 0.081,
       "poverty_rate": 0.2,
       "gini_index": 28.5,
@@ -3224,7 +3224,7 @@
       "homicide_rate": 0.719972,
       "hale": 69.51927,
       "mental_health_index": 6.0,
-      "education_index": null,
+      "education_index": 0.786,
       "gender_inequality_index": 0.076,
       "poverty_rate": 0.4,
       "gini_index": 33.9,
@@ -3247,7 +3247,7 @@
       "homicide_rate": 0.069145,
       "hale": 66.2063,
       "mental_health_index": 2.0,
-      "education_index": null,
+      "education_index": 0.706,
       "gender_inequality_index": 0.195,
       "poverty_rate": 0.0,
       "gini_index": null,
@@ -3270,7 +3270,7 @@
       "homicide_rate": 1.108875,
       "hale": 63.84713,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.782,
       "gender_inequality_index": 0.227,
       "poverty_rate": 0.7,
       "gini_index": 29.8,
@@ -3293,7 +3293,7 @@
       "homicide_rate": 6.765125,
       "hale": 60.93956,
       "mental_health_index": 13.0,
-      "education_index": null,
+      "education_index": 0.849,
       "gender_inequality_index": 0.169,
       "poverty_rate": 0.1,
       "gini_index": 33.0,
@@ -3316,7 +3316,7 @@
       "homicide_rate": 3.612474,
       "hale": 58.71232,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.479,
       "gender_inequality_index": 0.394,
       "poverty_rate": 38.6,
       "gini_index": 39.4,
@@ -3385,7 +3385,7 @@
       "homicide_rate": 6.262585,
       "hale": 61.57028,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.724,
       "gender_inequality_index": 0.416,
       "poverty_rate": 4.5,
       "gini_index": null,
@@ -3431,7 +3431,7 @@
       "homicide_rate": 0.93526,
       "hale": 65.64451,
       "mental_health_index": 3.0,
-      "education_index": null,
+      "education_index": 0.798,
       "gender_inequality_index": 0.228,
       "poverty_rate": null,
       "gini_index": null,
@@ -3454,7 +3454,7 @@
       "homicide_rate": null,
       "hale": 58.903,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.35,
       "gender_inequality_index": 0.49,
       "poverty_rate": 17.9,
       "gini_index": 36.2,
@@ -3477,7 +3477,7 @@
       "homicide_rate": 1.314002,
       "hale": 63.87477,
       "mental_health_index": 6.0,
-      "education_index": null,
+      "education_index": 0.786,
       "gender_inequality_index": 0.117,
       "poverty_rate": 2.0,
       "gini_index": 32.8,
@@ -3523,7 +3523,7 @@
       "homicide_rate": 2.224312,
       "hale": 53.12722,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.368,
       "gender_inequality_index": 0.566,
       "poverty_rate": 41.5,
       "gini_index": null,
@@ -3546,7 +3546,7 @@
       "homicide_rate": 0.069095,
       "hale": 73.64695,
       "mental_health_index": 4.0,
-      "education_index": null,
+      "education_index": 0.867,
       "gender_inequality_index": 0.031,
       "poverty_rate": null,
       "gini_index": null,
@@ -3569,7 +3569,7 @@
       "homicide_rate": 1.123584,
       "hale": 64.94128,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.843,
       "gender_inequality_index": 0.176,
       "poverty_rate": 0.5,
       "gini_index": 23.8,
@@ -3592,7 +3592,7 @@
       "homicide_rate": 0.566466,
       "hale": 69.35554,
       "mental_health_index": 12.0,
-      "education_index": null,
+      "education_index": 0.913,
       "gender_inequality_index": 0.042,
       "poverty_rate": 0.0,
       "gini_index": 24.7,
@@ -3638,7 +3638,7 @@
       "homicide_rate": 43.720255,
       "hale": 52.75708,
       "mental_health_index": 2.0,
-      "education_index": null,
+      "education_index": 0.783,
       "gender_inequality_index": 0.388,
       "poverty_rate": 31.2,
       "gini_index": null,
@@ -3661,7 +3661,7 @@
       "homicide_rate": 0.690856,
       "hale": 71.10702,
       "mental_health_index": 9.0,
-      "education_index": null,
+      "education_index": 0.848,
       "gender_inequality_index": 0.043,
       "poverty_rate": 0.8,
       "gini_index": 33.4,
@@ -3684,7 +3684,7 @@
       "homicide_rate": 3.31094,
       "hale": 66.72826,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.754,
       "gender_inequality_index": 0.367,
       "poverty_rate": 2.7,
       "gini_index": null,
@@ -3707,7 +3707,7 @@
       "homicide_rate": null,
       "hale": 58.53979,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.365,
       "gender_inequality_index": 0.588,
       "poverty_rate": 10.1,
       "gini_index": null,
@@ -3753,7 +3753,7 @@
       "homicide_rate": 1.146757,
       "hale": 71.11832,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.922,
       "gender_inequality_index": 0.007,
       "poverty_rate": 0.8,
       "gini_index": 29.3,
@@ -3776,7 +3776,7 @@
       "homicide_rate": 0.597482,
       "hale": 71.14916,
       "mental_health_index": 47.0,
-      "education_index": null,
+      "education_index": 0.924,
       "gender_inequality_index": 0.01,
       "poverty_rate": 0.2,
       "gini_index": 33.8,
@@ -3822,7 +3822,7 @@
       "homicide_rate": 0.892371,
       "hale": 63.0851,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.678,
       "gender_inequality_index": 0.258,
       "poverty_rate": 6.1,
       "gini_index": 36.1,
@@ -3845,7 +3845,7 @@
       "homicide_rate": 3.749213,
       "hale": 58.07287,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.426,
       "gender_inequality_index": 0.504,
       "poverty_rate": 51.3,
       "gini_index": null,
@@ -3868,7 +3868,7 @@
       "homicide_rate": null,
       "hale": 65.75673,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.727,
       "gender_inequality_index": 0.288,
       "poverty_rate": 0.0,
       "gini_index": 33.5,
@@ -3914,7 +3914,7 @@
       "homicide_rate": null,
       "hale": 55.84901,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.546,
       "gender_inequality_index": 0.564,
       "poverty_rate": 34.4,
       "gini_index": 37.9,
@@ -3983,7 +3983,7 @@
       "homicide_rate": 4.69348,
       "hale": 63.5798,
       "mental_health_index": 3.0,
-      "education_index": null,
+      "education_index": 0.671,
       "gender_inequality_index": 0.238,
       "poverty_rate": 0.7,
       "gini_index": 33.7,
@@ -4006,7 +4006,7 @@
       "homicide_rate": 3.227895,
       "hale": 65.20501,
       "mental_health_index": 2.0,
-      "education_index": null,
+      "education_index": 0.794,
       "gender_inequality_index": 0.227,
       "poverty_rate": 0.5,
       "gini_index": 44.5,
@@ -4052,7 +4052,7 @@
       "homicide_rate": 8.973089,
       "hale": 57.22439,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.527,
       "gender_inequality_index": 0.524,
       "poverty_rate": 59.8,
       "gini_index": null,
@@ -4075,7 +4075,7 @@
       "homicide_rate": 0.693218,
       "hale": 67.2737,
       "mental_health_index": 4.0,
-      "education_index": null,
+      "education_index": 0.904,
       "gender_inequality_index": 0.04,
       "poverty_rate": 0.0,
       "gini_index": null,
@@ -4098,7 +4098,7 @@
       "homicide_rate": 1.118684,
       "hale": 68.63631,
       "mental_health_index": 14.0,
-      "education_index": null,
+      "education_index": 0.937,
       "gender_inequality_index": 0.083,
       "poverty_rate": 0.5,
       "gini_index": 32.4,
@@ -4121,7 +4121,7 @@
       "homicide_rate": 5.763408,
       "hale": 63.91496,
       "mental_health_index": null,
-      "education_index": null,
+      "education_index": 0.908,
       "gender_inequality_index": 0.169,
       "poverty_rate": 1.2,
       "gini_index": 41.8,
@@ -4144,7 +4144,7 @@
       "homicide_rate": 11.245305,
       "hale": 64.98707,
       "mental_health_index": 16.0,
-      "education_index": null,
+      "education_index": 0.784,
       "gender_inequality_index": 0.218,
       "poverty_rate": 0.2,
       "gini_index": 40.0,
@@ -4213,7 +4213,7 @@
       "homicide_rate": 12.646645,
       "hale": 62.04616,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.696,
       "gender_inequality_index": 0.512,
       "poverty_rate": null,
       "gini_index": null,
@@ -4236,7 +4236,7 @@
       "homicide_rate": null,
       "hale": 65.35112,
       "mental_health_index": 1.0,
-      "education_index": null,
+      "education_index": 0.644,
       "gender_inequality_index": 0.299,
       "poverty_rate": 1.6,
       "gini_index": 36.1,
@@ -4259,7 +4259,7 @@
       "homicide_rate": null,
       "hale": 52.97009,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.549,
       "gender_inequality_index": 0.524,
       "poverty_rate": 71.7,
       "gini_index": 51.5,
@@ -4282,7 +4282,7 @@
       "homicide_rate": 6.758331,
       "hale": 51.24891,
       "mental_health_index": 0.0,
-      "education_index": null,
+      "education_index": 0.6,
       "gender_inequality_index": 0.519,
       "poverty_rate": 49.2,
       "gini_index": null,
@@ -13816,365 +13816,645 @@
         {
           "country": "Albania",
           "x": 66.6,
-          "y": 0.859292
+          "y": 0.74
         },
         {
           "country": "Algeria",
           "x": 47.5,
-          "y": 0.789869
-        },
-        {
-          "country": "Angola",
-          "x": 55.0,
-          "y": 0.541338
-        },
-        {
-          "country": "Argentina",
-          "x": 54.2,
-          "y": 0.858635
+          "y": 0.663
         },
         {
           "country": "Armenia",
           "x": 65.4,
-          "y": 0.751991
+          "y": 0.778
         },
         {
           "country": "Australia",
           "x": 79.3,
-          "y": 0.906763
+          "y": 0.924
         },
         {
           "country": "Austria",
           "x": 69.7,
-          "y": 0.895173
-        },
-        {
-          "country": "Azerbaijan",
-          "x": 62.5,
-          "y": 0.829586
+          "y": 0.865
         },
         {
           "country": "Bahrain",
           "x": 65.6,
-          "y": 0.856645
+          "y": 0.821
         },
         {
           "country": "Bangladesh",
           "x": 54.7,
-          "y": 0.67757
+          "y": 0.578
         },
         {
-          "country": "Belarus",
-          "x": 48.9,
-          "y": 0.920518
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 0.789
         },
         {
           "country": "Belgium",
           "x": 69.0,
-          "y": 0.901632
+          "y": 0.918
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 0.64
         },
         {
           "country": "Benin",
           "x": 58.5,
-          "y": 0.614969
+          "y": 0.391
         },
         {
-          "country": "Bhutan",
-          "x": 57.5,
-          "y": 0.681638
-        },
-        {
-          "country": "Bosnia and Herzegovina",
-          "x": 63.5,
-          "y": 0.781187
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 0.745
         },
         {
           "country": "Botswana",
           "x": 69.9,
-          "y": 0.541231
+          "y": 0.665
         },
         {
           "country": "Brazil",
           "x": 55.1,
-          "y": 0.793803
+          "y": 0.709
         },
         {
           "country": "Brunei",
           "x": 67.0,
-          "y": 0.877961
+          "y": 0.688
         },
         {
           "country": "Bulgaria",
           "x": 68.8,
-          "y": 0.820623
+          "y": 0.766
         },
         {
-          "country": "Burkina Faso",
-          "x": 51.0,
-          "y": 0.467919
+          "country": "Burma",
+          "x": 43.7,
+          "y": 0.552
         },
         {
           "country": "Burundi",
           "x": 39.7,
-          "y": 0.509038
+          "y": 0.387
         },
         {
           "country": "Cambodia",
           "x": 58.2,
-          "y": 0.631052
+          "y": 0.494
         },
         {
           "country": "Cameroon",
           "x": 52.1,
-          "y": 0.581432
+          "y": 0.59
         },
         {
           "country": "Canada",
           "x": 75.5,
-          "y": 0.914801
-        },
-        {
-          "country": "Central African Republic",
-          "x": 42.8,
-          "y": 0.304667
-        },
-        {
-          "country": "Chad",
-          "x": 52.2,
-          "y": 0.354039
-        },
-        {
-          "country": "Chile",
-          "x": 73.2,
-          "y": 0.866786
+          "y": 0.906
         },
         {
           "country": "China",
           "x": 49.0,
-          "y": 0.875853
+          "y": 0.693
         },
         {
           "country": "Colombia",
           "x": 59.8,
-          "y": 0.857358
-        },
-        {
-          "country": "Comoros",
-          "x": 51.4,
-          "y": 0.544902
-        },
-        {
-          "country": "DR Congo",
-          "x": 47.3,
-          "y": 0.60879
-        },
-        {
-          "country": "Congo",
-          "x": 48.6,
-          "y": 0.594185
+          "y": 0.696
         },
         {
           "country": "Costa Rica",
           "x": 68.6,
-          "y": 0.874382
+          "y": 0.74
         },
         {
           "country": "Ivory Coast",
           "x": 57.8,
-          "y": 0.537156
+          "y": 0.422
         },
         {
           "country": "Croatia",
           "x": 68.7,
-          "y": 0.892686
+          "y": 0.844
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 0.754
         },
         {
           "country": "Cyprus",
           "x": 73.2,
-          "y": 0.90584
+          "y": 0.866
         },
         {
           "country": "Czech Republic",
           "x": 72.9,
-          "y": 0.904274
+          "y": 0.885
         },
         {
           "country": "Denmark",
           "x": 79.1,
-          "y": 0.892974
-        },
-        {
-          "country": "Dominica",
-          "x": 55.3,
-          "y": 0.826441
+          "y": 0.932
         },
         {
           "country": "Dominican Republic",
           "x": 64.3,
-          "y": 0.791597
+          "y": 0.682
         },
         {
           "country": "Ecuador",
           "x": 55.8,
-          "y": 0.862442
+          "y": 0.712
         },
         {
           "country": "Egypt",
           "x": 50.9,
-          "y": 0.764233
+          "y": 0.687
         },
         {
           "country": "El Salvador",
           "x": 56.6,
-          "y": 0.729993
+          "y": 0.569
         },
         {
           "country": "Estonia",
           "x": 78.9,
-          "y": 0.898931
+          "y": 0.894
         },
         {
           "country": "Swaziland",
           "x": 56.4,
-          "y": 0.428248
-        },
-        {
-          "country": "Ethiopia",
-          "x": 48.1,
-          "y": 0.520429
+          "y": 0.606
         },
         {
           "country": "Fiji",
           "x": 59.1,
-          "y": 0.755553
+          "y": 0.73
         },
         {
           "country": "Finland",
           "x": 77.0,
-          "y": 0.916447
+          "y": 0.931
         },
         {
           "country": "France",
           "x": 64.4,
-          "y": 0.920177
+          "y": 0.834
         },
         {
           "country": "Gabon",
           "x": 56.3,
-          "y": 0.550369
+          "y": 0.664
         },
         {
           "country": "Gambia",
           "x": 56.8,
-          "y": 0.634673
-        },
-        {
-          "country": "Georgia",
-          "x": 69.0,
-          "y": 0.862378
+          "y": 0.4
         },
         {
           "country": "Germany",
           "x": 71.6,
-          "y": 0.888708
+          "y": 0.957
         },
         {
           "country": "Ghana",
           "x": 56.0,
-          "y": 0.808005
+          "y": 0.536
         },
         {
           "country": "Greece",
           "x": 60.6,
-          "y": 0.885926
+          "y": 0.88
         },
         {
           "country": "Guatemala",
           "x": 63.4,
-          "y": 0.647499
+          "y": 0.488
         },
         {
           "country": "Guinea",
           "x": 54.6,
-          "y": 0.466241
+          "y": 0.362
         },
         {
           "country": "Guyana",
           "x": 58.2,
-          "y": 0.813596
+          "y": 0.649
         },
         {
           "country": "Haiti",
           "x": 46.1,
-          "y": 0.758533
+          "y": 0.496
         },
         {
           "country": "Honduras",
           "x": 59.6,
-          "y": 0.639336
+          "y": 0.52
         },
         {
           "country": "Hungary",
           "x": 61.4,
-          "y": 0.86377
+          "y": 0.827
         },
         {
           "country": "Iceland",
           "x": 72.8,
-          "y": 0.897351
+          "y": 0.959
         },
         {
           "country": "India",
           "x": 53.0,
-          "y": 0.741664
+          "y": 0.569
         },
         {
           "country": "Indonesia",
           "x": 65.2,
-          "y": 0.825891
+          "y": 0.673
         },
         {
           "country": "Iran",
           "x": 42.5,
-          "y": 0.78997
+          "y": 0.75
         },
         {
           "country": "Ireland",
           "x": 83.1,
-          "y": 0.926703
+          "y": 0.889
         },
         {
           "country": "Israel",
           "x": 69.9,
-          "y": 0.91753
+          "y": 0.866
         },
         {
           "country": "Italy",
           "x": 60.9,
-          "y": 0.883379
+          "y": 0.821
         },
         {
           "country": "Jamaica",
           "x": 68.7,
-          "y": 0.759643
+          "y": 0.654
         },
         {
           "country": "Japan",
           "x": 70.2,
-          "y": 0.909323
+          "y": 0.852
         },
         {
           "country": "Jordan",
           "x": 59.4,
-          "y": 0.742921
+          "y": 0.699
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 0.826
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 0.572
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 0.879
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 0.684
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 0.76
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 0.904
+        },
+        {
+          "country": "Lesotho",
+          "x": 54.1,
+          "y": 0.559
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 0.905
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 0.826
+        },
+        {
+          "country": "Malawi",
+          "x": 50.9,
+          "y": 0.494
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 0.718
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 0.25
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 0.382
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 0.739
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 0.71
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 0.809
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 0.717
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 0.607
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 0.427
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 0.568
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 0.501
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 0.919
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 0.931
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 0.592
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 0.244
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 0.935
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 0.367
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 0.723
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 0.474
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 0.682
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 0.745
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 0.654
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 0.881
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 0.786
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 0.706
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 0.782
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 0.849
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 0.479
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 0.724
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 0.798
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 0.35
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 0.786
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 0.368
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 0.867
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 0.843
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 0.913
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 0.783
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 0.848
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 0.754
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 0.365
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 0.922
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 0.924
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 0.678
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 0.426
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 0.727
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 0.546
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 0.671
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 0.794
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 0.527
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 0.904
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 0.937
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 0.908
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 0.784
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 0.696
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 0.644
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 0.549
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 0.6
         }
       ],
       "trend_line": {
-        "slope": 0.009784,
-        "intercept": 0.1595,
+        "slope": 0.010077,
+        "intercept": 0.0809,
         "x_range": [
-          39.7,
-          83.1
+          25.4,
+          84.1
         ]
       }
     },
@@ -15778,8 +16058,8 @@
   "comparison": {
     "economic_freedom_clear_wins": 7,
     "equality_clear_wins": 2,
-    "democracy_clear_wins": 1,
-    "ties": 6,
+    "democracy_clear_wins": 0,
+    "ties": 7,
     "metrics": [
       {
         "metric": "GDP per Capita",
@@ -16150,28 +16430,28 @@
         "metric_id": "Education_Index",
         "higher_better": true,
         "economic_freedom": {
-          "correlation": 0.61,
-          "effective": 0.61,
-          "p_value": 1.6279461660052583e-08,
+          "correlation": 0.6459,
+          "effective": 0.6459,
+          "p_value": 2.400896025466289e-16,
           "significant": true,
-          "n": 71
+          "n": 127
         },
         "equality": {
-          "correlation": -0.2853,
-          "effective": 0.2853,
-          "p_value": 0.044605489884804686,
+          "correlation": -0.3933,
+          "effective": 0.3933,
+          "p_value": 0.00021456448743266388,
           "significant": true,
-          "n": 50,
+          "n": 84,
           "inverted": true
         },
         "democracy": {
-          "correlation": 0.6943,
-          "effective": 0.6943,
-          "p_value": 3.693496603053396e-11,
+          "correlation": 0.6309,
+          "effective": 0.6309,
+          "p_value": 5.2234791498812666e-15,
           "significant": true,
-          "n": 69
+          "n": 123
         },
-        "winner": "democracy"
+        "winner": "tie"
       },
       {
         "metric": "Gender Inequality",
