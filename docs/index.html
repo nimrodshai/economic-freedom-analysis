@@ -1136,7 +1136,7 @@
             color: var(--text-muted);
             min-width: 70px;
         }
-        .comparison-bar-col[data-label="Freedom"]::before { content: "Freedom"; color: var(--success); }
+        .comparison-bar-col[data-label="Economic Freedom"]::before { content: "Economic\AFreedom"; white-space: pre-wrap; color: var(--success); }
         .comparison-bar-col[data-label="Equality"]::before { content: "Equality"; color: var(--danger); }
         .comparison-bar-col[data-label="Democracy"]::before { content: "Democracy"; color: #3b82f6; }
         .comparison-winner {
@@ -3163,23 +3163,26 @@
                 const demN = m.democracy ? m.democracy.n : 0;
                 const eqRawCorr = m.equality.correlation; // Raw Gini correlation
 
-                // Create array of bars and sort by correlation (largest to smallest)
+                // Create array of bars in fixed order: Democracy, Economic Freedom, Equality
                 const bars = [
-                    { label: 'Economic Freedom', cssClass: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
-                    { label: 'Equality', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
-                    { label: 'Democracy', cssClass: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation }
-                ].sort((a, b) => (b.value || 0) - (a.value || 0));
+                    { label: 'Democracy', cssClass: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation },
+                    { label: 'Economic<br>Freedom', cssClass: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
+                    { label: 'Equality', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr }
+                ];
+
+                // Sort a copy to determine winner/loser for conclusion text
+                const sortedBars = [...bars].sort((a, b) => (b.value || 0) - (a.value || 0));
 
                 const invertedLabel = !m.higher_better ? ' <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">(inverted)</span>' : '';
 
                 // Determine winner and second place for conclusion
-                const winner = bars[0].label;
-                const winnerCss = bars[0].cssClass;
+                const winner = sortedBars[0].label.replace('<br>', ' ');
+                const winnerCss = sortedBars[0].cssClass;
                 const isTie = m.winner === 'tie';
                 // For ties, show the two top predictors; otherwise show winner vs last place
-                const secondIdx = isTie ? 1 : bars.length - 1;
-                const secondPredictor = bars[secondIdx].label;
-                const secondCss = bars[secondIdx].cssClass;
+                const secondIdx = isTie ? 1 : sortedBars.length - 1;
+                const secondPredictor = sortedBars[secondIdx].label.replace('<br>', ' ');
+                const secondCss = sortedBars[secondIdx].cssClass;
                 const conclusion = generateConclusion(m, winner, winnerCss, secondPredictor, secondCss, isTie);
 
                 html += `
@@ -3195,8 +3198,9 @@
                 bars.forEach(bar => {
                     const width = bar.value ? Math.round(bar.value * 100) : 0;
                     const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})` : 'N/A';
+                    const dataLabel = bar.cssClass === 'freedom' ? 'Economic Freedom' : bar.label;
                     html += `
-                        <div class="comparison-bar-col" data-label="${bar.cssClass === 'freedom' ? 'Freedom' : bar.label}">
+                        <div class="comparison-bar-col" data-label="${dataLabel}">
                             <div class="comparison-bar-wrapper">
                                 <div class="comparison-bar-track">
                                     <div class="${bar.fillClass}" style="width: ${width}%;"></div>
