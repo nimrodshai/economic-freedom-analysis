@@ -1303,16 +1303,7 @@
             font-size: 0.85rem;
             text-align: center;
             margin-top: 4px;
-        }
-
-        .results-bar-stats .wins {
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        .results-bar-stats .ties {
-            color: #3b82f6;
-            font-weight: 600;
+            line-height: 1.4;
         }
 
         .comparison-verdict {
@@ -3418,7 +3409,7 @@
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--success);">Freedom</span>
-                            <div class="results-bar-stats"><span class="wins">${efClearWins} wins</span> · <span class="ties">${freedomTies} ties</span></div>
+                            <div class="results-bar-stats" style="color: var(--success);">${efClearWins} wins<br>${freedomTies} ties</div>
                         </div>
                         <div class="results-bar-col">
                             <div class="results-bar-container">
@@ -3429,7 +3420,7 @@
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
-                            <div class="results-bar-stats"><span class="wins">${demClearWins} wins</span> · <span class="ties">${democracyTies} ties</span></div>
+                            <div class="results-bar-stats" style="color: #3b82f6;">${demClearWins} wins<br>${democracyTies} ties</div>
                         </div>
                         <div class="results-bar-col">
                             <div class="results-bar-container">
@@ -3440,7 +3431,7 @@
                                 </div>
                             </div>
                             <span class="results-bar-label" style="color: var(--danger);">Equality</span>
-                            <div class="results-bar-stats"><span class="wins">${eqClearWins} wins</span> · <span class="ties">${equalityTies} ties</span></div>
+                            <div class="results-bar-stats" style="color: var(--danger);">${eqClearWins} wins<br>${equalityTies} ties</div>
                         </div>
                     </div>
                 </div>
