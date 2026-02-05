@@ -1847,6 +1847,186 @@ class DataFetcher:
 
         return pd.DataFrame()
 
+    def fetch_lgbt_legal_status(self):
+        """
+        Fetch legal status of same-sex sexual acts from Our World in Data API.
+        Source: https://ourworldindata.org/grapher/same-sex-sexual-acts-equaldex
+        Data: Equaldex (2025), ~200 countries
+        Converted to score: Legal=100, Illegal=0 (with gradations for partial)
+        Higher values = better LGBT rights.
+        """
+        print("Fetching LGBT Legal Status (OWID API)...")
+
+        try:
+            # Fetch metadata to get entity (country) mapping
+            meta_url = "https://api.ourworldindata.org/v1/indicators/1025391.metadata.json"
+            meta_response = self.session.get(meta_url, timeout=30)
+
+            # Fetch data
+            data_url = "https://api.ourworldindata.org/v1/indicators/1025391.data.json"
+            data_response = self.session.get(data_url, timeout=30)
+
+            if meta_response.status_code == 200 and data_response.status_code == 200:
+                metadata = meta_response.json()
+                data = data_response.json()
+
+                # Build entity ID to name mapping
+                entities = {e['id']: e['name'] for e in metadata['dimensions']['entities']['values']}
+                years = {y['id']: y['id'] for y in metadata['dimensions']['years']['values']}
+
+                # Value mapping: 0=Legal, 1=Varies, 2=Ambiguous, 3=Male illegal, 4=Illegal prison, 5=Illegal death
+                score_map = {
+                    0: 100,  # Legal
+                    1: 50,   # Varies by region
+                    2: 25,   # Ambiguous
+                    3: 25,   # Male illegal, female legal
+                    4: 0,    # Illegal, prison
+                    5: 0     # Illegal, death penalty
+                }
+
+                # Parse data - format is parallel arrays
+                values = data.get('values', [])
+                entity_ids = data.get('entities', [])
+                year_ids = data.get('years', [])
+
+                # Build dataframe
+                records = []
+                for i in range(len(values)):
+                    entity_id = entity_ids[i]
+                    year = year_ids[i]
+                    value = values[i]
+
+                    # Map string value to score
+                    value_map = {
+                        'Legal': 100,
+                        'Varies by region': 50,
+                        'Ambiguous': 25,
+                        'Male illegal, female legal or uncertain': 25,
+                        'Illegal, prison or other penalty': 0,
+                        'Illegal, death penalty': 0
+                    }
+                    score = value_map.get(value, None)
+
+                    if entity_id in entities and score is not None:
+                        records.append({
+                            'Country': entities[entity_id],
+                            'Year': year,
+                            'Score': score
+                        })
+
+                df = pd.DataFrame(records)
+
+                # Get most recent year for each country
+                df = df.sort_values('Year', ascending=False).drop_duplicates('Country')
+
+                result = pd.DataFrame({
+                    'Country': df['Country'].apply(self._normalize_country_name),
+                    'LGBT_Legal_Status_Score': df['Score']
+                })
+                result = result.dropna(subset=['Country', 'LGBT_Legal_Status_Score'])
+
+                if len(result) > 50:
+                    result.to_csv(f"{self.cache_dir}/lgbt_legal_status.csv", index=False)
+                    print(f"  Successfully fetched {len(result)} countries from Our World in Data API")
+                    return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID API: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/lgbt_legal_status.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached LGBT Legal Status data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch LGBT Legal Status data")
+
+    def fetch_same_sex_marriage(self):
+        """
+        Fetch same-sex marriage legal status from Our World in Data API (Equaldex).
+        Source: https://ourworldindata.org/grapher/marriage-same-sex-partners-equaldex
+        Data: Equaldex (2025), ~195 countries
+        Converted to graduated score: Legal=100, Banned=0
+        Higher values = better LGBT marriage rights.
+        """
+        print("Fetching Same-Sex Marriage Status (OWID API)...")
+
+        try:
+            # Fetch metadata to get entity (country) mapping
+            meta_url = "https://api.ourworldindata.org/v1/indicators/1025390.metadata.json"
+            meta_response = self.session.get(meta_url, timeout=30)
+
+            # Fetch data
+            data_url = "https://api.ourworldindata.org/v1/indicators/1025390.data.json"
+            data_response = self.session.get(data_url, timeout=30)
+
+            if meta_response.status_code == 200 and data_response.status_code == 200:
+                metadata = meta_response.json()
+                data = data_response.json()
+
+                # Build entity ID to name mapping
+                entities = {e['id']: e['name'] for e in metadata['dimensions']['entities']['values']}
+
+                # Value mapping from API metadata:
+                # 0=Legal, 1=Civil union, 2=Foreign recognized, 3=Unregistered cohabitation,
+                # 4=Varies by region, 5=Ambiguous, 6=Unrecognized, 7=Banned
+                value_map = {
+                    'Legal': 100,
+                    'Civil union or other partnership': 75,
+                    'Foreign same-sex marriages recognized only': 50,
+                    'Varies by region': 50,
+                    'Unregistered cohabitation': 40,
+                    'Ambiguous': 25,
+                    'Unrecognized': 25,
+                    'Banned': 0
+                }
+
+                # Parse data - format is parallel arrays
+                values = data.get('values', [])
+                entity_ids = data.get('entities', [])
+                year_ids = data.get('years', [])
+
+                # Build dataframe
+                records = []
+                for i in range(len(values)):
+                    entity_id = entity_ids[i]
+                    year = year_ids[i]
+                    value = values[i]
+
+                    score = value_map.get(value, None)
+
+                    if entity_id in entities and score is not None:
+                        records.append({
+                            'Country': entities[entity_id],
+                            'Year': year,
+                            'Score': score
+                        })
+
+                df = pd.DataFrame(records)
+
+                # Get most recent year for each country
+                df = df.sort_values('Year', ascending=False).drop_duplicates('Country')
+
+                result = pd.DataFrame({
+                    'Country': df['Country'].apply(self._normalize_country_name),
+                    'Same_Sex_Marriage_Score': df['Score']
+                })
+                result = result.dropna(subset=['Country', 'Same_Sex_Marriage_Score'])
+
+                if len(result) > 50:
+                    result.to_csv(f"{self.cache_dir}/same_sex_marriage.csv", index=False)
+                    print(f"  Successfully fetched {len(result)} countries from Our World in Data API")
+                    return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID API: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/same_sex_marriage.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Same-Sex Marriage data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch Same-Sex Marriage data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""
@@ -1876,7 +2056,9 @@ class CorrelationAnalyzer:
             ('Mental_Health_Index', 'Mental Health Access (WHO)', 'higher is better'),
             ('Education_Index', 'Education Index (UNDP)', 'higher is better'),
             ('Gender_Inequality_Index', 'Gender Inequality (UNDP)', 'lower is better'),
-            ('Poverty_Rate', 'Poverty Rate (World Bank)', 'lower is better')
+            ('Poverty_Rate', 'Poverty Rate (World Bank)', 'lower is better'),
+            ('LGBT_Legal_Status_Score', 'LGBT Legal Status', 'higher is better'),
+            ('Same_Sex_Marriage_Score', 'Same-Sex Marriage Rights', 'higher is better')
         ]
 
         for col, display_name, interpretation in indices:

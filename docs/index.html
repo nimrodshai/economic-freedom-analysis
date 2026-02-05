@@ -2186,7 +2186,7 @@
                                     <th colspan="2" style="background: #f1f5f9;"></th>
                                     <th style="background: #f1f5f9;"></th>
                                     <th colspan="3" style="background: #eef0fd; border-bottom: 2px solid var(--primary);">Method Indices</th>
-                                    <th colspan="11" style="background: #ecf5ef; border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
+                                    <th colspan="13" style="background: #ecf5ef; border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
                                 </tr>
                                 <tr>
                                     <th style="width: 50px;">#</th>
@@ -2211,6 +2211,8 @@
                                     <th onclick="sortTable('education_index')">Education <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('gender_inequality_index')">Gender Ineq. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('poverty_rate')">Poverty <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('lgbt_legal_status_score')">LGBT Legal <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('same_sex_marriage_score')">Same-Sex Marriage <span class="sort-icon">↕</span></th>
                                 </tr>
                             </thead>
                             <tbody id="tableBody">
@@ -2282,6 +2284,8 @@
                     <td>${formatLinkedValue(c.name, 'education_index', c.education_index, 3)}</td>
                     <td>${formatLinkedValue(c.name, 'gender_inequality_index', c.gender_inequality_index, 3)}</td>
                     <td>${formatLinkedValue(c.name, 'poverty_rate', c.poverty_rate, 1)}</td>
+                    <td>${formatLinkedValue(c.name, 'lgbt_legal_status_score', c.lgbt_legal_status_score, 0)}</td>
+                    <td>${formatLinkedValue(c.name, 'same_sex_marriage_score', c.same_sex_marriage_score, 0)}</td>
                 </tr>
             `).join('');
 
@@ -2408,7 +2412,9 @@
                 'mental_health_index': `https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'education_index': `https://globaldatalab.org/shdi/table/edindex/${iso3}/?levels=1`,
                 'gender_inequality_index': `https://ourworldindata.org/grapher/gender-inequality-index-from-the-human-development-report?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
-                'poverty_rate': `https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`
+                'poverty_rate': `https://ourworldindata.org/grapher/share-of-population-in-extreme-poverty?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'lgbt_legal_status_score': `https://ourworldindata.org/grapher/legal-status-of-same-sex-sexual-acts?tab=table&time=latest&country=~${iso3}`,
+                'same_sex_marriage_score': `https://ourworldindata.org/grapher/marriage-same-sex-partners-equaldex?tab=table&time=latest&country=~${iso3}`
             };
             return urls[field] || '#';
         }
@@ -2443,7 +2449,8 @@
             const headers = ['Country', 'Region', 'Economic Freedom', 'Gini Index', 'Democracy',
                            'GDP per Capita', 'Life Expectancy', 'Infant Mortality', 'Anti-Corruption',
                            'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Crime', 'Homicide Rate',
-                           'Healthy Life Expectancy', 'Mental Health Access', 'Education Index', 'Gender Inequality', 'Poverty Rate'];
+                           'Healthy Life Expectancy', 'Mental Health Access', 'Education Index', 'Gender Inequality', 'Poverty Rate',
+                           'LGBT Legal Status', 'Same-Sex Marriage'];
 
             const rows = allData.map(c => [
                 c.name,
@@ -2466,7 +2473,9 @@
                 c.mental_health_index ?? '',
                 c.education_index ?? '',
                 c.gender_inequality_index ?? '',
-                c.poverty_rate ?? ''
+                c.poverty_rate ?? '',
+                c.lgbt_legal_status_score ?? '',
+                c.same_sex_marriage_score ?? ''
             ]);
 
             const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
@@ -2595,6 +2604,22 @@
                     desc: "Psychiatrists working in the mental health sector per 100,000 population. Measures access to mental health services.",
                     url: "https://ourworldindata.org/grapher/psychiatrists-working-in-the-mental-health-sector",
                     indices: ["Mental Health Access"]
+                },
+                {
+                    name: "LGBT Legal Status",
+                    org: "Our World in Data (Mignot)",
+                    year: 2025,
+                    desc: "Legal status of same-sex sexual acts across countries. Score: Legal (100) or Illegal (0).",
+                    url: "https://ourworldindata.org/grapher/legal-status-of-same-sex-sexual-acts",
+                    indices: ["LGBT Legal Status"]
+                },
+                {
+                    name: "Same-Sex Marriage",
+                    org: "Our World in Data (Equaldex)",
+                    year: 2025,
+                    desc: "Legal recognition of same-sex marriage and partnerships. Graduated scale from Legal (100) to Banned (0).",
+                    url: "https://ourworldindata.org/grapher/marriage-same-sex-partners-equaldex",
+                    indices: ["Same-Sex Marriage Rights"]
                 }
             ];
 
@@ -3089,7 +3114,8 @@
                 'Health & Longevity': ['Life_Expectancy', 'HALE', 'Infant_Mortality', 'Mental_Health_Index'],
                 'Wealth & Opportunity': ['GDP_Per_Capita', 'Purchasing_Power_Index', 'Social_Mobility_Score', 'Poverty_Rate'],
                 'Safety & Environment': ['Crime_Index', 'Homicide_Rate', 'Pollution_Index', 'Corruption_Score'],
-                'Development & Well-being': ['HDI', 'Happiness_Score', 'Education_Index', 'Gender_Inequality_Index']
+                'Development & Well-being': ['HDI', 'Happiness_Score', 'Education_Index', 'Gender_Inequality_Index'],
+                'Rights & Equality': ['LGBT_Legal_Status_Score', 'Same_Sex_Marriage_Score']
             };
 
             // Group metrics by category
@@ -3109,7 +3135,8 @@
                 'Health & Longevity': '❤️',
                 'Wealth & Opportunity': '💰',
                 'Safety & Environment': '🛡️',
-                'Development & Well-being': '⭐'
+                'Development & Well-being': '⭐',
+                'Rights & Equality': '⚖️'
             };
 
             // Render metrics grouped by category

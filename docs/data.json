@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-02-01T16:12:07.161288Z",
+    "generated_at": "2026-02-05T08:02:00.701587Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -58,6 +58,14 @@
       {
         "name": "World Bank Poverty Rate",
         "year": 2022
+      },
+      {
+        "name": "Our World in Data - LGBT Legal Status (Mignot)",
+        "year": 2025
+      },
+      {
+        "name": "Our World in Data - Same-Sex Marriage (Equaldex)",
+        "year": 2025
       }
     ]
   },
@@ -217,6 +225,17 @@
       "unit": "%"
     },
     {
+      "id": "Same_Sex_Marriage_Score",
+      "name": "Same-Sex Marriage Rights",
+      "correlation": 0.4508,
+      "effective_correlation": 0.4508,
+      "p_value": 5.463820748526677e-10,
+      "significant": true,
+      "n": 172,
+      "higher_better": true,
+      "unit": "0-100"
+    },
+    {
       "id": "Crime_Index",
       "name": "Crime (Numbeo)",
       "correlation": -0.4379,
@@ -225,6 +244,17 @@
       "significant": true,
       "n": 131,
       "higher_better": false,
+      "unit": "0-100"
+    },
+    {
+      "id": "LGBT_Legal_Status_Score",
+      "name": "LGBT Legal Status",
+      "correlation": 0.3278,
+      "effective_correlation": 0.3278,
+      "p_value": 1.1390169585489183e-05,
+      "significant": true,
+      "n": 172,
+      "higher_better": true,
       "unit": "0-100"
     },
     {
@@ -260,6 +290,8 @@
       "education_index": 0.74,
       "gender_inequality_index": 0.107,
       "poverty_rate": 0.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 29.4,
       "democracy_score": 6.2
     },
@@ -283,6 +315,8 @@
       "education_index": 0.663,
       "gender_inequality_index": 0.443,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 3.55
     },
@@ -306,6 +340,8 @@
       "education_index": null,
       "gender_inequality_index": 0.515,
       "poverty_rate": 39.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 4.05
     },
@@ -329,6 +365,8 @@
       "education_index": null,
       "gender_inequality_index": 0.264,
       "poverty_rate": 1.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 42.4,
       "democracy_score": 6.51
     },
@@ -352,6 +390,8 @@
       "education_index": 0.778,
       "gender_inequality_index": 0.18,
       "poverty_rate": 1.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 27.2,
       "democracy_score": 5.35
     },
@@ -375,6 +415,8 @@
       "education_index": 0.924,
       "gender_inequality_index": 0.056,
       "poverty_rate": 1.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.8,
       "democracy_score": 8.85
     },
@@ -398,6 +440,8 @@
       "education_index": 0.865,
       "gender_inequality_index": 0.033,
       "poverty_rate": 0.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 31.2,
       "democracy_score": 8.28
     },
@@ -421,6 +465,8 @@
       "education_index": null,
       "gender_inequality_index": 0.315,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.8
     },
@@ -444,6 +490,8 @@
       "education_index": null,
       "gender_inequality_index": 0.325,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -467,6 +515,8 @@
       "education_index": 0.821,
       "gender_inequality_index": 0.165,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.45
     },
@@ -490,6 +540,8 @@
       "education_index": 0.578,
       "gender_inequality_index": 0.487,
       "poverty_rate": 5.9,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 30.9,
       "democracy_score": 4.44
     },
@@ -513,6 +565,8 @@
       "education_index": 0.789,
       "gender_inequality_index": 0.297,
       "poverty_rate": 1.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -536,6 +590,8 @@
       "education_index": null,
       "gender_inequality_index": 0.08,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 24.4,
       "democracy_score": 1.99
     },
@@ -559,6 +615,8 @@
       "education_index": 0.918,
       "gender_inequality_index": 0.031,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 26.8,
       "democracy_score": 7.64
     },
@@ -582,6 +640,8 @@
       "education_index": 0.64,
       "gender_inequality_index": 0.428,
       "poverty_rate": 1.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -605,6 +665,8 @@
       "education_index": 0.391,
       "gender_inequality_index": 0.573,
       "poverty_rate": 27.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 34.4,
       "democracy_score": 4.44
     },
@@ -628,6 +690,8 @@
       "education_index": null,
       "gender_inequality_index": 0.278,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": 28.5,
       "democracy_score": 5.65
     },
@@ -651,6 +715,8 @@
       "education_index": 0.745,
       "gender_inequality_index": 0.419,
       "poverty_rate": 2.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 42.1,
       "democracy_score": 4.26
     },
@@ -674,6 +740,8 @@
       "education_index": null,
       "gender_inequality_index": 0.157,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 5.06
     },
@@ -697,6 +765,8 @@
       "education_index": 0.665,
       "gender_inequality_index": 0.49,
       "poverty_rate": 21.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 7.63
     },
@@ -720,6 +790,8 @@
       "education_index": 0.709,
       "gender_inequality_index": 0.39,
       "poverty_rate": 3.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 51.6,
       "democracy_score": 6.49
     },
@@ -743,6 +815,8 @@
       "education_index": 0.688,
       "gender_inequality_index": 0.257,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -766,6 +840,8 @@
       "education_index": 0.766,
       "gender_inequality_index": 0.208,
       "poverty_rate": 1.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 39.5,
       "democracy_score": 6.34
     },
@@ -789,6 +865,8 @@
       "education_index": null,
       "gender_inequality_index": 0.555,
       "poverty_rate": 42.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 37.4,
       "democracy_score": 2.55
     },
@@ -812,6 +890,8 @@
       "education_index": 0.552,
       "gender_inequality_index": 0.478,
       "poverty_rate": 10.3,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 0.96
     },
@@ -835,6 +915,8 @@
       "education_index": 0.387,
       "gender_inequality_index": 0.501,
       "poverty_rate": 74.2,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 37.5,
       "democracy_score": 2.13
     },
@@ -858,6 +940,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 14.6,
+      "lgbt_legal_status_score": null,
+      "same_sex_marriage_score": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -881,6 +965,8 @@
       "education_index": 0.494,
       "gender_inequality_index": 0.506,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.94
     },
@@ -904,6 +990,8 @@
       "education_index": 0.59,
       "gender_inequality_index": 0.558,
       "poverty_rate": 26.7,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 42.2,
       "democracy_score": 2.56
     },
@@ -927,6 +1015,8 @@
       "education_index": 0.906,
       "gender_inequality_index": 0.052,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 31.1,
       "democracy_score": 8.69
     },
@@ -950,6 +1040,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 71.6,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 43.0,
       "democracy_score": 1.18
     },
@@ -973,6 +1065,8 @@
       "education_index": null,
       "gender_inequality_index": 0.67,
       "poverty_rate": 39.5,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 37.4,
       "democracy_score": 1.89
     },
@@ -996,6 +1090,8 @@
       "education_index": null,
       "gender_inequality_index": 0.102,
       "poverty_rate": 0.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 43.0,
       "democracy_score": 7.83
     },
@@ -1019,6 +1115,8 @@
       "education_index": 0.693,
       "gender_inequality_index": 0.132,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 36.0,
       "democracy_score": 2.11
     },
@@ -1042,6 +1140,8 @@
       "education_index": 0.696,
       "gender_inequality_index": 0.393,
       "poverty_rate": 7.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 53.9,
       "democracy_score": 6.35
     },
@@ -1065,6 +1165,8 @@
       "education_index": null,
       "gender_inequality_index": 0.501,
       "poverty_rate": 31.4,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -1088,6 +1190,8 @@
       "education_index": null,
       "gender_inequality_index": 0.604,
       "poverty_rate": 85.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 44.7,
       "democracy_score": 1.92
     },
@@ -1111,6 +1215,8 @@
       "education_index": null,
       "gender_inequality_index": 0.565,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.79
     },
@@ -1134,6 +1240,8 @@
       "education_index": 0.74,
       "gender_inequality_index": 0.217,
       "poverty_rate": 1.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 45.8,
       "democracy_score": 8.29
     },
@@ -1157,6 +1265,8 @@
       "education_index": 0.422,
       "gender_inequality_index": 0.589,
       "poverty_rate": 20.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 35.3,
       "democracy_score": 4.22
     },
@@ -1180,6 +1290,8 @@
       "education_index": 0.844,
       "gender_inequality_index": 0.074,
       "poverty_rate": 0.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 30.1,
       "democracy_score": 6.5
     },
@@ -1203,6 +1315,8 @@
       "education_index": 0.754,
       "gender_inequality_index": 0.296,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": null,
       "democracy_score": 2.58
     },
@@ -1226,6 +1340,8 @@
       "education_index": 0.866,
       "gender_inequality_index": 0.252,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 31.8,
       "democracy_score": 7.38
     },
@@ -1249,6 +1365,8 @@
       "education_index": 0.885,
       "gender_inequality_index": 0.088,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 25.7,
       "democracy_score": 8.08
     },
@@ -1272,6 +1390,8 @@
       "education_index": 0.932,
       "gender_inequality_index": 0.003,
       "poverty_rate": 0.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 29.9,
       "democracy_score": 9.28
     },
@@ -1295,6 +1415,8 @@
       "education_index": null,
       "gender_inequality_index": 0.481,
       "poverty_rate": 25.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 2.7
     },
@@ -1318,6 +1440,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -1341,6 +1465,8 @@
       "education_index": 0.682,
       "gender_inequality_index": 0.417,
       "poverty_rate": 0.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 39.0,
       "democracy_score": 6.62
     },
@@ -1364,6 +1490,8 @@
       "education_index": 0.712,
       "gender_inequality_index": 0.358,
       "poverty_rate": 7.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 45.2,
       "democracy_score": 5.24
     },
@@ -1387,6 +1515,8 @@
       "education_index": 0.687,
       "gender_inequality_index": 0.398,
       "poverty_rate": 1.4,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 28.5,
       "democracy_score": 2.79
     },
@@ -1410,6 +1540,8 @@
       "education_index": 0.569,
       "gender_inequality_index": 0.362,
       "poverty_rate": 4.6,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 39.8,
       "democracy_score": 4.61
     },
@@ -1433,6 +1565,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 8.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": 38.5,
       "democracy_score": 1.92
     },
@@ -1456,6 +1590,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 1.97
     },
@@ -1479,6 +1615,8 @@
       "education_index": 0.894,
       "gender_inequality_index": 0.061,
       "poverty_rate": 0.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 30.7,
       "democracy_score": 8.13
     },
@@ -1502,6 +1640,8 @@
       "education_index": 0.606,
       "gender_inequality_index": 0.484,
       "poverty_rate": 44.5,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 2.6
     },
@@ -1525,6 +1665,8 @@
       "education_index": null,
       "gender_inequality_index": 0.497,
       "poverty_rate": 38.6,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 31.1,
       "democracy_score": 3.24
     },
@@ -1548,6 +1690,8 @@
       "education_index": 0.73,
       "gender_inequality_index": 0.35,
       "poverty_rate": 4.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 5.39
     },
@@ -1571,6 +1715,8 @@
       "education_index": 0.931,
       "gender_inequality_index": 0.021,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 27.4,
       "democracy_score": 9.3
     },
@@ -1594,6 +1740,8 @@
       "education_index": 0.834,
       "gender_inequality_index": 0.034,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 31.8,
       "democracy_score": 7.99
     },
@@ -1617,6 +1765,8 @@
       "education_index": 0.664,
       "gender_inequality_index": 0.505,
       "poverty_rate": 3.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.18
     },
@@ -1640,6 +1790,8 @@
       "education_index": 0.4,
       "gender_inequality_index": 0.578,
       "poverty_rate": 22.0,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 38.8,
       "democracy_score": 4.47
     },
@@ -1663,6 +1815,8 @@
       "education_index": null,
       "gender_inequality_index": 0.257,
       "poverty_rate": 4.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 33.9,
       "democracy_score": 4.7
     },
@@ -1686,6 +1840,8 @@
       "education_index": 0.957,
       "gender_inequality_index": 0.057,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 32.4,
       "democracy_score": 8.73
     },
@@ -1709,6 +1865,8 @@
       "education_index": 0.536,
       "gender_inequality_index": 0.514,
       "poverty_rate": 39.0,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 6.24
     },
@@ -1732,6 +1890,8 @@
       "education_index": 0.88,
       "gender_inequality_index": 0.103,
       "poverty_rate": 0.6,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.4,
       "democracy_score": 8.07
     },
@@ -1755,6 +1915,8 @@
       "education_index": 0.488,
       "gender_inequality_index": 0.48,
       "poverty_rate": 9.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 45.2,
       "democracy_score": 4.55
     },
@@ -1778,6 +1940,8 @@
       "education_index": 0.362,
       "gender_inequality_index": 0.609,
       "poverty_rate": 11.7,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.04
     },
@@ -1801,6 +1965,8 @@
       "education_index": null,
       "gender_inequality_index": 0.632,
       "poverty_rate": 39.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 33.4,
       "democracy_score": 2.03
     },
@@ -1824,6 +1990,8 @@
       "education_index": 0.649,
       "gender_inequality_index": 0.427,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 6.11
     },
@@ -1847,6 +2015,8 @@
       "education_index": 0.496,
       "gender_inequality_index": 0.618,
       "poverty_rate": 40.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 2.74
     },
@@ -1870,6 +2040,8 @@
       "education_index": 0.52,
       "gender_inequality_index": 0.437,
       "poverty_rate": 15.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 45.7,
       "democracy_score": 4.98
     },
@@ -1893,6 +2065,8 @@
       "education_index": 0.827,
       "gender_inequality_index": 0.213,
       "poverty_rate": 0.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": null,
       "democracy_score": 6.51
     },
@@ -1916,6 +2090,8 @@
       "education_index": 0.959,
       "gender_inequality_index": 0.024,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": null,
       "democracy_score": 9.38
     },
@@ -1939,6 +2115,8 @@
       "education_index": 0.569,
       "gender_inequality_index": 0.403,
       "poverty_rate": 5.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 40.0,
       "gini_index": 25.5,
       "democracy_score": 7.29
     },
@@ -1962,6 +2140,8 @@
       "education_index": 0.673,
       "gender_inequality_index": 0.423,
       "poverty_rate": 5.4,
+      "lgbt_legal_status_score": 50.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 34.9,
       "democracy_score": 6.44
     },
@@ -1985,6 +2165,8 @@
       "education_index": 0.75,
       "gender_inequality_index": 0.482,
       "poverty_rate": 2.5,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 35.9,
       "democracy_score": 1.96
     },
@@ -2008,6 +2190,8 @@
       "education_index": 0.889,
       "gender_inequality_index": 0.054,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 29.0,
       "democracy_score": 9.19
     },
@@ -2031,6 +2215,8 @@
       "education_index": 0.866,
       "gender_inequality_index": 0.08,
       "poverty_rate": 0.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 37.9,
       "democracy_score": 7.8
     },
@@ -2054,6 +2240,8 @@
       "education_index": 0.821,
       "gender_inequality_index": 0.043,
       "poverty_rate": 0.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 34.3,
       "democracy_score": 7.58
     },
@@ -2077,6 +2265,8 @@
       "education_index": 0.654,
       "gender_inequality_index": 0.358,
       "poverty_rate": 1.4,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 39.9,
       "democracy_score": 6.74
     },
@@ -2100,6 +2290,8 @@
       "education_index": 0.852,
       "gender_inequality_index": 0.059,
       "poverty_rate": 1.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 32.3,
       "democracy_score": 8.48
     },
@@ -2123,6 +2315,8 @@
       "education_index": 0.699,
       "gender_inequality_index": 0.433,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 3.28
     },
@@ -2146,6 +2340,8 @@
       "education_index": 0.826,
       "gender_inequality_index": 0.182,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 29.2,
       "democracy_score": 3.08
     },
@@ -2169,6 +2365,8 @@
       "education_index": 0.572,
       "gender_inequality_index": 0.526,
       "poverty_rate": 46.9,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 37.7,
       "democracy_score": 5.05
     },
@@ -2192,6 +2390,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 6.1,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2215,6 +2415,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 1.08
     },
@@ -2238,6 +2440,8 @@
       "education_index": 0.879,
       "gender_inequality_index": 0.038,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 50.0,
       "gini_index": 32.9,
       "democracy_score": 7.75
     },
@@ -2261,6 +2465,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 10.0,
+      "lgbt_legal_status_score": null,
+      "same_sex_marriage_score": null,
       "gini_index": 38.3,
       "democracy_score": null
     },
@@ -2284,6 +2490,8 @@
       "education_index": 0.684,
       "gender_inequality_index": 0.188,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.78
     },
@@ -2307,6 +2515,8 @@
       "education_index": 0.76,
       "gender_inequality_index": 0.34,
       "poverty_rate": 2.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 27.2,
       "democracy_score": 3.52
     },
@@ -2330,6 +2540,8 @@
       "education_index": null,
       "gender_inequality_index": 0.475,
       "poverty_rate": 15.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 1.71
     },
@@ -2353,6 +2565,8 @@
       "education_index": 0.904,
       "gender_inequality_index": 0.117,
       "poverty_rate": 0.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 34.0,
       "democracy_score": 7.66
     },
@@ -2376,6 +2590,8 @@
       "education_index": null,
       "gender_inequality_index": 0.36,
       "poverty_rate": 5.9,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 35.3,
       "democracy_score": 3.56
     },
@@ -2399,6 +2615,8 @@
       "education_index": 0.559,
       "gender_inequality_index": 0.534,
       "poverty_rate": 41.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 6.06
     },
@@ -2422,6 +2640,8 @@
       "education_index": null,
       "gender_inequality_index": 0.646,
       "poverty_rate": 33.6,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 5.57
     },
@@ -2445,6 +2665,8 @@
       "education_index": 0.905,
       "gender_inequality_index": 0.07,
       "poverty_rate": 1.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 36.0,
       "democracy_score": 7.59
     },
@@ -2468,6 +2690,8 @@
       "education_index": 0.826,
       "gender_inequality_index": 0.044,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.6,
       "democracy_score": 8.88
     },
@@ -2491,6 +2715,8 @@
       "education_index": null,
       "gender_inequality_index": 0.584,
       "poverty_rate": 69.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 36.8,
       "democracy_score": 5.33
     },
@@ -2514,6 +2740,8 @@
       "education_index": 0.494,
       "gender_inequality_index": 0.581,
       "poverty_rate": 75.4,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 5.85
     },
@@ -2537,6 +2765,8 @@
       "education_index": 0.718,
       "gender_inequality_index": 0.172,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 40.7,
       "democracy_score": 7.11
     },
@@ -2560,6 +2790,8 @@
       "education_index": null,
       "gender_inequality_index": 0.309,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2583,6 +2815,8 @@
       "education_index": 0.25,
       "gender_inequality_index": 0.612,
       "poverty_rate": 36.1,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 35.7,
       "democracy_score": 2.4
     },
@@ -2606,6 +2840,8 @@
       "education_index": null,
       "gender_inequality_index": 0.111,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 34.6,
       "democracy_score": 7.93
     },
@@ -2629,6 +2865,8 @@
       "education_index": 0.382,
       "gender_inequality_index": 0.603,
       "poverty_rate": 10.2,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 3.96
     },
@@ -2652,6 +2890,8 @@
       "education_index": 0.739,
       "gender_inequality_index": 0.352,
       "poverty_rate": 0.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 8.23
     },
@@ -2675,6 +2915,8 @@
       "education_index": 0.71,
       "gender_inequality_index": 0.358,
       "poverty_rate": 2.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 43.5,
       "democracy_score": 5.32
     },
@@ -2698,6 +2940,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 26.1,
+      "lgbt_legal_status_score": null,
+      "same_sex_marriage_score": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -2721,6 +2965,8 @@
       "education_index": 0.809,
       "gender_inequality_index": 0.146,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 26.8,
       "democracy_score": 6.04
     },
@@ -2744,6 +2990,8 @@
       "education_index": 0.717,
       "gender_inequality_index": 0.284,
       "poverty_rate": 0.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 31.4,
       "democracy_score": 6.53
     },
@@ -2767,6 +3015,8 @@
       "education_index": null,
       "gender_inequality_index": 0.121,
       "poverty_rate": 2.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 75.0,
       "gini_index": 34.3,
       "democracy_score": 6.73
     },
@@ -2790,6 +3040,8 @@
       "education_index": 0.607,
       "gender_inequality_index": 0.438,
       "poverty_rate": 3.7,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 4.97
     },
@@ -2813,6 +3065,8 @@
       "education_index": 0.427,
       "gender_inequality_index": 0.479,
       "poverty_rate": 81.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 49.6,
       "democracy_score": 3.38
     },
@@ -2836,6 +3090,8 @@
       "education_index": 0.568,
       "gender_inequality_index": 0.448,
       "poverty_rate": 22.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 50.0,
       "gini_index": null,
       "democracy_score": 6.48
     },
@@ -2859,6 +3115,8 @@
       "education_index": 0.501,
       "gender_inequality_index": 0.487,
       "poverty_rate": 2.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": 30.0,
       "democracy_score": 4.6
     },
@@ -2882,6 +3140,8 @@
       "education_index": 0.919,
       "gender_inequality_index": 0.013,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 25.7,
       "democracy_score": 9.0
     },
@@ -2905,6 +3165,8 @@
       "education_index": 0.931,
       "gender_inequality_index": 0.082,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": null,
       "democracy_score": 9.61
     },
@@ -2928,6 +3190,8 @@
       "education_index": 0.592,
       "gender_inequality_index": 0.408,
       "poverty_rate": 6.6,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.09
     },
@@ -2951,6 +3215,8 @@
       "education_index": 0.244,
       "gender_inequality_index": 0.591,
       "poverty_rate": 60.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": 32.9,
       "democracy_score": 2.26
     },
@@ -2974,6 +3240,8 @@
       "education_index": null,
       "gender_inequality_index": 0.677,
       "poverty_rate": 41.8,
+      "lgbt_legal_status_score": 50.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 33.9,
       "democracy_score": 4.16
     },
@@ -2997,6 +3265,8 @@
       "education_index": null,
       "gender_inequality_index": 0.112,
       "poverty_rate": 3.9,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 6.28
     },
@@ -3020,6 +3290,8 @@
       "education_index": 0.935,
       "gender_inequality_index": 0.004,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 26.5,
       "democracy_score": 9.81
     },
@@ -3043,6 +3315,8 @@
       "education_index": null,
       "gender_inequality_index": 0.222,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 3.05
     },
@@ -3066,6 +3340,8 @@
       "education_index": 0.367,
       "gender_inequality_index": 0.536,
       "poverty_rate": 16.5,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 2.84
     },
@@ -3089,6 +3365,8 @@
       "education_index": 0.723,
       "gender_inequality_index": 0.374,
       "poverty_rate": 3.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 49.7,
       "democracy_score": 6.84
     },
@@ -3112,6 +3390,8 @@
       "education_index": 0.474,
       "gender_inequality_index": 0.584,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 5.97
     },
@@ -3135,6 +3415,8 @@
       "education_index": 0.682,
       "gender_inequality_index": 0.412,
       "poverty_rate": 2.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 44.2,
       "democracy_score": 5.92
     },
@@ -3158,6 +3440,8 @@
       "education_index": 0.745,
       "gender_inequality_index": 0.34,
       "poverty_rate": 5.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 40.1,
       "democracy_score": 5.69
     },
@@ -3181,6 +3465,8 @@
       "education_index": 0.654,
       "gender_inequality_index": 0.351,
       "poverty_rate": 5.3,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 39.3,
       "democracy_score": 6.63
     },
@@ -3204,6 +3490,8 @@
       "education_index": 0.881,
       "gender_inequality_index": 0.081,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 40.0,
       "gini_index": 28.5,
       "democracy_score": 7.4
     },
@@ -3227,6 +3515,8 @@
       "education_index": 0.786,
       "gender_inequality_index": 0.076,
       "poverty_rate": 0.4,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.9,
       "democracy_score": 8.08
     },
@@ -3250,6 +3540,8 @@
       "education_index": 0.706,
       "gender_inequality_index": 0.195,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 3.17
     },
@@ -3273,6 +3565,8 @@
       "education_index": 0.782,
       "gender_inequality_index": 0.227,
       "poverty_rate": 0.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 29.8,
       "democracy_score": 5.99
     },
@@ -3296,6 +3590,8 @@
       "education_index": 0.849,
       "gender_inequality_index": 0.169,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 50.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 33.0,
       "democracy_score": 2.03
     },
@@ -3319,6 +3615,8 @@
       "education_index": 0.479,
       "gender_inequality_index": 0.394,
       "poverty_rate": 38.6,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 39.4,
       "democracy_score": 3.34
     },
@@ -3342,6 +3640,8 @@
       "education_index": null,
       "gender_inequality_index": 0.327,
       "poverty_rate": 0.1,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3365,6 +3665,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3388,6 +3690,8 @@
       "education_index": 0.724,
       "gender_inequality_index": 0.416,
       "poverty_rate": 4.5,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3411,6 +3715,8 @@
       "education_index": null,
       "gender_inequality_index": 0.492,
       "poverty_rate": 13.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3434,6 +3740,8 @@
       "education_index": 0.798,
       "gender_inequality_index": 0.228,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.08
     },
@@ -3457,6 +3765,8 @@
       "education_index": 0.35,
       "gender_inequality_index": 0.49,
       "poverty_rate": 17.9,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 36.2,
       "democracy_score": 5.93
     },
@@ -3480,6 +3790,8 @@
       "education_index": 0.786,
       "gender_inequality_index": 0.117,
       "poverty_rate": 2.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 32.8,
       "democracy_score": 6.26
     },
@@ -3503,6 +3815,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 0.7,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3526,6 +3840,8 @@
       "education_index": 0.368,
       "gender_inequality_index": 0.566,
       "poverty_rate": 41.5,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 4.32
     },
@@ -3549,6 +3865,8 @@
       "education_index": 0.867,
       "gender_inequality_index": 0.031,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 6.18
     },
@@ -3572,6 +3890,8 @@
       "education_index": 0.843,
       "gender_inequality_index": 0.176,
       "poverty_rate": 0.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 40.0,
       "gini_index": 23.8,
       "democracy_score": 7.21
     },
@@ -3595,6 +3915,8 @@
       "education_index": 0.913,
       "gender_inequality_index": 0.042,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 24.7,
       "democracy_score": 7.82
     },
@@ -3618,6 +3940,8 @@
       "education_index": null,
       "gender_inequality_index": 0.478,
       "poverty_rate": 40.3,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3641,6 +3965,8 @@
       "education_index": 0.783,
       "gender_inequality_index": 0.388,
       "poverty_rate": 31.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": null,
       "democracy_score": 7.16
     },
@@ -3664,6 +3990,8 @@
       "education_index": 0.848,
       "gender_inequality_index": 0.043,
       "poverty_rate": 0.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.4,
       "democracy_score": 8.13
     },
@@ -3687,6 +4015,8 @@
       "education_index": 0.754,
       "gender_inequality_index": 0.367,
       "poverty_rate": 2.7,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 6.19
     },
@@ -3710,6 +4040,8 @@
       "education_index": 0.365,
       "gender_inequality_index": 0.588,
       "poverty_rate": 10.1,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 1.46
     },
@@ -3733,6 +4065,8 @@
       "education_index": null,
       "gender_inequality_index": 0.391,
       "poverty_rate": 2.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 50.0,
       "gini_index": 39.2,
       "democracy_score": 6.79
     },
@@ -3756,6 +4090,8 @@
       "education_index": 0.922,
       "gender_inequality_index": 0.007,
       "poverty_rate": 0.8,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 29.3,
       "democracy_score": 9.39
     },
@@ -3779,6 +4115,8 @@
       "education_index": 0.924,
       "gender_inequality_index": 0.01,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.8,
       "democracy_score": 9.32
     },
@@ -3802,6 +4140,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": null,
       "democracy_score": 8.78
     },
@@ -3825,6 +4165,8 @@
       "education_index": 0.678,
       "gender_inequality_index": 0.258,
       "poverty_rate": 6.1,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 36.1,
       "democracy_score": 1.83
     },
@@ -3848,6 +4190,8 @@
       "education_index": 0.426,
       "gender_inequality_index": 0.504,
       "poverty_rate": 51.3,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 5.2
     },
@@ -3871,6 +4215,8 @@
       "education_index": 0.727,
       "gender_inequality_index": 0.288,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 33.5,
       "democracy_score": 6.27
     },
@@ -3894,6 +4240,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": 43.9,
+      "lgbt_legal_status_score": null,
+      "same_sex_marriage_score": null,
       "gini_index": null,
       "democracy_score": null
     },
@@ -3917,6 +4265,8 @@
       "education_index": 0.546,
       "gender_inequality_index": 0.564,
       "poverty_rate": 34.4,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 37.9,
       "democracy_score": 2.99
     },
@@ -3940,6 +4290,8 @@
       "education_index": null,
       "gender_inequality_index": 0.444,
       "poverty_rate": 0.4,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 27.1,
       "democracy_score": null
     },
@@ -3963,6 +4315,8 @@
       "education_index": null,
       "gender_inequality_index": 0.262,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": null,
       "democracy_score": 7.09
     },
@@ -3986,6 +4340,8 @@
       "education_index": 0.671,
       "gender_inequality_index": 0.238,
       "poverty_rate": 0.7,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 25.0,
       "gini_index": 33.7,
       "democracy_score": 4.71
     },
@@ -4009,6 +4365,8 @@
       "education_index": 0.794,
       "gender_inequality_index": 0.227,
       "poverty_rate": 0.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 44.5,
       "democracy_score": 4.26
     },
@@ -4032,6 +4390,8 @@
       "education_index": null,
       "gender_inequality_index": null,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 1.66
     },
@@ -4055,6 +4415,8 @@
       "education_index": 0.527,
       "gender_inequality_index": 0.524,
       "poverty_rate": 59.8,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 4.49
     },
@@ -4078,6 +4440,8 @@
       "education_index": 0.904,
       "gender_inequality_index": 0.04,
       "poverty_rate": 0.0,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 3.07
     },
@@ -4101,6 +4465,8 @@
       "education_index": 0.937,
       "gender_inequality_index": 0.083,
       "poverty_rate": 0.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 32.4,
       "democracy_score": 8.34
     },
@@ -4124,6 +4490,8 @@
       "education_index": 0.908,
       "gender_inequality_index": 0.169,
       "poverty_rate": 1.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 41.8,
       "democracy_score": 7.85
     },
@@ -4147,6 +4515,8 @@
       "education_index": 0.784,
       "gender_inequality_index": 0.218,
       "poverty_rate": 0.2,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 100.0,
       "gini_index": 40.0,
       "democracy_score": 8.67
     },
@@ -4170,6 +4540,8 @@
       "education_index": null,
       "gender_inequality_index": 0.291,
       "poverty_rate": 2.7,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 34.6,
       "democracy_score": 2.1
     },
@@ -4193,6 +4565,8 @@
       "education_index": null,
       "gender_inequality_index": 0.556,
       "poverty_rate": 19.5,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": null
     },
@@ -4216,6 +4590,8 @@
       "education_index": 0.696,
       "gender_inequality_index": 0.512,
       "poverty_rate": null,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.25
     },
@@ -4239,6 +4615,8 @@
       "education_index": 0.644,
       "gender_inequality_index": 0.299,
       "poverty_rate": 1.6,
+      "lgbt_legal_status_score": 100.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 36.1,
       "democracy_score": 2.62
     },
@@ -4262,6 +4640,8 @@
       "education_index": 0.549,
       "gender_inequality_index": 0.524,
       "poverty_rate": 71.7,
+      "lgbt_legal_status_score": 0.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": 51.5,
       "democracy_score": 5.73
     },
@@ -4285,6 +4665,8 @@
       "education_index": 0.6,
       "gender_inequality_index": 0.519,
       "poverty_rate": 49.2,
+      "lgbt_legal_status_score": 25.0,
+      "same_sex_marriage_score": 0.0,
       "gini_index": null,
       "democracy_score": 2.98
     }
@@ -16046,19 +16428,1763 @@
           83.7
         ]
       }
+    },
+    "LGBT_Legal_Status_Score": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 100.0
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 0.0
+        },
+        {
+          "country": "Angola",
+          "x": 55.0,
+          "y": 100.0
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 100.0
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 100.0
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 100.0
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 100.0
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 100.0
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 100.0
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 100.0
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 0.0
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 100.0
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 100.0
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 100.0
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 100.0
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 100.0
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 100.0
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 100.0
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 100.0
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 100.0
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 100.0
+        },
+        {
+          "country": "Brunei",
+          "x": 67.0,
+          "y": 0.0
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 100.0
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 100.0
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 0.0
+        },
+        {
+          "country": "Burundi",
+          "x": 39.7,
+          "y": 0.0
+        },
+        {
+          "country": "Cambodia",
+          "x": 58.2,
+          "y": 100.0
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 0.0
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 100.0
+        },
+        {
+          "country": "Central African Republic",
+          "x": 42.8,
+          "y": 100.0
+        },
+        {
+          "country": "Chad",
+          "x": 52.2,
+          "y": 0.0
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 100.0
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 100.0
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 100.0
+        },
+        {
+          "country": "Comoros",
+          "x": 51.4,
+          "y": 0.0
+        },
+        {
+          "country": "DR Congo",
+          "x": 47.3,
+          "y": 100.0
+        },
+        {
+          "country": "Congo",
+          "x": 48.6,
+          "y": 100.0
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 100.0
+        },
+        {
+          "country": "Ivory Coast",
+          "x": 57.8,
+          "y": 100.0
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 100.0
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 100.0
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 100.0
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 100.0
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 100.0
+        },
+        {
+          "country": "Djibouti",
+          "x": 55.7,
+          "y": 100.0
+        },
+        {
+          "country": "Dominica",
+          "x": 55.3,
+          "y": 100.0
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 100.0
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 100.0
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 100.0
+        },
+        {
+          "country": "Equatorial Guinea",
+          "x": 47.7,
+          "y": 100.0
+        },
+        {
+          "country": "Eritrea",
+          "x": 38.6,
+          "y": 0.0
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 100.0
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 25.0
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 0.0
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 100.0
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 100.0
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 100.0
+        },
+        {
+          "country": "Gabon",
+          "x": 56.3,
+          "y": 100.0
+        },
+        {
+          "country": "Gambia",
+          "x": 56.8,
+          "y": 0.0
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 100.0
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 100.0
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 25.0
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 100.0
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 100.0
+        },
+        {
+          "country": "Guinea",
+          "x": 54.6,
+          "y": 0.0
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 100.0
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 25.0
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 100.0
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 100.0
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 100.0
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 100.0
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 100.0
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 50.0
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 0.0
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 100.0
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 100.0
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 100.0
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 25.0
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 100.0
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 100.0
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 100.0
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 0.0
+        },
+        {
+          "country": "Kiribati",
+          "x": 50.9,
+          "y": 25.0
+        },
+        {
+          "country": "North Korea",
+          "x": 3.0,
+          "y": 100.0
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 100.0
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 0.0
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 100.0
+        },
+        {
+          "country": "Laos",
+          "x": 51.1,
+          "y": 100.0
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 100.0
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 25.0
+        },
+        {
+          "country": "Lesotho",
+          "x": 54.1,
+          "y": 100.0
+        },
+        {
+          "country": "Liberia",
+          "x": 48.5,
+          "y": 0.0
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 100.0
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 100.0
+        },
+        {
+          "country": "Madagascar",
+          "x": 57.0,
+          "y": 100.0
+        },
+        {
+          "country": "Malawi",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 0.0
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 0.0
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 0.0
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 100.0
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 0.0
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 100.0
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 100.0
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 100.0
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 100.0
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 100.0
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 0.0
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 100.0
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 100.0
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 100.0
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 100.0
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 100.0
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 100.0
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 100.0
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 50.0
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 100.0
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 100.0
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 0.0
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 0.0
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 100.0
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 25.0
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 100.0
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 100.0
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 100.0
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 100.0
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 100.0
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 0.0
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 100.0
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 50.0
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 100.0
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 25.0
+        },
+        {
+          "country": "Saint Vincent and the Grenadines",
+          "x": 60.1,
+          "y": 0.0
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 25.0
+        },
+        {
+          "country": "Sao Tome and Principe",
+          "x": 60.4,
+          "y": 100.0
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 0.0
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 0.0
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 100.0
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 100.0
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 25.0
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 100.0
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 100.0
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 100.0
+        },
+        {
+          "country": "Solomon Islands",
+          "x": 56.3,
+          "y": 0.0
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 100.0
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 100.0
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 0.0
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 0.0
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 100.0
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 100.0
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 100.0
+        },
+        {
+          "country": "Taiwan",
+          "x": 79.7,
+          "y": 100.0
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 100.0
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 0.0
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 100.0
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 0.0
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 25.0
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 0.0
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 0.0
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 100.0
+        },
+        {
+          "country": "Turkmenistan",
+          "x": 47.1,
+          "y": 25.0
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 0.0
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 0.0
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 100.0
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 100.0
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 100.0
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 25.0
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 100.0
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 100.0
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 100.0
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 25.0
+        }
+      ],
+      "trend_line": {
+        "slope": 1.234882,
+        "intercept": -3.3801,
+        "x_range": [
+          3.0,
+          84.1
+        ]
+      }
+    },
+    "Same_Sex_Marriage_Score": {
+      "points": [
+        {
+          "country": "Albania",
+          "x": 66.6,
+          "y": 0.0
+        },
+        {
+          "country": "Algeria",
+          "x": 47.5,
+          "y": 0.0
+        },
+        {
+          "country": "Angola",
+          "x": 55.0,
+          "y": 0.0
+        },
+        {
+          "country": "Argentina",
+          "x": 54.2,
+          "y": 100.0
+        },
+        {
+          "country": "Armenia",
+          "x": 65.4,
+          "y": 0.0
+        },
+        {
+          "country": "Australia",
+          "x": 79.3,
+          "y": 100.0
+        },
+        {
+          "country": "Austria",
+          "x": 69.7,
+          "y": 100.0
+        },
+        {
+          "country": "Azerbaijan",
+          "x": 62.5,
+          "y": 0.0
+        },
+        {
+          "country": "Bahamas",
+          "x": 63.2,
+          "y": 0.0
+        },
+        {
+          "country": "Bahrain",
+          "x": 65.6,
+          "y": 0.0
+        },
+        {
+          "country": "Bangladesh",
+          "x": 54.7,
+          "y": 0.0
+        },
+        {
+          "country": "Barbados",
+          "x": 68.9,
+          "y": 0.0
+        },
+        {
+          "country": "Belarus",
+          "x": 48.9,
+          "y": 0.0
+        },
+        {
+          "country": "Belgium",
+          "x": 69.0,
+          "y": 100.0
+        },
+        {
+          "country": "Belize",
+          "x": 64.2,
+          "y": 25.0
+        },
+        {
+          "country": "Benin",
+          "x": 58.5,
+          "y": 0.0
+        },
+        {
+          "country": "Bhutan",
+          "x": 57.5,
+          "y": 25.0
+        },
+        {
+          "country": "Bolivia",
+          "x": 44.1,
+          "y": 75.0
+        },
+        {
+          "country": "Bosnia and Herzegovina",
+          "x": 63.5,
+          "y": 0.0
+        },
+        {
+          "country": "Botswana",
+          "x": 69.9,
+          "y": 25.0
+        },
+        {
+          "country": "Brazil",
+          "x": 55.1,
+          "y": 100.0
+        },
+        {
+          "country": "Brunei",
+          "x": 67.0,
+          "y": 0.0
+        },
+        {
+          "country": "Bulgaria",
+          "x": 68.8,
+          "y": 0.0
+        },
+        {
+          "country": "Burkina Faso",
+          "x": 51.0,
+          "y": 0.0
+        },
+        {
+          "country": "Burma",
+          "x": 43.7,
+          "y": 25.0
+        },
+        {
+          "country": "Burundi",
+          "x": 39.7,
+          "y": 0.0
+        },
+        {
+          "country": "Cambodia",
+          "x": 58.2,
+          "y": 0.0
+        },
+        {
+          "country": "Cameroon",
+          "x": 52.1,
+          "y": 0.0
+        },
+        {
+          "country": "Canada",
+          "x": 75.5,
+          "y": 100.0
+        },
+        {
+          "country": "Central African Republic",
+          "x": 42.8,
+          "y": 0.0
+        },
+        {
+          "country": "Chad",
+          "x": 52.2,
+          "y": 0.0
+        },
+        {
+          "country": "Chile",
+          "x": 73.2,
+          "y": 100.0
+        },
+        {
+          "country": "China",
+          "x": 49.0,
+          "y": 75.0
+        },
+        {
+          "country": "Colombia",
+          "x": 59.8,
+          "y": 100.0
+        },
+        {
+          "country": "Comoros",
+          "x": 51.4,
+          "y": 0.0
+        },
+        {
+          "country": "DR Congo",
+          "x": 47.3,
+          "y": 0.0
+        },
+        {
+          "country": "Congo",
+          "x": 48.6,
+          "y": 0.0
+        },
+        {
+          "country": "Costa Rica",
+          "x": 68.6,
+          "y": 100.0
+        },
+        {
+          "country": "Ivory Coast",
+          "x": 57.8,
+          "y": 0.0
+        },
+        {
+          "country": "Croatia",
+          "x": 68.7,
+          "y": 75.0
+        },
+        {
+          "country": "Cuba",
+          "x": 25.4,
+          "y": 100.0
+        },
+        {
+          "country": "Cyprus",
+          "x": 73.2,
+          "y": 75.0
+        },
+        {
+          "country": "Czech Republic",
+          "x": 72.9,
+          "y": 75.0
+        },
+        {
+          "country": "Denmark",
+          "x": 79.1,
+          "y": 100.0
+        },
+        {
+          "country": "Djibouti",
+          "x": 55.7,
+          "y": 25.0
+        },
+        {
+          "country": "Dominica",
+          "x": 55.3,
+          "y": 25.0
+        },
+        {
+          "country": "Dominican Republic",
+          "x": 64.3,
+          "y": 0.0
+        },
+        {
+          "country": "Ecuador",
+          "x": 55.8,
+          "y": 100.0
+        },
+        {
+          "country": "Egypt",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "El Salvador",
+          "x": 56.6,
+          "y": 0.0
+        },
+        {
+          "country": "Equatorial Guinea",
+          "x": 47.7,
+          "y": 25.0
+        },
+        {
+          "country": "Eritrea",
+          "x": 38.6,
+          "y": 25.0
+        },
+        {
+          "country": "Estonia",
+          "x": 78.9,
+          "y": 100.0
+        },
+        {
+          "country": "Swaziland",
+          "x": 56.4,
+          "y": 25.0
+        },
+        {
+          "country": "Ethiopia",
+          "x": 48.1,
+          "y": 0.0
+        },
+        {
+          "country": "Fiji",
+          "x": 59.1,
+          "y": 0.0
+        },
+        {
+          "country": "Finland",
+          "x": 77.0,
+          "y": 100.0
+        },
+        {
+          "country": "France",
+          "x": 64.4,
+          "y": 100.0
+        },
+        {
+          "country": "Gabon",
+          "x": 56.3,
+          "y": 0.0
+        },
+        {
+          "country": "Gambia",
+          "x": 56.8,
+          "y": 0.0
+        },
+        {
+          "country": "Georgia",
+          "x": 69.0,
+          "y": 0.0
+        },
+        {
+          "country": "Germany",
+          "x": 71.6,
+          "y": 100.0
+        },
+        {
+          "country": "Ghana",
+          "x": 56.0,
+          "y": 0.0
+        },
+        {
+          "country": "Greece",
+          "x": 60.6,
+          "y": 100.0
+        },
+        {
+          "country": "Guatemala",
+          "x": 63.4,
+          "y": 0.0
+        },
+        {
+          "country": "Guinea",
+          "x": 54.6,
+          "y": 0.0
+        },
+        {
+          "country": "Guinea-Bissau",
+          "x": 43.6,
+          "y": 0.0
+        },
+        {
+          "country": "Guyana",
+          "x": 58.2,
+          "y": 0.0
+        },
+        {
+          "country": "Haiti",
+          "x": 46.1,
+          "y": 25.0
+        },
+        {
+          "country": "Honduras",
+          "x": 59.6,
+          "y": 0.0
+        },
+        {
+          "country": "Hungary",
+          "x": 61.4,
+          "y": 75.0
+        },
+        {
+          "country": "Iceland",
+          "x": 72.8,
+          "y": 100.0
+        },
+        {
+          "country": "India",
+          "x": 53.0,
+          "y": 40.0
+        },
+        {
+          "country": "Indonesia",
+          "x": 65.2,
+          "y": 0.0
+        },
+        {
+          "country": "Iran",
+          "x": 42.5,
+          "y": 0.0
+        },
+        {
+          "country": "Ireland",
+          "x": 83.1,
+          "y": 100.0
+        },
+        {
+          "country": "Israel",
+          "x": 69.9,
+          "y": 75.0
+        },
+        {
+          "country": "Italy",
+          "x": 60.9,
+          "y": 75.0
+        },
+        {
+          "country": "Jamaica",
+          "x": 68.7,
+          "y": 0.0
+        },
+        {
+          "country": "Japan",
+          "x": 70.2,
+          "y": 0.0
+        },
+        {
+          "country": "Jordan",
+          "x": 59.4,
+          "y": 0.0
+        },
+        {
+          "country": "Kazakhstan",
+          "x": 63.8,
+          "y": 0.0
+        },
+        {
+          "country": "Kenya",
+          "x": 54.8,
+          "y": 0.0
+        },
+        {
+          "country": "Kiribati",
+          "x": 50.9,
+          "y": 25.0
+        },
+        {
+          "country": "North Korea",
+          "x": 3.0,
+          "y": 0.0
+        },
+        {
+          "country": "South Korea",
+          "x": 74.0,
+          "y": 50.0
+        },
+        {
+          "country": "Kuwait",
+          "x": 59.9,
+          "y": 0.0
+        },
+        {
+          "country": "Kyrgyzstan",
+          "x": 55.6,
+          "y": 0.0
+        },
+        {
+          "country": "Laos",
+          "x": 51.1,
+          "y": 0.0
+        },
+        {
+          "country": "Latvia",
+          "x": 71.4,
+          "y": 75.0
+        },
+        {
+          "country": "Lebanon",
+          "x": 44.1,
+          "y": 0.0
+        },
+        {
+          "country": "Lesotho",
+          "x": 54.1,
+          "y": 0.0
+        },
+        {
+          "country": "Liberia",
+          "x": 48.5,
+          "y": 0.0
+        },
+        {
+          "country": "Lithuania",
+          "x": 74.6,
+          "y": 75.0
+        },
+        {
+          "country": "Luxembourg",
+          "x": 79.5,
+          "y": 100.0
+        },
+        {
+          "country": "Madagascar",
+          "x": 57.0,
+          "y": 0.0
+        },
+        {
+          "country": "Malawi",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "Malaysia",
+          "x": 67.1,
+          "y": 0.0
+        },
+        {
+          "country": "Maldives",
+          "x": 48.3,
+          "y": 0.0
+        },
+        {
+          "country": "Mali",
+          "x": 52.6,
+          "y": 0.0
+        },
+        {
+          "country": "Malta",
+          "x": 66.8,
+          "y": 100.0
+        },
+        {
+          "country": "Mauritania",
+          "x": 54.9,
+          "y": 0.0
+        },
+        {
+          "country": "Mauritius",
+          "x": 75.0,
+          "y": 25.0
+        },
+        {
+          "country": "Mexico",
+          "x": 61.3,
+          "y": 100.0
+        },
+        {
+          "country": "Moldova",
+          "x": 58.3,
+          "y": 0.0
+        },
+        {
+          "country": "Mongolia",
+          "x": 62.6,
+          "y": 0.0
+        },
+        {
+          "country": "Montenegro",
+          "x": 63.8,
+          "y": 75.0
+        },
+        {
+          "country": "Morocco",
+          "x": 60.3,
+          "y": 25.0
+        },
+        {
+          "country": "Mozambique",
+          "x": 50.7,
+          "y": 0.0
+        },
+        {
+          "country": "Namibia",
+          "x": 58.7,
+          "y": 50.0
+        },
+        {
+          "country": "Nepal",
+          "x": 52.5,
+          "y": 25.0
+        },
+        {
+          "country": "Netherlands",
+          "x": 78.2,
+          "y": 100.0
+        },
+        {
+          "country": "New Zealand",
+          "x": 78.1,
+          "y": 100.0
+        },
+        {
+          "country": "Nicaragua",
+          "x": 54.0,
+          "y": 0.0
+        },
+        {
+          "country": "Niger",
+          "x": 51.5,
+          "y": 25.0
+        },
+        {
+          "country": "Nigeria",
+          "x": 53.4,
+          "y": 0.0
+        },
+        {
+          "country": "Macedonia",
+          "x": 63.2,
+          "y": 0.0
+        },
+        {
+          "country": "Norway",
+          "x": 78.3,
+          "y": 100.0
+        },
+        {
+          "country": "Oman",
+          "x": 65.4,
+          "y": 0.0
+        },
+        {
+          "country": "Pakistan",
+          "x": 49.1,
+          "y": 25.0
+        },
+        {
+          "country": "Panama",
+          "x": 65.5,
+          "y": 0.0
+        },
+        {
+          "country": "Papua New Guinea",
+          "x": 52.5,
+          "y": 25.0
+        },
+        {
+          "country": "Paraguay",
+          "x": 65.2,
+          "y": 0.0
+        },
+        {
+          "country": "Peru",
+          "x": 65.9,
+          "y": 0.0
+        },
+        {
+          "country": "Philippines",
+          "x": 60.6,
+          "y": 0.0
+        },
+        {
+          "country": "Poland",
+          "x": 67.1,
+          "y": 40.0
+        },
+        {
+          "country": "Portugal",
+          "x": 70.5,
+          "y": 100.0
+        },
+        {
+          "country": "Qatar",
+          "x": 70.2,
+          "y": 0.0
+        },
+        {
+          "country": "Romania",
+          "x": 66.5,
+          "y": 0.0
+        },
+        {
+          "country": "Russia",
+          "x": 51.6,
+          "y": 0.0
+        },
+        {
+          "country": "Rwanda",
+          "x": 54.8,
+          "y": 0.0
+        },
+        {
+          "country": "Saint Lucia",
+          "x": 67.0,
+          "y": 25.0
+        },
+        {
+          "country": "Saint Vincent and the Grenadines",
+          "x": 60.1,
+          "y": 0.0
+        },
+        {
+          "country": "Samoa",
+          "x": 66.6,
+          "y": 25.0
+        },
+        {
+          "country": "Sao Tome and Principe",
+          "x": 60.4,
+          "y": 25.0
+        },
+        {
+          "country": "Saudi Arabia",
+          "x": 64.4,
+          "y": 0.0
+        },
+        {
+          "country": "Senegal",
+          "x": 56.4,
+          "y": 0.0
+        },
+        {
+          "country": "Serbia",
+          "x": 64.4,
+          "y": 0.0
+        },
+        {
+          "country": "Seychelles",
+          "x": 66.4,
+          "y": 25.0
+        },
+        {
+          "country": "Sierra Leone",
+          "x": 48.0,
+          "y": 0.0
+        },
+        {
+          "country": "Singapore",
+          "x": 84.1,
+          "y": 0.0
+        },
+        {
+          "country": "Slovakia",
+          "x": 68.4,
+          "y": 40.0
+        },
+        {
+          "country": "Slovenia",
+          "x": 68.3,
+          "y": 100.0
+        },
+        {
+          "country": "Solomon Islands",
+          "x": 56.3,
+          "y": 0.0
+        },
+        {
+          "country": "South Africa",
+          "x": 57.3,
+          "y": 100.0
+        },
+        {
+          "country": "Spain",
+          "x": 66.3,
+          "y": 100.0
+        },
+        {
+          "country": "Sri Lanka",
+          "x": 49.4,
+          "y": 25.0
+        },
+        {
+          "country": "Sudan",
+          "x": 35.3,
+          "y": 0.0
+        },
+        {
+          "country": "Suriname",
+          "x": 50.9,
+          "y": 50.0
+        },
+        {
+          "country": "Sweden",
+          "x": 77.9,
+          "y": 100.0
+        },
+        {
+          "country": "Switzerland",
+          "x": 83.7,
+          "y": 100.0
+        },
+        {
+          "country": "Taiwan",
+          "x": 79.7,
+          "y": 100.0
+        },
+        {
+          "country": "Tajikistan",
+          "x": 51.5,
+          "y": 0.0
+        },
+        {
+          "country": "Tanzania",
+          "x": 59.3,
+          "y": 0.0
+        },
+        {
+          "country": "Thailand",
+          "x": 60.6,
+          "y": 100.0
+        },
+        {
+          "country": "Togo",
+          "x": 52.3,
+          "y": 0.0
+        },
+        {
+          "country": "Tonga",
+          "x": 58.5,
+          "y": 0.0
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "x": 63.6,
+          "y": 25.0
+        },
+        {
+          "country": "Tunisia",
+          "x": 49.1,
+          "y": 25.0
+        },
+        {
+          "country": "Turkey",
+          "x": 56.1,
+          "y": 0.0
+        },
+        {
+          "country": "Turkmenistan",
+          "x": 47.1,
+          "y": 0.0
+        },
+        {
+          "country": "Uganda",
+          "x": 51.3,
+          "y": 0.0
+        },
+        {
+          "country": "UAE",
+          "x": 71.6,
+          "y": 0.0
+        },
+        {
+          "country": "United Kingdom",
+          "x": 69.3,
+          "y": 100.0
+        },
+        {
+          "country": "United States",
+          "x": 70.2,
+          "y": 100.0
+        },
+        {
+          "country": "Uruguay",
+          "x": 70.2,
+          "y": 100.0
+        },
+        {
+          "country": "Uzbekistan",
+          "x": 58.0,
+          "y": 0.0
+        },
+        {
+          "country": "Vanuatu",
+          "x": 61.8,
+          "y": 0.0
+        },
+        {
+          "country": "Venezuela",
+          "x": 27.6,
+          "y": 0.0
+        },
+        {
+          "country": "Vietnam",
+          "x": 65.2,
+          "y": 0.0
+        },
+        {
+          "country": "Zambia",
+          "x": 50.9,
+          "y": 0.0
+        },
+        {
+          "country": "Zimbabwe",
+          "x": 35.1,
+          "y": 0.0
+        }
+      ],
+      "trend_line": {
+        "slope": 1.593635,
+        "intercept": -64.3635,
+        "x_range": [
+          3.0,
+          84.1
+        ]
+      }
     }
   },
   "summary": {
-    "positive_correlations": 15,
+    "positive_correlations": 17,
     "negative_correlations": 0,
     "not_significant": 1,
-    "total_indices": 16,
+    "total_indices": 18,
     "verdict": "supports"
   },
   "comparison": {
     "economic_freedom_clear_wins": 7,
     "equality_clear_wins": 2,
-    "democracy_clear_wins": 0,
+    "democracy_clear_wins": 2,
     "ties": 7,
     "metrics": [
       {
@@ -16508,6 +18634,62 @@
           "n": 136
         },
         "winner": "economic_freedom"
+      },
+      {
+        "metric": "LGBT Legal Status",
+        "metric_id": "LGBT_Legal_Status_Score",
+        "higher_better": true,
+        "economic_freedom": {
+          "correlation": 0.3278,
+          "effective": 0.3278,
+          "p_value": 1.1390169585489183e-05,
+          "significant": true,
+          "n": 172
+        },
+        "equality": {
+          "correlation": -0.0773,
+          "effective": 0.0773,
+          "p_value": 0.43533680887199777,
+          "significant": false,
+          "n": 104,
+          "inverted": true
+        },
+        "democracy": {
+          "correlation": 0.3908,
+          "effective": 0.3908,
+          "p_value": 4.1817735917218343e-07,
+          "significant": true,
+          "n": 157
+        },
+        "winner": "democracy"
+      },
+      {
+        "metric": "Same-Sex Marriage Rights",
+        "metric_id": "Same_Sex_Marriage_Score",
+        "higher_better": true,
+        "economic_freedom": {
+          "correlation": 0.4508,
+          "effective": 0.4508,
+          "p_value": 5.463820748526677e-10,
+          "significant": true,
+          "n": 172
+        },
+        "equality": {
+          "correlation": -0.1115,
+          "effective": 0.1115,
+          "p_value": 0.2597200692236661,
+          "significant": false,
+          "n": 104,
+          "inverted": true
+        },
+        "democracy": {
+          "correlation": 0.6875,
+          "effective": 0.6875,
+          "p_value": 2.65312335566989e-23,
+          "significant": true,
+          "n": 157
+        },
+        "winner": "democracy"
       }
     ]
   }

@@ -210,6 +210,16 @@ def generate_web_data(output_dir="docs"):
         "Infant Mortality",
         f"{cache_dir}/infant_mortality.csv"
     )
+    lgbt_legal = safe_fetch(
+        fetcher.fetch_lgbt_legal_status,
+        "LGBT Legal Status",
+        f"{cache_dir}/lgbt_legal_status.csv"
+    )
+    same_sex_marriage = safe_fetch(
+        fetcher.fetch_same_sex_marriage,
+        "Same-Sex Marriage",
+        f"{cache_dir}/same_sex_marriage.csv"
+    )
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -232,7 +242,9 @@ def generate_web_data(output_dir="docs"):
         (education, 'Country'),
         (gender_inequality, 'Country'),
         (poverty, 'Country'),
-        (infant_mortality, 'Country')
+        (infant_mortality, 'Country'),
+        (lgbt_legal, 'Country'),
+        (same_sex_marriage, 'Country')
     ]
 
     for df, key in datasets:
@@ -275,7 +287,9 @@ def generate_web_data(output_dir="docs"):
                 {"name": "WHO Mental Health Atlas", "year": 2021},
                 {"name": "Global Data Lab Education Index", "year": 2022},
                 {"name": "UNDP Gender Inequality Index", "year": 2022},
-                {"name": "World Bank Poverty Rate", "year": 2022}
+                {"name": "World Bank Poverty Rate", "year": 2022},
+                {"name": "Our World in Data - LGBT Legal Status (Mignot)", "year": 2025},
+                {"name": "Our World in Data - Same-Sex Marriage (Equaldex)", "year": 2025}
             ]
         },
         "correlations": [],
@@ -301,7 +315,9 @@ def generate_web_data(output_dir="docs"):
         'Mental_Health_Index': {'display_name': 'Mental Health Access (WHO)', 'unit': 'per 100k', 'higher_better': True},
         'Education_Index': {'display_name': 'Education Index', 'unit': '0-1', 'higher_better': True},
         'Gender_Inequality_Index': {'display_name': 'Gender Inequality (UNDP)', 'unit': '0-1', 'higher_better': False},
-        'Poverty_Rate': {'display_name': 'Poverty Rate (World Bank)', 'unit': '%', 'higher_better': False}
+        'Poverty_Rate': {'display_name': 'Poverty Rate (World Bank)', 'unit': '%', 'higher_better': False},
+        'LGBT_Legal_Status_Score': {'display_name': 'LGBT Legal Status', 'unit': '0-100', 'higher_better': True},
+        'Same_Sex_Marriage_Score': {'display_name': 'Same-Sex Marriage Rights', 'unit': '0-100', 'higher_better': True}
     }
 
     for col, result in results.items():
@@ -406,7 +422,9 @@ def generate_web_data(output_dir="docs"):
         ('Mental_Health_Index', 'Mental Health Access', True),
         ('Education_Index', 'Education Index', True),
         ('Gender_Inequality_Index', 'Gender Inequality', False),
-        ('Poverty_Rate', 'Poverty Rate', False)
+        ('Poverty_Rate', 'Poverty Rate', False),
+        ('LGBT_Legal_Status_Score', 'LGBT Legal Status', True),
+        ('Same_Sex_Marriage_Score', 'Same-Sex Marriage Rights', True)
     ]
 
     comparison_data = []
