@@ -2007,7 +2007,7 @@
                 <!-- Comparison Section - What matters most? -->
                 <div class="page-break">
                     <h2>The Results</h2>
-                    <p>Longer bars = stronger link to better lives.</p>
+                    <p>Longer bars = stronger link to better lives. <span class="info-link" onclick="openCorrelationHelpModal()">Not a stats person? Click here.</span></p>
                 </div>
                 <div class="section-content">
                     <div id="comparisonSection"></div>
@@ -3535,6 +3535,18 @@
             document.body.style.top = '';
             window.scrollTo(0, scrollPosition);
         }
+        function openCorrelationHelpModal() {
+            scrollPosition = window.pageYOffset;
+            document.body.classList.add('modal-open');
+            document.body.style.top = `-${scrollPosition}px`;
+            document.getElementById('correlationHelpModal').classList.add('active');
+        }
+        function closeCorrelationHelpModal() {
+            document.getElementById('correlationHelpModal').classList.remove('active');
+            document.body.classList.remove('modal-open');
+            document.body.style.top = '';
+            window.scrollTo(0, scrollPosition);
+        }
 
         // Load data on page load
         loadData();
@@ -3633,6 +3645,50 @@
                         <strong>Happiness Score</strong> — Self-reported life satisfaction<br>
                         <strong>Education Index</strong> — Years and quality of schooling<br>
                         <strong>Gender Equality</strong> — Equal opportunities for women
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Correlation Help Modal -->
+    <div id="correlationHelpModal" class="modal-overlay" onclick="if(event.target === this) closeCorrelationHelpModal()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Understanding the Numbers</h3>
+                <button class="modal-close" onclick="closeCorrelationHelpModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--primary);">What are we measuring?</div>
+                    <p class="predictor-desc">
+                        We're checking if two things tend to go together. For example: Do countries with more economic freedom also tend to have healthier people?
+                    </p>
+                </div>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--primary);">What do the numbers mean?</div>
+                    <p class="predictor-desc">
+                        The numbers range from <strong>0.00 to 1.00</strong>:<br><br>
+                        <strong>0.70 - 1.00</strong> = Strong link (they almost always go together)<br>
+                        <strong>0.40 - 0.69</strong> = Moderate link (they often go together)<br>
+                        <strong>0.20 - 0.39</strong> = Weak link (they sometimes go together)<br>
+                        <strong>0.00 - 0.19</strong> = No real link (just random chance)
+                    </p>
+                </div>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--primary);">A real-world example</div>
+                    <p class="predictor-desc">
+                        If "Economic Freedom → Life Expectancy" shows <strong>0.59</strong>, it means:<br><br>
+                        Countries with more economic freedom <em>tend to</em> have people who live longer. It's not a guarantee — some exceptions exist — but the pattern is clear across most countries.
+                    </p>
+                </div>
+
+                <div class="predictor-item">
+                    <div class="predictor-title" style="color: var(--danger);">Important caveat</div>
+                    <p class="predictor-desc">
+                        <strong>Correlation ≠ Causation.</strong> Just because two things go together doesn't mean one causes the other. Maybe rich countries can afford both freedom AND healthcare. We're showing patterns, not proof of what causes what.
                     </p>
                 </div>
             </div>
