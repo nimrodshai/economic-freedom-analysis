@@ -2973,11 +2973,11 @@
                 trendPoints.push({ x: x, y: slope * x + intercept });
             }
 
-            // Determine if correlation is positive for coloring
-            // For metrics where lower is better (Infant Mortality, Pollution), effective correlation is inverted
+            // Determine if the correlation is favorable
             const higherBetter = correlation.higher_better !== false;
-            const effectiveR = higherBetter ? r : -r;
-            const isPositive = effectiveR > 0;
+            const invertedX = ['gini_index', 'palma_ratio', 'wid_top_wealth_share'].includes(selectedXAxis);
+            const adjR = invertedX ? -r : r;
+            const isPositive = higherBetter ? (adjR > 0) : (adjR < 0);
             const pointColor = isPositive ? 'rgba(22, 163, 74, 0.6)' : 'rgba(220, 38, 38, 0.6)';
 
             // Separate highlighted country from others
@@ -3073,40 +3073,42 @@
 
             // Update interpretation box
             const interpBox = document.getElementById('chartInterpretation');
-            const favorable = isPositive;
             const rawCorrelationPositive = r > 0;
+
+            // X-axis interpretation
+            // inverted predictors: higher raw value = less equality, so flip direction in text
+            const xAxisMeta = {
+                'economic_freedom': { name: 'economic freedom', inverted: false },
+                'democracy_score': { name: 'democracy', inverted: false },
+                'gini_index': { name: 'equality (Gini)', inverted: true },
+                'palma_ratio': { name: 'equality (Palma)', inverted: true },
+                'wid_top_wealth_share': { name: 'equality (wealth)', inverted: true }
+            };
+            const xMeta = xAxisMeta[selectedXAxis];
+            const conceptR = xMeta.inverted ? -r : r;
+            const favorable = higherBetter ? (conceptR > 0) : (conceptR < 0);
             interpBox.className = `interpretation-box ${favorable ? 'positive' : 'negative'}`;
 
-            // X-axis name for interpretation
-            const xAxisNames = {
-                'economic_freedom': 'economic freedom',
-                'democracy_score': 'democracy',
-                'gini_index': 'equality',
-                'palma_ratio': 'Equality (Palma)',
-                'wid_top_wealth_share': 'wealth equality (WID)'
-            };
-            const xAxisName = xAxisNames[selectedXAxis];
-
             if (Math.abs(r) > 0.1 && n > 10) {
-                const direction = rawCorrelationPositive ? 'higher' : 'lower';
+                const direction = conceptR > 0 ? 'higher' : 'lower';
                 const outcome = favorable ? 'better' : 'worse';
                 let countryInfo = '';
                 if (highlightedPoint) {
                     countryInfo = `<br><br><strong>${selectedCountry}:</strong> ${xConfig.label}: ${highlightedPoint.x}, ${correlation.name}: ${highlightedPoint.y}`;
                 }
                 const verdict = favorable
-                    ? `<br><br><strong style="color: var(--success);">Does ${xAxisName} correlate with better outcomes? Yes.</strong>`
-                    : `<br><br><strong style="color: var(--danger);">Does ${xAxisName} correlate with better outcomes? No, not for this metric.</strong>`;
+                    ? `<br><br><strong style="color: var(--success);">Does ${xMeta.name} correlate with better outcomes? Yes.</strong>`
+                    : `<br><br><strong style="color: var(--danger);">Does ${xMeta.name} correlate with better outcomes? No, not for this metric.</strong>`;
                 interpBox.innerHTML = `
-                    Countries with higher ${xAxisName} tend to have
+                    Countries with more ${xMeta.name} tend to have
                     <strong>${direction}</strong> ${correlation.name.toLowerCase()}, which represents
                     <strong>${outcome}</strong> outcomes (r = ${r.toFixed(2)}, n = ${n}).${countryInfo}${verdict}
                 `;
             } else {
                 interpBox.innerHTML = `
                     No strong relationship was found
-                    between ${xAxisName} and ${correlation.name.toLowerCase()} (r = ${r.toFixed(2)}, n = ${n}).
-                    <br><br><strong style="color: var(--text-muted);">Does ${xAxisName} correlate with better outcomes? The data doesn't show a clear pattern.</strong>
+                    between ${xMeta.name} and ${correlation.name.toLowerCase()} (r = ${r.toFixed(2)}, n = ${n}).
+                    <br><br><strong style="color: var(--text-muted);">Does ${xMeta.name} correlate with better outcomes? The data doesn't show a clear pattern.</strong>
                 `;
             }
         }
