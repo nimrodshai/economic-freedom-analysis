@@ -1139,10 +1139,10 @@
             min-width: 70px;
         }
         .comparison-bar-col[data-label="Economic Freedom"]::before { content: "Economic\a Freedom"; white-space: pre; color: var(--success); }
-        .comparison-bar-col[data-label="Equality"]::before { content: "Equality"; color: var(--danger); }
+        .comparison-bar-col[data-label="Equality (Gini)"]::before { content: "Equality\a(Gini)"; white-space: pre; color: var(--danger); }
         .comparison-bar-col[data-label="Democracy"]::before { content: "Democracy"; color: #3b82f6; }
-        .comparison-bar-col[data-label="Palma"]::before { content: "Palma"; color: #8b5cf6; }
-        .comparison-bar-col[data-label="Wealth Share"]::before { content: "Wealth\a Share"; white-space: pre; color: #f59e0b; }
+        .comparison-bar-col[data-label="Equality (Palma)"]::before { content: "Equality\a(Palma)"; white-space: pre; color: #8b5cf6; }
+        .comparison-bar-col[data-label="Equality (Wealth)"]::before { content: "Equality\a(Wealth)"; white-space: pre; color: #f59e0b; }
         .comparison-winner {
             display: none;
         }
@@ -2035,7 +2035,7 @@
                     </div>
 
                     <p class="methodology">
-                        <span class="desktop-only">We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, democracy, the Palma ratio, and wealth concentration <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against <span class="info-link" onclick="openOutcomesModal()">quality-of-life outcomes</span>, we can see what the evidence actually shows.</span>
+                        <span class="desktop-only">We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality (Gini), democracy, equality (Palma), and equality (wealth) <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against <span class="info-link" onclick="openOutcomesModal()">quality-of-life outcomes</span>, we can see what the evidence actually shows.</span>
                         <span class="mobile-only">We compared <span class="info-link" onclick="openPredictorModal()">policy theories</span> against indices that measure <span class="info-link" onclick="openOutcomesModal()">quality of life</span> to see which best predicts flourishing societies.</span>
                     </p>
                 </div>
@@ -2061,9 +2061,9 @@
                             <select id="xAxisSelect" onchange="updateChart()">
                                 <option value="economic_freedom">Economic Freedom</option>
                                 <option value="democracy_score">Democracy</option>
-                                <option value="gini_index">Equality (Gini inverted)</option>
-                                <option value="palma_ratio">Palma Ratio (inverted)</option>
-                                <option value="wid_top_wealth_share">Wealth Share (inverted)</option>
+                                <option value="gini_index">Equality (Gini)</option>
+                                <option value="palma_ratio">Equality (Palma)</option>
+                                <option value="wid_top_wealth_share">Equality (Wealth)</option>
                             </select>
                         </div>
                         <div class="selector-row">
@@ -2223,7 +2223,7 @@
                                 <tr class="header-groups">
                                     <th colspan="2" style="background: #f1f5f9;"></th>
                                     <th style="background: #f1f5f9;"></th>
-                                    <th colspan="3" style="background: #eef0fd; border-bottom: 2px solid var(--primary);">Method Indices</th>
+                                    <th colspan="5" style="background: #eef0fd; border-bottom: 2px solid var(--primary);">Method Indices</th>
                                     <th colspan="13" style="background: #ecf5ef; border-bottom: 2px solid var(--success);">Quality of Life Indices</th>
                                 </tr>
                                 <tr>
@@ -2233,6 +2233,8 @@
                                     <th onclick="sortTable('economic_freedom')" class="sorted">Econ Freedom <span class="sort-icon">↓</span></th>
                                     <th onclick="sortTable('gini_index')">Gini <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('democracy_score')">Democracy <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('palma_ratio')">Equality (Palma) <span class="sort-icon">↕</span></th>
+                                    <th onclick="sortTable('wid_top_wealth_share')">Equality (Wealth) <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('gdp_per_capita')">GDP/Capita <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('life_expectancy')">Life Exp. <span class="sort-icon">↕</span></th>
                                     <th onclick="sortTable('infant_mortality')">Infant Mort. <span class="sort-icon">↕</span></th>
@@ -2306,6 +2308,8 @@
                     <td>${formatLinkedValue(c.name, 'economic_freedom', c.economic_freedom, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'gini_index', c.gini_index, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'democracy_score', c.democracy_score, 2)}</td>
+                    <td>${formatLinkedValue(c.name, 'palma_ratio', c.palma_ratio, 2)}</td>
+                    <td>${formatLinkedValue(c.name, 'wid_top_wealth_share', c.wid_top_wealth_share, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'gdp_per_capita', c.gdp_per_capita, 0, true)}</td>
                     <td>${formatLinkedValue(c.name, 'life_expectancy', c.life_expectancy, 1)}</td>
                     <td>${formatLinkedValue(c.name, 'infant_mortality', c.infant_mortality, 1)}</td>
@@ -2444,6 +2448,7 @@
                 'pollution_index': `https://www.numbeo.com/pollution/rankings_by_country.jsp?title=2025`,
                 'gini_index': `https://data.worldbank.org/indicator/SI.POV.GINI?locations=${iso}`,
                 'democracy_score': `https://ourworldindata.org/grapher/democracy-index-eiu?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
+                'wid_top_wealth_share': `https://ourworldindata.org/grapher/wealth-share-richest-10-percent?tab=table&time=latest&country=~${iso3}&tableSearch=${encodeURIComponent(country)}`,
                 'crime_index': `https://www.numbeo.com/crime/rankings_by_country.jsp?title=2025`,
                 'homicide_rate': `https://data.worldbank.org/indicator/VC.IHR.PSRC.P5?locations=${iso}`,
                 'hale': `https://data.who.int/indicators/i/C64284D`,
@@ -2465,8 +2470,52 @@
             if (isCurrency) {
                 formatted = '$' + formatted;
             }
+            if (field === 'palma_ratio') {
+                const iso = countryISO[country] || '';
+                const top10Url = `https://data.worldbank.org/indicator/SI.DST.10TH.10?locations=${iso}`;
+                const bot20Url = `https://data.worldbank.org/indicator/SI.DST.FRST.20?locations=${iso}`;
+                const sec20Url = `https://data.worldbank.org/indicator/SI.DST.02ND.20?locations=${iso}`;
+                return `<span style="color: inherit; border-bottom: 1px dotted var(--text-muted); cursor: pointer;" title="Click for calculation details" onclick="showPalmaPopup(event, '${formatted}', '${top10Url}', '${bot20Url}', '${sec20Url}')">${formatted}</span>`;
+            }
             const url = getDataUrl(country, field);
             return `<a href="${url}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none; border-bottom: 1px dotted var(--text-muted);" title="View source data">${formatted}</a>`;
+        }
+
+        function showPalmaPopup(event, value, top10Url, bot20Url, sec20Url) {
+            event.stopPropagation();
+            const existing = document.getElementById('palmaPopup');
+            if (existing) existing.remove();
+
+            const popup = document.createElement('div');
+            popup.id = 'palmaPopup';
+            popup.style.cssText = 'position:fixed;z-index:10000;background:#fff;border:1px solid #ddd;border-radius:10px;padding:16px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.15);max-width:340px;font-size:13px;line-height:1.6;color:#333;';
+            popup.innerHTML = `
+                <div style="font-weight:600;font-size:14px;margin-bottom:8px;">Palma Ratio = ${value}</div>
+                <div style="margin-bottom:10px;color:#555;">Self-calculated from World Bank income distribution data:</div>
+                <div style="background:#f8f9fa;border-radius:6px;padding:10px 12px;margin-bottom:10px;font-family:monospace;font-size:13px;text-align:center;">
+                    Palma = <a href="${top10Url}" target="_blank" style="color:var(--primary);text-decoration:underline;">Top 10%</a> &divide; (<a href="${bot20Url}" target="_blank" style="color:var(--primary);text-decoration:underline;">Lowest 20%</a> + <a href="${sec20Url}" target="_blank" style="color:var(--primary);text-decoration:underline;">Second 20%</a>)
+                </div>
+                <div style="font-size:11px;color:#888;">Click the links above to view each indicator on the World Bank.</div>
+            `;
+
+            document.body.appendChild(popup);
+
+            const rect = event.target.getBoundingClientRect();
+            let left = rect.left;
+            let top = rect.bottom + 6;
+            if (left + 340 > window.innerWidth) left = window.innerWidth - 350;
+            if (top + 200 > window.innerHeight) top = rect.top - popup.offsetHeight - 6;
+            popup.style.left = Math.max(5, left) + 'px';
+            popup.style.top = top + 'px';
+
+            setTimeout(() => {
+                document.addEventListener('click', function closePalma(e) {
+                    if (!popup.contains(e.target)) {
+                        popup.remove();
+                        document.removeEventListener('click', closePalma);
+                    }
+                });
+            }, 0);
         }
 
         function sortTable(column) {
@@ -2484,7 +2533,7 @@
         }
 
         function downloadCSV() {
-            const headers = ['Country', 'Region', 'Economic Freedom', 'Gini Index', 'Democracy',
+            const headers = ['Country', 'Region', 'Economic Freedom', 'Gini Index', 'Democracy', 'Equality (Palma)', 'Equality (Wealth)',
                            'GDP per Capita', 'Life Expectancy', 'Infant Mortality', 'Anti-Corruption',
                            'HDI', 'Happiness', 'Social Mobility', 'Purchasing Power', 'Pollution', 'Crime', 'Homicide Rate',
                            'Healthy Life Expectancy', 'Mental Health Access', 'Education Index', 'Gender Inequality', 'Poverty Rate',
@@ -2496,6 +2545,8 @@
                 c.economic_freedom ?? '',
                 c.gini_index ?? '',
                 c.democracy_score ?? '',
+                c.palma_ratio ?? '',
+                c.wid_top_wealth_share ?? '',
                 c.gdp_per_capita ?? '',
                 c.life_expectancy ?? '',
                 c.infant_mortality ?? '',
@@ -2660,20 +2711,20 @@
                     indices: ["Same-Sex Marriage Rights"]
                 },
                 {
-                    name: "Palma Ratio",
+                    name: "Equality (Palma)",
                     org: "World Bank",
                     year: 2022,
                     desc: "Ratio of income share of top 10% to bottom 40%. Higher values indicate greater inequality. Used as a policy predictor (X-axis).",
                     url: "https://data.worldbank.org/indicator/SI.DST.10TH.10",
-                    indices: ["Palma Ratio (predictor)"]
+                    indices: ["Equality (Palma) (predictor)"]
                 },
                 {
-                    name: "Top 10% Wealth Share",
+                    name: "Equality (Wealth)",
                     org: "World Inequality Database (via Our World in Data)",
                     year: 2023,
                     desc: "Share of total net personal wealth held by the richest 10% of the population. Higher values indicate greater wealth concentration. Used as a policy predictor (X-axis).",
                     url: "https://ourworldindata.org/grapher/wealth-share-richest-10-percent",
-                    indices: ["Top Wealth Share (predictor)"]
+                    indices: ["Equality (Wealth) (predictor)"]
                 }
             ];
 
@@ -2834,9 +2885,9 @@
             const xAxisConfig = {
                 'economic_freedom': { key: 'economic_freedom', label: 'Economic Freedom Score', transform: null },
                 'democracy_score': { key: 'democracy_score', label: 'Democracy Score', transform: null },
-                'gini_index': { key: 'gini_index', label: 'Equality (100 - Gini)', transform: v => 100 - v },
-                'palma_ratio': { key: 'palma_ratio', label: 'Equality (1/Palma)', transform: v => v > 0 ? Math.round((1 / v) * 100) / 100 : null },
-                'wid_top_wealth_share': { key: 'wid_top_wealth_share', label: 'Equality (100 - Wealth Share)', transform: v => Math.round((100 - v) * 100) / 100 }
+                'gini_index': { key: 'gini_index', label: 'Gini Index', transform: null },
+                'palma_ratio': { key: 'palma_ratio', label: 'Palma Ratio', transform: null },
+                'wid_top_wealth_share': { key: 'wid_top_wealth_share', label: 'Top 10% Wealth Share (%)', transform: null }
             };
             const xConfig = xAxisConfig[selectedXAxis];
 
@@ -3031,7 +3082,7 @@
                 'economic_freedom': 'economic freedom',
                 'democracy_score': 'democracy',
                 'gini_index': 'equality',
-                'palma_ratio': 'equality (Palma)',
+                'palma_ratio': 'Equality (Palma)',
                 'wid_top_wealth_share': 'wealth equality (WID)'
             };
             const xAxisName = xAxisNames[selectedXAxis];
@@ -3232,13 +3283,13 @@
                 const widN = m.wid_wealth ? m.wid_wealth.n : 0;
                 const eqRawCorr = m.equality.correlation; // Raw Gini correlation
 
-                // Create array of bars in fixed order: Democracy, Economic Freedom, Equality, Palma, Wealth Share
+                // Create array of bars in fixed order: Democracy, Economic Freedom, Equality (Gini), Equality (Palma), Equality (Wealth)
                 const bars = [
                     { label: 'Democracy', cssClass: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation },
                     { label: 'Economic<br>Freedom', cssClass: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
-                    { label: 'Equality', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
-                    { label: 'Palma', cssClass: 'palma', value: palmaCorr, n: palmaN, color: '#8b5cf6', fillClass: 'comparison-bar-fill-purple-palma', rawCorr: m.palma?.correlation },
-                    { label: 'Wealth Share', cssClass: 'wid_wealth', value: widCorr, n: widN, color: '#f59e0b', fillClass: 'comparison-bar-fill-amber', rawCorr: m.wid_wealth?.correlation }
+                    { label: 'Equality (Gini)', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
+                    { label: 'Equality (Palma)', cssClass: 'palma', value: palmaCorr, n: palmaN, color: '#8b5cf6', fillClass: 'comparison-bar-fill-purple-palma', rawCorr: m.palma?.correlation },
+                    { label: 'Equality (Wealth)', cssClass: 'wid_wealth', value: widCorr, n: widN, color: '#f59e0b', fillClass: 'comparison-bar-fill-amber', rawCorr: m.wid_wealth?.correlation }
                 ];
 
                 // Sort a copy to determine winner/loser for conclusion text
@@ -3318,9 +3369,9 @@
             const winners = [];
             if (efClearWins > 0) winners.push(`Economic Freedom clearly wins <strong>${efClearWins}</strong> metric${efClearWins > 1 ? 's' : ''}`);
             if (demClearWins > 0) winners.push(`Democracy clearly wins <strong>${demClearWins}</strong> metric${demClearWins > 1 ? 's' : ''}`);
-            if (eqClearWins > 0) winners.push(`Equality clearly wins <strong>${eqClearWins}</strong> metric${eqClearWins > 1 ? 's' : ''}`);
-            if (palmaClearWins > 0) winners.push(`Palma clearly wins <strong>${palmaClearWins}</strong> metric${palmaClearWins > 1 ? 's' : ''}`);
-            if (widClearWins > 0) winners.push(`Wealth Share clearly wins <strong>${widClearWins}</strong> metric${widClearWins > 1 ? 's' : ''}`);
+            if (eqClearWins > 0) winners.push(`Equality (Gini) clearly wins <strong>${eqClearWins}</strong> metric${eqClearWins > 1 ? 's' : ''}`);
+            if (palmaClearWins > 0) winners.push(`Equality (Palma) clearly wins <strong>${palmaClearWins}</strong> metric${palmaClearWins > 1 ? 's' : ''}`);
+            if (widClearWins > 0) winners.push(`Equality (Wealth) clearly wins <strong>${widClearWins}</strong> metric${widClearWins > 1 ? 's' : ''}`);
 
             let resultsText = winners.length > 0 ? winners.join('. ') + '.' : 'No clear winners.';
 
@@ -3329,13 +3380,13 @@
                 const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
                 if (tieMetrics.length > 0) {
                     // Find the top 2 performers across tie metrics
-                    const avgScores = { 'Freedom': 0, 'Democracy': 0, 'Equality': 0, 'Palma': 0, 'Wealth Share': 0 };
+                    const avgScores = { 'Freedom': 0, 'Democracy': 0, 'Equality (Gini)': 0, 'Equality (Palma)': 0, 'Equality (Wealth)': 0 };
                     tieMetrics.forEach(m => {
                         avgScores['Freedom'] += m.economic_freedom?.effective || 0;
                         avgScores['Democracy'] += m.democracy?.effective || 0;
-                        avgScores['Equality'] += m.equality?.effective || 0;
-                        avgScores['Palma'] += m.palma?.effective || 0;
-                        avgScores['Wealth Share'] += m.wid_wealth?.effective || 0;
+                        avgScores['Equality (Gini)'] += m.equality?.effective || 0;
+                        avgScores['Equality (Palma)'] += m.palma?.effective || 0;
+                        avgScores['Equality (Wealth)'] += m.wid_wealth?.effective || 0;
                     });
                     const sorted = Object.entries(avgScores).sort((a, b) => b[1] - a[1]);
                     const tiedParties = sorted.slice(0, 2).map(x => x[0]).join(' and ');
@@ -3353,25 +3404,25 @@
                 const metricScores = [
                     { name: 'Freedom', score: m.economic_freedom?.effective || 0 },
                     { name: 'Democracy', score: m.democracy?.effective || 0 },
-                    { name: 'Equality', score: m.equality?.effective || 0 },
-                    { name: 'Palma', score: m.palma?.effective || 0 },
-                    { name: 'Wealth Share', score: m.wid_wealth?.effective || 0 }
+                    { name: 'Equality (Gini)', score: m.equality?.effective || 0 },
+                    { name: 'Equality (Palma)', score: m.palma?.effective || 0 },
+                    { name: 'Equality (Wealth)', score: m.wid_wealth?.effective || 0 }
                 ].sort((a, b) => b.score - a.score);
 
                 const top2 = metricScores.slice(0, 2).map(x => x.name);
                 if (top2.includes('Freedom')) freedomTies++;
                 if (top2.includes('Democracy')) democracyTies++;
-                if (top2.includes('Equality')) equalityTies++;
-                if (top2.includes('Palma')) palmaTies++;
-                if (top2.includes('Wealth Share')) widTies++;
+                if (top2.includes('Equality (Gini)')) equalityTies++;
+                if (top2.includes('Equality (Palma)')) palmaTies++;
+                if (top2.includes('Equality (Wealth)')) widTies++;
             });
 
             const points = [
                 { name: 'Economic Freedom', pts: efClearWins * 3 + freedomTies },
                 { name: 'Democracy', pts: demClearWins * 3 + democracyTies },
-                { name: 'Equality', pts: eqClearWins * 3 + equalityTies },
-                { name: 'Palma', pts: palmaClearWins * 3 + palmaTies },
-                { name: 'Wealth Share', pts: widClearWins * 3 + widTies }
+                { name: 'Equality (Gini)', pts: eqClearWins * 3 + equalityTies },
+                { name: 'Equality (Palma)', pts: palmaClearWins * 3 + palmaTies },
+                { name: 'Equality (Wealth)', pts: widClearWins * 3 + widTies }
             ].sort((a, b) => b.pts - a.pts);
 
             const [first, second, third, fourth, fifth] = points;
@@ -3479,9 +3530,9 @@
             const scores = [
                 { name: 'Economic Freedom', total: freedomTotal, color: 'var(--success)' },
                 { name: 'Democracy', total: democracyTotal, color: '#3b82f6' },
-                { name: 'Equality', total: equalityTotal, color: 'var(--danger)' },
-                { name: 'Palma', total: palmaTotal, color: '#8b5cf6' },
-                { name: 'Wealth Share', total: widTotal, color: '#f59e0b' }
+                { name: 'Equality (Gini)', total: equalityTotal, color: 'var(--danger)' },
+                { name: 'Equality (Palma)', total: palmaTotal, color: '#8b5cf6' },
+                { name: 'Equality (Wealth)', total: widTotal, color: '#f59e0b' }
             ].sort((a, b) => b.total - a.total);
 
             const winner = scores[0].name;
@@ -3517,35 +3568,35 @@
                         </div>
                         <div class="results-bar-col">
                             <div class="results-bar-container">
-                                ${winner === 'Equality' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                ${winner === 'Equality (Gini)' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${equalityTotal}</div>
                                 </div>
                             </div>
-                            <span class="results-bar-label" style="color: var(--danger);">Equality</span>
+                            <span class="results-bar-label" style="color: var(--danger);">Equality<br>(Gini)</span>
                             <div class="results-bar-stats" style="color: var(--danger);">${eqClearWins} wins<br>${equalityTies} ties</div>
                         </div>
                         <div class="results-bar-col">
                             <div class="results-bar-container">
-                                ${winner === 'Palma' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                ${winner === 'Equality (Palma)' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(palmaTotal / maxTotal) * 100}%; background: #8b5cf6;"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${palmaTotal}</div>
                                 </div>
                             </div>
-                            <span class="results-bar-label" style="color: #8b5cf6;">Palma</span>
+                            <span class="results-bar-label" style="color: #8b5cf6;">Equality<br>(Palma)</span>
                             <div class="results-bar-stats" style="color: #8b5cf6;">${palmaClearWins} wins<br>${palmaTies} ties</div>
                         </div>
                         <div class="results-bar-col">
                             <div class="results-bar-container">
-                                ${winner === 'Wealth Share' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                ${winner === 'Equality (Wealth)' && !isTie ? '<span class="crown">👑</span>' : ''}
                                 <div class="results-bar-fill" style="height: ${(widTotal / maxTotal) * 100}%; background: #f59e0b;"></div>
                                 <div class="results-bar-breakdown">
                                     <div class="results-bar-total">${widTotal}</div>
                                 </div>
                             </div>
-                            <span class="results-bar-label" style="color: #f59e0b;">Wealth<br>Share</span>
+                            <span class="results-bar-label" style="color: #f59e0b;">Equality<br>(Wealth)</span>
                             <div class="results-bar-stats" style="color: #f59e0b;">${widClearWins} wins<br>${widTies} ties</div>
                         </div>
                     </div>
@@ -3703,9 +3754,9 @@
                     </p>
                 </div>
                 <div class="predictor-item">
-                    <div class="predictor-title equality">Equality</div>
+                    <div class="predictor-title equality">Equality (Gini)</div>
                     <p class="predictor-desc">
-                        Measured using the Gini Index (inverted), which captures income inequality. A Gini of 0 means perfect equality (everyone earns the same), while 100 means maximum inequality (one person has everything). We invert it so higher scores = more equality, making it comparable to the other predictors.
+                        Measured using the Gini Index (inverted), which captures income inequality. A Gini of 0 means perfect equality (everyone earns the same), while 100 means maximum inequality (one person has everything). We invert it so higher scores = more equality, making it comparable to the other predictors. A limitation of the Gini is that it only considers income, not accumulated wealth — this is why we also include Equality (Wealth) as a separate predictor.
                     </p>
                     <p class="predictor-source">
                         Source: <a href="https://data.worldbank.org/indicator/SI.POV.GINI" target="_blank" rel="noopener">World Bank Gini Index</a> (latest available per country)
@@ -3721,7 +3772,7 @@
                     </p>
                 </div>
                 <div class="predictor-item">
-                    <div class="predictor-title palma">Palma Ratio</div>
+                    <div class="predictor-title palma">Equality (Palma)</div>
                     <p class="predictor-desc">
                         Measures income inequality as the ratio of the richest 10%'s income share to the poorest 40%'s share. A Palma ratio of 1 means the top 10% earn the same as the bottom 40%. Higher values mean more inequality. We invert it for comparison so that higher scores = less inequality, like the other predictors.
                     </p>
@@ -3730,7 +3781,7 @@
                     </p>
                 </div>
                 <div class="predictor-item">
-                    <div class="predictor-title wid_wealth">Top Wealth Share</div>
+                    <div class="predictor-title wid_wealth">Equality (Wealth)</div>
                     <p class="predictor-desc">
                         Measures the share of total net personal wealth (housing, financial assets, etc. minus debts) held by the richest 10% of the population. Unlike income-based measures like Gini or Palma, this captures wealth concentration — accumulated assets rather than annual earnings. We invert it for comparison so that higher scores = less wealth concentration.
                     </p>
