@@ -220,6 +220,16 @@ def generate_web_data(output_dir="docs"):
         "Same-Sex Marriage",
         f"{cache_dir}/same_sex_marriage.csv"
     )
+    palma = safe_fetch(
+        fetcher.fetch_palma_index,
+        "Palma Ratio",
+        f"{cache_dir}/palma_ratio.csv"
+    )
+    wid_wealth = safe_fetch(
+        fetcher.fetch_wid_top_wealth_share,
+        "WID Top Wealth Share",
+        f"{cache_dir}/wid_top_wealth_share.csv"
+    )
 
     # Merge datasets
     print("\nMerging datasets...")
@@ -244,7 +254,9 @@ def generate_web_data(output_dir="docs"):
         (poverty, 'Country'),
         (infant_mortality, 'Country'),
         (lgbt_legal, 'Country'),
-        (same_sex_marriage, 'Country')
+        (same_sex_marriage, 'Country'),
+        (palma, 'Country'),
+        (wid_wealth, 'Country')
     ]
 
     for df, key in datasets:
@@ -289,7 +301,9 @@ def generate_web_data(output_dir="docs"):
                 {"name": "UNDP Gender Inequality Index", "year": 2022},
                 {"name": "World Bank Poverty Rate", "year": 2022},
                 {"name": "Our World in Data - LGBT Legal Status (Mignot)", "year": 2025},
-                {"name": "Our World in Data - Same-Sex Marriage (Equaldex)", "year": 2025}
+                {"name": "Our World in Data - Same-Sex Marriage (Equaldex)", "year": 2025},
+                {"name": "World Bank Income Distribution (Palma Ratio)", "year": 2022},
+                {"name": "World Inequality Database - Top 10% Wealth Share (via OWID)", "year": 2023}
             ]
         },
         "correlations": [],
@@ -361,6 +375,16 @@ def generate_web_data(output_dir="docs"):
             val = row['Democracy_Score']
             country_data['democracy_score'] = round(val, 2) if not (isinstance(val, float) and np.isnan(val)) else None
 
+        # Add Palma Ratio separately (predictor, not outcome)
+        if 'Palma_Ratio' in row:
+            val = row['Palma_Ratio']
+            country_data['palma_ratio'] = round(val, 2) if not (isinstance(val, float) and np.isnan(val)) else None
+
+        # Add WID Top Wealth Share separately (predictor, not outcome)
+        if 'WID_Top_Wealth_Share' in row:
+            val = row['WID_Top_Wealth_Share']
+            country_data['wid_top_wealth_share'] = round(val, 2) if not (isinstance(val, float) and np.isnan(val)) else None
+
         output_data["countries"].append(country_data)
 
     # Generate scatter plot data
@@ -431,6 +455,8 @@ def generate_web_data(output_dir="docs"):
     ef_clear_wins = 0
     gini_clear_wins = 0
     democracy_clear_wins = 0
+    palma_clear_wins = 0
+    wid_wealth_clear_wins = 0
     ties = 0
     MARGIN_THRESHOLD = 0.05  # Minimum margin for a "clear win"
 
@@ -462,12 +488,36 @@ def generate_web_data(output_dir="docs"):
             else:
                 democracy_corr, democracy_p, democracy_effective = None, None, None
 
-            # Determine winner (three-way comparison with margin threshold)
+            # Palma Ratio correlation (inverted since lower Palma = less inequality = better)
+            palma_corr, palma_p, palma_effective = None, None, None
+            palma_valid_len = 0
+            if 'Palma_Ratio' in merged.columns:
+                palma_valid = merged[['Palma_Ratio', col]].dropna()
+                palma_valid_len = len(palma_valid)
+                if len(palma_valid) > 10:
+                    palma_corr, palma_p = stats.pearsonr(palma_valid['Palma_Ratio'], palma_valid[col])
+                    # Like Gini: lower Palma = less inequality = better
+                    palma_effective = -palma_corr if higher_better else palma_corr
+
+            # WID Top Wealth Share correlation (inverted since higher share = more inequality = worse)
+            wid_corr, wid_p, wid_effective = None, None, None
+            wid_valid_len = 0
+            if 'WID_Top_Wealth_Share' in merged.columns:
+                wid_valid = merged[['WID_Top_Wealth_Share', col]].dropna()
+                wid_valid_len = len(wid_valid)
+                if len(wid_valid) > 10:
+                    wid_corr, wid_p = stats.pearsonr(wid_valid['WID_Top_Wealth_Share'], wid_valid[col])
+                    # Like Gini/Palma: higher wealth share = more inequality = worse
+                    wid_effective = -wid_corr if higher_better else wid_corr
+
+            # Determine winner (five-way comparison with margin threshold)
             winner = None
             effectives = {
                 "economic_freedom": ef_effective,
                 "equality": gini_effective,
-                "democracy": democracy_effective
+                "democracy": democracy_effective,
+                "palma": palma_effective,
+                "wid_wealth": wid_effective
             }
             valid_effectives = {k: v for k, v in effectives.items() if v is not None}
             if len(valid_effectives) >= 2:
@@ -485,6 +535,10 @@ def generate_web_data(output_dir="docs"):
                         gini_clear_wins += 1
                     elif first_key == "democracy":
                         democracy_clear_wins += 1
+                    elif first_key == "palma":
+                        palma_clear_wins += 1
+                    elif first_key == "wid_wealth":
+                        wid_wealth_clear_wins += 1
                 else:
                     # Too close to call - it's a tie
                     winner = "tie"
@@ -517,6 +571,20 @@ def generate_web_data(output_dir="docs"):
                     "significant": democracy_p < 0.05 if democracy_p is not None else False,
                     "n": len(democracy_valid) if democracy_corr is not None else 0
                 },
+                "palma": {
+                    "correlation": round(palma_corr, 4) if palma_corr is not None else None,
+                    "effective": round(palma_effective, 4) if palma_effective is not None else None,
+                    "p_value": palma_p if palma_p is not None else None,
+                    "significant": palma_p < 0.05 if palma_p is not None else False,
+                    "n": palma_valid_len if palma_corr is not None else 0
+                },
+                "wid_wealth": {
+                    "correlation": round(wid_corr, 4) if wid_corr is not None else None,
+                    "effective": round(wid_effective, 4) if wid_effective is not None else None,
+                    "p_value": wid_p if wid_p is not None else None,
+                    "significant": wid_p < 0.05 if wid_p is not None else False,
+                    "n": wid_valid_len if wid_corr is not None else 0
+                },
                 "winner": winner
             })
 
@@ -524,6 +592,8 @@ def generate_web_data(output_dir="docs"):
         "economic_freedom_clear_wins": ef_clear_wins,
         "equality_clear_wins": gini_clear_wins,
         "democracy_clear_wins": democracy_clear_wins,
+        "palma_clear_wins": palma_clear_wins,
+        "wid_wealth_clear_wins": wid_wealth_clear_wins,
         "ties": ties,
         "metrics": comparison_data
     }

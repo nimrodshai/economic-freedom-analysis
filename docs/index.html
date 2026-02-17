@@ -1080,6 +1080,8 @@
         .card-back-text .winner-name.freedom { color: var(--success); }
         .card-back-text .winner-name.equality { color: var(--danger); }
         .card-back-text .winner-name.democracy { color: #3b82f6; }
+        .card-back-text .winner-name.palma { color: #8b5cf6; }
+        .card-back-text .winner-name.wid_wealth { color: #f59e0b; }
 
         .card-info-hint {
             position: absolute;
@@ -1139,6 +1141,8 @@
         .comparison-bar-col[data-label="Economic Freedom"]::before { content: "Economic\a Freedom"; white-space: pre; color: var(--success); }
         .comparison-bar-col[data-label="Equality"]::before { content: "Equality"; color: var(--danger); }
         .comparison-bar-col[data-label="Democracy"]::before { content: "Democracy"; color: #3b82f6; }
+        .comparison-bar-col[data-label="Palma"]::before { content: "Palma"; color: #8b5cf6; }
+        .comparison-bar-col[data-label="Wealth Share"]::before { content: "Wealth\a Share"; white-space: pre; color: #f59e0b; }
         .comparison-winner {
             display: none;
         }
@@ -1175,6 +1179,18 @@
             border-radius: 4px;
         }
 
+        .comparison-bar-fill-purple-palma {
+            height: 100%;
+            background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+            border-radius: 4px;
+        }
+
+        .comparison-bar-fill-amber {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            border-radius: 4px;
+        }
+
         .comparison-bar-fill-purple {
             height: 100%;
             background: linear-gradient(90deg, #a78bfa, #8b5cf6);
@@ -1207,7 +1223,7 @@
 
         .results-chart-title {
             text-align: center;
-            margin-bottom: 130px;
+            margin-bottom: 20px;
             font-size: 1.05rem;
             color: var(--text-muted);
         }
@@ -1215,16 +1231,16 @@
         .results-bars {
             display: flex;
             justify-content: center;
-            align-items: flex-end;
-            gap: 50px;
-            height: 220px;
+            gap: 30px;
+            padding-top: 80px;
             padding-bottom: 10px;
         }
 
         .results-bar-col {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-rows: 180px auto auto;
+            align-items: end;
+            justify-items: center;
             gap: 10px;
         }
 
@@ -1259,6 +1275,10 @@
             font-weight: 600;
             font-size: 1rem;
             text-align: center;
+            min-height: 2.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .crown {
@@ -1565,6 +1585,13 @@
             .about-card { padding: 20px; }
             .methodology-step { flex-direction: column; gap: 10px; }
             .section h2 { font-size: 1.25rem; }
+            .results-bars { gap: 8px; padding-top: 50px; }
+            .results-bar-col { grid-template-rows: 130px auto auto; gap: 6px; }
+            .results-bar-container { width: 50px; height: 130px; }
+            .results-bar-label { font-size: 0.75rem; min-height: 2.4em; }
+            .results-bar-stats { font-size: 0.65rem; }
+            .results-bar-breakdown .results-bar-total { font-size: 1rem; }
+            .crown { top: -42px; font-size: 2.5rem; left: calc(50% + 11px); }
         }
 
         @media (max-width: 480px) {
@@ -1679,6 +1706,8 @@
         .predictor-title.freedom { color: var(--success); }
         .predictor-title.equality { color: var(--danger); }
         .predictor-title.democracy { color: #3b82f6; }
+        .predictor-title.palma { color: #8b5cf6; }
+        .predictor-title.wid_wealth { color: #f59e0b; }
         .predictor-desc {
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -1979,7 +2008,7 @@
                             <span class="stat-label">Metrics</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-num count-up" data-target="3">0</span>
+                            <span class="stat-num count-up" data-target="4">0</span>
                             <span class="stat-label">Theories</span>
                         </div>
                     </div>
@@ -2000,13 +2029,13 @@
                             <span class="stat-label">Metrics</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-num count-up" data-target="3">0</span>
+                            <span class="stat-num count-up" data-target="4">0</span>
                             <span class="stat-label">Theories</span>
                         </div>
                     </div>
 
                     <p class="methodology">
-                        <span class="desktop-only">We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, and democracy <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against <span class="info-link" onclick="openOutcomesModal()">quality-of-life outcomes</span>, we can see what the evidence actually shows.</span>
+                        <span class="desktop-only">We analyzed data from <strong>${data.metadata.num_countries} countries</strong> to find out. By comparing economic freedom, equality, democracy, the Palma ratio, and wealth concentration <span class="info-link" onclick="openPredictorModal()">(what are these?)</span> against <span class="info-link" onclick="openOutcomesModal()">quality-of-life outcomes</span>, we can see what the evidence actually shows.</span>
                         <span class="mobile-only">We compared <span class="info-link" onclick="openPredictorModal()">policy theories</span> against indices that measure <span class="info-link" onclick="openOutcomesModal()">quality of life</span> to see which best predicts flourishing societies.</span>
                     </p>
                 </div>
@@ -2033,6 +2062,8 @@
                                 <option value="economic_freedom">Economic Freedom</option>
                                 <option value="democracy_score">Democracy</option>
                                 <option value="gini_index">Equality (Gini inverted)</option>
+                                <option value="palma_ratio">Palma Ratio (inverted)</option>
+                                <option value="wid_top_wealth_share">Wealth Share (inverted)</option>
                             </select>
                         </div>
                         <div class="selector-row">
@@ -2627,6 +2658,22 @@
                     desc: "Legal recognition of same-sex marriage and partnerships. Graduated scale from Legal (100) to Banned (0).",
                     url: "https://ourworldindata.org/grapher/marriage-same-sex-partners-equaldex",
                     indices: ["Same-Sex Marriage Rights"]
+                },
+                {
+                    name: "Palma Ratio",
+                    org: "World Bank",
+                    year: 2022,
+                    desc: "Ratio of income share of top 10% to bottom 40%. Higher values indicate greater inequality. Used as a policy predictor (X-axis).",
+                    url: "https://data.worldbank.org/indicator/SI.DST.10TH.10",
+                    indices: ["Palma Ratio (predictor)"]
+                },
+                {
+                    name: "Top 10% Wealth Share",
+                    org: "World Inequality Database (via Our World in Data)",
+                    year: 2023,
+                    desc: "Share of total net personal wealth held by the richest 10% of the population. Higher values indicate greater wealth concentration. Used as a policy predictor (X-axis).",
+                    url: "https://ourworldindata.org/grapher/wealth-share-richest-10-percent",
+                    indices: ["Top Wealth Share (predictor)"]
                 }
             ];
 
@@ -2723,7 +2770,9 @@
             const xAxisKeyMap = {
                 'economic_freedom': 'economic_freedom',
                 'democracy_score': 'democracy_score',
-                'gini_index': 'gini_index'
+                'gini_index': 'gini_index',
+                'palma_ratio': 'palma_ratio',
+                'wid_top_wealth_share': 'wid_top_wealth_share'
             };
             const xKey = xAxisKeyMap[selectedXAxis];
 
@@ -2783,9 +2832,11 @@
 
             // X-axis configuration
             const xAxisConfig = {
-                'economic_freedom': { key: 'economic_freedom', label: 'Economic Freedom Score', invert: false },
-                'democracy_score': { key: 'democracy_score', label: 'Democracy Score', invert: false },
-                'gini_index': { key: 'gini_index', label: 'Equality (100 - Gini)', invert: true }
+                'economic_freedom': { key: 'economic_freedom', label: 'Economic Freedom Score', transform: null },
+                'democracy_score': { key: 'democracy_score', label: 'Democracy Score', transform: null },
+                'gini_index': { key: 'gini_index', label: 'Equality (100 - Gini)', transform: v => 100 - v },
+                'palma_ratio': { key: 'palma_ratio', label: 'Equality (1/Palma)', transform: v => v > 0 ? Math.round((1 / v) * 100) / 100 : null },
+                'wid_top_wealth_share': { key: 'wid_top_wealth_share', label: 'Equality (100 - Wealth Share)', transform: v => Math.round((100 - v) * 100) / 100 }
             };
             const xConfig = xAxisConfig[selectedXAxis];
 
@@ -2818,9 +2869,10 @@
                 let xVal = country[xConfig.key];
                 const yVal = country[yKey];
                 if (xVal != null && yVal != null) {
-                    // For Gini, invert to make higher = more equal
-                    if (xConfig.invert) {
-                        xVal = 100 - xVal;
+                    // Transform X value if needed (e.g., invert Gini or Palma)
+                    if (xConfig.transform) {
+                        xVal = xConfig.transform(xVal);
+                        if (xVal == null) return;
                     }
                     scatterPoints.push({
                         country: country.name,
@@ -2978,7 +3030,9 @@
             const xAxisNames = {
                 'economic_freedom': 'economic freedom',
                 'democracy_score': 'democracy',
-                'gini_index': 'equality'
+                'gini_index': 'equality',
+                'palma_ratio': 'equality (Palma)',
+                'wid_top_wealth_share': 'wealth equality (WID)'
             };
             const xAxisName = xAxisNames[selectedXAxis];
 
@@ -3169,16 +3223,22 @@
                 const efCorr = m.economic_freedom.effective;
                 const eqCorr = m.equality.effective;
                 const demCorr = m.democracy ? m.democracy.effective : null;
+                const palmaCorr = m.palma ? m.palma.effective : null;
+                const widCorr = m.wid_wealth ? m.wid_wealth.effective : null;
                 const efN = m.economic_freedom.n || 0;
                 const eqN = m.equality.n || 0;
                 const demN = m.democracy ? m.democracy.n : 0;
+                const palmaN = m.palma ? m.palma.n : 0;
+                const widN = m.wid_wealth ? m.wid_wealth.n : 0;
                 const eqRawCorr = m.equality.correlation; // Raw Gini correlation
 
-                // Create array of bars in fixed order: Democracy, Economic Freedom, Equality
+                // Create array of bars in fixed order: Democracy, Economic Freedom, Equality, Palma, Wealth Share
                 const bars = [
                     { label: 'Democracy', cssClass: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation },
                     { label: 'Economic<br>Freedom', cssClass: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
-                    { label: 'Equality', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr }
+                    { label: 'Equality', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
+                    { label: 'Palma', cssClass: 'palma', value: palmaCorr, n: palmaN, color: '#8b5cf6', fillClass: 'comparison-bar-fill-purple-palma', rawCorr: m.palma?.correlation },
+                    { label: 'Wealth Share', cssClass: 'wid_wealth', value: widCorr, n: widN, color: '#f59e0b', fillClass: 'comparison-bar-fill-amber', rawCorr: m.wid_wealth?.correlation }
                 ];
 
                 // Sort a copy to determine winner/loser for conclusion text
@@ -3207,19 +3267,33 @@
                 `;
 
                 bars.forEach(bar => {
-                    const width = bar.value ? Math.round(bar.value * 100) : 0;
-                    const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})` : 'N/A';
+                    const isNegative = bar.value !== null && bar.value < 0;
+                    const width = (!isNegative && bar.value) ? Math.round(bar.value * 100) : 0;
                     const dataLabel = bar.cssClass === 'freedom' ? 'Economic Freedom' : bar.label;
-                    html += `
-                        <div class="comparison-bar-col" data-label="${dataLabel}">
-                            <div class="comparison-bar-wrapper">
-                                <div class="comparison-bar-track">
-                                    <div class="${bar.fillClass}" style="width: ${width}%;"></div>
+                    if (isNegative) {
+                        html += `
+                            <div class="comparison-bar-col" data-label="${dataLabel}">
+                                <div class="comparison-bar-wrapper">
+                                    <div class="comparison-bar-track" style="position: relative;">
+                                        <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #94a3b8; letter-spacing: 0.5px;">wrong direction</span>
+                                    </div>
+                                    <span class="comparison-value" style="color: var(--text-muted);">${bar.value.toFixed(2)}</span>
                                 </div>
-                                <span class="comparison-value" style="color: ${bar.color};">${valueText}</span>
                             </div>
-                        </div>
-                    `;
+                        `;
+                    } else {
+                        const valueText = bar.value !== null ? `${bar.value.toFixed(2)} (n=${bar.n})` : 'N/A';
+                        html += `
+                            <div class="comparison-bar-col" data-label="${dataLabel}">
+                                <div class="comparison-bar-wrapper">
+                                    <div class="comparison-bar-track">
+                                        <div class="${bar.fillClass}" style="width: ${width}%;"></div>
+                                    </div>
+                                    <span class="comparison-value" style="color: ${bar.color};">${valueText}</span>
+                                </div>
+                            </div>
+                        `;
+                    }
                 });
 
                 html += `
@@ -3236,6 +3310,8 @@
             const efClearWins = comparison.economic_freedom_clear_wins || 0;
             const demClearWins = comparison.democracy_clear_wins || 0;
             const eqClearWins = comparison.equality_clear_wins || 0;
+            const palmaClearWins = comparison.palma_clear_wins || 0;
+            const widClearWins = comparison.wid_wealth_clear_wins || 0;
             const ties = comparison.ties || 0;
 
             // Build dynamic results text
@@ -3243,6 +3319,8 @@
             if (efClearWins > 0) winners.push(`Economic Freedom clearly wins <strong>${efClearWins}</strong> metric${efClearWins > 1 ? 's' : ''}`);
             if (demClearWins > 0) winners.push(`Democracy clearly wins <strong>${demClearWins}</strong> metric${demClearWins > 1 ? 's' : ''}`);
             if (eqClearWins > 0) winners.push(`Equality clearly wins <strong>${eqClearWins}</strong> metric${eqClearWins > 1 ? 's' : ''}`);
+            if (palmaClearWins > 0) winners.push(`Palma clearly wins <strong>${palmaClearWins}</strong> metric${palmaClearWins > 1 ? 's' : ''}`);
+            if (widClearWins > 0) winners.push(`Wealth Share clearly wins <strong>${widClearWins}</strong> metric${widClearWins > 1 ? 's' : ''}`);
 
             let resultsText = winners.length > 0 ? winners.join('. ') + '.' : 'No clear winners.';
 
@@ -3251,11 +3329,13 @@
                 const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
                 if (tieMetrics.length > 0) {
                     // Find the top 2 performers across tie metrics
-                    const avgScores = { 'Freedom': 0, 'Democracy': 0, 'Equality': 0 };
+                    const avgScores = { 'Freedom': 0, 'Democracy': 0, 'Equality': 0, 'Palma': 0, 'Wealth Share': 0 };
                     tieMetrics.forEach(m => {
                         avgScores['Freedom'] += m.economic_freedom?.effective || 0;
                         avgScores['Democracy'] += m.democracy?.effective || 0;
                         avgScores['Equality'] += m.equality?.effective || 0;
+                        avgScores['Palma'] += m.palma?.effective || 0;
+                        avgScores['Wealth Share'] += m.wid_wealth?.effective || 0;
                     });
                     const sorted = Object.entries(avgScores).sort((a, b) => b[1] - a[1]);
                     const tiedParties = sorted.slice(0, 2).map(x => x[0]).join(' and ');
@@ -3266,29 +3346,35 @@
             // Calculate league points (3 for clear win, 1 for tie)
             // First, determine who participates in ties
             const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
-            let freedomTies = 0, democracyTies = 0, equalityTies = 0;
+            let freedomTies = 0, democracyTies = 0, equalityTies = 0, palmaTies = 0, widTies = 0;
 
             tieMetrics.forEach(m => {
                 // Top 2 performers in each tie get a point
                 const metricScores = [
                     { name: 'Freedom', score: m.economic_freedom?.effective || 0 },
                     { name: 'Democracy', score: m.democracy?.effective || 0 },
-                    { name: 'Equality', score: m.equality?.effective || 0 }
+                    { name: 'Equality', score: m.equality?.effective || 0 },
+                    { name: 'Palma', score: m.palma?.effective || 0 },
+                    { name: 'Wealth Share', score: m.wid_wealth?.effective || 0 }
                 ].sort((a, b) => b.score - a.score);
 
                 const top2 = metricScores.slice(0, 2).map(x => x.name);
                 if (top2.includes('Freedom')) freedomTies++;
                 if (top2.includes('Democracy')) democracyTies++;
                 if (top2.includes('Equality')) equalityTies++;
+                if (top2.includes('Palma')) palmaTies++;
+                if (top2.includes('Wealth Share')) widTies++;
             });
 
             const points = [
                 { name: 'Economic Freedom', pts: efClearWins * 3 + freedomTies },
                 { name: 'Democracy', pts: demClearWins * 3 + democracyTies },
-                { name: 'Equality', pts: eqClearWins * 3 + equalityTies }
+                { name: 'Equality', pts: eqClearWins * 3 + equalityTies },
+                { name: 'Palma', pts: palmaClearWins * 3 + palmaTies },
+                { name: 'Wealth Share', pts: widClearWins * 3 + widTies }
             ].sort((a, b) => b.pts - a.pts);
 
-            const [first, second, third] = points;
+            const [first, second, third, fourth, fifth] = points;
             let conclusion = '';
 
             if (first.pts > second.pts) {
@@ -3302,77 +3388,80 @@
                 conclusion = `<strong>${first.name} and ${second.name} both lead.</strong>`;
             }
 
+            // The last-place finisher
+            const loser = fifth || fourth || third;
+
             // Less than 3 points = clear loser
-            if (third.pts < 3) {
+            if (loser.pts < 3) {
                 const loserAnalogies = [
-                    `${third.name} is the Washington Generals of economic theories.`,
-                    `${third.name} is the Wile E. Coyote of economic theories.`,
-                    `${third.name} is the Charlie Brown of economic theories.`,
-                    `${third.name} is the Tom (chasing Jerry) of economic theories.`,
-                    `${third.name} is the Blockbuster to ${first.name}'s Netflix.`,
-                    `${third.name} is the Nokia of economic theories.`,
-                    `${third.name} pulled a Titanic.`,
-                    `${third.name} is the Myspace of economic theories.`,
-                    `${third.name} is the Internet Explorer of economic theories.`,
-                    `${third.name} is the Kodak of economic theories.`,
-                    `${third.name} is the Blackberry of economic theories.`,
-                    `${third.name} is the Yahoo to ${first.name}'s Google.`,
-                    `${third.name} is the Sears to ${first.name}'s Amazon.`,
-                    `${third.name} is the Goliath of economic theories.`,
-                    `${third.name} is the Hindenburg of economic theories.`,
-                    `${third.name} is the Monstars to ${first.name}'s Michael Jordan.`,
-                    `${third.name} is the Empire to ${first.name}'s Rebellion.`,
-                    `${third.name} is the Voldemort of economic theories.`,
-                    `${third.name} is the Hare to ${first.name}'s Tortoise.`,
-                    `${third.name} is the Napoleon at Waterloo of economics.`,
-                    `${third.name} is the Dodo bird of economic theories.`,
-                    `${third.name} is the Clippy of economic theories.`,
-                    `${third.name} is the Betamax of economic theories.`,
-                    `${third.name} is the Zune to ${first.name}'s iPod.`,
-                    `${third.name} got Pluto'd (demoted).`,
-                    `${third.name} went full Homer Simpson.`,
-                    `${third.name} went full Ned Stark.`,
-                    `${third.name} went full Game of Thrones Season 8.`,
-                    `${third.name} went full Al Bundy.`,
-                    `${third.name} pulled a George Costanza.`,
-                    `${third.name} is as self-destructive as Bojack Horseman.`,
-                    `${third.name} has the success rate of Michael Scott's relationships.`,
-                    `${third.name} is as effective as a Michael Scott leadership seminar.`
+                    `${loser.name} is the Washington Generals of economic theories.`,
+                    `${loser.name} is the Wile E. Coyote of economic theories.`,
+                    `${loser.name} is the Charlie Brown of economic theories.`,
+                    `${loser.name} is the Tom (chasing Jerry) of economic theories.`,
+                    `${loser.name} is the Blockbuster to ${first.name}'s Netflix.`,
+                    `${loser.name} is the Nokia of economic theories.`,
+                    `${loser.name} pulled a Titanic.`,
+                    `${loser.name} is the Myspace of economic theories.`,
+                    `${loser.name} is the Internet Explorer of economic theories.`,
+                    `${loser.name} is the Kodak of economic theories.`,
+                    `${loser.name} is the Blackberry of economic theories.`,
+                    `${loser.name} is the Yahoo to ${first.name}'s Google.`,
+                    `${loser.name} is the Sears to ${first.name}'s Amazon.`,
+                    `${loser.name} is the Goliath of economic theories.`,
+                    `${loser.name} is the Hindenburg of economic theories.`,
+                    `${loser.name} is the Monstars to ${first.name}'s Michael Jordan.`,
+                    `${loser.name} is the Empire to ${first.name}'s Rebellion.`,
+                    `${loser.name} is the Voldemort of economic theories.`,
+                    `${loser.name} is the Hare to ${first.name}'s Tortoise.`,
+                    `${loser.name} is the Napoleon at Waterloo of economics.`,
+                    `${loser.name} is the Dodo bird of economic theories.`,
+                    `${loser.name} is the Clippy of economic theories.`,
+                    `${loser.name} is the Betamax of economic theories.`,
+                    `${loser.name} is the Zune to ${first.name}'s iPod.`,
+                    `${loser.name} got Pluto'd (demoted).`,
+                    `${loser.name} went full Homer Simpson.`,
+                    `${loser.name} went full Ned Stark.`,
+                    `${loser.name} went full Game of Thrones Season 8.`,
+                    `${loser.name} went full Al Bundy.`,
+                    `${loser.name} pulled a George Costanza.`,
+                    `${loser.name} is as self-destructive as Bojack Horseman.`,
+                    `${loser.name} has the success rate of Michael Scott's relationships.`,
+                    `${loser.name} is as effective as a Michael Scott leadership seminar.`
                 ];
                 conclusion += ' ' + loserAnalogies[Math.floor(Math.random() * loserAnalogies.length)];
-            } else if (third.pts <= 8) {
+            } else if (loser.pts <= 8) {
                 // 3-8 points = subtle loser (put up a fight but still lost)
                 const subtleLoserAnalogies = [
-                    `Like Al Bundy, ${third.name} could have done better.`,
-                    `${third.name} showed up, but so did the other two.`,
-                    `${third.name} brought a knife to a gunfight. A nice knife, though.`,
-                    `${third.name} finished the race. Just... not first. Or second.`,
-                    `${third.name} is the bronze medal of economic theories.`,
-                    `${third.name} tried. The data noticed.`,
-                    `${third.name} peaked early, like a child actor.`,
-                    `Don't worry ${third.name}, at least you tried.`,
-                    `${third.name}: close, but no cigar.`,
-                    `${third.name} gets a participation trophy.`,
-                    `${third.name} is the Ringo of this competition.`,
-                    `${third.name} is giving strong "almost made the playoffs" energy.`,
-                    `${third.name}: not bad, just... not good.`,
-                    `${third.name} tried harder than the results suggest. Maybe.`,
-                    `${third.name} came in third, but at least it was a podium finish. Oh wait.`,
-                    `${third.name} is the underdog story that stayed under.`,
-                    `${third.name} gets points for effort. Not many, but some.`,
-                    `Good effort champ. We're proud of you, ${third.name}.`,
-                    `${third.name} is like bringing homemade cookies to a bake-off. Sweet, but outclassed.`,
-                    `${third.name} gave it the old college try. Community college.`,
-                    `${third.name} played a good game, just not good enough.`,
-                    `${third.name} is the opening band of economic theories.`,
-                    `${third.name} made it to the dance, just not the spotlight.`,
-                    `${third.name}: A for effort, C for results.`,
-                    `${third.name} put up a fight. The fight lost.`,
-                    `Maybe next year, ${third.name}.`,
-                    `${third.name} brought its A-game. The others brought their A+-game.`,
-                    `${third.name} is the honorable mention of economic theories.`,
-                    `${third.name} ran a good race, just in the wrong lane.`,
-                    `${third.name}: not embarrassing, just... third.`
+                    `Like Al Bundy, ${loser.name} could have done better.`,
+                    `${loser.name} showed up, but so did the others.`,
+                    `${loser.name} brought a knife to a gunfight. A nice knife, though.`,
+                    `${loser.name} finished the race. Just... not first. Or second.`,
+                    `${loser.name} is the bronze medal of economic theories.`,
+                    `${loser.name} tried. The data noticed.`,
+                    `${loser.name} peaked early, like a child actor.`,
+                    `Don't worry ${loser.name}, at least you tried.`,
+                    `${loser.name}: close, but no cigar.`,
+                    `${loser.name} gets a participation trophy.`,
+                    `${loser.name} is the Ringo of this competition.`,
+                    `${loser.name} is giving strong "almost made the playoffs" energy.`,
+                    `${loser.name}: not bad, just... not good.`,
+                    `${loser.name} tried harder than the results suggest. Maybe.`,
+                    `${loser.name} came in last, but at least it showed up.`,
+                    `${loser.name} is the underdog story that stayed under.`,
+                    `${loser.name} gets points for effort. Not many, but some.`,
+                    `Good effort champ. We're proud of you, ${loser.name}.`,
+                    `${loser.name} is like bringing homemade cookies to a bake-off. Sweet, but outclassed.`,
+                    `${loser.name} gave it the old college try. Community college.`,
+                    `${loser.name} played a good game, just not good enough.`,
+                    `${loser.name} is the opening band of economic theories.`,
+                    `${loser.name} made it to the dance, just not the spotlight.`,
+                    `${loser.name}: A for effort, C for results.`,
+                    `${loser.name} put up a fight. The fight lost.`,
+                    `Maybe next year, ${loser.name}.`,
+                    `${loser.name} brought its A-game. The others brought their A+-game.`,
+                    `${loser.name} is the honorable mention of economic theories.`,
+                    `${loser.name} ran a good race, just in the wrong lane.`,
+                    `${loser.name}: not embarrassing, just... last.`
                 ];
                 conclusion += ' ' + subtleLoserAnalogies[Math.floor(Math.random() * subtleLoserAnalogies.length)];
             }
@@ -3382,13 +3471,17 @@
             const freedomTotal = efClearWins + freedomTies;
             const democracyTotal = demClearWins + democracyTies;
             const equalityTotal = eqClearWins + equalityTies;
-            const maxTotal = Math.max(freedomTotal, democracyTotal, equalityTotal, 1);
+            const palmaTotal = palmaClearWins + palmaTies;
+            const widTotal = widClearWins + widTies;
+            const maxTotal = Math.max(freedomTotal, democracyTotal, equalityTotal, palmaTotal, widTotal, 1);
 
             // Determine winner for crown
             const scores = [
                 { name: 'Economic Freedom', total: freedomTotal, color: 'var(--success)' },
                 { name: 'Democracy', total: democracyTotal, color: '#3b82f6' },
-                { name: 'Equality', total: equalityTotal, color: 'var(--danger)' }
+                { name: 'Equality', total: equalityTotal, color: 'var(--danger)' },
+                { name: 'Palma', total: palmaTotal, color: '#8b5cf6' },
+                { name: 'Wealth Share', total: widTotal, color: '#f59e0b' }
             ].sort((a, b) => b.total - a.total);
 
             const winner = scores[0].name;
@@ -3408,7 +3501,7 @@
                                     <div class="results-bar-total">${freedomTotal}</div>
                                 </div>
                             </div>
-                            <span class="results-bar-label" style="color: var(--success);">Freedom</span>
+                            <span class="results-bar-label" style="color: var(--success);">Economic<br>Freedom</span>
                             <div class="results-bar-stats" style="color: var(--success);">${efClearWins} wins<br>${freedomTies} ties</div>
                         </div>
                         <div class="results-bar-col">
@@ -3432,6 +3525,28 @@
                             </div>
                             <span class="results-bar-label" style="color: var(--danger);">Equality</span>
                             <div class="results-bar-stats" style="color: var(--danger);">${eqClearWins} wins<br>${equalityTies} ties</div>
+                        </div>
+                        <div class="results-bar-col">
+                            <div class="results-bar-container">
+                                ${winner === 'Palma' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                <div class="results-bar-fill" style="height: ${(palmaTotal / maxTotal) * 100}%; background: #8b5cf6;"></div>
+                                <div class="results-bar-breakdown">
+                                    <div class="results-bar-total">${palmaTotal}</div>
+                                </div>
+                            </div>
+                            <span class="results-bar-label" style="color: #8b5cf6;">Palma</span>
+                            <div class="results-bar-stats" style="color: #8b5cf6;">${palmaClearWins} wins<br>${palmaTies} ties</div>
+                        </div>
+                        <div class="results-bar-col">
+                            <div class="results-bar-container">
+                                ${winner === 'Wealth Share' && !isTie ? '<span class="crown">👑</span>' : ''}
+                                <div class="results-bar-fill" style="height: ${(widTotal / maxTotal) * 100}%; background: #f59e0b;"></div>
+                                <div class="results-bar-breakdown">
+                                    <div class="results-bar-total">${widTotal}</div>
+                                </div>
+                            </div>
+                            <span class="results-bar-label" style="color: #f59e0b;">Wealth<br>Share</span>
+                            <div class="results-bar-stats" style="color: #f59e0b;">${widClearWins} wins<br>${widTies} ties</div>
                         </div>
                     </div>
                 </div>
@@ -3603,6 +3718,24 @@
                     </p>
                     <p class="predictor-source">
                         Source: <a href="https://www.eiu.com/n/campaigns/democracy-index-2023/" target="_blank" rel="noopener">Economist Intelligence Unit Democracy Index</a> (2023)
+                    </p>
+                </div>
+                <div class="predictor-item">
+                    <div class="predictor-title palma">Palma Ratio</div>
+                    <p class="predictor-desc">
+                        Measures income inequality as the ratio of the richest 10%'s income share to the poorest 40%'s share. A Palma ratio of 1 means the top 10% earn the same as the bottom 40%. Higher values mean more inequality. We invert it for comparison so that higher scores = less inequality, like the other predictors.
+                    </p>
+                    <p class="predictor-source">
+                        Source: <a href="https://data.worldbank.org/indicator/SI.DST.10TH.10" target="_blank" rel="noopener">World Bank Income Distribution Data</a> (latest available per country)
+                    </p>
+                </div>
+                <div class="predictor-item">
+                    <div class="predictor-title wid_wealth">Top Wealth Share</div>
+                    <p class="predictor-desc">
+                        Measures the share of total net personal wealth (housing, financial assets, etc. minus debts) held by the richest 10% of the population. Unlike income-based measures like Gini or Palma, this captures wealth concentration — accumulated assets rather than annual earnings. We invert it for comparison so that higher scores = less wealth concentration.
+                    </p>
+                    <p class="predictor-source">
+                        Source: <a href="https://ourworldindata.org/grapher/wealth-share-richest-10-percent" target="_blank" rel="noopener">World Inequality Database (via Our World in Data)</a> (latest available per country)
                     </p>
                 </div>
             </div>

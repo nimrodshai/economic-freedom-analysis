@@ -2027,6 +2027,176 @@ class DataFetcher:
 
         raise Exception("Could not fetch Same-Sex Marriage data")
 
+    def fetch_palma_index(self):
+        """
+        Fetch Palma Ratio from World Bank API.
+        Palma Ratio = Income share of top 10% / Income share of bottom 40%.
+        Calculated from World Bank income distribution indicators:
+          - SI.DST.10TH.10: Income share held by highest 10%
+          - SI.DST.FRST.20: Income share held by lowest 20%
+          - SI.DST.02ND.20: Income share held by second 20%
+        Higher values = more inequality (worse).
+        Source: World Bank Development Indicators
+        """
+        print("Fetching Palma Ratio (World Bank)...")
+
+        try:
+            from datetime import datetime
+            current_year = datetime.now().year
+
+            top10_data = {}
+            bot20_data = {}
+            sec20_data = {}
+
+            indicators = {
+                'SI.DST.10TH.10': top10_data,
+                'SI.DST.FRST.20': bot20_data,
+                'SI.DST.02ND.20': sec20_data
+            }
+
+            for indicator, storage in indicators.items():
+                for year in range(current_year, current_year - 15, -1):
+                    url = f"https://api.worldbank.org/v2/country/all/indicator/{indicator}?format=json&date={year}&per_page=300"
+                    response = self.session.get(url, timeout=30)
+
+                    if response.status_code == 200:
+                        data = response.json()
+                        if len(data) > 1 and data[1]:
+                            for item in data[1]:
+                                if item['value'] is not None:
+                                    country = self._normalize_country_name(item['country']['value'])
+                                    if country not in storage:
+                                        storage[country] = item['value']
+
+            # Calculate Palma ratio for countries that have all three indicators
+            all_countries = set(top10_data.keys()) & set(bot20_data.keys()) & set(sec20_data.keys())
+            palma_data = {}
+            for country in all_countries:
+                bottom_40 = bot20_data[country] + sec20_data[country]
+                if bottom_40 > 0:
+                    palma_data[country] = round(top10_data[country] / bottom_40, 2)
+
+            if palma_data:
+                # Filter out regional aggregates
+                exclude_aggregates = {
+                    'Africa Eastern and Southern', 'Africa Western and Central', 'Arab World',
+                    'Caribbean small states', 'Central Europe and the Baltics', 'Early-demographic dividend',
+                    'East Asia & Pacific', 'East Asia & Pacific (IDA & IBRD countries)',
+                    'East Asia & Pacific (excluding high income)', 'Euro area', 'Europe & Central Asia',
+                    'Europe & Central Asia (IDA & IBRD countries)', 'Europe & Central Asia (excluding high income)',
+                    'European Union', 'Fragile and conflict affected situations', 'Heavily indebted poor countries (HIPC)',
+                    'High income', 'IBRD only', 'IDA & IBRD total', 'IDA blend', 'IDA only', 'IDA total',
+                    'Late-demographic dividend', 'Latin America & Caribbean',
+                    'Latin America & Caribbean (excluding high income)', 'Latin America & the Caribbean (IDA & IBRD countries)',
+                    'Least developed countries: UN classification', 'Low & middle income', 'Low income',
+                    'Lower middle income', 'Middle East & North Africa', 'Middle East & North Africa (IDA & IBRD countries)',
+                    'Middle East & North Africa (excluding high income)', 'Middle income', 'North America',
+                    'Not classified', 'OECD members', 'Other small states', 'Pacific island small states',
+                    'Post-demographic dividend', 'Pre-demographic dividend', 'Small states', 'South Asia',
+                    'South Asia (IDA & IBRD)', 'Sub-Saharan Africa', 'Sub-Saharan Africa (IDA & IBRD countries)',
+                    'Sub-Saharan Africa (excluding high income)', 'Upper middle income', 'World'
+                }
+
+                result = pd.DataFrame({
+                    'Country': [k for k in palma_data.keys() if k not in exclude_aggregates],
+                    'Palma_Ratio': [v for k, v in palma_data.items() if k not in exclude_aggregates]
+                })
+                result.to_csv(f"{self.cache_dir}/palma_ratio.csv", index=False)
+                print(f"  Successfully calculated Palma Ratio for {len(result)} countries")
+                return result
+
+        except Exception as e:
+            print(f"  Error fetching Palma Ratio data: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/palma_ratio.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached Palma Ratio data...")
+            return pd.read_csv(cache_file)
+
+        return pd.DataFrame()
+
+
+    def fetch_wid_top_wealth_share(self):
+        """
+        Fetch Top 10% Wealth Share from World Inequality Database (via Our World in Data).
+        Source: https://ourworldindata.org/grapher/wealth-share-richest-10-percent
+        Data: WID.world, ~170 countries
+        Measures the share of total net personal wealth held by the richest 10%.
+        Higher values = more wealth concentration = worse.
+        """
+        print("Fetching WID Top 10% Wealth Share (OWID)...")
+
+        try:
+            url = "https://ourworldindata.org/grapher/wealth-share-richest-10-percent.csv"
+            response = self.session.get(url, timeout=30)
+
+            if response.status_code == 200:
+                df = pd.read_csv(StringIO(response.text))
+
+                # Find year column and get most recent data per country
+                year_col = None
+                for col in df.columns:
+                    if col.lower() == 'year':
+                        year_col = col
+                        break
+
+                if year_col:
+                    df = df.sort_values(year_col, ascending=False).drop_duplicates('Entity')
+
+                # Find the country and wealth share columns
+                country_col = None
+                share_col = None
+                for col in df.columns:
+                    col_lower = col.lower()
+                    if col_lower in ['entity', 'country']:
+                        country_col = col
+                    elif 'wealth' in col_lower and 'share' in col_lower:
+                        share_col = col
+                    elif 'wealth' in col_lower and '10' in col_lower:
+                        share_col = col
+
+                # If no specific match, try any column with 'wealth' or 'richest'
+                if not share_col:
+                    for col in df.columns:
+                        col_lower = col.lower()
+                        if ('wealth' in col_lower or 'richest' in col_lower) and col_lower not in ['entity', 'country', 'code', 'year']:
+                            share_col = col
+                            break
+
+                if country_col and share_col:
+                    result = pd.DataFrame({
+                        'Country': df[country_col].apply(self._normalize_country_name),
+                        'WID_Top_Wealth_Share': pd.to_numeric(df[share_col], errors='coerce')
+                    })
+                    result = result.dropna(subset=['Country', 'WID_Top_Wealth_Share'])
+
+                    # Filter out regional aggregates and entries with unreasonable values
+                    exclude_aggregates = {
+                        'World', 'Africa', 'Asia', 'Europe', 'North America', 'South America',
+                        'Oceania', 'European Union', 'OECD', 'High income', 'Low income',
+                        'Middle income', 'Upper middle income', 'Lower middle income',
+                        'Sub-Saharan Africa', 'Latin America & Caribbean',
+                        'East Asia & Pacific', 'Middle East & North Africa',
+                        'South Asia', 'Europe & Central Asia'
+                    }
+                    result = result[~result['Country'].isin(exclude_aggregates)]
+
+                    if len(result) > 30:
+                        result.to_csv(f"{self.cache_dir}/wid_top_wealth_share.csv", index=False)
+                        print(f"  Successfully fetched {len(result)} countries from Our World in Data")
+                        return result
+        except Exception as e:
+            print(f"  Could not fetch from OWID: {e}")
+
+        # Fallback to cached data
+        cache_file = f"{self.cache_dir}/wid_top_wealth_share.csv"
+        if os.path.exists(cache_file):
+            print("  Using cached WID Top Wealth Share data...")
+            return pd.read_csv(cache_file)
+
+        raise Exception("Could not fetch WID Top Wealth Share data")
+
 
 class CorrelationAnalyzer:
     """Analyzes correlations between economic freedom and quality of life indices."""

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-02-05T08:02:00.701587Z",
+    "generated_at": "2026-02-17T17:35:38.525075Z",
     "num_countries": 176,
     "data_sources": [
       {
@@ -66,6 +66,14 @@
       {
         "name": "Our World in Data - Same-Sex Marriage (Equaldex)",
         "year": 2025
+      },
+      {
+        "name": "World Bank Income Distribution (Palma Ratio)",
+        "year": 2022
+      },
+      {
+        "name": "World Inequality Database - Top 10% Wealth Share (via OWID)",
+        "year": 2023
       }
     ]
   },
@@ -196,7 +204,7 @@
       "name": "Infant Mortality (per 1000)",
       "correlation": -0.546,
       "effective_correlation": 0.546,
-      "p_value": 5.510525833166964e-15,
+      "p_value": 5.510525833166965e-15,
       "significant": true,
       "n": 175,
       "higher_better": false,
@@ -262,7 +270,7 @@
       "name": "Homicide Rate (UNODC)",
       "correlation": -0.1425,
       "effective_correlation": 0.1425,
-      "p_value": 0.09799733169752378,
+      "p_value": 0.09799733169752406,
       "significant": false,
       "n": 136,
       "higher_better": false,
@@ -293,7 +301,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 29.4,
-      "democracy_score": 6.2
+      "democracy_score": 6.2,
+      "palma_ratio": 1.06,
+      "wid_top_wealth_share": 56.95
     },
     {
       "name": "Algeria",
@@ -318,7 +328,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 3.55
+      "democracy_score": 3.55,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 63.31
     },
     {
       "name": "Angola",
@@ -343,7 +355,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 4.05
+      "democracy_score": 4.05,
+      "palma_ratio": 3.44,
+      "wid_top_wealth_share": 76.84
     },
     {
       "name": "Argentina",
@@ -368,7 +382,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 42.4,
-      "democracy_score": 6.51
+      "democracy_score": 6.51,
+      "palma_ratio": 2.11,
+      "wid_top_wealth_share": 58.97
     },
     {
       "name": "Armenia",
@@ -393,7 +409,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 27.2,
-      "democracy_score": 5.35
+      "democracy_score": 5.35,
+      "palma_ratio": 0.97,
+      "wid_top_wealth_share": 58.3
     },
     {
       "name": "Australia",
@@ -418,7 +436,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.8,
-      "democracy_score": 8.85
+      "democracy_score": 8.85,
+      "palma_ratio": 1.29,
+      "wid_top_wealth_share": 57.21
     },
     {
       "name": "Austria",
@@ -443,7 +463,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 31.2,
-      "democracy_score": 8.28
+      "democracy_score": 8.28,
+      "palma_ratio": 1.19,
+      "wid_top_wealth_share": 61.95
     },
     {
       "name": "Azerbaijan",
@@ -468,7 +490,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.8
+      "democracy_score": 2.8,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 57.89
     },
     {
       "name": "Bahamas",
@@ -493,7 +517,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 65.22
     },
     {
       "name": "Bahrain",
@@ -518,7 +544,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.45
+      "democracy_score": 2.45,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 76.57
     },
     {
       "name": "Bangladesh",
@@ -543,7 +571,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 30.9,
-      "democracy_score": 4.44
+      "democracy_score": 4.44,
+      "palma_ratio": 1.18,
+      "wid_top_wealth_share": 58.62
     },
     {
       "name": "Barbados",
@@ -568,7 +598,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.35,
+      "wid_top_wealth_share": 64.4
     },
     {
       "name": "Belarus",
@@ -593,7 +625,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 24.4,
-      "democracy_score": 1.99
+      "democracy_score": 1.99,
+      "palma_ratio": 0.83,
+      "wid_top_wealth_share": 56.77
     },
     {
       "name": "Belgium",
@@ -618,7 +652,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 26.8,
-      "democracy_score": 7.64
+      "democracy_score": 7.64,
+      "palma_ratio": 0.94,
+      "wid_top_wealth_share": 52.29
     },
     {
       "name": "Belize",
@@ -643,7 +679,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.84,
+      "wid_top_wealth_share": 68.54
     },
     {
       "name": "Benin",
@@ -668,7 +706,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 34.4,
-      "democracy_score": 4.44
+      "democracy_score": 4.44,
+      "palma_ratio": 1.39,
+      "wid_top_wealth_share": 59.05
     },
     {
       "name": "Bhutan",
@@ -693,7 +733,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": 28.5,
-      "democracy_score": 5.65
+      "democracy_score": 5.65,
+      "palma_ratio": 1.02,
+      "wid_top_wealth_share": 58.55
     },
     {
       "name": "Bolivia",
@@ -718,7 +760,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 42.1,
-      "democracy_score": 4.26
+      "democracy_score": 4.26,
+      "palma_ratio": 2.06,
+      "wid_top_wealth_share": 65.32
     },
     {
       "name": "Bosnia and Herzegovina",
@@ -743,7 +787,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 5.06
+      "democracy_score": 5.06,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 56.96
     },
     {
       "name": "Botswana",
@@ -768,7 +814,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 7.63
+      "democracy_score": 7.63,
+      "palma_ratio": 4.12,
+      "wid_top_wealth_share": 77.85
     },
     {
       "name": "Brazil",
@@ -793,7 +841,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 51.6,
-      "democracy_score": 6.49
+      "democracy_score": 6.49,
+      "palma_ratio": 3.55,
+      "wid_top_wealth_share": 77.81
     },
     {
       "name": "Brunei",
@@ -818,7 +868,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 57.6
     },
     {
       "name": "Bulgaria",
@@ -843,7 +895,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 39.5,
-      "democracy_score": 6.34
+      "democracy_score": 6.34,
+      "palma_ratio": 1.8,
+      "wid_top_wealth_share": 58.82
     },
     {
       "name": "Burkina Faso",
@@ -868,7 +922,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 37.4,
-      "democracy_score": 2.55
+      "democracy_score": 2.55,
+      "palma_ratio": 1.63,
+      "wid_top_wealth_share": 60.79
     },
     {
       "name": "Burma",
@@ -893,7 +949,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 0.96
+      "democracy_score": 0.96,
+      "palma_ratio": 1.16,
+      "wid_top_wealth_share": 58.83
     },
     {
       "name": "Burundi",
@@ -918,7 +976,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 37.5,
-      "democracy_score": 2.13
+      "democracy_score": 2.13,
+      "palma_ratio": 1.63,
+      "wid_top_wealth_share": 60.53
     },
     {
       "name": "Cabo Verde",
@@ -943,7 +1003,9 @@
       "lgbt_legal_status_score": null,
       "same_sex_marriage_score": null,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 2.1,
+      "wid_top_wealth_share": null
     },
     {
       "name": "Cambodia",
@@ -968,7 +1030,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.94
+      "democracy_score": 2.94,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 59.64
     },
     {
       "name": "Cameroon",
@@ -993,7 +1057,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 42.2,
-      "democracy_score": 2.56
+      "democracy_score": 2.56,
+      "palma_ratio": 2.07,
+      "wid_top_wealth_share": 60.8
     },
     {
       "name": "Canada",
@@ -1018,7 +1084,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 31.1,
-      "democracy_score": 8.69
+      "democracy_score": 8.69,
+      "palma_ratio": 1.14,
+      "wid_top_wealth_share": 58.01
     },
     {
       "name": "Central African Republic",
@@ -1043,7 +1111,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 43.0,
-      "democracy_score": 1.18
+      "democracy_score": 1.18,
+      "palma_ratio": 2.16,
+      "wid_top_wealth_share": 63.51
     },
     {
       "name": "Chad",
@@ -1068,7 +1138,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 37.4,
-      "democracy_score": 1.89
+      "democracy_score": 1.89,
+      "palma_ratio": 1.65,
+      "wid_top_wealth_share": 60.12
     },
     {
       "name": "Chile",
@@ -1093,7 +1165,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 43.0,
-      "democracy_score": 7.83
+      "democracy_score": 7.83,
+      "palma_ratio": 2.18,
+      "wid_top_wealth_share": 76.79
     },
     {
       "name": "China",
@@ -1118,7 +1192,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 36.0,
-      "democracy_score": 2.11
+      "democracy_score": 2.11,
+      "palma_ratio": 1.52,
+      "wid_top_wealth_share": 68.02
     },
     {
       "name": "Colombia",
@@ -1143,7 +1219,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 53.9,
-      "democracy_score": 6.35
+      "democracy_score": 6.35,
+      "palma_ratio": 4.03,
+      "wid_top_wealth_share": 78.95
     },
     {
       "name": "Comoros",
@@ -1168,7 +1246,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.84
+      "democracy_score": 2.84,
+      "palma_ratio": 2.47,
+      "wid_top_wealth_share": 63.37
     },
     {
       "name": "DR Congo",
@@ -1193,7 +1273,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 44.7,
-      "democracy_score": 1.92
+      "democracy_score": 1.92,
+      "palma_ratio": 2.36,
+      "wid_top_wealth_share": 68.73
     },
     {
       "name": "Congo",
@@ -1218,7 +1300,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.79
+      "democracy_score": 2.79,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 74.33
     },
     {
       "name": "Costa Rica",
@@ -1243,7 +1327,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 45.8,
-      "democracy_score": 8.29
+      "democracy_score": 8.29,
+      "palma_ratio": 2.55,
+      "wid_top_wealth_share": 64.19
     },
     {
       "name": "Ivory Coast",
@@ -1268,7 +1354,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 35.3,
-      "democracy_score": 4.22
+      "democracy_score": 4.22,
+      "palma_ratio": 1.45,
+      "wid_top_wealth_share": 70.41
     },
     {
       "name": "Croatia",
@@ -1293,7 +1381,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 30.1,
-      "democracy_score": 6.5
+      "democracy_score": 6.5,
+      "palma_ratio": 1.1,
+      "wid_top_wealth_share": 56.92
     },
     {
       "name": "Cuba",
@@ -1318,7 +1408,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": null,
-      "democracy_score": 2.58
+      "democracy_score": 2.58,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 59.41
     },
     {
       "name": "Cyprus",
@@ -1343,7 +1435,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 31.8,
-      "democracy_score": 7.38
+      "democracy_score": 7.38,
+      "palma_ratio": 1.23,
+      "wid_top_wealth_share": 66.71
     },
     {
       "name": "Czech Republic",
@@ -1368,7 +1462,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 25.7,
-      "democracy_score": 8.08
+      "democracy_score": 8.08,
+      "palma_ratio": 0.89,
+      "wid_top_wealth_share": 58.66
     },
     {
       "name": "Denmark",
@@ -1393,7 +1489,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 29.9,
-      "democracy_score": 9.28
+      "democracy_score": 9.28,
+      "palma_ratio": 1.13,
+      "wid_top_wealth_share": 50.06
     },
     {
       "name": "Djibouti",
@@ -1418,7 +1516,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 2.7
+      "democracy_score": 2.7,
+      "palma_ratio": 2.04,
+      "wid_top_wealth_share": 62.85
     },
     {
       "name": "Dominica",
@@ -1443,7 +1543,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 61.57
     },
     {
       "name": "Dominican Republic",
@@ -1468,7 +1570,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 39.0,
-      "democracy_score": 6.62
+      "democracy_score": 6.62,
+      "palma_ratio": 1.76,
+      "wid_top_wealth_share": 59.83
     },
     {
       "name": "Ecuador",
@@ -1493,7 +1597,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 45.2,
-      "democracy_score": 5.24
+      "democracy_score": 5.24,
+      "palma_ratio": 2.49,
+      "wid_top_wealth_share": 59.54
     },
     {
       "name": "Egypt",
@@ -1518,7 +1624,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 28.5,
-      "democracy_score": 2.79
+      "democracy_score": 2.79,
+      "palma_ratio": 1.06,
+      "wid_top_wealth_share": 62.69
     },
     {
       "name": "El Salvador",
@@ -1543,7 +1651,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 39.8,
-      "democracy_score": 4.61
+      "democracy_score": 4.61,
+      "palma_ratio": 1.81,
+      "wid_top_wealth_share": 58.6
     },
     {
       "name": "Equatorial Guinea",
@@ -1568,7 +1678,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": 38.5,
-      "democracy_score": 1.92
+      "democracy_score": 1.92,
+      "palma_ratio": 1.71,
+      "wid_top_wealth_share": 66.63
     },
     {
       "name": "Eritrea",
@@ -1593,7 +1705,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 1.97
+      "democracy_score": 1.97,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 59.73
     },
     {
       "name": "Estonia",
@@ -1618,7 +1732,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 30.7,
-      "democracy_score": 8.13
+      "democracy_score": 8.13,
+      "palma_ratio": 1.11,
+      "wid_top_wealth_share": 66.66
     },
     {
       "name": "Swaziland",
@@ -1643,7 +1759,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 2.6
+      "democracy_score": 2.6,
+      "palma_ratio": 4.07,
+      "wid_top_wealth_share": 80.34
     },
     {
       "name": "Ethiopia",
@@ -1668,7 +1786,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 31.1,
-      "democracy_score": 3.24
+      "democracy_score": 3.24,
+      "palma_ratio": 1.18,
+      "wid_top_wealth_share": 59.71
     },
     {
       "name": "Fiji",
@@ -1693,7 +1813,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 5.39
+      "democracy_score": 5.39,
+      "palma_ratio": 1.14,
+      "wid_top_wealth_share": 61.73
     },
     {
       "name": "Finland",
@@ -1718,7 +1840,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 27.4,
-      "democracy_score": 9.3
+      "democracy_score": 9.3,
+      "palma_ratio": 0.97,
+      "wid_top_wealth_share": 55.91
     },
     {
       "name": "France",
@@ -1743,7 +1867,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 31.8,
-      "democracy_score": 7.99
+      "democracy_score": 7.99,
+      "palma_ratio": 1.21,
+      "wid_top_wealth_share": 59.7
     },
     {
       "name": "Gabon",
@@ -1768,7 +1894,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.18
+      "democracy_score": 2.18,
+      "palma_ratio": 1.65,
+      "wid_top_wealth_share": 58.95
     },
     {
       "name": "Gambia",
@@ -1793,7 +1921,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 38.8,
-      "democracy_score": 4.47
+      "democracy_score": 4.47,
+      "palma_ratio": 1.74,
+      "wid_top_wealth_share": 60.98
     },
     {
       "name": "Georgia",
@@ -1818,7 +1948,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 33.9,
-      "democracy_score": 4.7
+      "democracy_score": 4.7,
+      "palma_ratio": 1.34,
+      "wid_top_wealth_share": 62.55
     },
     {
       "name": "Germany",
@@ -1843,7 +1975,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 32.4,
-      "democracy_score": 8.73
+      "democracy_score": 8.73,
+      "palma_ratio": 1.21,
+      "wid_top_wealth_share": 58.45
     },
     {
       "name": "Ghana",
@@ -1868,7 +2002,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 6.24
+      "democracy_score": 6.24,
+      "palma_ratio": 2.25,
+      "wid_top_wealth_share": 62.1
     },
     {
       "name": "Greece",
@@ -1893,7 +2029,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.4,
-      "democracy_score": 8.07
+      "democracy_score": 8.07,
+      "palma_ratio": 1.31,
+      "wid_top_wealth_share": 60.75
     },
     {
       "name": "Guatemala",
@@ -1918,7 +2056,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 45.2,
-      "democracy_score": 4.55
+      "democracy_score": 4.55,
+      "palma_ratio": 2.45,
+      "wid_top_wealth_share": 65.23
     },
     {
       "name": "Guinea",
@@ -1943,7 +2083,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.04
+      "democracy_score": 2.04,
+      "palma_ratio": 1.07,
+      "wid_top_wealth_share": 57.82
     },
     {
       "name": "Guinea-Bissau",
@@ -1968,7 +2110,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 33.4,
-      "democracy_score": 2.03
+      "democracy_score": 2.03,
+      "palma_ratio": 1.32,
+      "wid_top_wealth_share": 58.54
     },
     {
       "name": "Guyana",
@@ -1993,7 +2137,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 6.11
+      "democracy_score": 6.11,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 65.26
     },
     {
       "name": "Haiti",
@@ -2018,7 +2164,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 2.74
+      "democracy_score": 2.74,
+      "palma_ratio": 1.97,
+      "wid_top_wealth_share": 65.3
     },
     {
       "name": "Honduras",
@@ -2043,7 +2191,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 45.7,
-      "democracy_score": 4.98
+      "democracy_score": 4.98,
+      "palma_ratio": 2.54,
+      "wid_top_wealth_share": 65.22
     },
     {
       "name": "Hungary",
@@ -2068,7 +2218,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": null,
-      "democracy_score": 6.51
+      "democracy_score": 6.51,
+      "palma_ratio": 1.13,
+      "wid_top_wealth_share": 67.13
     },
     {
       "name": "Iceland",
@@ -2093,7 +2245,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": null,
-      "democracy_score": 9.38
+      "democracy_score": 9.38,
+      "palma_ratio": 0.95,
+      "wid_top_wealth_share": 56.67
     },
     {
       "name": "India",
@@ -2118,7 +2272,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 40.0,
       "gini_index": 25.5,
-      "democracy_score": 7.29
+      "democracy_score": 7.29,
+      "palma_ratio": 0.9,
+      "wid_top_wealth_share": 65.93
     },
     {
       "name": "Indonesia",
@@ -2143,7 +2299,9 @@
       "lgbt_legal_status_score": 50.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 34.9,
-      "democracy_score": 6.44
+      "democracy_score": 6.44,
+      "palma_ratio": 1.45,
+      "wid_top_wealth_share": 63.05
     },
     {
       "name": "Iran",
@@ -2168,7 +2326,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 35.9,
-      "democracy_score": 1.96
+      "democracy_score": 1.96,
+      "palma_ratio": 1.51,
+      "wid_top_wealth_share": 66.37
     },
     {
       "name": "Ireland",
@@ -2193,7 +2353,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 29.0,
-      "democracy_score": 9.19
+      "democracy_score": 9.19,
+      "palma_ratio": 1.07,
+      "wid_top_wealth_share": 65.59
     },
     {
       "name": "Israel",
@@ -2218,7 +2380,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 37.9,
-      "democracy_score": 7.8
+      "democracy_score": 7.8,
+      "palma_ratio": 1.6,
+      "wid_top_wealth_share": 62.77
     },
     {
       "name": "Italy",
@@ -2243,7 +2407,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 34.3,
-      "democracy_score": 7.58
+      "democracy_score": 7.58,
+      "palma_ratio": 1.37,
+      "wid_top_wealth_share": 56.15
     },
     {
       "name": "Jamaica",
@@ -2268,7 +2434,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 39.9,
-      "democracy_score": 6.74
+      "democracy_score": 6.74,
+      "palma_ratio": 1.85,
+      "wid_top_wealth_share": 65.28
     },
     {
       "name": "Japan",
@@ -2293,7 +2461,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 32.3,
-      "democracy_score": 8.48
+      "democracy_score": 8.48,
+      "palma_ratio": 1.19,
+      "wid_top_wealth_share": 59.0
     },
     {
       "name": "Jordan",
@@ -2318,7 +2488,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 3.28
+      "democracy_score": 3.28,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 64.6
     },
     {
       "name": "Kazakhstan",
@@ -2343,7 +2515,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 29.2,
-      "democracy_score": 3.08
+      "democracy_score": 3.08,
+      "palma_ratio": 1.08,
+      "wid_top_wealth_share": 58.98
     },
     {
       "name": "Kenya",
@@ -2368,7 +2542,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 37.7,
-      "democracy_score": 5.05
+      "democracy_score": 5.05,
+      "palma_ratio": 1.64,
+      "wid_top_wealth_share": 62.82
     },
     {
       "name": "Kiribati",
@@ -2393,7 +2569,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 0.99,
+      "wid_top_wealth_share": 61.85
     },
     {
       "name": "North Korea",
@@ -2418,7 +2596,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 1.08
+      "democracy_score": 1.08,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 58.74
     },
     {
       "name": "South Korea",
@@ -2443,7 +2623,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 50.0,
       "gini_index": 32.9,
-      "democracy_score": 7.75
+      "democracy_score": 7.75,
+      "palma_ratio": 1.24,
+      "wid_top_wealth_share": 58.99
     },
     {
       "name": "Kosovo",
@@ -2468,7 +2650,9 @@
       "lgbt_legal_status_score": null,
       "same_sex_marriage_score": null,
       "gini_index": 38.3,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.61,
+      "wid_top_wealth_share": 56.76
     },
     {
       "name": "Kuwait",
@@ -2493,7 +2677,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.78
+      "democracy_score": 2.78,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 59.59
     },
     {
       "name": "Kyrgyzstan",
@@ -2518,7 +2704,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 27.2,
-      "democracy_score": 3.52
+      "democracy_score": 3.52,
+      "palma_ratio": 0.97,
+      "wid_top_wealth_share": 58.93
     },
     {
       "name": "Laos",
@@ -2543,7 +2731,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 1.71
+      "democracy_score": 1.71,
+      "palma_ratio": 1.75,
+      "wid_top_wealth_share": 61.34
     },
     {
       "name": "Latvia",
@@ -2568,7 +2758,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 34.0,
-      "democracy_score": 7.66
+      "democracy_score": 7.66,
+      "palma_ratio": 1.34,
+      "wid_top_wealth_share": 60.88
     },
     {
       "name": "Lebanon",
@@ -2593,7 +2785,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 35.3,
-      "democracy_score": 3.56
+      "democracy_score": 3.56,
+      "palma_ratio": 1.4,
+      "wid_top_wealth_share": 73.47
     },
     {
       "name": "Lesotho",
@@ -2618,7 +2812,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 6.06
+      "democracy_score": 6.06,
+      "palma_ratio": 2.44,
+      "wid_top_wealth_share": 62.73
     },
     {
       "name": "Liberia",
@@ -2643,7 +2839,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 5.57
+      "democracy_score": 5.57,
+      "palma_ratio": 1.44,
+      "wid_top_wealth_share": 58.89
     },
     {
       "name": "Lithuania",
@@ -2668,7 +2866,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 36.0,
-      "democracy_score": 7.59
+      "democracy_score": 7.59,
+      "palma_ratio": 1.48,
+      "wid_top_wealth_share": 57.15
     },
     {
       "name": "Luxembourg",
@@ -2693,7 +2893,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.6,
-      "democracy_score": 8.88
+      "democracy_score": 8.88,
+      "palma_ratio": 1.31,
+      "wid_top_wealth_share": 59.12
     },
     {
       "name": "Madagascar",
@@ -2718,7 +2920,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 36.8,
-      "democracy_score": 5.33
+      "democracy_score": 5.33,
+      "palma_ratio": 1.58,
+      "wid_top_wealth_share": 63.98
     },
     {
       "name": "Malawi",
@@ -2743,7 +2947,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 5.85
+      "democracy_score": 5.85,
+      "palma_ratio": 1.72,
+      "wid_top_wealth_share": 61.46
     },
     {
       "name": "Malaysia",
@@ -2768,7 +2974,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 40.7,
-      "democracy_score": 7.11
+      "democracy_score": 7.11,
+      "palma_ratio": 1.92,
+      "wid_top_wealth_share": 60.03
     },
     {
       "name": "Maldives",
@@ -2793,7 +3001,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.05,
+      "wid_top_wealth_share": 58.1
     },
     {
       "name": "Mali",
@@ -2818,7 +3028,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 35.7,
-      "democracy_score": 2.4
+      "democracy_score": 2.4,
+      "palma_ratio": 1.48,
+      "wid_top_wealth_share": 59.44
     },
     {
       "name": "Malta",
@@ -2843,7 +3055,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 34.6,
-      "democracy_score": 7.93
+      "democracy_score": 7.93,
+      "palma_ratio": 1.41,
+      "wid_top_wealth_share": 53.47
     },
     {
       "name": "Mauritania",
@@ -2868,7 +3082,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 3.96
+      "democracy_score": 3.96,
+      "palma_ratio": 1.21,
+      "wid_top_wealth_share": 58.16
     },
     {
       "name": "Mauritius",
@@ -2893,7 +3109,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 8.23
+      "democracy_score": 8.23,
+      "palma_ratio": 1.59,
+      "wid_top_wealth_share": 60.7
     },
     {
       "name": "Mexico",
@@ -2918,7 +3136,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 43.5,
-      "democracy_score": 5.32
+      "democracy_score": 5.32,
+      "palma_ratio": 2.23,
+      "wid_top_wealth_share": 78.4
     },
     {
       "name": "Micronesia",
@@ -2943,7 +3163,9 @@
       "lgbt_legal_status_score": null,
       "same_sex_marriage_score": null,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.83,
+      "wid_top_wealth_share": null
     },
     {
       "name": "Moldova",
@@ -2968,7 +3190,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 26.8,
-      "democracy_score": 6.04
+      "democracy_score": 6.04,
+      "palma_ratio": 0.96,
+      "wid_top_wealth_share": 56.95
     },
     {
       "name": "Mongolia",
@@ -2993,7 +3217,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 31.4,
-      "democracy_score": 6.53
+      "democracy_score": 6.53,
+      "palma_ratio": 1.18,
+      "wid_top_wealth_share": 58.81
     },
     {
       "name": "Montenegro",
@@ -3018,7 +3244,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 75.0,
       "gini_index": 34.3,
-      "democracy_score": 6.73
+      "democracy_score": 6.73,
+      "palma_ratio": 1.35,
+      "wid_top_wealth_share": 57.42
     },
     {
       "name": "Morocco",
@@ -3043,7 +3271,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 4.97
+      "democracy_score": 4.97,
+      "palma_ratio": 1.83,
+      "wid_top_wealth_share": 61.24
     },
     {
       "name": "Mozambique",
@@ -3068,7 +3298,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 49.6,
-      "democracy_score": 3.38
+      "democracy_score": 3.38,
+      "palma_ratio": 3.07,
+      "wid_top_wealth_share": 78.32
     },
     {
       "name": "Namibia",
@@ -3093,7 +3325,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 50.0,
       "gini_index": null,
-      "democracy_score": 6.48
+      "democracy_score": 6.48,
+      "palma_ratio": 5.49,
+      "wid_top_wealth_share": 79.75
     },
     {
       "name": "Nepal",
@@ -3118,7 +3352,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": 30.0,
-      "democracy_score": 4.6
+      "democracy_score": 4.6,
+      "palma_ratio": 1.11,
+      "wid_top_wealth_share": 58.63
     },
     {
       "name": "Netherlands",
@@ -3143,7 +3379,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 25.7,
-      "democracy_score": 9.0
+      "democracy_score": 9.0,
+      "palma_ratio": 0.89,
+      "wid_top_wealth_share": 45.44
     },
     {
       "name": "New Zealand",
@@ -3168,7 +3406,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": null,
-      "democracy_score": 9.61
+      "democracy_score": 9.61,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 57.19
     },
     {
       "name": "Nicaragua",
@@ -3193,7 +3433,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.09
+      "democracy_score": 2.09,
+      "palma_ratio": 2.6,
+      "wid_top_wealth_share": 65.3
     },
     {
       "name": "Niger",
@@ -3218,7 +3460,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": 32.9,
-      "democracy_score": 2.26
+      "democracy_score": 2.26,
+      "palma_ratio": 1.32,
+      "wid_top_wealth_share": 59.55
     },
     {
       "name": "Nigeria",
@@ -3243,7 +3487,9 @@
       "lgbt_legal_status_score": 50.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 33.9,
-      "democracy_score": 4.16
+      "democracy_score": 4.16,
+      "palma_ratio": 1.35,
+      "wid_top_wealth_share": 60.52
     },
     {
       "name": "Macedonia",
@@ -3268,7 +3514,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 6.28
+      "democracy_score": 6.28,
+      "palma_ratio": 1.27,
+      "wid_top_wealth_share": 56.54
     },
     {
       "name": "Norway",
@@ -3293,7 +3541,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 26.5,
-      "democracy_score": 9.81
+      "democracy_score": 9.81,
+      "palma_ratio": 0.92,
+      "wid_top_wealth_share": 57.6
     },
     {
       "name": "Oman",
@@ -3318,7 +3568,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 3.05
+      "democracy_score": 3.05,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 74.88
     },
     {
       "name": "Pakistan",
@@ -3343,7 +3595,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 2.84
+      "democracy_score": 2.84,
+      "palma_ratio": 1.12,
+      "wid_top_wealth_share": 58.79
     },
     {
       "name": "Panama",
@@ -3368,7 +3622,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 49.7,
-      "democracy_score": 6.84
+      "democracy_score": 6.84,
+      "palma_ratio": 3.24,
+      "wid_top_wealth_share": 65.29
     },
     {
       "name": "Papua New Guinea",
@@ -3393,7 +3649,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 5.97
+      "democracy_score": 5.97,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 60.06
     },
     {
       "name": "Paraguay",
@@ -3418,7 +3676,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 44.2,
-      "democracy_score": 5.92
+      "democracy_score": 5.92,
+      "palma_ratio": 2.33,
+      "wid_top_wealth_share": 65.27
     },
     {
       "name": "Peru",
@@ -3443,7 +3703,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 40.1,
-      "democracy_score": 5.69
+      "democracy_score": 5.69,
+      "palma_ratio": 1.87,
+      "wid_top_wealth_share": 76.79
     },
     {
       "name": "Philippines",
@@ -3468,7 +3730,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 39.3,
-      "democracy_score": 6.63
+      "democracy_score": 6.63,
+      "palma_ratio": 1.8,
+      "wid_top_wealth_share": 60.23
     },
     {
       "name": "Poland",
@@ -3493,7 +3757,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 40.0,
       "gini_index": 28.5,
-      "democracy_score": 7.4
+      "democracy_score": 7.4,
+      "palma_ratio": 1.02,
+      "wid_top_wealth_share": 61.91
     },
     {
       "name": "Portugal",
@@ -3518,7 +3784,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.9,
-      "democracy_score": 8.08
+      "democracy_score": 8.08,
+      "palma_ratio": 1.35,
+      "wid_top_wealth_share": 60.04
     },
     {
       "name": "Qatar",
@@ -3543,7 +3811,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 3.17
+      "democracy_score": 3.17,
+      "palma_ratio": 1.43,
+      "wid_top_wealth_share": 75.79
     },
     {
       "name": "Romania",
@@ -3568,7 +3838,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 29.8,
-      "democracy_score": 5.99
+      "democracy_score": 5.99,
+      "palma_ratio": 1.05,
+      "wid_top_wealth_share": 58.32
     },
     {
       "name": "Russia",
@@ -3593,7 +3865,9 @@
       "lgbt_legal_status_score": 50.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 33.0,
-      "democracy_score": 2.03
+      "democracy_score": 2.03,
+      "palma_ratio": 1.27,
+      "wid_top_wealth_share": 66.66
     },
     {
       "name": "Rwanda",
@@ -3618,7 +3892,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 39.4,
-      "democracy_score": 3.34
+      "democracy_score": 3.34,
+      "palma_ratio": 1.83,
+      "wid_top_wealth_share": 68.78
     },
     {
       "name": "Saint Lucia",
@@ -3643,7 +3919,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 2.26,
+      "wid_top_wealth_share": 61.64
     },
     {
       "name": "Saint Vincent and the Grenadines",
@@ -3668,7 +3946,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 61.67
     },
     {
       "name": "Samoa",
@@ -3693,7 +3973,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.76,
+      "wid_top_wealth_share": 61.83
     },
     {
       "name": "Sao Tome and Principe",
@@ -3718,7 +4000,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.95,
+      "wid_top_wealth_share": 63.83
     },
     {
       "name": "Saudi Arabia",
@@ -3743,7 +4027,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.08
+      "democracy_score": 2.08,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 73.3
     },
     {
       "name": "Senegal",
@@ -3768,7 +4054,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 36.2,
-      "democracy_score": 5.93
+      "democracy_score": 5.93,
+      "palma_ratio": 1.53,
+      "wid_top_wealth_share": 59.82
     },
     {
       "name": "Serbia",
@@ -3793,7 +4081,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 32.8,
-      "democracy_score": 6.26
+      "democracy_score": 6.26,
+      "palma_ratio": 1.25,
+      "wid_top_wealth_share": 57.53
     },
     {
       "name": "Seychelles",
@@ -3818,7 +4108,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.21,
+      "wid_top_wealth_share": 65.52
     },
     {
       "name": "Sierra Leone",
@@ -3843,7 +4135,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 4.32
+      "democracy_score": 4.32,
+      "palma_ratio": 1.5,
+      "wid_top_wealth_share": 60.47
     },
     {
       "name": "Singapore",
@@ -3868,7 +4162,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 6.18
+      "democracy_score": 6.18,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 62.57
     },
     {
       "name": "Slovakia",
@@ -3893,7 +4189,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 40.0,
       "gini_index": 23.8,
-      "democracy_score": 7.21
+      "democracy_score": 7.21,
+      "palma_ratio": 0.77,
+      "wid_top_wealth_share": 49.49
     },
     {
       "name": "Slovenia",
@@ -3918,7 +4216,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 24.7,
-      "democracy_score": 7.82
+      "democracy_score": 7.82,
+      "palma_ratio": 0.84,
+      "wid_top_wealth_share": 57.2
     },
     {
       "name": "Solomon Islands",
@@ -3943,7 +4243,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.59,
+      "wid_top_wealth_share": 61.82
     },
     {
       "name": "South Africa",
@@ -3968,7 +4270,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": null,
-      "democracy_score": 7.16
+      "democracy_score": 7.16,
+      "palma_ratio": 7.01,
+      "wid_top_wealth_share": 85.75
     },
     {
       "name": "Spain",
@@ -3993,7 +4297,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.4,
-      "democracy_score": 8.13
+      "democracy_score": 8.13,
+      "palma_ratio": 1.28,
+      "wid_top_wealth_share": 57.16
     },
     {
       "name": "Sri Lanka",
@@ -4018,7 +4324,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 6.19
+      "democracy_score": 6.19,
+      "palma_ratio": 1.66,
+      "wid_top_wealth_share": 62.2
     },
     {
       "name": "Sudan",
@@ -4043,7 +4351,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 1.46
+      "democracy_score": 1.46,
+      "palma_ratio": 1.4,
+      "wid_top_wealth_share": 59.46
     },
     {
       "name": "Suriname",
@@ -4068,7 +4378,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 50.0,
       "gini_index": 39.2,
-      "democracy_score": 6.79
+      "democracy_score": 6.79,
+      "palma_ratio": 1.77,
+      "wid_top_wealth_share": 65.25
     },
     {
       "name": "Sweden",
@@ -4093,7 +4405,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 29.3,
-      "democracy_score": 9.39
+      "democracy_score": 9.39,
+      "palma_ratio": 1.03,
+      "wid_top_wealth_share": 59.4
     },
     {
       "name": "Switzerland",
@@ -4118,7 +4432,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.8,
-      "democracy_score": 9.32
+      "democracy_score": 9.32,
+      "palma_ratio": 1.35,
+      "wid_top_wealth_share": 62.77
     },
     {
       "name": "Taiwan",
@@ -4143,7 +4459,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": null,
-      "democracy_score": 8.78
+      "democracy_score": 8.78,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 61.69
     },
     {
       "name": "Tajikistan",
@@ -4168,7 +4486,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 36.1,
-      "democracy_score": 1.83
+      "democracy_score": 1.83,
+      "palma_ratio": 1.52,
+      "wid_top_wealth_share": 58.58
     },
     {
       "name": "Tanzania",
@@ -4193,7 +4513,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 5.2
+      "democracy_score": 5.2,
+      "palma_ratio": 1.9,
+      "wid_top_wealth_share": 64.75
     },
     {
       "name": "Thailand",
@@ -4218,7 +4540,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 33.5,
-      "democracy_score": 6.27
+      "democracy_score": 6.27,
+      "palma_ratio": 1.32,
+      "wid_top_wealth_share": 67.32
     },
     {
       "name": "Timor-Leste",
@@ -4243,7 +4567,9 @@
       "lgbt_legal_status_score": null,
       "same_sex_marriage_score": null,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.05,
+      "wid_top_wealth_share": null
     },
     {
       "name": "Togo",
@@ -4268,7 +4594,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 37.9,
-      "democracy_score": 2.99
+      "democracy_score": 2.99,
+      "palma_ratio": 1.66,
+      "wid_top_wealth_share": 60.2
     },
     {
       "name": "Tonga",
@@ -4293,7 +4621,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 27.1,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 0.95,
+      "wid_top_wealth_share": 61.71
     },
     {
       "name": "Trinidad and Tobago",
@@ -4318,7 +4648,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": null,
-      "democracy_score": 7.09
+      "democracy_score": 7.09,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 65.25
     },
     {
       "name": "Tunisia",
@@ -4343,7 +4675,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 25.0,
       "gini_index": 33.7,
-      "democracy_score": 4.71
+      "democracy_score": 4.71,
+      "palma_ratio": 1.35,
+      "wid_top_wealth_share": 66.54
     },
     {
       "name": "Turkey",
@@ -4368,7 +4702,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 44.5,
-      "democracy_score": 4.26
+      "democracy_score": 4.26,
+      "palma_ratio": 2.36,
+      "wid_top_wealth_share": 75.6
     },
     {
       "name": "Turkmenistan",
@@ -4393,7 +4729,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 1.66
+      "democracy_score": 1.66,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 62.12
     },
     {
       "name": "Uganda",
@@ -4418,7 +4756,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 4.49
+      "democracy_score": 4.49,
+      "palma_ratio": 2.14,
+      "wid_top_wealth_share": 66.81
     },
     {
       "name": "UAE",
@@ -4443,7 +4783,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 3.07
+      "democracy_score": 3.07,
+      "palma_ratio": 0.89,
+      "wid_top_wealth_share": 62.45
     },
     {
       "name": "United Kingdom",
@@ -4468,7 +4810,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 32.4,
-      "democracy_score": 8.34
+      "democracy_score": 8.34,
+      "palma_ratio": 1.22,
+      "wid_top_wealth_share": 57.15
     },
     {
       "name": "United States",
@@ -4493,7 +4837,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 41.8,
-      "democracy_score": 7.85
+      "democracy_score": 7.85,
+      "palma_ratio": 2.0,
+      "wid_top_wealth_share": 71.24
     },
     {
       "name": "Uruguay",
@@ -4518,7 +4864,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 100.0,
       "gini_index": 40.0,
-      "democracy_score": 8.67
+      "democracy_score": 8.67,
+      "palma_ratio": 1.85,
+      "wid_top_wealth_share": 77.13
     },
     {
       "name": "Uzbekistan",
@@ -4543,7 +4891,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 34.6,
-      "democracy_score": 2.1
+      "democracy_score": 2.1,
+      "palma_ratio": 1.37,
+      "wid_top_wealth_share": 59.76
     },
     {
       "name": "Vanuatu",
@@ -4568,7 +4918,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": null
+      "democracy_score": null,
+      "palma_ratio": 1.23,
+      "wid_top_wealth_share": 61.78
     },
     {
       "name": "Venezuela",
@@ -4593,7 +4945,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.25
+      "democracy_score": 2.25,
+      "palma_ratio": null,
+      "wid_top_wealth_share": 66.14
     },
     {
       "name": "Vietnam",
@@ -4618,7 +4972,9 @@
       "lgbt_legal_status_score": 100.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 36.1,
-      "democracy_score": 2.62
+      "democracy_score": 2.62,
+      "palma_ratio": 1.51,
+      "wid_top_wealth_share": 59.07
     },
     {
       "name": "Zambia",
@@ -4643,7 +4999,9 @@
       "lgbt_legal_status_score": 0.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": 51.5,
-      "democracy_score": 5.73
+      "democracy_score": 5.73,
+      "palma_ratio": 3.49,
+      "wid_top_wealth_share": 74.74
     },
     {
       "name": "Zimbabwe",
@@ -4668,7 +5026,9 @@
       "lgbt_legal_status_score": 25.0,
       "same_sex_marriage_score": 0.0,
       "gini_index": null,
-      "democracy_score": 2.98
+      "democracy_score": 2.98,
+      "palma_ratio": 3.19,
+      "wid_top_wealth_share": 66.98
     }
   ],
   "scatter_data": {
@@ -18183,9 +18543,11 @@
   },
   "comparison": {
     "economic_freedom_clear_wins": 7,
-    "equality_clear_wins": 2,
+    "equality_clear_wins": 0,
     "democracy_clear_wins": 2,
-    "ties": 7,
+    "palma_clear_wins": 0,
+    "wid_wealth_clear_wins": 0,
+    "ties": 9,
     "metrics": [
       {
         "metric": "GDP per Capita",
@@ -18201,7 +18563,7 @@
         "equality": {
           "correlation": -0.3029,
           "effective": 0.3029,
-          "p_value": 0.001683095036070498,
+          "p_value": 0.0016830950360704983,
           "significant": true,
           "n": 105,
           "inverted": true
@@ -18212,6 +18574,20 @@
           "p_value": 4.275556754891882e-17,
           "significant": true,
           "n": 154
+        },
+        "palma": {
+          "correlation": -0.2638,
+          "effective": 0.2638,
+          "p_value": 0.0010655458545458644,
+          "significant": true,
+          "n": 151
+        },
+        "wid_wealth": {
+          "correlation": -0.1718,
+          "effective": 0.1718,
+          "p_value": 0.02508004806366326,
+          "significant": true,
+          "n": 170
         },
         "winner": "economic_freedom"
       },
@@ -18241,6 +18617,20 @@
           "significant": true,
           "n": 156
         },
+        "palma": {
+          "correlation": -0.2833,
+          "effective": 0.2833,
+          "p_value": 0.00042458126794178556,
+          "significant": true,
+          "n": 151
+        },
+        "wid_wealth": {
+          "correlation": -0.1525,
+          "effective": 0.1525,
+          "p_value": 0.04586702293785444,
+          "significant": true,
+          "n": 172
+        },
         "winner": "tie"
       },
       {
@@ -18250,7 +18640,7 @@
         "economic_freedom": {
           "correlation": -0.546,
           "effective": 0.546,
-          "p_value": 5.510525833166964e-15,
+          "p_value": 5.510525833166965e-15,
           "significant": true,
           "n": 175
         },
@@ -18268,6 +18658,20 @@
           "p_value": 8.207757350636352e-14,
           "significant": true,
           "n": 156
+        },
+        "palma": {
+          "correlation": 0.2578,
+          "effective": 0.2578,
+          "p_value": 0.001392764535580274,
+          "significant": true,
+          "n": 151
+        },
+        "wid_wealth": {
+          "correlation": 0.1431,
+          "effective": 0.1431,
+          "p_value": 0.061064756164372846,
+          "significant": false,
+          "n": 172
         },
         "winner": "tie"
       },
@@ -18297,6 +18701,20 @@
           "significant": true,
           "n": 157
         },
+        "palma": {
+          "correlation": -0.2545,
+          "effective": 0.2545,
+          "p_value": 0.0019331154074854343,
+          "significant": true,
+          "n": 146
+        },
+        "wid_wealth": {
+          "correlation": -0.1761,
+          "effective": 0.1761,
+          "p_value": 0.022379452955680397,
+          "significant": true,
+          "n": 168
+        },
         "winner": "tie"
       },
       {
@@ -18325,6 +18743,20 @@
           "significant": true,
           "n": 150
         },
+        "palma": {
+          "correlation": -0.2399,
+          "effective": 0.2399,
+          "p_value": 0.003783605566904514,
+          "significant": true,
+          "n": 144
+        },
+        "wid_wealth": {
+          "correlation": -0.1142,
+          "effective": 0.1142,
+          "p_value": 0.14426334169165195,
+          "significant": false,
+          "n": 165
+        },
         "winner": "economic_freedom"
       },
       {
@@ -18341,7 +18773,7 @@
         "equality": {
           "correlation": -0.1549,
           "effective": 0.1549,
-          "p_value": 0.1338869813019185,
+          "p_value": 0.1338869813019186,
           "significant": false,
           "n": 95,
           "inverted": true
@@ -18352,6 +18784,20 @@
           "p_value": 4.842166768493571e-13,
           "significant": true,
           "n": 136
+        },
+        "palma": {
+          "correlation": -0.2503,
+          "effective": 0.2503,
+          "p_value": 0.005233776603113485,
+          "significant": true,
+          "n": 123
+        },
+        "wid_wealth": {
+          "correlation": -0.2093,
+          "effective": 0.2093,
+          "p_value": 0.013746479043868574,
+          "significant": true,
+          "n": 138
         },
         "winner": "economic_freedom"
       },
@@ -18378,6 +18824,20 @@
           "correlation": 0.7189,
           "effective": 0.7189,
           "p_value": 5.966970238176271e-14,
+          "significant": true,
+          "n": 80
+        },
+        "palma": {
+          "correlation": -0.4484,
+          "effective": 0.4484,
+          "p_value": 4.31383584310291e-05,
+          "significant": true,
+          "n": 77
+        },
+        "wid_wealth": {
+          "correlation": -0.4364,
+          "effective": 0.4364,
+          "p_value": 5.1990213826259875e-05,
           "significant": true,
           "n": 80
         },
@@ -18409,6 +18869,20 @@
           "significant": true,
           "n": 120
         },
+        "palma": {
+          "correlation": -0.1986,
+          "effective": 0.1986,
+          "p_value": 0.04032264800875303,
+          "significant": true,
+          "n": 107
+        },
+        "wid_wealth": {
+          "correlation": -0.1255,
+          "effective": 0.1255,
+          "p_value": 0.16321095335626104,
+          "significant": false,
+          "n": 125
+        },
         "winner": "economic_freedom"
       },
       {
@@ -18437,6 +18911,20 @@
           "significant": true,
           "n": 106
         },
+        "palma": {
+          "correlation": 0.2011,
+          "effective": 0.2011,
+          "p_value": 0.05453820007740296,
+          "significant": false,
+          "n": 92
+        },
+        "wid_wealth": {
+          "correlation": 0.2472,
+          "effective": 0.2472,
+          "p_value": 0.010633870798461485,
+          "significant": true,
+          "n": 106
+        },
         "winner": "tie"
       },
       {
@@ -18461,11 +18949,25 @@
         "democracy": {
           "correlation": -0.1635,
           "effective": 0.1635,
-          "p_value": 0.06741994939333593,
+          "p_value": 0.06741994939333584,
           "significant": false,
           "n": 126
         },
-        "winner": "equality"
+        "palma": {
+          "correlation": 0.5347,
+          "effective": 0.5347,
+          "p_value": 1.498191804714503e-09,
+          "significant": true,
+          "n": 111
+        },
+        "wid_wealth": {
+          "correlation": 0.2831,
+          "effective": 0.2831,
+          "p_value": 0.001052654540504857,
+          "significant": true,
+          "n": 131
+        },
+        "winner": "tie"
       },
       {
         "metric": "Homicide Rate (UNODC)",
@@ -18474,7 +18976,7 @@
         "economic_freedom": {
           "correlation": -0.1425,
           "effective": 0.1425,
-          "p_value": 0.09799733169752378,
+          "p_value": 0.09799733169752406,
           "significant": false,
           "n": 136
         },
@@ -18493,7 +18995,21 @@
           "significant": false,
           "n": 122
         },
-        "winner": "equality"
+        "palma": {
+          "correlation": 0.5767,
+          "effective": 0.5767,
+          "p_value": 6.734087220739311e-12,
+          "significant": true,
+          "n": 119
+        },
+        "wid_wealth": {
+          "correlation": 0.3417,
+          "effective": 0.3417,
+          "p_value": 5.336718254891322e-05,
+          "significant": true,
+          "n": 134
+        },
+        "winner": "tie"
       },
       {
         "metric": "Healthy Life Expectancy",
@@ -18509,7 +19025,7 @@
         "equality": {
           "correlation": -0.3721,
           "effective": 0.3721,
-          "p_value": 0.00010043632357905226,
+          "p_value": 0.00010043632357905224,
           "significant": true,
           "n": 104,
           "inverted": true
@@ -18520,6 +19036,20 @@
           "p_value": 5.612712906781538e-15,
           "significant": true,
           "n": 156
+        },
+        "palma": {
+          "correlation": -0.4266,
+          "effective": 0.4266,
+          "p_value": 7.128042184360162e-08,
+          "significant": true,
+          "n": 147
+        },
+        "wid_wealth": {
+          "correlation": -0.3057,
+          "effective": 0.3057,
+          "p_value": 5.022255234493487e-05,
+          "significant": true,
+          "n": 170
         },
         "winner": "tie"
       },
@@ -18549,6 +19079,20 @@
           "significant": true,
           "n": 118
         },
+        "palma": {
+          "correlation": -0.2456,
+          "effective": 0.2456,
+          "p_value": 0.010421004854772183,
+          "significant": true,
+          "n": 108
+        },
+        "wid_wealth": {
+          "correlation": -0.2069,
+          "effective": 0.2069,
+          "p_value": 0.019620639166275745,
+          "significant": true,
+          "n": 127
+        },
         "winner": "tie"
       },
       {
@@ -18576,6 +19120,20 @@
           "p_value": 5.2234791498812666e-15,
           "significant": true,
           "n": 123
+        },
+        "palma": {
+          "correlation": -0.2296,
+          "effective": 0.2296,
+          "p_value": 0.01400839616314525,
+          "significant": true,
+          "n": 114
+        },
+        "wid_wealth": {
+          "correlation": -0.1446,
+          "effective": 0.1446,
+          "p_value": 0.10473405243995618,
+          "significant": false,
+          "n": 127
         },
         "winner": "tie"
       },
@@ -18605,6 +19163,20 @@
           "significant": true,
           "n": 151
         },
+        "palma": {
+          "correlation": 0.3437,
+          "effective": 0.3437,
+          "p_value": 2.63874989287461e-05,
+          "significant": true,
+          "n": 143
+        },
+        "wid_wealth": {
+          "correlation": 0.2519,
+          "effective": 0.2519,
+          "p_value": 0.001221083501300108,
+          "significant": true,
+          "n": 162
+        },
         "winner": "economic_freedom"
       },
       {
@@ -18633,6 +19205,20 @@
           "significant": true,
           "n": 136
         },
+        "palma": {
+          "correlation": 0.3417,
+          "effective": 0.3417,
+          "p_value": 1.7512727403474874e-05,
+          "significant": true,
+          "n": 151
+        },
+        "wid_wealth": {
+          "correlation": 0.2373,
+          "effective": 0.2373,
+          "p_value": 0.003691246407071104,
+          "significant": true,
+          "n": 148
+        },
         "winner": "economic_freedom"
       },
       {
@@ -18649,7 +19235,7 @@
         "equality": {
           "correlation": -0.0773,
           "effective": 0.0773,
-          "p_value": 0.43533680887199777,
+          "p_value": 0.43533680887199727,
           "significant": false,
           "n": 104,
           "inverted": true
@@ -18660,6 +19246,20 @@
           "p_value": 4.1817735917218343e-07,
           "significant": true,
           "n": 157
+        },
+        "palma": {
+          "correlation": 0.0249,
+          "effective": -0.0249,
+          "p_value": 0.7650324624503388,
+          "significant": false,
+          "n": 147
+        },
+        "wid_wealth": {
+          "correlation": -0.0039,
+          "effective": 0.0039,
+          "p_value": 0.959235273236552,
+          "significant": false,
+          "n": 172
         },
         "winner": "democracy"
       },
@@ -18677,7 +19277,7 @@
         "equality": {
           "correlation": -0.1115,
           "effective": 0.1115,
-          "p_value": 0.2597200692236661,
+          "p_value": 0.2597200692236657,
           "significant": false,
           "n": 104,
           "inverted": true
@@ -18688,6 +19288,20 @@
           "p_value": 2.65312335566989e-23,
           "significant": true,
           "n": 157
+        },
+        "palma": {
+          "correlation": -0.009,
+          "effective": 0.009,
+          "p_value": 0.9133886519645082,
+          "significant": false,
+          "n": 147
+        },
+        "wid_wealth": {
+          "correlation": -0.049,
+          "effective": 0.049,
+          "p_value": 0.5230257083267185,
+          "significant": false,
+          "n": 172
         },
         "winner": "democracy"
       }
