@@ -2300,9 +2300,28 @@
             const tbody = document.getElementById('tableBody');
             if (!tbody) return;
 
-            tbody.innerHTML = filtered.map((c, index) => `
+            // Compute global ranks based on sorted column (across all countries, not just filtered)
+            const rankMap = new Map();
+            if (sortColumn === 'name' || sortColumn === 'region') {
+                const ranked = allData.slice().sort((a, b) => {
+                    const aVal = String(a[sortColumn] || '').toLowerCase();
+                    const bVal = String(b[sortColumn] || '').toLowerCase();
+                    return sortDirection === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+                });
+                ranked.forEach((c, i) => rankMap.set(c.name, i + 1));
+            } else {
+                const ranked = allData
+                    .filter(c => c[sortColumn] !== null && c[sortColumn] !== undefined)
+                    .slice()
+                    .sort((a, b) => sortDirection === 'asc' ? a[sortColumn] - b[sortColumn] : b[sortColumn] - a[sortColumn]);
+                ranked.forEach((c, i) => rankMap.set(c.name, i + 1));
+            }
+
+            tbody.innerHTML = filtered.map((c, index) => {
+                const rank = rankMap.get(c.name) || '-';
+                return `
                 <tr>
-                    <td style="color: var(--text-muted); font-weight: 500;">${index + 1}</td>
+                    <td style="color: var(--text-muted); font-weight: 500;">${rank}</td>
                     <td class="country-name">${c.name}</td>
                     <td class="region">${c.region || '-'}</td>
                     <td>${formatLinkedValue(c.name, 'economic_freedom', c.economic_freedom, 1)}</td>
@@ -2329,7 +2348,7 @@
                     <td>${formatLinkedValue(c.name, 'lgbt_legal_status_score', c.lgbt_legal_status_score, 0)}</td>
                     <td>${formatLinkedValue(c.name, 'same_sex_marriage_score', c.same_sex_marriage_score, 0)}</td>
                 </tr>
-            `).join('');
+            `}).join('');
 
             // Update header sort icons
             document.querySelectorAll('.data-table th').forEach(th => {
