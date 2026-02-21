@@ -2133,6 +2133,13 @@
                             </select>
                         </div>
                         <div class="selector-row">
+                            <label for="chartGroupSelect">Group: </label>
+                            <select id="chartGroupSelect" onchange="updateChart()">
+                                <option value="">All Countries</option>
+                                <option value="OECD">OECD</option>
+                            </select>
+                        </div>
+                        <div class="selector-row">
                             <label for="countrySelect">Highlight: </label>
                             <select id="countrySelect" onchange="updateChart()">
                                 <option value="">None</option>
@@ -2938,8 +2945,10 @@
             const yKey = yKeyMap[selectedId];
 
             // Filter countries that have data for both X and Y axes
+            const chartGroup = document.getElementById('chartGroupSelect')?.value || '';
             const validCountries = data.countries
                 .filter(c => c[xKey] != null && c[yKey] != null)
+                .filter(c => !chartGroup || (chartGroup === 'OECD' && OECD_COUNTRIES.has(c.name)))
                 .sort((a, b) => a.name.localeCompare(b.name));
 
             // Rebuild dropdown
@@ -3002,8 +3011,10 @@
             const yKey = yKeyMap[selectedId];
 
             // Build scatter points from country data
+            const chartGroup = document.getElementById('chartGroupSelect')?.value || '';
             const scatterPoints = [];
             data.countries.forEach(country => {
+                if (chartGroup === 'OECD' && !OECD_COUNTRIES.has(country.name)) return;
                 let xVal = country[xConfig.key];
                 const yVal = country[yKey];
                 if (xVal != null && yVal != null) {
