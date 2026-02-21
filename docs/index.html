@@ -1721,6 +1721,46 @@
         .predictor-source a {
             color: var(--primary);
         }
+        .predictors-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            padding: 14px 18px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+        .predictors-selector label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: background 0.15s;
+            user-select: none;
+        }
+        .predictors-selector label:hover {
+            background: #e2e8f0;
+        }
+        .predictors-selector label.freedom { color: var(--success); }
+        .predictors-selector label.equality { color: var(--danger); }
+        .predictors-selector label.democracy { color: #3b82f6; }
+        .predictors-selector label.palma { color: #8b5cf6; }
+        .predictors-selector label.wid_wealth { color: #f59e0b; }
+        .predictors-selector .predictors-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 4px;
+        }
+
         .info-link {
             color: var(--primary);
             cursor: pointer;
@@ -1886,6 +1926,16 @@
         let userCountry = null;
         let isUserCountry = false;
 
+        const OECD_COUNTRIES = new Set([
+            'Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Colombia',
+            'Costa Rica', 'Czech Republic', 'Denmark', 'Estonia', 'Finland',
+            'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland',
+            'Israel', 'Italy', 'Japan', 'South Korea', 'Latvia', 'Lithuania',
+            'Luxembourg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway',
+            'Poland', 'Portugal', 'Slovakia', 'Slovenia', 'Spain', 'Sweden',
+            'Switzerland', 'Turkey', 'United Kingdom', 'United States'
+        ]);
+
         // Detect user's country via IP geolocation
         async function detectUserCountry() {
             try {
@@ -2046,6 +2096,14 @@
                     <p><span class="info-link" onclick="openCorrelationHelpModal()">Not a stats person? Click here.</span></p>
                 </div>
                 <div class="section-content">
+                    <div class="predictors-selector">
+                        <span class="predictors-title">Predictors:</span>
+                        <label class="freedom"><input type="checkbox" value="freedom" checked onchange="renderComparison()"> Economic Freedom</label>
+                        <label class="equality"><input type="checkbox" value="equality" onchange="renderComparison()"> Equality (Gini)</label>
+                        <label class="democracy"><input type="checkbox" value="democracy" checked onchange="renderComparison()"> Democracy</label>
+                        <label class="palma"><input type="checkbox" value="palma" onchange="renderComparison()"> Equality (Palma)</label>
+                        <label class="wid_wealth"><input type="checkbox" value="wid_wealth" checked onchange="renderComparison()"> Equality (Wealth)</label>
+                    </div>
                     <div id="comparisonSection"></div>
                 </div>
 
@@ -2210,6 +2268,13 @@
                             ${getRegions().map(r => `<option value="${r}">${r}</option>`).join('')}
                         </select>
                     </div>
+                    <div>
+                        <label for="groupFilter">Group: </label>
+                        <select id="groupFilter" onchange="filterTable()">
+                            <option value="">All Countries</option>
+                            <option value="OECD">OECD</option>
+                        </select>
+                    </div>
                     <button class="download-btn" onclick="downloadCSV()">
                         <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                         Download CSV
@@ -2273,11 +2338,13 @@
         function renderTable() {
             const search = document.getElementById('search')?.value.toLowerCase() || '';
             const region = document.getElementById('regionFilter')?.value || '';
+            const group = document.getElementById('groupFilter')?.value || '';
 
             let filtered = allData.filter(c => {
                 const matchesSearch = c.name.toLowerCase().includes(search);
                 const matchesRegion = !region || c.region === region;
-                return matchesSearch && matchesRegion;
+                const matchesGroup = !group || (group === 'OECD' && OECD_COUNTRIES.has(c.name));
+                return matchesSearch && matchesRegion && matchesGroup;
             });
 
             // Sort
@@ -2300,17 +2367,18 @@
             const tbody = document.getElementById('tableBody');
             if (!tbody) return;
 
-            // Compute global ranks based on sorted column (across all countries, not just filtered)
+            // Compute ranks based on sorted column within the selected group (All or OECD)
+            const rankPool = group === 'OECD' ? allData.filter(c => OECD_COUNTRIES.has(c.name)) : allData;
             const rankMap = new Map();
             if (sortColumn === 'name' || sortColumn === 'region') {
-                const ranked = allData.slice().sort((a, b) => {
+                const ranked = rankPool.slice().sort((a, b) => {
                     const aVal = String(a[sortColumn] || '').toLowerCase();
                     const bVal = String(b[sortColumn] || '').toLowerCase();
                     return sortDirection === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
                 });
                 ranked.forEach((c, i) => rankMap.set(c.name, i + 1));
             } else {
-                const ranked = allData
+                const ranked = rankPool
                     .filter(c => c[sortColumn] !== null && c[sortColumn] !== undefined)
                     .slice()
                     .sort((a, b) => sortDirection === 'asc' ? a[sortColumn] - b[sortColumn] : b[sortColumn] - a[sortColumn]);
@@ -3252,6 +3320,11 @@
 
             if (!comparison) return;
 
+            // Get selected predictors from checkboxes
+            const selectedPredictors = new Set(
+                [...document.querySelectorAll('.predictors-selector input[type="checkbox"]:checked')].map(cb => cb.value)
+            );
+
             const container = document.getElementById('comparisonSection');
 
             // Define metric categories
@@ -3305,13 +3378,14 @@
                 const eqRawCorr = m.equality.correlation; // Raw Gini correlation
 
                 // Create array of bars in fixed order: Democracy, Economic Freedom, Equality (Gini), Equality (Palma), Equality (Wealth)
-                const bars = [
-                    { label: 'Democracy', cssClass: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation },
-                    { label: 'Economic<br>Freedom', cssClass: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
-                    { label: 'Equality (Gini)', cssClass: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
-                    { label: 'Equality (Palma)', cssClass: 'palma', value: palmaCorr, n: palmaN, color: '#8b5cf6', fillClass: 'comparison-bar-fill-purple-palma', rawCorr: m.palma?.correlation },
-                    { label: 'Equality (Wealth)', cssClass: 'wid_wealth', value: widCorr, n: widN, color: '#f59e0b', fillClass: 'comparison-bar-fill-amber', rawCorr: m.wid_wealth?.correlation }
+                const allBars = [
+                    { label: 'Democracy', cssClass: 'democracy', predictor: 'democracy', value: demCorr, n: demN, color: '#3b82f6', fillClass: 'comparison-bar-fill-blue', rawCorr: m.democracy?.correlation },
+                    { label: 'Economic<br>Freedom', cssClass: 'freedom', predictor: 'freedom', value: efCorr, n: efN, color: 'var(--success)', fillClass: 'comparison-bar-fill-green', rawCorr: m.economic_freedom.correlation },
+                    { label: 'Equality (Gini)', cssClass: 'equality', predictor: 'equality', value: eqCorr, n: eqN, color: 'var(--danger)', fillClass: 'comparison-bar-fill-red', rawCorr: eqRawCorr },
+                    { label: 'Equality (Palma)', cssClass: 'palma', predictor: 'palma', value: palmaCorr, n: palmaN, color: '#8b5cf6', fillClass: 'comparison-bar-fill-purple-palma', rawCorr: m.palma?.correlation },
+                    { label: 'Equality (Wealth)', cssClass: 'wid_wealth', predictor: 'wid_wealth', value: widCorr, n: widN, color: '#f59e0b', fillClass: 'comparison-bar-fill-amber', rawCorr: m.wid_wealth?.correlation }
                 ];
+                const bars = allBars.filter(b => selectedPredictors.has(b.predictor));
 
                 // Sort a copy to determine winner/loser for conclusion text
                 const sortedBars = [...bars].sort((a, b) => (b.value || 0) - (a.value || 0));
@@ -3379,185 +3453,92 @@
                 });
             }
 
-            const efClearWins = comparison.economic_freedom_clear_wins || 0;
-            const demClearWins = comparison.democracy_clear_wins || 0;
-            const eqClearWins = comparison.equality_clear_wins || 0;
-            const palmaClearWins = comparison.palma_clear_wins || 0;
-            const widClearWins = comparison.wid_wealth_clear_wins || 0;
-            const ties = comparison.ties || 0;
+            // Recalculate wins/ties dynamically based on selected predictors
+            const MARGIN_THRESHOLD = 0.05;
+            const predictorKeys = [
+                { key: 'freedom', dataKey: 'economic_freedom', name: 'Economic Freedom', label: 'Economic<br>Freedom', color: 'var(--success)' },
+                { key: 'democracy', dataKey: 'democracy', name: 'Democracy', label: 'Democracy', color: '#3b82f6' },
+                { key: 'equality', dataKey: 'equality', name: 'Equality (Gini)', label: 'Equality<br>(Gini)', color: 'var(--danger)' },
+                { key: 'palma', dataKey: 'palma', name: 'Equality (Palma)', label: 'Equality<br>(Palma)', color: '#8b5cf6' },
+                { key: 'wid_wealth', dataKey: 'wid_wealth', name: 'Equality (Wealth)', label: 'Equality<br>(Wealth)', color: '#f59e0b' }
+            ];
+            const activePredictors = predictorKeys.filter(p => selectedPredictors.has(p.key));
 
-            // Build dynamic results text
-            const winners = [];
-            if (efClearWins > 0) winners.push(`Economic Freedom clearly wins <strong>${efClearWins}</strong> metric${efClearWins > 1 ? 's' : ''}`);
-            if (demClearWins > 0) winners.push(`Democracy clearly wins <strong>${demClearWins}</strong> metric${demClearWins > 1 ? 's' : ''}`);
-            if (eqClearWins > 0) winners.push(`Equality (Gini) clearly wins <strong>${eqClearWins}</strong> metric${eqClearWins > 1 ? 's' : ''}`);
-            if (palmaClearWins > 0) winners.push(`Equality (Palma) clearly wins <strong>${palmaClearWins}</strong> metric${palmaClearWins > 1 ? 's' : ''}`);
-            if (widClearWins > 0) winners.push(`Equality (Wealth) clearly wins <strong>${widClearWins}</strong> metric${widClearWins > 1 ? 's' : ''}`);
+            // Tally wins and ties per predictor
+            const clearWins = {};
+            const tieCount = {};
+            activePredictors.forEach(p => { clearWins[p.key] = 0; tieCount[p.key] = 0; });
+            let totalTies = 0;
 
-            let resultsText = winners.length > 0 ? winners.join('. ') + '.' : 'No clear winners.';
-
-            if (ties > 0) {
-                // Determine who's typically tied by looking at top performers in tie metrics
-                const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
-                if (tieMetrics.length > 0) {
-                    // Find the top 2 performers across tie metrics
-                    const avgScores = { 'Freedom': 0, 'Democracy': 0, 'Equality (Gini)': 0, 'Equality (Palma)': 0, 'Equality (Wealth)': 0 };
-                    tieMetrics.forEach(m => {
-                        avgScores['Freedom'] += m.economic_freedom?.effective || 0;
-                        avgScores['Democracy'] += m.democracy?.effective || 0;
-                        avgScores['Equality (Gini)'] += m.equality?.effective || 0;
-                        avgScores['Equality (Palma)'] += m.palma?.effective || 0;
-                        avgScores['Equality (Wealth)'] += m.wid_wealth?.effective || 0;
-                    });
-                    const sorted = Object.entries(avgScores).sort((a, b) => b[1] - a[1]);
-                    const tiedParties = sorted.slice(0, 2).map(x => x[0]).join(' and ');
-                    resultsText += ` <strong>${ties}</strong> metric${ties > 1 ? 's are a tie' : ' is a tie'} between ${tiedParties}.`;
+            comparison.metrics.forEach(m => {
+                const effectives = {};
+                activePredictors.forEach(p => {
+                    const val = m[p.dataKey]?.effective;
+                    if (val !== null && val !== undefined) effectives[p.key] = val;
+                });
+                const sorted = Object.entries(effectives).sort((a, b) => b[1] - a[1]);
+                if (sorted.length >= 2) {
+                    const margin = sorted[0][1] - sorted[1][1];
+                    if (margin >= MARGIN_THRESHOLD) {
+                        clearWins[sorted[0][0]]++;
+                    } else {
+                        totalTies++;
+                        sorted.slice(0, 2).forEach(([k]) => tieCount[k]++);
+                    }
+                } else if (sorted.length === 1) {
+                    clearWins[sorted[0][0]]++;
                 }
-            }
-
-            // Calculate league points (3 for clear win, 1 for tie)
-            // First, determine who participates in ties
-            const tieMetrics = comparison.metrics.filter(m => m.winner === 'tie');
-            let freedomTies = 0, democracyTies = 0, equalityTies = 0, palmaTies = 0, widTies = 0;
-
-            tieMetrics.forEach(m => {
-                // Top 2 performers in each tie get a point
-                const metricScores = [
-                    { name: 'Freedom', score: m.economic_freedom?.effective || 0 },
-                    { name: 'Democracy', score: m.democracy?.effective || 0 },
-                    { name: 'Equality (Gini)', score: m.equality?.effective || 0 },
-                    { name: 'Equality (Palma)', score: m.palma?.effective || 0 },
-                    { name: 'Equality (Wealth)', score: m.wid_wealth?.effective || 0 }
-                ].sort((a, b) => b.score - a.score);
-
-                const top2 = metricScores.slice(0, 2).map(x => x.name);
-                if (top2.includes('Freedom')) freedomTies++;
-                if (top2.includes('Democracy')) democracyTies++;
-                if (top2.includes('Equality (Gini)')) equalityTies++;
-                if (top2.includes('Equality (Palma)')) palmaTies++;
-                if (top2.includes('Equality (Wealth)')) widTies++;
             });
 
-            const points = [
-                { name: 'Economic Freedom', pts: efClearWins * 3 + freedomTies },
-                { name: 'Democracy', pts: demClearWins * 3 + democracyTies },
-                { name: 'Equality (Gini)', pts: eqClearWins * 3 + equalityTies },
-                { name: 'Equality (Palma)', pts: palmaClearWins * 3 + palmaTies },
-                { name: 'Equality (Wealth)', pts: widClearWins * 3 + widTies }
-            ].sort((a, b) => b.pts - a.pts);
+            const points = activePredictors.map(p => ({
+                ...p,
+                wins: clearWins[p.key],
+                ties: tieCount[p.key],
+                total: clearWins[p.key] + tieCount[p.key],
+                pts: clearWins[p.key] * 3 + tieCount[p.key]
+            })).sort((a, b) => b.pts - a.pts);
 
-            const [first, second, third, fourth, fifth] = points;
-            let conclusion = '';
-
-            if (first.pts > second.pts) {
-                const margin = first.pts - second.pts;
-                if (margin >= 5) {
-                    conclusion = `<strong>${first.name} is the clear winner.</strong>`;
-                } else {
-                    conclusion = `<strong>${first.name} comes out ahead.</strong>`;
-                }
-            } else if (first.pts === second.pts) {
-                conclusion = `<strong>${first.name} and ${second.name} both lead.</strong>`;
-            }
-
-            // The last-place finisher
-            const loser = fifth || fourth || third;
-
-            // Less than 3 points = clear loser
-            if (loser.pts < 3) {
-                const loserAnalogies = [
-                    `${loser.name} is the Washington Generals of economic theories.`,
-                    `${loser.name} is the Wile E. Coyote of economic theories.`,
-                    `${loser.name} is the Charlie Brown of economic theories.`,
-                    `${loser.name} is the Tom (chasing Jerry) of economic theories.`,
-                    `${loser.name} is the Blockbuster to ${first.name}'s Netflix.`,
-                    `${loser.name} is the Nokia of economic theories.`,
-                    `${loser.name} pulled a Titanic.`,
-                    `${loser.name} is the Myspace of economic theories.`,
-                    `${loser.name} is the Internet Explorer of economic theories.`,
-                    `${loser.name} is the Kodak of economic theories.`,
-                    `${loser.name} is the Blackberry of economic theories.`,
-                    `${loser.name} is the Yahoo to ${first.name}'s Google.`,
-                    `${loser.name} is the Sears to ${first.name}'s Amazon.`,
-                    `${loser.name} is the Goliath of economic theories.`,
-                    `${loser.name} is the Hindenburg of economic theories.`,
-                    `${loser.name} is the Monstars to ${first.name}'s Michael Jordan.`,
-                    `${loser.name} is the Empire to ${first.name}'s Rebellion.`,
-                    `${loser.name} is the Voldemort of economic theories.`,
-                    `${loser.name} is the Hare to ${first.name}'s Tortoise.`,
-                    `${loser.name} is the Napoleon at Waterloo of economics.`,
-                    `${loser.name} is the Dodo bird of economic theories.`,
-                    `${loser.name} is the Clippy of economic theories.`,
-                    `${loser.name} is the Betamax of economic theories.`,
-                    `${loser.name} is the Zune to ${first.name}'s iPod.`,
-                    `${loser.name} got Pluto'd (demoted).`,
-                    `${loser.name} went full Homer Simpson.`,
-                    `${loser.name} went full Ned Stark.`,
-                    `${loser.name} went full Game of Thrones Season 8.`,
-                    `${loser.name} went full Al Bundy.`,
-                    `${loser.name} pulled a George Costanza.`,
-                    `${loser.name} is as self-destructive as Bojack Horseman.`,
-                    `${loser.name} has the success rate of Michael Scott's relationships.`,
-                    `${loser.name} is as effective as a Michael Scott leadership seminar.`
-                ];
-                conclusion += ' ' + loserAnalogies[Math.floor(Math.random() * loserAnalogies.length)];
-            } else if (loser.pts <= 8) {
-                // 3-8 points = subtle loser (put up a fight but still lost)
-                const subtleLoserAnalogies = [
-                    `Like Al Bundy, ${loser.name} could have done better.`,
-                    `${loser.name} showed up, but so did the others.`,
-                    `${loser.name} brought a knife to a gunfight. A nice knife, though.`,
-                    `${loser.name} finished the race. Just... not first. Or second.`,
-                    `${loser.name} is the bronze medal of economic theories.`,
-                    `${loser.name} tried. The data noticed.`,
-                    `${loser.name} peaked early, like a child actor.`,
-                    `Don't worry ${loser.name}, at least you tried.`,
-                    `${loser.name}: close, but no cigar.`,
-                    `${loser.name} gets a participation trophy.`,
-                    `${loser.name} is the Ringo of this competition.`,
-                    `${loser.name} is giving strong "almost made the playoffs" energy.`,
-                    `${loser.name}: not bad, just... not good.`,
-                    `${loser.name} tried harder than the results suggest. Maybe.`,
-                    `${loser.name} came in last, but at least it showed up.`,
-                    `${loser.name} is the underdog story that stayed under.`,
-                    `${loser.name} gets points for effort. Not many, but some.`,
-                    `Good effort champ. We're proud of you, ${loser.name}.`,
-                    `${loser.name} is like bringing homemade cookies to a bake-off. Sweet, but outclassed.`,
-                    `${loser.name} gave it the old college try. Community college.`,
-                    `${loser.name} played a good game, just not good enough.`,
-                    `${loser.name} is the opening band of economic theories.`,
-                    `${loser.name} made it to the dance, just not the spotlight.`,
-                    `${loser.name}: A for effort, C for results.`,
-                    `${loser.name} put up a fight. The fight lost.`,
-                    `Maybe next year, ${loser.name}.`,
-                    `${loser.name} brought its A-game. The others brought their A+-game.`,
-                    `${loser.name} is the honorable mention of economic theories.`,
-                    `${loser.name} ran a good race, just in the wrong lane.`,
-                    `${loser.name}: not embarrassing, just... last.`
-                ];
-                conclusion += ' ' + subtleLoserAnalogies[Math.floor(Math.random() * subtleLoserAnalogies.length)];
-            }
-
-            // Calculate total scores (wins + ties) for the chart
             const totalMetrics = comparison.metrics.length;
-            const freedomTotal = efClearWins + freedomTies;
-            const democracyTotal = demClearWins + democracyTies;
-            const equalityTotal = eqClearWins + equalityTies;
-            const palmaTotal = palmaClearWins + palmaTies;
-            const widTotal = widClearWins + widTies;
-            const maxTotal = Math.max(freedomTotal, democracyTotal, equalityTotal, palmaTotal, widTotal, 1);
+            const maxTotal = Math.max(...points.map(p => p.total), 1);
 
-            // Determine winner for crown
-            const scores = [
-                { name: 'Economic Freedom', total: freedomTotal, color: 'var(--success)' },
-                { name: 'Democracy', total: democracyTotal, color: '#3b82f6' },
-                { name: 'Equality (Gini)', total: equalityTotal, color: 'var(--danger)' },
-                { name: 'Equality (Palma)', total: palmaTotal, color: '#8b5cf6' },
-                { name: 'Equality (Wealth)', total: widTotal, color: '#f59e0b' }
-            ].sort((a, b) => b.total - a.total);
+            let conclusion = '';
+            if (points.length >= 2) {
+                const [first, second] = points;
+                const loser = points[points.length - 1];
+                if (first.pts > second.pts) {
+                    conclusion = first.pts - second.pts >= 5
+                        ? `<strong>${first.name} is the clear winner.</strong>`
+                        : `<strong>${first.name} comes out ahead.</strong>`;
+                } else {
+                    conclusion = `<strong>${first.name} and ${second.name} both lead.</strong>`;
+                }
+                if (loser.pts < 3) {
+                    const analogies = [
+                        `${loser.name} is the Washington Generals of economic theories.`,
+                        `${loser.name} is the Internet Explorer of economic theories.`,
+                        `${loser.name} is the Blockbuster to ${points[0].name}'s Netflix.`,
+                        `${loser.name} pulled a Titanic.`,
+                        `${loser.name} is the Clippy of economic theories.`,
+                        `${loser.name} got Pluto'd (demoted).`,
+                        `${loser.name} went full Homer Simpson.`,
+                        `${loser.name} is the Yahoo to ${points[0].name}'s Google.`
+                    ];
+                    conclusion += ' ' + analogies[Math.floor(Math.random() * analogies.length)];
+                } else if (loser.pts <= 8) {
+                    const analogies = [
+                        `${loser.name} showed up, but so did the others.`,
+                        `${loser.name}: close, but no cigar.`,
+                        `${loser.name} gets a participation trophy.`,
+                        `Maybe next year, ${loser.name}.`
+                    ];
+                    conclusion += ' ' + analogies[Math.floor(Math.random() * analogies.length)];
+                }
+            } else if (points.length === 1) {
+                conclusion = `<strong>${points[0].name} wins by default.</strong> Select more predictors to compare.`;
+            }
 
-            const winner = scores[0].name;
-            const isTie = scores[0].total === scores[1].total;
+            const chartWinner = points.length > 0 ? points[0].name : '';
+            const isChartTie = points.length >= 2 && points[0].total === points[1].total;
 
             html += `
                     </div>
@@ -3565,61 +3546,19 @@
                 <div class="comparison-results-chart" id="comparisonResults">
                     <div class="results-chart-title"><strong>Results</strong> (out of ${totalMetrics} metrics)</div>
                     <div class="results-bars">
+                        ${points.map(p => `
                         <div class="results-bar-col">
                             <div class="results-bar-container">
-                                ${winner === 'Economic Freedom' && !isTie ? '<span class="crown">👑</span>' : ''}
-                                <div class="results-bar-fill" style="height: ${(freedomTotal / maxTotal) * 100}%; background: var(--success);"></div>
+                                ${p.name === chartWinner && !isChartTie ? '<span class="crown">👑</span>' : ''}
+                                <div class="results-bar-fill" style="height: ${(p.total / maxTotal) * 100}%; background: ${p.color};"></div>
                                 <div class="results-bar-breakdown">
-                                    <div class="results-bar-total">${freedomTotal}</div>
+                                    <div class="results-bar-total">${p.total}</div>
                                 </div>
                             </div>
-                            <span class="results-bar-label" style="color: var(--success);">Economic<br>Freedom</span>
-                            <div class="results-bar-stats" style="color: var(--success);">${efClearWins} wins<br>${freedomTies} ties</div>
+                            <span class="results-bar-label" style="color: ${p.color};">${p.label}</span>
+                            <div class="results-bar-stats" style="color: ${p.color};">${p.wins} wins<br>${p.ties} ties</div>
                         </div>
-                        <div class="results-bar-col">
-                            <div class="results-bar-container">
-                                ${winner === 'Democracy' && !isTie ? '<span class="crown">👑</span>' : ''}
-                                <div class="results-bar-fill" style="height: ${(democracyTotal / maxTotal) * 100}%; background: #3b82f6;"></div>
-                                <div class="results-bar-breakdown">
-                                    <div class="results-bar-total">${democracyTotal}</div>
-                                </div>
-                            </div>
-                            <span class="results-bar-label" style="color: #3b82f6;">Democracy</span>
-                            <div class="results-bar-stats" style="color: #3b82f6;">${demClearWins} wins<br>${democracyTies} ties</div>
-                        </div>
-                        <div class="results-bar-col">
-                            <div class="results-bar-container">
-                                ${winner === 'Equality (Gini)' && !isTie ? '<span class="crown">👑</span>' : ''}
-                                <div class="results-bar-fill" style="height: ${(equalityTotal / maxTotal) * 100}%; background: var(--danger);"></div>
-                                <div class="results-bar-breakdown">
-                                    <div class="results-bar-total">${equalityTotal}</div>
-                                </div>
-                            </div>
-                            <span class="results-bar-label" style="color: var(--danger);">Equality<br>(Gini)</span>
-                            <div class="results-bar-stats" style="color: var(--danger);">${eqClearWins} wins<br>${equalityTies} ties</div>
-                        </div>
-                        <div class="results-bar-col">
-                            <div class="results-bar-container">
-                                ${winner === 'Equality (Palma)' && !isTie ? '<span class="crown">👑</span>' : ''}
-                                <div class="results-bar-fill" style="height: ${(palmaTotal / maxTotal) * 100}%; background: #8b5cf6;"></div>
-                                <div class="results-bar-breakdown">
-                                    <div class="results-bar-total">${palmaTotal}</div>
-                                </div>
-                            </div>
-                            <span class="results-bar-label" style="color: #8b5cf6;">Equality<br>(Palma)</span>
-                            <div class="results-bar-stats" style="color: #8b5cf6;">${palmaClearWins} wins<br>${palmaTies} ties</div>
-                        </div>
-                        <div class="results-bar-col">
-                            <div class="results-bar-container">
-                                ${winner === 'Equality (Wealth)' && !isTie ? '<span class="crown">👑</span>' : ''}
-                                <div class="results-bar-fill" style="height: ${(widTotal / maxTotal) * 100}%; background: #f59e0b;"></div>
-                                <div class="results-bar-breakdown">
-                                    <div class="results-bar-total">${widTotal}</div>
-                                </div>
-                            </div>
-                            <span class="results-bar-label" style="color: #f59e0b;">Equality<br>(Wealth)</span>
-                            <div class="results-bar-stats" style="color: #f59e0b;">${widClearWins} wins<br>${widTies} ties</div>
-                        </div>
+                        `).join('')}
                     </div>
                 </div>
                 <div class="comparison-verdict" id="comparisonVerdict">
