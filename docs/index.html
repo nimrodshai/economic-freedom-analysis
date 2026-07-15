@@ -1893,6 +1893,10 @@
                                 <label for="contactName" style="display: block; margin-bottom: 5px; font-weight: 500;">Name (optional)</label>
                                 <input type="text" id="contactName" placeholder="Your name" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem;">
                             </div>
+                            <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+                                <label for="contactWebsite">Website</label>
+                                <input type="text" id="contactWebsite" name="website" tabindex="-1" autocomplete="off">
+                            </div>
                             <div style="margin-bottom: 15px;">
                                 <label for="contactEmail" style="display: block; margin-bottom: 5px; font-weight: 500;">Email (optional)</label>
                                 <input type="email" id="contactEmail" placeholder="your@email.com" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem;">
@@ -3588,8 +3592,17 @@
             const name = document.getElementById('contactName').value.trim();
             const email = document.getElementById('contactEmail').value.trim();
             const message = document.getElementById('contactMessage').value.trim();
+            const website = document.getElementById('contactWebsite').value.trim();
             const statusDiv = document.getElementById('contactStatus');
             const submitBtn = document.getElementById('contactSubmit');
+            const nameParts = name.split(/\s+/).filter(Boolean);
+            const isNameOnlySubmission = nameParts.length >= 2 && !email && !message;
+
+            if (website || isNameOnlySubmission) {
+                statusDiv.innerHTML = '<span style="color: var(--success);">Message sent successfully! Thanks for reaching out.</span>';
+                document.getElementById('contactForm').reset();
+                return;
+            }
 
             if (!message) {
                 statusDiv.innerHTML = '<span style="color: var(--danger);">Please enter a message.</span>';
