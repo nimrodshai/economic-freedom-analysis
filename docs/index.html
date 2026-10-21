@@ -246,7 +246,13 @@
         }
         .verdict-title { font-size: 30px; line-height: 1.15; letter-spacing: -0.03em; font-weight: 500; margin: 22px 0 26px; }
         .verdict-title em { font-family: var(--serif); font-size: 1.18em; color: #6EE7B7; font-weight: 400; }
-        .verdict-row { padding: 16px 0; border-top: 1px solid rgba(255,255,255,.08); }
+        .setup-row { display: flex; align-items: baseline; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.08); }
+        .setup-row .dot { align-self: center; }
+        .setup-row b { font-size: 15px; font-weight: 500; white-space: nowrap; }
+        .setup-row span:last-child { font-size: 13px; color: #8A909C; margin-left: auto; text-align: right; }
+        .setup-rule { font-size: 14px; line-height: 1.55; color: #B8BDC7; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); }
+        .setup-cta { margin-top: 20px; width: 100%; justify-content: center; background: #fff; color: var(--ink); border-color: #fff; }
+        .setup-cta:hover { background: #E9EAEC; border-color: #E9EAEC; }
         .verdict-row-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
         .verdict-name { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; }
         .verdict-name .sub { font-size: 12.5px; color: #8A909C; font-weight: 400; }
@@ -254,11 +260,6 @@
         .verdict-score small { font-size: 13px; color: #8A909C; font-weight: 500; margin-left: 4px; letter-spacing: 0; }
         .verdict-bar { height: 8px; border-radius: 99px; background: rgba(255,255,255,.07); display: flex; overflow: hidden; }
         .verdict-bar i { display: block; height: 100%; transition: width .5s ease; }
-        .verdict-quip { font-size: 14px; color: #B8BDC7; margin-top: 4px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); }
-        .verdict-legend { display: flex; gap: 18px; font-size: 12px; color: #8A909C; margin-top: 16px; }
-        .verdict-legend span { display: flex; align-items: center; gap: 6px; }
-        .verdict-legend b { width: 14px; height: 6px; border-radius: 9px; background: #fff; display: inline-block; }
-        .verdict-empty { color: #B8BDC7; padding: 24px 0 8px; }
         .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
 
         /* ---------- Section heads ---------- */
@@ -623,9 +624,8 @@
             .hero-stats .stat-num { font-size: 32px; }
             .verdict { padding: 24px 22px; border-radius: 24px; }
             .verdict-title { font-size: 25px; margin: 18px 0 20px; }
-            .verdict-score { font-size: 24px; }
-            .verdict-name { flex-wrap: wrap; row-gap: 2px; }
-            .verdict-name .sub { flex-basis: 100%; padding-left: 19px; }
+            .setup-row { flex-wrap: wrap; row-gap: 2px; }
+            .setup-row span:last-child { flex-basis: 100%; margin-left: 21px; text-align: left; }
 
             .section { margin-top: 72px; }
             .section-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
@@ -1011,7 +1011,13 @@
                             <div><span class="stat-num count-up" data-target="${DATA_SOURCES.length}">0</span><span class="stat-label">Trusted sources</span></div>
                         </div>
                     </div>
-                    <div class="verdict" id="heroVerdict"></div>
+                    <div class="verdict">
+                        <div class="verdict-head"><span>The test · ${data.correlations.length} outcomes</span><span class="pill">Pearson r · p &lt; 0.05</span></div>
+                        <div class="verdict-title">Five theories, one question: <em>which predicts a better life?</em></div>
+                        ${PREDICTORS.map(p => `<div class="setup-row"><span class="dot" style="background: ${p.color};"></span><b>${p.name}</b><span>${p.blurb}</span></div>`).join('')}
+                        <div class="setup-rule">For each outcome, the theory with the strongest significant correlation across countries takes the point.</div>
+                        <button class="btn lg setup-cta" onclick="document.getElementById('results').scrollIntoView({ behavior: 'smooth' })">See which one wins →</button>
+                    </div>
                 </section>
 
                 <!-- Results -->
@@ -2338,11 +2344,11 @@
 
         // Predictors in display order. `key` matches the checkbox value, `dataKey` the comparison data field.
         const PREDICTORS = [
-            { key: 'freedom', dataKey: 'economic_freedom', name: 'Economic Freedom', short: 'Econ. Freedom', color: 'var(--ef)' },
-            { key: 'democracy', dataKey: 'democracy', name: 'Democracy', short: 'Democracy', color: 'var(--dem)' },
-            { key: 'wid_wealth', dataKey: 'wid_wealth', name: 'Equality (Wealth)', short: 'Eq. (Wealth)', color: 'var(--wealth)' },
-            { key: 'equality', dataKey: 'equality', name: 'Equality (Gini)', short: 'Eq. (Gini)', color: 'var(--gini)' },
-            { key: 'palma', dataKey: 'palma', name: 'Equality (Palma)', short: 'Eq. (Palma)', color: 'var(--palma)' }
+            { key: 'freedom', dataKey: 'economic_freedom', name: 'Economic Freedom', short: 'Econ. Freedom', color: 'var(--ef)', blurb: 'Property rights, open trade, light regulation' },
+            { key: 'democracy', dataKey: 'democracy', name: 'Democracy', short: 'Democracy', color: 'var(--dem)', blurb: 'Elections, civil liberties, participation' },
+            { key: 'wid_wealth', dataKey: 'wid_wealth', name: 'Equality (Wealth)', short: 'Eq. (Wealth)', color: 'var(--wealth)', blurb: 'How evenly wealth is spread' },
+            { key: 'equality', dataKey: 'equality', name: 'Equality (Gini)', short: 'Eq. (Gini)', color: 'var(--gini)', blurb: 'How evenly income is spread' },
+            { key: 'palma', dataKey: 'palma', name: 'Equality (Palma)', short: 'Eq. (Palma)', color: 'var(--palma)', blurb: 'Top 10% vs bottom 40% income' }
         ];
         const MARGIN_THRESHOLD = 0.05;
 
@@ -2381,15 +2387,10 @@
             const activePredictors = PREDICTORS.filter(p => selectedPredictors.has(p.key));
 
             const container = document.getElementById('comparisonSection');
-            const verdictEl = document.getElementById('heroVerdict');
             const totalMetrics = comparison.metrics.length;
 
             if (activePredictors.length === 0) {
                 container.innerHTML = `<div class="results-summary"><div class="summary-text">Select at least one predictor above to see the results.</div></div>`;
-                verdictEl.innerHTML = `
-                    <div class="verdict-head"><span>The verdict · ${totalMetrics} metrics</span></div>
-                    <div class="verdict-empty">Select at least one predictor to see the verdict.</div>
-                `;
                 updatePanelHeight();
                 return;
             }
@@ -2531,24 +2532,7 @@
                 quip = 'Select more predictors to compare.';
             }
 
-            const isChartTie = points.length >= 2 && points[0].total === points[1].total;
             const pct = v => (v / totalMetrics * 100).toFixed(1);
-
-            verdictEl.innerHTML = `
-                <div class="verdict-head"><span>The verdict · ${totalMetrics} metrics</span><span class="pill">Pearson r · p &lt; 0.05</span></div>
-                <div class="verdict-title">${headline}</div>
-                ${points.map((p, i) => `
-                    <div class="verdict-row">
-                        <div class="verdict-row-top">
-                            <span class="verdict-name"><span class="dot" style="background: ${p.color};"></span>${p.name}${i === 0 && !isChartTie ? ' 👑' : ''} <span class="sub">${p.wins} ${p.wins === 1 ? 'win' : 'wins'} · ${p.ties} ${p.ties === 1 ? 'tie' : 'ties'}</span></span>
-                            <span class="verdict-score">${p.total}<small>/ ${totalMetrics}</small></span>
-                        </div>
-                        <div class="verdict-bar"><i style="width: ${pct(p.wins)}%; background: ${p.color};"></i><i style="width: ${pct(p.ties)}%; background: ${p.color}; opacity: .4;"></i></div>
-                    </div>
-                `).join('')}
-                ${quip ? `<div class="verdict-quip">${quip}</div>` : ''}
-                <div class="verdict-legend"><span><b></b>Outright wins</span><span><b style="opacity: .4;"></b>Ties</span></div>
-            `;
 
             const hasWinner = points.length < 2 || points[0].pts > points[1].pts;
             const summarySub = !hasWinner
