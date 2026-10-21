@@ -342,15 +342,37 @@
         .show-all, .sources-toggle { display: none; margin: 16px auto 0; }
 
         .results-summary {
-            margin-top: 20px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+            --win-ink: var(--ink);
+            margin-top: 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 28px 32px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: center;
         }
-        .results-summary .scores { display: flex; gap: 28px; flex-wrap: wrap; }
-        .results-summary .score { display: flex; align-items: baseline; gap: 8px; font-size: 14px; font-weight: 500; color: var(--text-2); }
-        .results-summary .score b { font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: var(--ink); }
-        .results-summary .score .dot { align-self: center; }
-        .results-summary .summary-text { font-size: 14px; color: var(--text-2); max-width: 520px; }
-        .results-summary .summary-text strong { color: var(--ink); font-weight: 600; }
+        .results-summary.freedom { --win-ink: #067A54; }
+        .results-summary.democracy { --win-ink: #2A45D6; }
+        .results-summary.equality { --win-ink: #C02626; }
+        .results-summary.palma { --win-ink: #8434D0; }
+        .results-summary.wid_wealth { --win-ink: #A15C00; }
+        .rs-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .rs-title { font-size: 34px; line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; color: var(--ink); margin: 16px 0 12px; }
+        .rs-title em { font-family: var(--serif); font-size: 1.18em; font-weight: 400; color: var(--win-ink); }
+        .rs-sub { font-size: 15px; line-height: 1.55; color: var(--text-2); }
+        .rs-sub b { color: var(--ink); font-weight: 600; }
+        .rs-quip { font-size: 14px; color: var(--text-muted); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+        .rs-row { padding: 14px 0; border-top: 1px solid var(--border); }
+        .rs-row:first-child { border-top: 0; padding-top: 0; }
+        .rs-row:last-child { padding-bottom: 0; }
+        .rs-row .verdict-name { color: var(--text-2); }
+        .rs-row .verdict-name .sub { color: var(--text-muted); }
+        .rs-row .verdict-score { color: var(--ink); font-size: 24px; }
+        .rs-row .verdict-score small { color: var(--text-muted); }
+        .rs-row .verdict-bar { background: var(--track); }
+        .rs-row.lead .verdict-name { color: var(--ink); font-weight: 600; }
+        .rs-row.lead .verdict-score { font-size: 32px; color: var(--win-ink); }
+        .rs-row.lead .verdict-bar { height: 10px; }
+        .rs-row:not(.lead) { opacity: .7; }
+        @media (max-width: 760px) {
+            .results-summary { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 22px 20px; }
+            .rs-title { font-size: 28px; }
+        }
 
         /* ---------- Explore ---------- */
         .explore { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 16px; }
@@ -2471,7 +2493,6 @@
             })).sort((a, b) => b.pts - a.pts);
 
             let headline = '';
-            let headlinePlain = '';
             let quip = '';
             if (points.length >= 2) {
                 const [first, second] = points;
@@ -2481,12 +2502,8 @@
                     headline = phrase === 'clear winner'
                         ? `${first.name} is the <em>clear winner.</em>`
                         : `${first.name} <em>comes out ahead.</em>`;
-                    headlinePlain = phrase === 'clear winner'
-                        ? `${first.name} is the clear winner.`
-                        : `${first.name} comes out ahead.`;
                 } else {
                     headline = `${first.name} and ${second.name} <em>both lead.</em>`;
-                    headlinePlain = `${first.name} and ${second.name} both lead.`;
                 }
                 if (loser.pts < 3) {
                     const analogies = [
@@ -2511,7 +2528,6 @@
                 }
             } else {
                 headline = `${points[0].name} <em>wins by default.</em>`;
-                headlinePlain = `${points[0].name} wins by default.`;
                 quip = 'Select more predictors to compare.';
             }
 
@@ -2534,15 +2550,37 @@
                 <div class="verdict-legend"><span><b></b>Outright wins</span><span><b style="opacity: .4;"></b>Ties</span></div>
             `;
 
+            const hasWinner = points.length < 2 || points[0].pts > points[1].pts;
+            const summarySub = !hasWinner
+                ? `Tied at the top across ${totalMetrics} metrics.`
+                : points.length < 2
+                    ? `Best on <b>${points[0].total} of ${totalMetrics}</b> metrics.`
+                    : `Best on <b>${points[0].total} of ${totalMetrics}</b> metrics — ${points[0].total - points[1].total > 0 ? `<b>${points[0].total - points[1].total} more</b> than` : 'more outright wins than'} ${points[1].name}.`;
+
             const collapsible = !activeCategory && visibleMetrics.length > 4;
             container.innerHTML = `
                 <div class="comparison-grid ${collapsible && !showAllMetrics ? 'collapsed' : ''}">${cardsHtml}</div>
                 ${collapsible ? `<button class="btn show-all" onclick="toggleShowAll()">${showAllMetrics ? 'Show fewer metrics ↑' : `Show all ${visibleMetrics.length} metrics ↓`}</button>` : ''}
-                <div class="results-summary" id="comparisonVerdict">
-                    <div class="scores">
-                        ${points.map(p => `<span class="score"><span class="dot" style="background: ${p.color};"></span><b>${p.total}</b>${p.name}</span>`).join('')}
+                <div class="results-summary ${hasWinner ? points[0].key : ''}" id="comparisonVerdict">
+                    <div>
+                        <div class="rs-head">
+                            <span class="kicker">The bottom line · ${totalMetrics} metrics</span>
+                            ${hasWinner ? `<span class="win-badge ${points[0].key}">👑 Winner</span>` : ''}
+                        </div>
+                        <div class="rs-title">${hasWinner ? `${points[0].name} <em>wins.</em>` : headline}</div>
+                        <div class="rs-sub">${summarySub}</div>
+                        ${quip ? `<div class="rs-quip">${quip}</div>` : ''}
                     </div>
-                    <div class="summary-text"><strong>${headlinePlain}</strong> ${quip}</div>
+                    <div>
+                        ${points.map((p, i) => `
+                            <div class="rs-row ${hasWinner && i === 0 ? 'lead' : ''}">
+                                <div class="verdict-row-top">
+                                    <span class="verdict-name"><span class="dot" style="background: ${p.color};"></span>${p.name} <span class="sub">${p.wins} wins · ${p.ties} ties</span></span>
+                                    <span class="verdict-score">${p.total}<small>/ ${totalMetrics}</small></span>
+                                </div>
+                                <div class="verdict-bar"><i style="width: ${pct(p.wins)}%; background: ${p.color};"></i><i style="width: ${pct(p.ties)}%; background: ${p.color}; opacity: .4;"></i></div>
+                            </div>`).join('')}
+                    </div>
                 </div>
             `;
 
