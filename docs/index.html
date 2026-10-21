@@ -2540,7 +2540,7 @@
                 ${points.map((p, i) => `
                     <div class="verdict-row">
                         <div class="verdict-row-top">
-                            <span class="verdict-name"><span class="dot" style="background: ${p.color};"></span>${p.name}${i === 0 && !isChartTie ? ' 👑' : ''} <span class="sub">${p.wins} wins · ${p.ties} ties</span></span>
+                            <span class="verdict-name"><span class="dot" style="background: ${p.color};"></span>${p.name}${i === 0 && !isChartTie ? ' 👑' : ''} <span class="sub">${p.wins} ${p.wins === 1 ? 'win' : 'wins'} · ${p.ties} ${p.ties === 1 ? 'tie' : 'ties'}</span></span>
                             <span class="verdict-score">${p.total}<small>/ ${totalMetrics}</small></span>
                         </div>
                         <div class="verdict-bar"><i style="width: ${pct(p.wins)}%; background: ${p.color};"></i><i style="width: ${pct(p.ties)}%; background: ${p.color}; opacity: .4;"></i></div>
@@ -2575,7 +2575,7 @@
                         ${points.map((p, i) => `
                             <div class="rs-row ${hasWinner && i === 0 ? 'lead' : ''}">
                                 <div class="verdict-row-top">
-                                    <span class="verdict-name"><span class="dot" style="background: ${p.color};"></span>${p.name} <span class="sub">${p.wins} wins · ${p.ties} ties</span></span>
+                                    <span class="verdict-name"><span class="dot" style="background: ${p.color};"></span>${p.name} <span class="sub">${p.wins} ${p.wins === 1 ? 'win' : 'wins'} · ${p.ties} ${p.ties === 1 ? 'tie' : 'ties'}</span></span>
                                     <span class="verdict-score">${p.total}<small>/ ${totalMetrics}</small></span>
                                 </div>
                                 <div class="verdict-bar"><i style="width: ${pct(p.wins)}%; background: ${p.color};"></i><i style="width: ${pct(p.ties)}%; background: ${p.color}; opacity: .4;"></i></div>
