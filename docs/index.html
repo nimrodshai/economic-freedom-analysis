@@ -562,7 +562,13 @@
             .hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 0 8px; }
             .verdict { max-width: 560px; }
             .comparison-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .explore { grid-template-columns: 1fr; }
+            /* Stacked: one dark card — controls, then the chart inset, then the r readout */
+            .explore { display: flex; flex-direction: column; gap: 0; background: var(--ink); color: #fff; border-radius: 24px; padding: 28px; }
+            .explore .side { display: contents; }
+            .side-intro { order: 1; }
+            .explore .chart-container { order: 2; margin-top: 20px; border: 0; border-radius: 16px; color: var(--ink); }
+            .side-result { order: 3; margin-top: 24px; }
+            .r-label { margin-top: 4px; }
             .data-sources { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .section { margin-top: 88px; }
@@ -616,12 +622,27 @@
             .results-summary { padding: 18px; }
             .results-summary .scores { gap: 18px; }
 
-            .side { padding: 26px 22px; border-radius: 22px; }
+            .explore { padding: 24px 12px 22px; border-radius: 22px; }
+            .side-intro, .side-result { padding: 0 10px; }
             .side h2 { font-size: 34px; }
-            .r-big { font-size: 64px; }
-            .chart-container { padding: 16px 12px 10px; border-radius: 22px; }
+            .side > div > p { font-size: 14.5px; margin-top: 10px; }
+            .chart-selector { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; margin-top: 18px; }
+            .selector-row { grid-column: 1 / -1; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0 0 12px; border-radius: 10px; }
+            .selector-row:nth-child(n+3) { grid-column: auto; }
+            .selector-row label { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8A909C; }
+            .selector-row select {
+                max-width: none; width: 100%; text-align: left; text-align-last: left; font-size: 15px;
+                padding: 2px 28px 9px 0; background-position: right 12px center;
+                white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            }
+            .selector-row select:focus-visible { border-radius: 10px; }
+            .explore .chart-container { margin-top: 16px; padding: 12px 6px 6px; border-radius: 14px; }
             .chart-title { padding: 0 6px; }
-            .chart-wrapper { flex: none; height: 420px; min-height: 0; }
+            .chart-wrapper { flex: none; height: 380px; min-height: 0; }
+            .side-result { margin-top: 20px; }
+            .r-big { font-size: 56px; }
+            .r-big small { font-size: 15px; }
+            .interpretation-box { font-size: 14px; }
 
             .data-sources { grid-template-columns: 1fr; gap: 12px; }
             .data-sources.collapsed .source-card:nth-child(n+5) { display: none; }
@@ -998,7 +1019,7 @@
                 <!-- Explore -->
                 <section class="section explore" id="explore">
                     <div class="side">
-                        <div>
+                        <div class="side-intro">
                             <div class="kicker">Explore the data</div>
                             <h2>Each dot is a <span class="serif">country.</span></h2>
                             <p>Pick any predictor and outcome, and watch how the countries cluster.</p>
@@ -1041,7 +1062,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div class="side-result">
                             <div class="r-big"><span id="chartR">–</span><small id="chartN"></small></div>
                             <div class="r-label" id="chartRLabel"></div>
                             <div id="chartInterpretation" class="interpretation-box"></div>
